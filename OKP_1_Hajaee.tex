@@ -68,7 +68,7 @@ Seuraavat tietotyypit ovat tuettuna:
 ...
 \section{Kielten syntaksi}
 \subsection{Rakenne}
-Näin tulostetaan Hello World!
+Näin tulostetaan Hello World! D-kielellä.
 \begin{verbatim}
 import std.stdio;
 
@@ -76,7 +76,28 @@ void main() {
  writeln("Hello World!");
 }
 \end{verbatim}
-C-kielestä tuttu tapa on mahdollinen...
+
+Vastaavasti Erlangissa Hello World! toteutetaan näin:
+\begin{verbatim}
+-module(hello).
+-export([hello_world/0]).
+
+hello_world() -> 
+  io:fwrite("hello, world\n").
+\end{verbatim}
+joka tulostaa konsolille kuvan \ref{konsoli2} mukaisesti.
+
+\begin{figure}[tbh]
+%\begin{figure}[tbh] t= top, b = bottom, h=here
+%\begin{center}
+\includegraphics[width=0.5\textwidth]{konsoli2.png}
+%\rotatebox{90}{\includegraphics[scale=.75]{esimerkki.pdf}}
+\caption{Tuloste konsolilla}
+\label{konsoli2}
+%\end{center}
+\end{figure}
+
+Iteroinnissa C-kielestä tuttu tapa on mahdollinen...
 
 \begin{verbatim}
 import std.stdio;
