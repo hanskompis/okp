@@ -8,7 +8,7 @@
 \usepackage[finnish]{babel}
 \usepackage[T1]{fontenc}
 \author{Jari Koskinen, Hansi Keijonen, Eero Laine}
-\title{Ohjelmointikielten periaatteet 2013}
+\title{Ohjelmointikielten periaatteet 2013} 
 
 
 
@@ -52,14 +52,50 @@ Seuraavat tietotyypit ovat tuettuna:
 \subsection{Tunnukset}
 ...
 \subsection{Varatut sanat, avainsanat}
-...
-...
-\subsection{Literaalivakiot}
-...
-...
-\subsection{Erottimet, sisennykset, rivinvaihdot}
-...
-...
+avainsanat ovat varattuja tunnuksia
+\begin{verbatim}
+abstract alias align asm assert auto body
+bool break byte
+case cast catch cdouble cent cfloat char class const 
+continue creal dchar debug default delegate delete
+deprecated do double else enum export extern false
+final finally float for foreach foreach_reverse function 
+goto idouble if ifloat immutable import in inout int 
+interface invariant ireal is lazy long macro mixin 
+module new nothrow null out override package 
+pragma private protected public pure real ref 
+return scope shared short static struct super
+switch synchronized template this throw
+truetry typedef typeid typeof ubyte ucent uint 
+ulong union unittest ushort version void
+volatile wchar while with __FILE__
+ __LINE__ __gshared __traits __vector __parameters
+\end{verbatim}
+\subsection{Literaalivakiot D-kielessa}
+\begin{itemize}
+\item merkkijonoliteraalit:
+		wysiwyg-merkkijonot 
+		lainausmerkein ymidyt merkkijonot
+		heksamerkkijonot
+		erotin-merkkijonot
+		token-merkkijonot
+\item merkkiliteraalit:
+		yksi merkki tai escape-character -merkien sisalla
+\item kokonaislukuliteraalit
+		mieti miten kasitellaan
+\item 	liukulukuliteraalit
+		mieti miten kasitellaan
+\end{itemize}
+	
+	
+	
+
+\subsection{Erottimet, sisennykset, rivinvaihdot, kommentit}
+\begin{verbatim}
+	/* blokkikommentti */ 
+	//rivin perään tuleva kommentti 
+	/+ nesting blokkikommentti +/
+\end{verbatim}
 \subsection{Esimerkkej√§ ohjelmakoodista}
 ...
 ...
@@ -90,14 +126,14 @@ joka tulostaa konsolille kuvan \ref{konsoli2} mukaisesti.
 \begin{figure}[tbh]
 %\begin{figure}[tbh] t= top, b = bottom, h=here
 %\begin{center}
-\includegraphics[width=0.5\textwidth]{konsoli2.png}
+%\includegraphics[width=0.5\textwidth]{konsoli2.png}
 %\rotatebox{90}{\includegraphics[scale=.75]{esimerkki.pdf}}
 \caption{Tuloste konsolilla}
 \label{konsoli2}
 %\end{center}
 \end{figure}
 
-Iteroinnissa C-kielest√§ tuttu tapa on mahdollinen...
+Iteroinnissa C-kielest√§ tuttu tapa on mahdollinen
 
 \begin{verbatim}
 import std.stdio;
