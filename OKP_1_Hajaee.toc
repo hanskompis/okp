@@ -1,0 +1,16 @@
+\select@language {finnish}
+\contentsline {section}{\numberline {1}D ohjelmointikieli}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Yleist\"a}{3}{subsection.1.1}
+\contentsline {section}{\numberline {2}Erlang ohjelmointikieli}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Yleist\"a}{3}{subsection.2.1}
+\contentsline {section}{\numberline {3}Kielten alkiorakenteen vertailu}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}Tietotyypit}{3}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Tunnukset}{4}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Varatut sanat, avainsanat}{4}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Literaalivakiot D-kielessa}{4}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Erottimet, sisennykset, rivinvaihdot, kommentit}{4}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Esimerkkej\"a ohjelmakoodista}{4}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.7}Ratkaisujen vertailua}{5}{subsection.3.7}
+\contentsline {section}{\numberline {4}Kielten syntaksi}{5}{section.4}
+\contentsline {subsection}{\numberline {4.1}Rakenne}{5}{subsection.4.1}
+\contentsline {section}{\numberline {5}Yhtenveto}{6}{section.5}

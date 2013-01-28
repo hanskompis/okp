@@ -27,19 +27,30 @@
 \section{D ohjelmointikieli}
 D on kehitetty korjaamaan C ja C++ kielten puutteita ja samalla siihen on lis‰tty paljon ominaisuuksia, joiden ansiosta...
 \subsection{Yleist‰}
-D kieless‰ on ominaisuuksia plaaplaa...
+D kieless‰ on ominaisuuksia plaaplaa... 
 \begin{itemize}
 \item Automaattinen roskienkeruu
 \item Vahva tyypitys
 \item K‰‰nnˆs natiivikoodiksi
 \item Rinnakkaisuuden tuki
 \end{itemize}
-Lis‰‰ kielest‰ plaaplaa...
+Lis‰‰ kielest‰ plaaplaa
 
 \section{Erlang ohjelmointikieli}
 Erlang on funktionaalinen kieli, joka on tarkoitettu alunperin puhelinkeskusten ohjelmointiin. T‰st‰ syyst‰ kieli tukee hyvin rinnakkaisuutta...
 \subsection{Yleist‰}
-blaablaa
+\begin{verbatim}
+-module(fibo).
+-export([fibo/1, compfibo/2, fiboplus/1]).
+fiboplus(N) -> compfibo(N,0) .
+compfibo(N,S) -> Sum = fibo(S),
+			if Sum > N -> Sum;
+			true -> compfibo(N,S+1)
+			end . 
+fibo(0) -> 0 ;
+fibo(1) -> 1 ;
+fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
+\end{verbatim}
 \section{Kielten alkiorakenteen vertailu}
 \subsection{Tietotyypit}
 D on vahvasti tyypitetty kieli...
@@ -51,7 +62,7 @@ Seuraavat tietotyypit ovat tuettuna:
 \item ...
 \end{itemize}
 \subsection{Tunnukset}
-...
+Tunnukset alkavat kirjaimella, alaviiva(korvaa n‰m‰ alaviivasanat)-merkill‰ tai universal alphalla (jotainh‰mminki‰ t‰ss‰, ota selv‰‰!). Seuraavina merkkein‰ voi olla mik‰ tahansa edellisist‰ ja tunnuksen pituus voi olla mielivaltainen. Kahdella alaviiva-merkill‰ alkavat tunnukset ovat varattuja.   
 \subsection{Varatut sanat, avainsanat}
 avainsanat ovat varattuja tunnuksia
 \begin{verbatim}
