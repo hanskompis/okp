@@ -25,7 +25,7 @@
 \pagebreak
 
 \section{D-ohjelmointikieli}
-D-ohjelmointikieli on C/C++ kielten pohjalta kehitetty ja sen pääasiallisena kehittäjänä on alusta lähtien toiminut ohjelmointikielten kääntäjiin erikoistunut Walter Bright. Kehitystyö on alkanut vuonna 1999 ja ensimmäinen julkaisu kääntäjästä on tehty vuonna 2001 Brightin omistaman yhtiön Digital Marsin toimesta. Ensimmäinen vakiintunut versio 1.0 julkaistiin kuitenkin vasta vuonna 2007. Nykyinen versio on 2.0 ja kielen kehitys jatkuu edelleen, kun mukaan on liittynyt useita kehittäjiä Brightin lisäksi. Version 2 pohjalta on julkaistu vuonna 2010 Andrei Alexandrescun kirjoittama kirja: The D Programming Language, jonka myötä version voidaan katsoa vakiintuneen. Versio 1.0 kattoi kolme ohjelmointiparadigmaa: imperatiivinen, oliopohjainen ja metaohjelmointi. 2.0 versio toi mukanaan tuen funktionaaliselle ohjelmoinnille ja aktorimallin rinnakkaisohjelmointiin. Tässä kirjoituksessa käsitellään kielen versiota 2.0. Kieli sisältää paljon uudistuksia, jotka ovat parannuksia C/C++ kieliin tai muiden, kuten C\#:n ja Javan hyödylliseksi havaittuja ominaisuuksia. Samalla kielestä on pyritty jättämään pois C/C++ kielten taaksepäin yhteensopivuuden asettamia rajoitteita. 
+D-ohjelmointikieli on C/C++ kielten pohjalta kehitetty ja sen pääasiallisena kehittäjänä on alusta lähtien toiminut ohjelmointikielten kääntäjiin erikoistunut Walter Bright. Kehitystyö on alkanut vuonna 1999 ja ensimmäinen julkaisu kääntäjästä on tehty vuonna 2001 Brightin omistaman yhtiön Digital Marsin toimesta. Ensimmäinen vakiintunut versio 1.0 julkaistiin kuitenkin vasta vuonna 2007. Nykyinen versio on 2.0 ja kielen kehitys jatkuu edelleen, kun mukaan on liittynyt useita kehittäjiä Brightin lisäksi. Version 2.0 pohjalta on julkaistu vuonna 2010 Andrei Alexandrescun kirjoittama kirja: The D Programming Language, jonka myötä version voidaan katsoa vakiintuneen. Versio 1.0 kattoi kolme ohjelmointiparadigmaa: imperatiivinen, oliopohjainen ja metaohjelmointi. 2.0 versio toi mukanaan tuen funktionaaliselle ohjelmoinnille ja aktorimallin rinnakkaisohjelmointiin. Tässä kirjoituksessa käsitellään kielen versiota 2.0. Kieli sisältää paljon uudistuksia, jotka ovat parannuksia C/C++ kieliin tai muiden, kuten C\#:n ja Javan hyödylliseksi havaittuja ominaisuuksia. Samalla kielestä on pyritty jättämään pois C/C++ kielten taaksepäin yhteensopivuuden asettamia rajoitteita. 
 
 D on moniparadigmainen, oliopohjainen ja imperatiivinen ohjelmointikieli. D tarjoaa tuen myös funktionaaliselle ja metaohjelmoinnille. D:llä kirjoitetut ohjelmat käännetään käännös- ja linkitysvaiheen kautta kohdeympäristön konekielelle. Ohjelmoijalla on täysi pääsy laitetasolle, joten se soveltuu myös käyttöjärjestelmien ohjelmointiin. Muistinhallinta voidaan jättää automatiikan huoleksi, koska D sisältää C\#:n ja Javan tapaan roskienkeruun, mutta sallii muistinkäsittelyn myös C/C++:lle tyypillisen tapaan. Perintä on toteutettu yksinkertaisella perinnällä, rajapinnoilla ja mixineillä. Kielen syntaksi muistuttaa hyvin paljon C++ kieltä.
 
@@ -156,64 +156,6 @@ volatile wchar while with __FILE__
 
 D-kielen referenssidokumentti löytyy osoitteesta http://dlang.org. 
 
-
-
-
-
-
-
-
-\subsection{Rakenne}
-Näin tulostetaan Hello World! D-kielellä.
-\begin{verbatim}
-import std.stdio;
-
-void main() {
- writeln("Hello World!");
-}
-\end{verbatim}
-
-Vastaavasti Erlangissa Hello World! toteutetaan näin:
-\begin{verbatim}
--module(hello).
--export([hello_world/0]).
-
-hello_world() -> 
-  io:fwrite("hello, world\n").
-\end{verbatim}
-joka tulostaa konsolille kuvan \ref{konsoli2} mukaisesti.
-
-\begin{figure}[tbh]
-%\begin{figure}[tbh] t= top, b = bottom, h=here
-%\begin{center}
-%\includegraphics[width=0.5\textwidth]{konsoli2.png}
-%\rotatebox{90}{\includegraphics[scale=.75]{esimerkki.pdf}}
-\caption{Tuloste konsolilla}
-\label{konsoli2}
-%\end{center}
-\end{figure}
-
-Iteroinnissa C-kielestä tuttu tapa on mahdollinen
-
-\begin{verbatim}
-import std.stdio;
-
-void main() {
-  for(int i=0; i<10; i++) {
-    writeln("Rivi: ", i);
-  }
-}
-\end{verbatim}
-Iteraatio voidaan tehdä myös seuraavasti:
-\begin{verbatim}
-import std.stdio;
-
-void main() {
-  foreach(i; 0 .. 10) {
-    writeln("Rivi: ", i);
-  }
-}
-\end{verbatim}
 
 ja tuloste näyttää kuvan \ref{konsoli1} mukaiselta.
 \begin{figure}[tbh]
