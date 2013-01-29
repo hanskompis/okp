@@ -24,6 +24,51 @@
 
 \pagebreak
 
+\section{D-ohjelmointikieli}
+D-ohjelmointikieli on C/C++ kielten pohjalta kehitetty ja sen pääasiallisena kehittäjänä on alusta lähtien toiminut ohjelmointikielten kääntäjiin erikoistunut Walter Bright. Kehitystyö on alkanut vuonna 1999 ja ensimmäinen julkaisu kääntäjästä on tehty vuonna 2001 Brightin omistaman yhtiön Digital Marsin toimesta. Ensimmäinen vakiintunut versio 1.0 julkaistiin kuitenkin vasta vuonna 2007. Nykyinen versio on 2.0 ja kielen kehitys jatkuu edelleen, kun mukaan on liittynyt useita kehittäjiä Brightin lisäksi. Version 2 pohjalta on julkaistu vuonna 2010 Andrei Alexandrescun kirjoittama kirja: The D Programming Language, jonka myötä version voidaan katsoa vakiintuneen. Versio 1.0 kattoi kolme ohjelmointiparadigmaa: imperatiivinen, oliopohjainen ja metaohjelmointi. 2.0 versio toi mukanaan tuen funktionaaliselle ohjelmoinnille ja aktorimallin rinnakkaisohjelmointiin. Tässä kirjoituksessa käsitellään kielen versiota 2.0. Kieli sisältää paljon uudistuksia, jotka ovat parannuksia C/C++ kieliin tai muiden, kuten C\#:n ja Javan hyödylliseksi havaittuja ominaisuuksia. Samalla kielestä on pyritty jättämään pois C/C++ kielten taaksepäin yhteensopivuuden asettamia rajoitteita. 
+
+D on moniparadigmainen, oliopohjainen ja imperatiivinen ohjelmointikieli. D tarjoaa tuen myös funktionaaliselle ja metaohjelmoinnille. D:llä kirjoitetut ohjelmat käännetään käännös- ja linkitysvaiheen kautta kohdeympäristön konekielelle. Ohjelmoijalla on täysi pääsy laitetasolle, joten se soveltuu myös käyttöjärjestelmien ohjelmointiin. Muistinhallinta voidaan jättää automatiikan huoleksi, koska D sisältää C\#:n ja Javan tapaan roskienkeruun, mutta sallii muistinkäsittelyn myös C/C++:lle tyypillisen tapaan. Perintä on toteutettu yksinkertaisella perinnällä, rajapinnoilla ja mixineillä. Kielen syntaksi muistuttaa hyvin paljon C++ kieltä.
+
+Alla on esimerkki ohjelmasta, joka palauttaa annettua lukua suuremman fibonaccin luvun.
+
+\begin{verbatim}
+import std.stdio;
+import std.conv;
+
+void main(string[] args) {
+uint f;
+ try {
+  f = parse!uint(args[1]);
+ }
+ catch {
+  writeln("Error in arguments!");
+  return;
+ }
+ writeln(args[1]);
+ writeln(fib(f));
+}
+
+ulong fib(uint n) {
+ ulong iter(ulong fib_1, ulong fib_2) {
+  return fib_2 > n ? fib_2 : iter(fib_1 + fib_2, fib_1);
+ }
+ return iter(1, 0);
+}
+\end{verbatim}
+
+D kielessä on seuraavia ominaisuuksia:
+\begin{itemize}
+\item Automaattinen roskienkeruu
+\item Vahva tyypitys
+\item Käännös natiivikoodiksi
+\item Rinnakkaisuuden tuki
+\item Onko lista järkevä muoto???
+\end{itemize}
+
+\section{Erlang ohjelmointikieli}
+Erlang on funktionaalinen kieli, joka on tarkoitettu hajautettujen järjestelmien ohjelmointiin. Erlang soveltuu tosiaikajärjestelmien ja laajasti skaalautuvien järjestelmien kehittämiseen, kuten puhelinkeskukset, pankkijärjestelmät ja sähköinen liiketoiminta. Kieli sisältää laajan tuen rinnakkaisuudelle ja mahdollistaa erittäin vikasietoisten järjestelmien kehittämisen. Kielen kehittämisen aloitetti Joe Armstrong vuonna 1986 Ericsson-yhtiössä. Alunperin se on ollut suljetussa käytössä, mutta julkaistu avoimena vuonna 1998. Erlangin tietotyypit ovat dynaamisesti ja vahvasti tyypitettyjä. 
+\subsection{Yleistä32323}
+
 \section{D ohjelmointikieli}
 D on kehitetty korjaamaan C ja C++ kielten puutteita ja samalla siihen on lisätty paljon ominaisuuksia, joiden ansiosta...
 D kielessä on ominaisuuksia plaaplaa... 
