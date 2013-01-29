@@ -92,20 +92,16 @@ D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf),
 
 Merkkijonoliteraali on D:ss‰ joko merkkijono kaksinkertaisissa lainausmerkeiss‰, "wysiwyg"-merkkijono, ohjausmerkki, rajattu merkkijono, j‰rjestetty merkkijono tai heksamerkkijono (?). Rivin loppumista kuvaava \begin{verbatim}"\n"\end{verbatim} lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
 
-"Wysiwyg" on lyhennys sanoista "what you see is what you get", ja "wysiwyg"-merkkijonoissa
-	kaikki merkit toistetaan uskollisesti. "Wysiwyg"-merkkijonot voidaan erotella joko "r"- tai
-	"`"-merkein. Merkkijonot \begin{verbatim}r"c:\root\foo.exe" ja `c:\root\foo.exe`\end{verbatim} ovat esimerkkej‰ "wysiwyg"-merkkijonoista.
-	Merkkijonot kaksinkertaisissa lainausmerkeiss‰ ovat "-merkkien ymp‰rˆimi‰. Ohjausmerkkej‰
-	voi sulauttaa n‰ihin merkkijonoihin monista ohjelmointikielist‰ tutulla "\"-merkint‰tavalla, 
-	kuten esimerkiksi merkkijonossa "c:\\root\\foo.exe".
-	Heksamerkkijonot mahdollistavat merkkijonoliteraalien luomisen 	heksadatasta. Heksadatan ei tarvitse muodostaa valideja UTF-merkkej‰. Valinnainen StringPostfix-merkki antaa merkkijonolle m‰‰ritellyn tyypin.
-	
-	Rajoitetut merkkijonot k‰ytt‰v‰t useanlaisia erottimia, esimerkiksi merkkej‰ ja tunnuksia. Erottimen t‰ytyy saumattomasti jatkaa "-merkist‰ ilman v‰lilyˆntej‰, ja p‰‰tt‰v‰n erottimen t‰ytyy saumattomasti edelt‰‰ merkkijonon p‰‰tt‰v‰‰ "-merkki‰ ilman v‰lilyˆntej‰. 
+"Wysiwyg" on lyhennys sanoista "what you see is what you get", ja "wysiwyg"-merkkijonoissa kaikki merkit toistetaan uskollisesti. "Wysiwyg"-merkkijonot voidaan erotella joko "r"- tai "`"-merkein. Merkkijonot \begin{verbatim}r"c:\root\foo.exe" ja `c:\root\foo.exe`\end{verbatim} ovat esimerkkej‰ "wysiwyg"-merkkijonoista. Merkkijonot kaksinkertaisissa lainausmerkeiss‰ ovat "-merkkien ymp‰rˆimi‰. Ohjausmerkkej‰ voi sulauttaa n‰ihin merkkijonoihin monista ohjelmointikielist‰ tutulla "\"-merkint‰tavalla, 
+kuten esimerkiksi merkkijonossa "c:\\root\\foo.exe".
+Heksamerkkijonot mahdollistavat merkkijonoliteraalien luomisen 	heksadatasta. Heksadatan ei tarvitse muodostaa valideja UTF-merkkej‰. Valinnainen StringPostfix-merkki antaa merkkijonolle m‰‰ritellyn tyypin.
 
-	Tekstialkiot alkavat merkeill‰ "q{" ja p‰‰ttyv‰t merkkiin "}". V‰liss‰ tulee olla valideja D-kielen tekstialkioita. Merkkiliteraalit ovat yksitt‰isi‰ merkkej‰ tai ohjausmerkkej‰, jotka on ymp‰rˆity yksinkertaisilla lainausmerkeill‰, ' '. 
+Rajoitetut merkkijonot k‰ytt‰v‰t useanlaisia erottimia, esimerkiksi merkkej‰ ja tunnuksia. Erottimen t‰ytyy saumattomasti jatkaa "-merkist‰ ilman v‰lilyˆntej‰, ja p‰‰tt‰v‰n erottimen t‰ytyy saumattomasti edelt‰‰ merkkijonon p‰‰tt‰v‰‰ "-merkki‰ ilman v‰lilyˆntej‰. 
 
-	Kokonaisluvut voidaan m‰‰ritell‰ useissa eri kantalukuj‰rjestelmiss‰. Kymmenj‰rjestelm‰n luvut ovat yksinkertaisesti kymmenj‰rjestelm‰n numeroiden sarjoja, mutta bin‰‰rij‰rjestelm‰n luvut koostuvat bin‰‰rij‰rjestelm‰n numeroista, joita edelt‰‰ merkkojono "0b". Liukuluvut voidaan esitt‰‰ sek‰ kymmenluku- ett‰ heksadesimaalij‰rjestelm‰ss‰. 
-	\begin{verbatim}
+Tekstialkiot alkavat merkeill‰ "q\{" ja p‰‰ttyv‰t merkkiin "\}". V‰liss‰ tulee olla valideja D-kielen tekstialkioita. Merkkiliteraalit ovat yksitt‰isi‰ merkkej‰ tai ohjausmerkkej‰, jotka on ymp‰rˆity yksinkertaisilla lainausmerkeill‰, ' '. 
+
+Kokonaisluvut voidaan m‰‰ritell‰ useissa eri kantalukuj‰rjestelmiss‰. Kymmenj‰rjestelm‰n luvut ovat yksinkertaisesti kymmenj‰rjestelm‰n numeroiden sarjoja, mutta bin‰‰rij‰rjestelm‰n luvut koostuvat bin‰‰rij‰rjestelm‰n numeroista, joita edelt‰‰ merkkojono "0b". Liukuluvut voidaan esitt‰‰ sek‰ kymmenluku- ett‰ heksadesimaalij‰rjestelm‰ss‰. 
+\begin{verbatim}
 abstract alias align asm assert auto body
 bool break byte
 case cast catch cdouble cent cfloat char class const 
@@ -123,25 +119,6 @@ ulong union unittest ushort version void
 volatile wchar while with __FILE__
  __LINE__ __gshared __traits __vector __parameters
 \end{verbatim}
-\begin{itemize}
-\item merkkijonoliteraalit:
-		wysiwyg-merkkijonot 
-		lainausmerkein ymidyt merkkijonot
-		heksamerkkijonot
-		erotin-merkkijonot
-		token-merkkijonot
-\item merkkiliteraalit:
-		yksi merkki tai escape-character -merkien sisalla
-\item kokonaislukuliteraalit
-		mieti miten kasitellaan
-\item 	liukulukuliteraalit
-		mieti miten kasitellaan
-\end{itemize}
-	
-	
-	
-
-
 %\begin{verbatim}
 %	/* blokkikommentti */ 
 %	//rivin perään tuleva kommentti 

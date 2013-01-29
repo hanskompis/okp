@@ -5,4 +5,4 @@
 \contentsline {subsection}{\numberline {3.1}Esimerkkej\"a ohjelmakoodista}{7}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Ratkaisujen vertailua}{7}{subsection.3.2}
 \contentsline {section}{\numberline {4}Kielten syntaksi spesifikaatioissa}{7}{section.4}
-\contentsline {section}{\numberline {5}Yhtenveto}{7}{section.5}
+\contentsline {section}{\numberline {5}Yhtenveto}{8}{section.5}
