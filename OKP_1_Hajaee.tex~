@@ -33,38 +33,32 @@ D on moniparadigmainen, oliopohjainen ja imperatiivinen ohjelmointikieli. D tarj
 Alla on esimerkki ohjelmasta, joka palauttaa annettua lukua suuremman fibonaccin luvun.
 
 \begin{verbatim}
-import std.stdio;
-import std.conv;
-
-void main(string[] args) {
-uint f;
- try {
-  f = parse!uint(args[1]);
- }
- catch {
-  writeln("Error in arguments!");
-  return;
- }
- writeln(args[1]);
- writeln(fib(f));
-}
-
-ulong fib(uint n) {
- ulong iter(ulong fib_1, ulong fib_2) {
-  return fib_2 > n ? fib_2 : iter(fib_1 + fib_2, fib_1);
- }
- return iter(1, 0);
-}
+1.  import std.stdio;
+2.  import std.conv;
+3. 
+4.  void main(string[] args) {
+5.  uint f;
+6.   try {
+7.    f = parse!uint(args[1]);
+8.   }
+9.   catch {
+10.   writeln("Error in arguments!");
+11.   return;
+12.  }
+13.  writeln(args[1]);
+14.  writeln(fib(f));
+15. }
+16. 
+17. ulong fib(uint n) {
+18.  ulong iter(ulong fib_1, ulong fib_2) {
+19.   return fib_2 > n ? fib_2 : iter(fib_1 + fib_2, fib_1);
+20.  }
+21.  return iter(1, 0);
+22. }
 \end{verbatim}
 
-D kieless‰ on seuraavia ominaisuuksia:
-\begin{itemize}
-\item Automaattinen roskienkeruu
-\item Vahva tyypitys
-\item K‰‰nnˆs natiivikoodiksi
-\item Rinnakkaisuuden tuki
-\item Onko lista j‰rkev‰ muoto???
-\end{itemize}
+Ohjelmakoodin toiminta on seuraavanlainen: riveill‰ 1 ja 2 ladataan k‰yttˆˆn kirjastot syˆtˆn ja tulostuksen k‰sittely‰ (std.stdio) ja tyyppimuunnoksia (std.conv) varten. Rivill‰ 7 muunnetaan saatu tekstimuotoinen parametri etumerkittˆm‰ksi kokonaisluvuksi. Rivit 9 - 11 ovat virheenk‰sittely‰ varten ja virheen sattuessa ohjelmasta poistutaan. Rivill‰ 14 kutsutaan fib-funktiota. Fib-funktiossa on riveill‰ 18 ja 19 oma sis‰funktio, joka suorittaa varsinaisen laskennan. Sis‰funktiota kutsutaan ulomman funktion viimeisell‰ rivill‰ 21. Kyseess‰ on t‰llˆin h‰nt‰rekursio, johon D-kieless‰ on optimoija.
+
 
 \section{Erlang ohjelmointikieli}
 Erlang on funktionaalinen kieli, joka on tarkoitettu hajautettujen j‰rjestelmien ohjelmointiin. Erlang soveltuu tosiaikaj‰rjestelmien ja laajasti skaalautuvien j‰rjestelmien kehitt‰miseen, kuten puhelinkeskukset, pankkij‰rjestelm‰t ja s‰hkˆinen liiketoiminta. Kieli sis‰lt‰‰ laajan tuen rinnakkaisuudelle ja mahdollistaa eritt‰in vikasietoisten j‰rjestelmien kehitt‰misen. Kielen kehitt‰misen aloitetti Joe Armstrong vuonna 1986 Ericsson-yhtiˆss‰. Alunperin se on ollut suljetussa k‰ytˆss‰, mutta julkaistiin avoimena vuonna 1998. Erlangin tietotyypit ovat dynaamisesti ja vahvasti tyypitettyj‰. 
@@ -72,26 +66,27 @@ Erlang on funktionaalinen kieli, joka on tarkoitettu hajautettujen j‰rjestelmien
 Ohjelma, joka tulostaa ensimm‰isen syˆttˆlukua suuremman fibonaccin luvun, n‰ytt‰‰ Erlangilla seuraavalta. Kommentit alkavat \%-merkill‰. Numeroidut kommentit, 
 jotka selvent‰v‰t ohjelman toimintaa, on selitetty koodin alla. 
 \begin{verbatim}
--module(fibo). %1
--export([fibo/1, compfibo/2, fiboplus/1]). %2
-     fiboplus(N) -> compfibo(N,0) . %3
-     compfibo(N,S) -> Curr = fibo(S),%4
-          if Curr > N -> Curr;
-          true -> compfibo(N,S+1)
-          end . 
-fibo(0) -> 0 ; %5
-fibo(1) -> 1 ;
-fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
+1.  -module(fibo).
+2.  -export([fibo/1, compfibo/2, fiboplus/1]).
+3.       fiboplus(N) -> compfibo(N,0).
+4.       compfibo(N,S) -> Curr = fibo(S),
+5.            if Curr > N -> Curr;
+6.            true -> compfibo(N,S+1)
+7.            end. 
+8.  fibo(0) -> 0 ;
+9.  fibo(1) -> 1 ;
+10. fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
 \end{verbatim}
-\%1: Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo'.\newline
-\%2: Jotta moduulissa olevia metodeita pystyt‰‰n ohjelman ulkopuolella, tulee ne m‰‰ritell‰ export-lauseella ulkopuolelta kutsuttaviksi. Jokaisen m‰‰rityksen yhteydess‰
-ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰.\newline
-\%3: Varsinainen p‰‰metodi. T‰t‰ kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee.
-Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan.\newline
-\%4: compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuper‰inen annettu luku N, palautetaan se. \newline
-Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰, jotta seuraavalla kutsukerralla tutkittaisiin j‰rjestyksess‰ seuraavaa
-fibonaccin lukua.\newline
-\%5: fibo-metodi laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs er‰‰ss‰ toisessa ohjelmointikieless‰, Haskellissa. 
+Ohjelman suorittaminen n‰ytt‰‰ t‰lt‰:
+\begin{verbatim}
+1>fibo(0) -> 0 ;
+2>fibo(1) -> 1 ;
+3>fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
+\end{verbatim}
+Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo' rivill‰ 1. Jotta moduulissa olevia metodeita pystyt‰‰n kutsumaan ohjelman ulkopuolelta, tulee ne m‰‰ritell‰ export-lauseella, kuten rivill‰ 2. Jokaisen m‰‰rityksen yhteydess‰ ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰. Rivill‰ 3 on varsinainen p‰‰metodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee. Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan. Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuper‰inen annettu luku N, palautetaan se. Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰, jotta seuraavalla kutsukerralla tutkittaisiin j‰rjestyksess‰ seuraavaa fibonaccin lukua. Rivill‰ 5 fibo-metodi laskee 
+fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs er‰‰ss‰ toisessa ohjelmointikieless‰, Haskellissa. 
+Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, joka on t‰ss‰ tapauksessa 'fibo' rivill‰ 1. Jotta moduulissa olevia metodeita pystyt‰‰n kutsumaan ohjelman ulkopuolelta, tulee ne m‰‰ritell‰ export-lauseella, kuten rivill‰ 2. Jokaisen m‰‰rityksen yhteydess‰ ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰. Rivill‰ 3 on varsinainen p‰‰metodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee. Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan. Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuper‰inen annettu luku N, palautetaan se. Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰, jotta seuraavalla kutsukerralla tutkittaisiin j‰rjestyksess‰ seuraavaa fibonaccin lukua. Rivill‰ 5 fibo-metodi 
+laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs er‰‰ss‰ toisessa ohjelmointikieless‰, Haskellissa. 
 \section{Kielten alkiorakenteen vertailu}
 D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class.
 
@@ -103,9 +98,14 @@ Merkkijonoliteraali on D:ss‰ joko merkkijono kaksinkertaisissa lainausmerkeiss‰,
 	Merkkijonot kaksinkertaisissa lainausmerkeiss‰ ovat "-merkkien ymp‰rˆimi‰. Ohjausmerkkej‰
 	voi sulauttaa n‰ihin merkkijonoihin monista ohjelmointikielist‰ tutulla "\"-merkint‰tavalla, 
 	kuten esimerkiksi merkkijonossa "c:\\root\\foo.exe".
-	Heksamerkkijonot mahdollistavat merkkijonoliteraalien luomisen 	heksa
+	Heksamerkkijonot mahdollistavat merkkijonoliteraalien luomisen 	heksadatasta. Heksadatan ei tarvitse muodostaa valideja UTF-merkkej‰. Valinnainen StringPostfix-merkki antaa merkkijonolle m‰‰ritellyn tyypin.
+	
+	Rajoitetut merkkijonot k‰ytt‰v‰t useanlaisia erottimia, esimerkiksi merkkej‰ ja tunnuksia. Erottimen t‰ytyy saumattomasti jatkaa "-merkist‰ ilman v‰lilyˆntej‰, ja p‰‰tt‰v‰n erottimen t‰ytyy saumattomasti edelt‰‰ merkkijonon p‰‰tt‰v‰‰ "-merkki‰ ilman v‰lilyˆntej‰. 
 
-\begin{verbatim}
+	Tekstialkiot alkavat merkeill‰ "q{" ja p‰‰ttyv‰t merkkiin "}". V‰liss‰ tulee olla valideja D-kielen tekstialkioita. Merkkiliteraalit ovat yksitt‰isi‰ merkkej‰ tai ohjausmerkkej‰, jotka on ymp‰rˆity yksinkertaisilla lainausmerkeill‰, ' '. 
+
+	Kokonaisluvut voidaan m‰‰ritell‰ useissa eri kantalukuj‰rjestelmiss‰. Kymmenj‰rjestelm‰n luvut ovat yksinkertaisesti kymmenj‰rjestelm‰n numeroiden sarjoja, mutta bin‰‰rij‰rjestelm‰n luvut koostuvat bin‰‰rij‰rjestelm‰n numeroista, joita edelt‰‰ merkkojono "0b". Liukuluvut voidaan esitt‰‰ sek‰ kymmenluku- ett‰ heksadesimaalij‰rjestelm‰ss‰. 
+	\begin{verbatim}
 abstract alias align asm assert auto body
 bool break byte
 case cast catch cdouble cent cfloat char class const 

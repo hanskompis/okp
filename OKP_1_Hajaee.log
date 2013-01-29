@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.25)  29 JAN 2013 16:50
-=======
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  29 JAN 2013 16:35
->>>>>>> 8cfd8b74dea0df039fe27483e1aa87ff2149d87b
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  29 JAN 2013 18:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -424,97 +420,94 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./OKP_1_Hajaee.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 6.
+(Font)              <10.95> on input line 5.
 )
 \tf@toc=\write4
 \openout4 = `OKP_1_Hajaee.toc'.
 
  [2]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 31.
-
-(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 39.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 35.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Overfull \hbox (2.03833pt too wide) in paragraph at lines 43--48
+) [3] [4] [5]
+Overfull \hbox (2.03833pt too wide) in paragraph at lines 97--102
 \T1/lmr/m/n/10.95 ovat esi-merk-ke-j‰ "wy-siwyg-merk-ki-jo-nois-ta. Merk-ki-jo-
 not kak-sin-ker-tai-sis-sa lai-
  []
 
-[3] [4]
-Overfull \hbox (8.61948pt too wide) in paragraph at lines 109--115
+
+Overfull \hbox (2.13893pt too wide) in paragraph at lines 103--104
+[]\T1/lmr/m/n/10.95 Rajoitetut merk-ki-jo-not k‰yt-t‰-v‰t usean-lai-sia erot-ti
+-mia, esi-mer-kik-si merk-
+ []
+
+! Argument of \language@active@arg" has an extra }.
+<inserted text> 
+                \par 
+l.105 ...t merkeill‰ "q{" ja p‰‰ttyv‰t merkkiin "}
+                                                  ". V‰liss‰ tulee olla vali...
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \language@active@arg" was complete.
+<to be read again> 
+                   \par 
+l.105 ...t merkeill‰ "q{" ja p‰‰ttyv‰t merkkiin "}
+                                                  ". V‰liss‰ tulee olla vali...
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+[6]
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 127.
+
+ (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Overfull \hbox (8.61948pt too wide) in paragraph at lines 127--133
 []\T1/lmr/m/n/10.95 merkkijonoliteraalit: wysiwyg-merkkijonot lai-naus-mer-kein
  ymi-dyt merk-
  []
 
-[5] <konsoli1.jpg, id=80, 602.25pt x 451.6875pt>
+<konsoli1.jpg, id=72, 602.25pt x 451.6875pt>
 File: konsoli1.jpg Graphic file (type jpg)
  <use konsoli1.jpg>
-<<<<<<< HEAD
-Package pdftex.def Info: konsoli1.jpg used on input line 195.
+Package pdftex.def Info: konsoli1.jpg used on input line 165.
 (pdftex.def)             Requested size: 360.0pt x 270.00832pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 204.
- [6]
-[7 <./konsoli1.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 204.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 174.
+ [7] [8 <./konsoli1.jpg>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 174.
  (./OKP_1_Hajaee.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 204.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 204.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 174.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 174.
 Package rerunfilecheck Info: File `OKP_1_Hajaee.out' has not changed.
-(rerunfilecheck)             Checksum: 0D5CC9519AD30757EBC092B0C6DF40F5;527.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 204.
-=======
-Package pdftex.def Info: konsoli1.jpg used on input line 194.
-(pdftex.def)             Requested size: 360.0pt x 270.00832pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 203.
-
-[6 <./konsoli1.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 203.
- (./OKP_1_Hajaee.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 203.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 203.
-
-
-Package rerunfilecheck Warning: File `OKP_1_Hajaee.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `OKP_1_Hajaee.out':
-(rerunfilecheck)             Before: 033D1397F68631BF0571FE0314D09A6F;477
-(rerunfilecheck)             After:  3B31C0DD87A2F1D8F9B1AE3C579974C9;495.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 203.
->>>>>>> 8cfd8b74dea0df039fe27483e1aa87ff2149d87b
+(rerunfilecheck)             Checksum: 094538D127CE457EB3AEFCE71B6D9624;439.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 174.
  ) 
 Here is how much of TeX's memory you used:
- 6135 strings out of 493481
- 90355 string characters out of 3143393
- 167133 words of memory out of 3000000
+ 6133 strings out of 493481
+ 90338 string characters out of 3143393
+ 167089 words of memory out of 3000000
  9347 multiletter control sequences out of 15000+200000
  41017 words of font info for 38 fonts, out of 3000000 for 9000
  965 hyphenation exceptions out of 8191
-<<<<<<< HEAD
- 29i,6n,28p,429b,389s stack positions out of 5000i,500n,10000p,200000b,50000s
-=======
- 29i,6n,28p,210b,391s stack positions out of 5000i,500n,10000p,200000b,50000s
->>>>>>> 8cfd8b74dea0df039fe27483e1aa87ff2149d87b
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/shar
+ 29i,6n,28p,1050b,436s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
+vips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/shar
 e/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/l
 m/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf
 /fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10
 .pfb>
-<<<<<<< HEAD
-Output written on OKP_1_Hajaee.pdf (7 pages, 186414 bytes).
-=======
-Output written on OKP_1_Hajaee.pdf (6 pages, 184192 bytes).
->>>>>>> 8cfd8b74dea0df039fe27483e1aa87ff2149d87b
+Output written on OKP_1_Hajaee.pdf (8 pages, 191129 bytes).
 PDF statistics:
- 124 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 114 PDF objects out of 1000 (max. 8388607)
+ 96 compressed objects within 1 object stream
+ 18 named destinations out of 1000 (max. 500000)
+ 62 words of extra memory for PDF output out of 10000 (max. 10000000)
 

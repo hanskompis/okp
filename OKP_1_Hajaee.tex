@@ -57,7 +57,7 @@ Alla on esimerkki ohjelmasta, joka palauttaa annettua lukua suuremman fibonaccin
 22. }
 \end{verbatim}
 
-Ohjelmakoodin toiminta on seuraavanlainen: riveill‰ 1 ja 2 ladataan k‰yttˆˆn kirjastot syˆtˆn ja tulostuksen k‰sittely‰ ja tyyppimuunnoksia varten. Rivill‰ 7 muunetaan saatu tekstimuotoinen parametri etumerkittˆm‰ksi kokonaisluvuksi. RIvit 9 - 11 ovat virheenk‰sittely‰ varten ja virheen sattuessa ohjelmasta poistutaan. Rivill‰ 14 kutsutaan fib-funktiota. Fib-funktiossa riveill‰ 18 ja 19 on oma sis‰funktio, joka suorittaa varsinaisen laskennan. Sis‰funktiota kutsutaan ulomman funktion viimeisell‰ rivill‰ 21. Kyseess‰ on t‰llˆin h‰nt‰rekursio, johon D-kieless‰ on optimoija.
+Ohjelmakoodin toiminta on seuraavanlainen: riveill‰ 1 ja 2 ladataan k‰yttˆˆn kirjastot syˆtˆn ja tulostuksen k‰sittely‰ (std.stdio) ja tyyppimuunnoksia (std.conv) varten. Rivill‰ 7 muunnetaan saatu tekstimuotoinen parametri etumerkittˆm‰ksi kokonaisluvuksi. Rivit 9 - 11 ovat virheenk‰sittely‰ varten ja virheen sattuessa ohjelmasta poistutaan. Rivill‰ 14 kutsutaan fib-funktiota. Fib-funktiossa on riveill‰ 18 ja 19 oma sis‰funktio, joka suorittaa varsinaisen laskennan. Sis‰funktiota kutsutaan ulomman funktion viimeisell‰ rivill‰ 21. Kyseess‰ on t‰llˆin h‰nt‰rekursio, johon D-kieless‰ on optimoija.
 
 
 \section{Erlang ohjelmointikieli}
@@ -73,6 +73,9 @@ jotka selvent‰v‰t ohjelman toimintaa, on selitetty koodin alla.
 5.            if Curr > N -> Curr;
 6.            true -> compfibo(N,S+1)
 7.            end. 
+8.  fibo(0) -> 0 ;
+9.  fibo(1) -> 1 ;
+10. fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
 \end{verbatim}
 Ohjelman suorittaminen n‰ytt‰‰ t‰lt‰:
 \begin{verbatim}
@@ -80,7 +83,10 @@ Ohjelman suorittaminen n‰ytt‰‰ t‰lt‰:
 2>fibo(1) -> 1 ;
 3>fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
 \end{verbatim}
-Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo' rivill‰ 1. Jotta moduulissa olevia metodeita pystyt‰‰n kutsumaan ohjelman ulkopuolelta, tulee ne m‰‰ritell‰ export-lauseella, kuten rivill‰ 2. Jokaisen m‰‰rityksen yhteydess‰ ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰. Rivill‰ 3 on varsinainen p‰‰metodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee. Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan. Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuper‰inen annettu luku N, palautetaan se. Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰, jotta seuraavalla kutsukerralla tutkittaisiin j‰rjestyksess‰ seuraavaa fibonaccin lukua. Rivill‰ 5 fibo-metodi laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs er‰‰ss‰ toisessa ohjelmointikieless‰, Haskellissa. 
+Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo' rivill‰ 1. Jotta moduulissa olevia metodeita pystyt‰‰n kutsumaan ohjelman ulkopuolelta, tulee ne m‰‰ritell‰ export-lauseella, kuten rivill‰ 2. Jokaisen m‰‰rityksen yhteydess‰ ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰. Rivill‰ 3 on varsinainen p‰‰metodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee. Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan. Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuper‰inen annettu luku N, palautetaan se. Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰, jotta seuraavalla kutsukerralla tutkittaisiin j‰rjestyksess‰ seuraavaa fibonaccin lukua. Rivill‰ 5 fibo-metodi laskee 
+fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs er‰‰ss‰ toisessa ohjelmointikieless‰, Haskellissa. 
+Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, joka on t‰ss‰ tapauksessa 'fibo' rivill‰ 1. Jotta moduulissa olevia metodeita pystyt‰‰n kutsumaan ohjelman ulkopuolelta, tulee ne m‰‰ritell‰ export-lauseella, kuten rivill‰ 2. Jokaisen m‰‰rityksen yhteydess‰ ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰. Rivill‰ 3 on varsinainen p‰‰metodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee. Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan. Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuper‰inen annettu luku N, palautetaan se. Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰, jotta seuraavalla kutsukerralla tutkittaisiin j‰rjestyksess‰ seuraavaa fibonaccin lukua. Rivill‰ 5 fibo-metodi 
+laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs er‰‰ss‰ toisessa ohjelmointikieless‰, Haskellissa. 
 \section{Kielten alkiorakenteen vertailu}
 D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class.
 
@@ -92,9 +98,14 @@ Merkkijonoliteraali on D:ss‰ joko merkkijono kaksinkertaisissa lainausmerkeiss‰,
 	Merkkijonot kaksinkertaisissa lainausmerkeiss‰ ovat "-merkkien ymp‰rˆimi‰. Ohjausmerkkej‰
 	voi sulauttaa n‰ihin merkkijonoihin monista ohjelmointikielist‰ tutulla "\"-merkint‰tavalla, 
 	kuten esimerkiksi merkkijonossa "c:\\root\\foo.exe".
-	Heksamerkkijonot mahdollistavat merkkijonoliteraalien luomisen 	heksa
+	Heksamerkkijonot mahdollistavat merkkijonoliteraalien luomisen 	heksadatasta. Heksadatan ei tarvitse muodostaa valideja UTF-merkkej‰. Valinnainen StringPostfix-merkki antaa merkkijonolle m‰‰ritellyn tyypin.
+	
+	Rajoitetut merkkijonot k‰ytt‰v‰t useanlaisia erottimia, esimerkiksi merkkej‰ ja tunnuksia. Erottimen t‰ytyy saumattomasti jatkaa "-merkist‰ ilman v‰lilyˆntej‰, ja p‰‰tt‰v‰n erottimen t‰ytyy saumattomasti edelt‰‰ merkkijonon p‰‰tt‰v‰‰ "-merkki‰ ilman v‰lilyˆntej‰. 
 
-\begin{verbatim}
+	Tekstialkiot alkavat merkeill‰ "q{" ja p‰‰ttyv‰t merkkiin "}". V‰liss‰ tulee olla valideja D-kielen tekstialkioita. Merkkiliteraalit ovat yksitt‰isi‰ merkkej‰ tai ohjausmerkkej‰, jotka on ymp‰rˆity yksinkertaisilla lainausmerkeill‰, ' '. 
+
+	Kokonaisluvut voidaan m‰‰ritell‰ useissa eri kantalukuj‰rjestelmiss‰. Kymmenj‰rjestelm‰n luvut ovat yksinkertaisesti kymmenj‰rjestelm‰n numeroiden sarjoja, mutta bin‰‰rij‰rjestelm‰n luvut koostuvat bin‰‰rij‰rjestelm‰n numeroista, joita edelt‰‰ merkkojono "0b". Liukuluvut voidaan esitt‰‰ sek‰ kymmenluku- ett‰ heksadesimaalij‰rjestelm‰ss‰. 
+	\begin{verbatim}
 abstract alias align asm assert auto body
 bool break byte
 case cast catch cdouble cent cfloat char class const 
