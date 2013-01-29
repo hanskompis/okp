@@ -79,15 +79,7 @@ Ohjelman suorittaminen n‰ytt‰‰ t‰lt‰:
 2>fibo(1) -> 1 ;
 3>fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
 \end{verbatim}
-Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo'.\newline
-Jotta moduulissa olevia metodeita pystyt‰‰n ohjelman ulkopuolella, tulee ne m‰‰ritell‰ export-lauseella ulkopuolelta kutsuttaviksi. Jokaisen m‰‰rityksen yhteydess‰
-ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰.\newline
-\%3: Varsinainen p‰‰metodi. T‰t‰ kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee.
-Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan.\newline
-\%4: compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuper‰inen annettu luku N, palautetaan se. \newline
-Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰, jotta seuraavalla kutsukerralla tutkittaisiin j‰rjestyksess‰ seuraavaa
-fibonaccin lukua.\newline
-\%5: fibo-metodi laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs er‰‰ss‰ toisessa ohjelmointikieless‰, Haskellissa. 
+Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo' rivill‰ 1. Jotta moduulissa olevia metodeita pystyt‰‰n kutsumaan ohjelman ulkopuolelta, tulee ne m‰‰ritell‰ export-lauseella, kuten rivill‰ 2. Jokaisen m‰‰rityksen yhteydess‰ ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰. Rivill‰ 3 on varsinainen p‰‰metodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee. Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan. Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuper‰inen annettu luku N, palautetaan se. Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰, jotta seuraavalla kutsukerralla tutkittaisiin j‰rjestyksess‰ seuraavaa fibonaccin lukua. Rivill‰ 5 fibo-metodi laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs er‰‰ss‰ toisessa ohjelmointikieless‰, Haskellissa. 
 \section{Kielten alkiorakenteen vertailu}
 D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class.
 
