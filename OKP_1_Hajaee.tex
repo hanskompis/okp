@@ -32,38 +32,32 @@ D on moniparadigmainen, oliopohjainen ja imperatiivinen ohjelmointikieli. D tarj
 Alla on esimerkki ohjelmasta, joka palauttaa annettua lukua suuremman fibonaccin luvun.
 
 \begin{verbatim}
-import std.stdio;
-import std.conv;
-
-void main(string[] args) {
-uint f;
- try {
-  f = parse!uint(args[1]);
- }
- catch {
-  writeln("Error in arguments!");
-  return;
- }
- writeln(args[1]);
- writeln(fib(f));
-}
-
-ulong fib(uint n) {
- ulong iter(ulong fib_1, ulong fib_2) {
-  return fib_2 > n ? fib_2 : iter(fib_1 + fib_2, fib_1);
- }
- return iter(1, 0);
-}
+1.  import std.stdio;
+2.  import std.conv;
+3. 
+4.  void main(string[] args) {
+5.  uint f;
+6.   try {
+7.    f = parse!uint(args[1]);
+8.   }
+9.   catch {
+10.   writeln("Error in arguments!");
+11.   return;
+12.  }
+13.  writeln(args[1]);
+14.  writeln(fib(f));
+15. }
+16. 
+17. ulong fib(uint n) {
+18.  ulong iter(ulong fib_1, ulong fib_2) {
+19.   return fib_2 > n ? fib_2 : iter(fib_1 + fib_2, fib_1);
+20.  }
+21.  return iter(1, 0);
+22. }
 \end{verbatim}
 
-D kieless‰ on seuraavia ominaisuuksia:
-\begin{itemize}
-\item Automaattinen roskienkeruu
-\item Vahva tyypitys
-\item K‰‰nnˆs natiivikoodiksi
-\item Rinnakkaisuuden tuki
-\item Onko lista j‰rkev‰ muoto???
-\end{itemize}
+Ohjelmakoodin toiminta on seuraavanlainen: riveill‰ 1 ja 2 ladataan k‰yttˆˆn kirjastot syˆtˆn ja tulostuksen k‰sittely‰ ja tyyppimuunnoksia varten. Rivill‰ 7 muunetaan saatu tekstimuotoinen parametri etumerkittˆm‰ksi kokonaisluvuksi. RIvit 9 - 11 ovat virheenk‰sittely‰ varten ja virheen sattuessa ohjelmasta poistutaan. Rivill‰ 14 kutsutaan fib-funktiota. Fib-funktiossa riveill‰ 18 ja 19 on oma sis‰funktio, joka suorittaa varsinaisen laskennan. Sis‰funktiota kutsutaan ulomman funktion viimeisell‰ rivill‰ 21. Kyseess‰ on t‰llˆin h‰nt‰rekursio, johon D-kieless‰ on optimoija.
+
 
 \section{Erlang ohjelmointikieli}
 Erlang on funktionaalinen kieli, joka on tarkoitettu hajautettujen j‰rjestelmien ohjelmointiin. Erlang soveltuu tosiaikaj‰rjestelmien ja laajasti skaalautuvien j‰rjestelmien kehitt‰miseen, kuten puhelinkeskukset, pankkij‰rjestelm‰t ja s‰hkˆinen liiketoiminta. Kieli sis‰lt‰‰ laajan tuen rinnakkaisuudelle ja mahdollistaa eritt‰in vikasietoisten j‰rjestelmien kehitt‰misen. Kielen kehitt‰misen aloitetti Joe Armstrong vuonna 1986 Ericsson-yhtiˆss‰. Alunperin se on ollut suljetussa k‰ytˆss‰, mutta julkaistiin avoimena vuonna 1998. Erlangin tietotyypit ovat dynaamisesti ja vahvasti tyypitettyj‰. 
@@ -71,19 +65,22 @@ Erlang on funktionaalinen kieli, joka on tarkoitettu hajautettujen j‰rjestelmien
 Ohjelma, joka tulostaa ensimm‰isen syˆttˆlukua suuremman fibonaccin luvun, n‰ytt‰‰ Erlangilla seuraavalta. Kommentit alkavat \%-merkill‰. Numeroidut kommentit, 
 jotka selvent‰v‰t ohjelman toimintaa, on selitetty koodin alla. 
 \begin{verbatim}
--module(fibo). %1
--export([fibo/1, compfibo/2, fiboplus/1]). %2
-     fiboplus(N) -> compfibo(N,0) . %3
-     compfibo(N,S) -> Curr = fibo(S),%4
-          if Curr > N -> Curr;
-          true -> compfibo(N,S+1)
-          end . 
-fibo(0) -> 0 ; %5
-fibo(1) -> 1 ;
-fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
+1.  -module(fibo).
+2.  -export([fibo/1, compfibo/2, fiboplus/1]).
+3.       fiboplus(N) -> compfibo(N,0).
+4.       compfibo(N,S) -> Curr = fibo(S),
+5.            if Curr > N -> Curr;
+6.            true -> compfibo(N,S+1)
+7.            end. 
 \end{verbatim}
-\%1: Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo'.\newline
-\%2: Jotta moduulissa olevia metodeita pystyt‰‰n ohjelman ulkopuolella, tulee ne m‰‰ritell‰ export-lauseella ulkopuolelta kutsuttaviksi. Jokaisen m‰‰rityksen yhteydess‰
+Ohjelman suorittaminen n‰ytt‰‰ t‰lt‰:
+\begin{verbatim}
+1>fibo(0) -> 0 ;
+2>fibo(1) -> 1 ;
+3>fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
+\end{verbatim}
+Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo'.\newline
+Jotta moduulissa olevia metodeita pystyt‰‰n ohjelman ulkopuolella, tulee ne m‰‰ritell‰ export-lauseella ulkopuolelta kutsuttaviksi. Jokaisen m‰‰rityksen yhteydess‰
 ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰.\newline
 \%3: Varsinainen p‰‰metodi. T‰t‰ kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee.
 Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan.\newline
