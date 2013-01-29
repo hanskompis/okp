@@ -42,14 +42,15 @@ Erlang on funktionaalinen kieli, joka on tarkoitettu alunperin puhelinkeskusten 
 -export([fibo/1, compfibo/2, fiboplus/1]).
 fiboplus(N) -> compfibo(N,0) .
 compfibo(N,S) -> Sum = fibo(S),
-     if Sum > N -> Sum;
-     true -> compfibo(N,S+1)
-     end . 
+			if Sum > N -> Sum;
+			true -> compfibo(N,S+1)
+			end . 
 fibo(0) -> 0 ;
 fibo(1) -> 1 ;
 fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
 \end{verbatim}
 \section{Kielten alkiorakenteen vertailu}
+\subsection{Tietotyypit}
 D on vahvasti tyypitetty kieli...
 Seuraavat tietotyypit ovat tuettuna:
 \begin{itemize}
@@ -58,10 +59,10 @@ Seuraavat tietotyypit ovat tuettuna:
 \item Char
 \item ...
 \end{itemize}
-
-D : Tunnukset alkavat kirjaimella, alaviiva(korvaa n‰m‰ alaviivasanat)-merkill‰ tai universal alphalla (jotainh‰mminki‰ t‰ss‰, ota selv‰‰!). Seuraavina merkkein‰ voi olla mik‰ tahansa edellisist‰ ja tunnuksen pituus voi olla mielivaltainen. Kahdella alaviiva-merkill‰ alkavat tunnukset ovat varattuja.   
-
-D: avainsanat ovat varattuja tunnuksia
+\subsection{Tunnukset}
+Tunnukset alkavat kirjaimella, alaviiva(korvaa n‰m‰ alaviivasanat)-merkill‰ tai universal alphalla (jotainh‰mminki‰ t‰ss‰, ota selv‰‰!). Seuraavina merkkein‰ voi olla mik‰ tahansa edellisist‰ ja tunnuksen pituus voi olla mielivaltainen. Kahdella alaviiva-merkill‰ alkavat tunnukset ovat varattuja.   
+\subsection{Varatut sanat, avainsanat}
+avainsanat ovat varattuja tunnuksia
 \begin{verbatim}
 abstract alias align asm assert auto body
 bool break byte
@@ -80,6 +81,7 @@ ulong union unittest ushort version void
 volatile wchar while with __FILE__
  __LINE__ __gshared __traits __vector __parameters
 \end{verbatim}
+\subsection{Literaalivakiot D-kielessa}
 \begin{itemize}
 \item merkkijonoliteraalit:
 		wysiwyg-merkkijonot 
@@ -98,7 +100,7 @@ volatile wchar while with __FILE__
 	
 	
 
-
+\subsection{Erottimet, sisennykset, rivinvaihdot, kommentit}
 %\begin{verbatim}
 %	/* blokkikommentti */ 
 %	//rivin perään tuleva kommentti 
