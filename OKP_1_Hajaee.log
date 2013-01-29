@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.25)  29 JAN 2013 18:43
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.25)  29 JAN 2013 19:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -431,63 +431,55 @@ LaTeX Font Info:    Try loading font information for T1+lmtt on input line 35.
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [3] [4] [5]
-Overfull \hbox (2.03833pt too wide) in paragraph at lines 95--98
-\T1/lmr/m/n/10.95 ovat esi-merk-ke-j‰ "wy-siwyg-merk-ki-jo-nois-ta. Merk-ki-jo-
-not kak-sin-ker-tai-sis-sa lai-
+Overfull \hbox (12.51344pt too wide) in paragraph at lines 96--97
+\T1/lmr/m/n/10.95 mer-keis-s‰, wysiwyg-merkkijono, oh-jaus-merk-ki (esca-pe seq
+uence), ra-jat-tu merk-
  []
 
 
-Overfull \hbox (2.13893pt too wide) in paragraph at lines 99--100
+Overfull \hbox (2.02061pt too wide) in paragraph at lines 98--101
+[]\T1/lmr/m/n/10.95 Wysiwyg on ly-hen-nys sa-nois-ta "what you see is what you 
+get", ja wysiwyg-
+ []
+
+
+Overfull \hbox (41.99182pt too wide) in paragraph at lines 98--101
+\T1/lmr/m/n/10.95 voi-daan ero-tel-la jo-ko r- tai '-merkein. Merk-ki-jo-not r"
+c:\root\foo.exe"ja []
+ []
+
+
+Overfull \hbox (5.58008pt too wide) in paragraph at lines 98--101
+\T1/lmr/m/n/10.95 hek-sa-da-tas-ta. Hek-sa-da-tan ei tar-vit-se muo-dos-taa hy-
+v‰k-syt-ty-j‰ UTF-merkkej‰.
+ []
+
+
+Overfull \hbox (2.13893pt too wide) in paragraph at lines 102--103
 []\T1/lmr/m/n/10.95 Rajoitetut merk-ki-jo-not k‰yt-t‰-v‰t usean-lai-sia erot-ti
 -mia, esi-mer-kik-si merk-
  []
 
-! Argument of \language@active@arg" has an extra }.
-<inserted text> 
-                \par 
-l.101 ...t merkeill‰ "q{" ja p‰‰ttyv‰t merkkiin "}
-                                                  ". V‰liss‰ tulee olla vali...
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
-
-Runaway argument?
-! Paragraph ended before \language@active@arg" was complete.
-<to be read again> 
-                   \par 
-l.101 ...t merkeill‰ "q{" ja p‰‰ttyv‰t merkkiin "}
-                                                  ". V‰liss‰ tulee olla vali...
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-[6] <konsoli1.jpg, id=72, 602.25pt x 451.6875pt>
+[6] <konsoli1.jpg, id=77, 602.25pt x 451.6875pt>
 File: konsoli1.jpg Graphic file (type jpg)
  <use konsoli1.jpg>
-Package pdftex.def Info: konsoli1.jpg used on input line 142.
+Package pdftex.def Info: konsoli1.jpg used on input line 148.
 (pdftex.def)             Requested size: 360.0pt x 270.00832pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 151.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 157.
  [7 <./konsoli1.jpg>] [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 157.
  (./OKP_1_Hajaee.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 151.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 151.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 157.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 157.
 Package rerunfilecheck Info: File `OKP_1_Hajaee.out' has not changed.
-(rerunfilecheck)             Checksum: 094538D127CE457EB3AEFCE71B6D9624;439.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 151.
+(rerunfilecheck)             Checksum: B0F025AE8B49C0EA1172CED304AE9543;521.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 157.
  ) 
 Here is how much of TeX's memory you used:
- 6102 strings out of 493481
- 89539 string characters out of 3143393
+ 6100 strings out of 493481
+ 89509 string characters out of 3143393
  167089 words of memory out of 3000000
- 9320 multiletter control sequences out of 15000+200000
+ 9317 multiletter control sequences out of 15000+200000
  40652 words of font info for 37 fonts, out of 3000000 for 9000
  965 hyphenation exceptions out of 8191
  29i,6n,28p,1050b,436s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -496,10 +488,10 @@ public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public
 /lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on OKP_1_Hajaee.pdf (8 pages, 191022 bytes).
+Output written on OKP_1_Hajaee.pdf (8 pages, 191285 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 62 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 117 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
+ 19 named destinations out of 1000 (max. 500000)
+ 70 words of extra memory for PDF output out of 10000 (max. 10000000)
 

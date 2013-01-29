@@ -87,20 +87,26 @@ Ensimmäisenä tulee määritellä moduulin nimi, tässä tapauksessa 'fibo' rivillä 1.
 fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myös eräässä toisessa ohjelmointikielessä, Haskellissa. 
 Ensimmäisenä tulee määritellä moduulin nimi, joka on tässä tapauksessa 'fibo' rivillä 1. Jotta moduulissa olevia metodeita pystytään kutsumaan ohjelman ulkopuolelta, tulee ne määritellä export-lauseella, kuten rivillä 2. Jokaisen määrityksen yhteydessä ilmoitetaan kutsussa tarvittavien parametrien määrä. Rivillä 3 on varsinainen päämetodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimmäisen) fibonaccin luvun ohjelma laskee. Kyseessä oleva metodi kutsuu ainoastaan apumetodia compfibo, lisäten mukaan apuparametrin, joka pitää kirjaa siitä, monettako fibonaccin lukua kulloinkin haetaan. Rivillä 4 compfibo-metodi tallettaa ensimmäisenä muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuperäinen annettu luku N, palautetaan se. Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, että parametrin S arvoa kasvatetaan yhdellä, jotta seuraavalla kutsukerralla tutkittaisiin järjestyksessä seuraavaa fibonaccin lukua. Rivillä 5 fibo-metodi 
 laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myös eräässä toisessa ohjelmointikielessä, Haskellissa. 
+
 \section{Kielten alkiorakenteen vertailu}
+
+\subsection{D-kielen alkiorakenteen vertailua}
 D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimmäistä merkkiä lukuunottamatta myös numerot ovat käytössä. Tunnusta ei voi myöskään aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin löytyvät termit abstract, final, switch ja class.
 
-Merkkijonoliteraali on D:ssä joko merkkijono kaksinkertaisissa lainausmerkeissä, "wysiwyg"-merkkijono, ohjausmerkki, rajattu merkkijono, järjestetty merkkijono tai heksamerkkijono (?). Rivin loppumista kuvaava \begin{verbatim}"\n"\end{verbatim} lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
+Merkkijonoliteraali on D:ssä joko merkkijono kaksinkertaisissa lainausmerkeissä, wysiwyg-merkkijono, ohjausmerkki (escape sequence), rajattu merkkijono (delimited string), järjestetty merkkijono tai heksamerkkijono (?). Rivin loppumista kuvaava \textbackslash n lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
 
-"Wysiwyg" on lyhennys sanoista "what you see is what you get", ja "wysiwyg"-merkkijonoissa kaikki merkit toistetaan uskollisesti. "Wysiwyg"-merkkijonot voidaan erotella joko "r"- tai "`"-merkein. Merkkijonot \begin{verbatim}r"c:\root\foo.exe" ja `c:\root\foo.exe`\end{verbatim} ovat esimerkkejä "wysiwyg"-merkkijonoista. Merkkijonot kaksinkertaisissa lainausmerkeissä ovat "-merkkien ympäröimiä. Ohjausmerkkejä voi sulauttaa näihin merkkijonoihin monista ohjelmointikielistä tutulla "\"-merkintätavalla, 
+Wysiwyg on lyhennys sanoista "what you see is what you get", ja wysiwyg-merkkijonoissa kaikki merkit toistetaan uskollisesti. Wysiwyg-merkkijonot voidaan erotella joko r- tai '-merkein. Merkkijonot r"c:\textbackslash root\textbackslash foo.exe" ja \mbox{`c: root\textbackslash foo.exe'} ovat esimerkkejä wysiwyg-merkkijonoista. Merkkijonot kaksinkertaisissa lainausmerkeissä ovat "-merkkien ympäröimiä. Ohjausmerkkejä voi sulauttaa näihin merkkijonoihin monista ohjelmointikielistä tutulla "\"-merkintätavalla, 
 kuten esimerkiksi merkkijonossa "c:\\root\\foo.exe".
-Heksamerkkijonot mahdollistavat merkkijonoliteraalien luomisen 	heksadatasta. Heksadatan ei tarvitse muodostaa valideja UTF-merkkejä. Valinnainen StringPostfix-merkki antaa merkkijonolle määritellyn tyypin.
+Heksamerkkijonot mahdollistavat merkkijonoliteraalien luomisen 	heksadatasta. Heksadatan ei tarvitse muodostaa hyväksyttyjä UTF-merkkejä. Valinnainen StringPostfix-merkki antaa merkkijonolle määritellyn tyypin.
 
 Rajoitetut merkkijonot käyttävät useanlaisia erottimia, esimerkiksi merkkejä ja tunnuksia. Erottimen täytyy saumattomasti jatkaa "-merkistä ilman välilyöntejä, ja päättävän erottimen täytyy saumattomasti edeltää merkkijonon päättävää "-merkkiä ilman välilyöntejä. 
 
-Tekstialkiot alkavat merkeillä "q{" ja päättyvät merkkiin "}". Välissä tulee olla valideja D-kielen tekstialkioita. Merkkiliteraalit ovat yksittäisiä merkkejä tai ohjausmerkkejä, jotka on ympäröity yksinkertaisilla lainausmerkeillä, ' '. 
+Tekstialkiot alkavat merkeillä \mbox {q\{ ja päättyvät merkkiin \}}. Välissä tulee olla valideja D-kielen tekstialkioita. Merkkiliteraalit ovat yksittäisiä merkkejä tai ohjausmerkkejä, jotka on ympäröity yksinkertaisilla lainausmerkeillä, ' '. 
 
 Kokonaisluvut voidaan määritellä useissa eri kantalukujärjestelmissä. Kymmenjärjestelmän luvut ovat yksinkertaisesti kymmenjärjestelmän numeroiden sarjoja, mutta binäärijärjestelmän luvut koostuvat binäärijärjestelmän numeroista, joita edeltää merkkojono "0b". Liukuluvut voidaan esittää sekä kymmenluku- että heksadesimaalijärjestelmässä. 
+
+D-kielen varatut sanat
+
 \begin{verbatim}
 abstract alias align asm assert auto body
 bool break byte
