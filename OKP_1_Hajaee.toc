@@ -4,6 +4,6 @@
 \contentsline {section}{\numberline {3}Kielten alkiorakenteen vertailu}{4}{section.3}
 \contentsline {subsection}{\numberline {3.1}Esimerkkej\"a ohjelmakoodista}{5}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Ratkaisujen vertailua}{5}{subsection.3.2}
-\contentsline {section}{\numberline {4}Kielten syntaksi}{5}{section.4}
+\contentsline {section}{\numberline {4}Kielten syntaksi spesifikaatioissa}{5}{section.4}
 \contentsline {subsection}{\numberline {4.1}Rakenne}{5}{subsection.4.1}
 \contentsline {section}{\numberline {5}Yhtenveto}{6}{section.5}
