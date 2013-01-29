@@ -37,18 +37,30 @@ Lis‰‰ kielest‰ plaaplaa
 
 \section{Erlang ohjelmointikieli}
 Erlang on funktionaalinen kieli, joka on tarkoitettu alunperin puhelinkeskusten ohjelmointiin. T‰st‰ syyst‰ kieli tukee hyvin rinnakkaisuutta...
+--------------------------
+Ohjelma, joka tulostaa ensimm‰isen syˆttˆlukua suuremman fibonaccin luvun, n‰ytt‰‰ Erlangilla seuraavalta. Kommentit alkavat \%-merkill‰. Numeroidut kommentit, 
+jotka selvent‰v‰t ohjelman toimintaa, on selitetty koodin alla. 
 \begin{verbatim}
--module(fibo).
--export([fibo/1, compfibo/2, fiboplus/1]).
-fiboplus(N) -> compfibo(N,0) .
-compfibo(N,S) -> Sum = fibo(S),
-     if Sum > N -> Sum;
-     true -> compfibo(N,S+1)
-     end . 
-fibo(0) -> 0 ;
+-module(fibo). %1
+-export([fibo/1, compfibo/2, fiboplus/1]). %2
+     fiboplus(N) -> compfibo(N,0) . %3
+     compfibo(N,S) -> Curr = fibo(S),%4
+          if Curr > N -> Curr;
+          true -> compfibo(N,S+1)
+          end . 
+fibo(0) -> 0 ; %5
 fibo(1) -> 1 ;
 fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
 \end{verbatim}
+\%1: Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo'.\newline
+\%2: Jotta moduulissa olevia metodeita pystyt‰‰n ohjelman ulkopuolella, tulee ne m‰‰ritell‰ export-lauseella ulkopuolelta kutsuttaviksi. Jokaisen m‰‰rityksen yhteydess‰
+ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰.\newline
+\%3: Varsinainen p‰‰metodi. T‰t‰ kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee.
+Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan.\newline
+\%4: compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuper‰inen annettu luku N, palautetaan se. \newline
+Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰, jotta seuraavalla kutsukerralla tutkittaisiin j‰rjestyksess‰ seuraavaa
+fibonaccin lukua.\newline
+\%5: fibo-metodi laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs er‰‰ss‰ toisessa ohjelmointikieless‰, Haskellistsa. 
 \section{Kielten alkiorakenteen vertailu}
 D on vahvasti tyypitetty kieli...
 Seuraavat tietotyypit ovat tuettuna:
@@ -59,7 +71,9 @@ Seuraavat tietotyypit ovat tuettuna:
 \item ...
 \end{itemize}
 
-D : Tunnukset alkavat kirjaimella, alaviiva(korvaa n‰m‰ alaviivasanat)-merkill‰ tai universal alphalla (jotainh‰mminki‰ t‰ss‰, ota selv‰‰!). Seuraavina merkkein‰ voi olla mik‰ tahansa edellisist‰ ja tunnuksen pituus voi olla mielivaltainen. Kahdella alaviiva-merkill‰ alkavat tunnukset ovat varattuja.   
+D : Tunnukset alkavat kirjaimella, '\textunderscore'-merkill‰ tai universal alphalla (jotainh‰mminki‰ t‰ss‰, ota selv‰‰!). 
+Seuraavina merkkein‰ voi olla mik‰ tahansa edellisist‰ ja tunnuksen pituus voi olla mielivaltainen. 
+Kahdella '\textunderscore'-merkill‰ alkavat tunnukset ovat varattuja.   
 
 D: avainsanat ovat varattuja tunnuksia
 \begin{verbatim}

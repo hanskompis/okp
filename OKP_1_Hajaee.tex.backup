@@ -37,20 +37,29 @@ Lis‰‰ kielest‰ plaaplaa
 
 \section{Erlang ohjelmointikieli}
 Erlang on funktionaalinen kieli, joka on tarkoitettu alunperin puhelinkeskusten ohjelmointiin. T‰st‰ syyst‰ kieli tukee hyvin rinnakkaisuutta...
+--------------------------
+Ohjelma, joka tulostaa ensimm‰isen syˆttˆlukua suuremman fibonaccin luvun, n‰ytt‰‰ Erlangilla seuraavalta. Kommentit alkavat \%-merkill‰. Numeroidut kommentit, 
+jotka selvent‰v‰t ohjelman toimintaa, on selitetty koodin alla. 
 \begin{verbatim}
--module(fibo).
--export([fibo/1, compfibo/2, fiboplus/1]).
-fiboplus(N) -> compfibo(N,0) .
-compfibo(N,S) -> Sum = fibo(S),
-			if Sum > N -> Sum;
-			true -> compfibo(N,S+1)
-			end . 
+-module(fibo). %1
+-export([fibo/1, compfibo/2, fiboplus/1]). %2
+     fiboplus(N) -> compfibo(N,0) . %3
+     compfibo(N,S) -> Curr = fibo(S),%4
+          if Curr > N -> Curr;
+          true -> compfibo(N,S+1)
+          end . 
 fibo(0) -> 0 ;
 fibo(1) -> 1 ;
 fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
 \end{verbatim}
+\%1: Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo'
+\%2: Jotta moduulissa olevia metodeita pystyt‰‰n ohjelman ulkopuolella, tulee ne m‰‰ritell‰ export-lauseella ulkopuolelta kutsuttaviksi. Jokaisen m‰‰rityksen yhteydess‰
+ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰.
+\%3: Varsinainen p‰‰metodi. T‰t‰ kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee.
+Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan. 
+\%4: compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuper‰inen annettu luku N, palautetaan se. 
+Muussa tapauksessa kustutaan compfibo-metodia uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰. 
 \section{Kielten alkiorakenteen vertailu}
-\subsection{Tietotyypit}
 D on vahvasti tyypitetty kieli...
 Seuraavat tietotyypit ovat tuettuna:
 \begin{itemize}
@@ -59,10 +68,12 @@ Seuraavat tietotyypit ovat tuettuna:
 \item Char
 \item ...
 \end{itemize}
-\subsection{Tunnukset}
-Tunnukset alkavat kirjaimella, alaviiva(korvaa n‰m‰ alaviivasanat)-merkill‰ tai universal alphalla (jotainh‰mminki‰ t‰ss‰, ota selv‰‰!). Seuraavina merkkein‰ voi olla mik‰ tahansa edellisist‰ ja tunnuksen pituus voi olla mielivaltainen. Kahdella alaviiva-merkill‰ alkavat tunnukset ovat varattuja.   
-\subsection{Varatut sanat, avainsanat}
-avainsanat ovat varattuja tunnuksia
+
+D : Tunnukset alkavat kirjaimella, '\textunderscore'-merkill‰ tai universal alphalla (jotainh‰mminki‰ t‰ss‰, ota selv‰‰!). 
+Seuraavina merkkein‰ voi olla mik‰ tahansa edellisist‰ ja tunnuksen pituus voi olla mielivaltainen. 
+Kahdella '\textunderscore'-merkill‰ alkavat tunnukset ovat varattuja.   
+
+D: avainsanat ovat varattuja tunnuksia
 \begin{verbatim}
 abstract alias align asm assert auto body
 bool break byte
@@ -81,7 +92,6 @@ ulong union unittest ushort version void
 volatile wchar while with __FILE__
  __LINE__ __gshared __traits __vector __parameters
 \end{verbatim}
-\subsection{Literaalivakiot D-kielessa}
 \begin{itemize}
 \item merkkijonoliteraalit:
 		wysiwyg-merkkijonot 
@@ -100,7 +110,7 @@ volatile wchar while with __FILE__
 	
 	
 
-\subsection{Erottimet, sisennykset, rivinvaihdot, kommentit}
+
 %\begin{verbatim}
 %	/* blokkikommentti */ 
 %	//rivin perään tuleva kommentti 
