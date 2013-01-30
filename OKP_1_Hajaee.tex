@@ -132,16 +132,14 @@ volatile wchar while with __FILE__
 \end{verbatim}
 
 \subsection{Erlangin alkiorakenne}
--muuttujat alkavat isolla kirjaimella
--atomit = liteeraalivakioita, alkaa pienellä, laitettava hipsuihin, jos alkaa muulla kuin alaviiva, kanelipulla, alfanumerinen merkki
-erlangissa on seuraavanlaisia tekstialkioita:
 
 
-erottimet:
+Erlangin erottimet ovat:
 \begin{verbatim}
 ( ) { } [ ] .  : | || ; , ? -> #
 \end{verbatim}
-avainsanat:
+
+Erlangin avainsanat ovat:
 \begin{verbatim}
  after cond let when 
  begin end  of
@@ -149,7 +147,7 @@ avainsanat:
  catch if   receive
 \end{verbatim}
 
-operaattorit: 
+Erlangin operaattorit ovat: 
 \begin{verbatim}
  +   -    *   /    div rem
  or  xor  bor bxor bsl bsr and band
@@ -175,14 +173,6 @@ Ohjausmerkit (escape sequences):
 \end{verbatim}
 \textbackslash -merkillä voi kuvata myös oktaalinumeroita sekä ASCII-järjestelmän erikoismerkkejä.
 
-\begin{center}
-\begin{tabular}{lll}
-asdas & asdasd & asdasd\\
-asdasd & asdasd & asdasd\\
-asdasd & asdasd & asdasd
-\end{tabular}
-\end{center}
-
 Kokonaislukuliteraali voidaan ilmaista perinteiseen tapaan:
 \begin{verbatim}
  1 2 3 666
@@ -193,12 +183,36 @@ tai merkitsemällä \#-merkkiä ennen luvun kantaluku:
 \end{verbatim}
 Kääntäjä ymmärtää em. tapauksissa tulkita luvut binääri- ja heksadesimaaliluvuiksi.
 
-Liukulukuliteraalit ilmaistaan mahdollisella etumerkillä, kokonaislukuosalla, desimaaliosalla ja mahdollisella eksponenttiosalla.  
-merkkiliteraaleja
-merkkijonoliteraaleja
-atomiliteraaleja
-muuttujien nimeäminen = tunnukset
-universaaleja muotoja (universal pattern) 
+Liukulukuliteraalit ilmaistaan mahdollisella etumerkillä, kokonaislukuosalla, desimaaliosalla ja mahdollisella eksponenttiosalla:
+\begin{verbatim}
+ 1.0 -5.1e6 0.346e-20
+\end{verbatim}
+
+Merkkiliteraali ilmaistaan \$ -merkin perään kirjoitetulla merkillä tai ohjausmerkillä (escape secuence) : 
+\begin{verbatim}
+ $R $s $$ $\\
+\end{verbatim}
+
+Merkkijonoliteraali ilmaistaan merkeillä, jotka ovat \" -merkkien sisällä: 
+\begin{verbatim}
+ "Pekka Järvelä" "\n"
+\end{verbatim}
+
+
+
+Atomiliteraalit ovat Erlangin erikoisuus. Ne ovat merkkijonoliteraalivakioita, joiden arvo on atomi itse. Atomeihin ei voi sitoa mitään arvoa. Esimerkiksi atomi 
+\begin{verbatim}
+ auto
+\end{verbatim}
+tarkoittaa autoa, eikä mitään muuta. Atomi alkaa pienellä kirjaimella, \textunderscore :lla tai \makeatletter @ \makeatother -merkillä. Jos atomin haluaa aloittaa muulla tavoin, tulee se ympäröidä \' -merkeillä.  
+
+Muuttujan nimen tulee alkaa isolla kirjaimella,  \makeatletter @ \makeatother :llä, tai \textunderscore :lla:
+\begin{verbatim}
+ Data I 
+\end{verbatim}
+Koska mitkään varatut sanat, operaattorit tai avainsanat eivät ala isolla kirjaimella, tulkintavirhe ei ole mahdollinen.  
+
+Universaalimerkkinä käytetään '\textunderscore' -merkkiä. Sen voidaan ajatella olevan mikä tahansa merkki. Hahmonsovituksessa tähän merkkiin vertautuu mikä tahansa arvo totena.  
 
 \begin{verbatim}
 
@@ -240,7 +254,7 @@ sisin a=3
 keski a=2
 uloin a=1
 \end{verbatim}
->>>>>>> f3e84500e12208ef73cda37a6af0e31ed58a6262
+
 \subsection{Ratkaisujen vertailua}
 ...
 ...
