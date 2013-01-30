@@ -102,7 +102,7 @@ Rajoitetut merkkijonot k‰ytt‰v‰t useanlaisia erottimia, esimerkiksi merkkej‰ ja 
 Tekstialkiot alkavat merkeill‰ \mbox {q\{ ja p‰‰ttyv‰t merkkiin \}}. V‰liss‰ tulee olla valideja D-kielen tekstialkioita. Merkkiliteraalit ovat yksitt‰isi‰ merkkej‰ tai ohjausmerkkej‰, jotka on ymp‰rˆity yksinkertaisilla lainausmerkeill‰, ' '. 
 
 Kokonaisluvut voidaan m‰‰ritell‰ useissa eri kantalukuj‰rjestelmiss‰. Kymmenj‰rjestelm‰n luvut ovat yksinkertaisesti kymmenj‰rjestelm‰n numeroiden sarjoja, mutta bin‰‰rij‰rjestelm‰n luvut koostuvat bin‰‰rij‰rjestelm‰n numeroista, joita edelt‰‰ merkkojono 0b. Liukuluvut voidaan esitt‰‰ sek‰ kymmenluku- ett‰ heksadesimaalij‰rjestelm‰ss‰. 
-
+\newpage
 \subsubsection{D-kielen avainsanat}
 
 \begin{center}
@@ -226,11 +226,11 @@ Koska mitk‰‰n varatut sanat, operaattorit tai avainsanat eiv‰t ala isolla kirjai
 
 Universaalimerkkin‰ k‰ytet‰‰n '\textunderscore' -merkki‰. Sen voidaan ajatella olevan mik‰ tahansa merkki. Hahmonsovituksessa t‰h‰n merkkiin vertautuu mik‰ tahansa arvo totena.  
 
+Kommentit ilmaistaan seuraavasti:
 \begin{verbatim}
-
-/* blokkikommentti */ 
-%	//rivin per‰‰n tuleva kommentti
-%	/+ nesting blokkikommentti +/
+/* lohkokommentti */ 
+	//rivin per‰‰n tuleva kommentti
+	/+ alisteinen lohkokommentti +/
 \end{verbatim}
 
 %\end{verbatim}
@@ -282,11 +282,14 @@ merkkijonoliteraali ja ulong 123456789098776543
 
 \subsection{Ratkaisujen vertailua}
 D-kieli sis‰lt‰‰ paljon varattuja sanoja, joka on mahdollisesti osoitus paisuneesta kielest‰. Toisaalta kieli on melko rikas ja mahdollistaa erilaisia ohjelmointitapoja. Erlangissa varattuja sanoja on v‰h‰n. Molemmat kielet ovat vahvasti tyypitettyj‰. 
-\section{Kielten syntaksi spesifikaatioissa}
-
-D-kielen referenssidokumentti lˆytyy osoitteesta http://dlang.org. 
-
-
+%\section{Kielten syntaksi spesifikaatioissa}
+%
+%D-kielen referenssidokumentti lˆytyy osoitteesta http://dlang.org. 
+\section{L‰hteet}
+D-kieli, http://dlang.org \\
+The D Programming Language, Andrei Alexandrescu, 2010 \\
+Erlang, http://www.erlang.org \\
+Learn you some Erlang, Fred HÈbert	 \\
 %ja tuloste n‰ytt‰‰ kuvan \ref{konsoli1} mukaiselta.
 %\begin{figure}[tbh]
 %%\begin{figure}[tbh] t= top, b = bottom, h=here
@@ -298,6 +301,6 @@ D-kielen referenssidokumentti lˆytyy osoitteesta http://dlang.org.
 %\end{center}
 %\end{figure}
 
-\section{Yhteenveto}
-Yhteenvetona todettakoon, ett‰ D ja Erlang poikkeavat toisistaan...
+%\section{Yhteenveto}
+%Yhteenvetona todettakoon, ett‰ D ja Erlang poikkeavat toisistaan...
 \end{document}
