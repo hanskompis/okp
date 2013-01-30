@@ -25,12 +25,14 @@
 \pagebreak
 
 \section{D-ohjelmointikieli}
-D-ohjelmointikieli on C/C++ kielten pohjalta kehitetty ja sen p‰‰asiallisena kehitt‰j‰n‰ on alusta l‰htien toiminut ohjelmointikielten k‰‰nt‰jiin erikoistunut Walter Bright. Kehitystyˆ on alkanut vuonna 1999 ja ensimm‰inen julkaisu k‰‰nt‰j‰st‰ on tehty vuonna 2001 Brightin omistaman yhtiˆn Digital Marsin toimesta. Ensimm‰inen vakiintunut versio 1.0 julkaistiin kuitenkin vasta vuonna 2007. Nykyinen versio on 2.0 ja kielen kehitys jatkuu edelleen, kun mukaan on liittynyt useita kehitt‰ji‰ Brightin lis‰ksi. Version 2.0 pohjalta on julkaistu vuonna 2010 Andrei Alexandrescun kirjoittama kirja: The D Programming Language, jonka myˆt‰ version voidaan katsoa vakiintuneen. Versio 1.0 kattoi kolme ohjelmointiparadigmaa: imperatiivinen, oliopohjainen ja metaohjelmointi. 2.0 versio toi mukanaan tuen funktionaaliselle ohjelmoinnille ja aktorimallin rinnakkaisohjelmointiin. T‰ss‰ kirjoituksessa k‰sitell‰‰n kielen versiota 2.0. Kieli sis‰lt‰‰ paljon uudistuksia, jotka ovat parannuksia C/C++ kieliin tai muiden, kuten C\#:n 
-ja Javan hyˆdylliseksi havaittuja ominaisuuksia. Samalla kielest‰ on pyritty j‰tt‰m‰‰n pois C/C++ kielten taaksep‰in yhteensopivuuden asettamia rajoitteita. 
+D-ohjelmointikieli on C/C++-kielten pohjalta kehitetty, ja sen p‰‰asiallisena kehitt‰j‰n‰ on alusta l‰htien toiminut ohjelmointikielten k‰‰nt‰jiin erikoistunut Walter Bright. Kehitystyˆ on alkanut vuonna 1999 ja ensimm‰inen julkaisu k‰‰nt‰j‰st‰ on tehty vuonna 2001 Brightin omistaman yhtiˆn Digital Marsin toimesta. Ensimm‰inen vakiintunut versio 1.0 julkaistiin kuitenkin vasta vuonna 2007. D-kielen nykyinen versio on 2.0, ja kielen kehitys jatkuu edelleen. Mukaan on myˆs liittynyt useita kehitt‰ji‰ Brightin rinnalle. Version 2.0 pohjalta on julkaistu vuonna 2010 Andrei Alexandrescun kirjoittama kirja The D Programming Language, jonka myˆt‰ version voidaan katsoa vakiintuneen.
 
-D on moniparadigmainen, oliopohjainen ja imperatiivinen ohjelmointikieli. D tarjoaa tuen myˆs funktionaaliselle ja metaohjelmoinnille. D:ll‰ kirjoitetut ohjelmat k‰‰nnet‰‰n k‰‰nnˆs- ja linkitysvaiheen kautta kohdeymp‰ristˆn konekielelle. Ohjelmoijalla on t‰ysi p‰‰sy laitetasolle, joten se soveltuu myˆs k‰yttˆj‰rjestelmien ohjelmointiin. Muistinhallinta voidaan j‰tt‰‰ automatiikan huoleksi, koska D sis‰lt‰‰ C\#:n ja Javan tapaan roskienkeruun, mutta sallii muistink‰sittelyn myˆs C/C++:lle tyypillisen tapaan. Perint‰ on toteutettu yksinkertaisella perinn‰ll‰, rajapinnoilla ja mixineill‰. Kielen syntaksi muistuttaa hyvin paljon C++ kielt‰.
+Versio 1.0 kattoi imperatiivisen paradigman, oliopohjaisen paradigman ja metaohjelmointiparadgiman. Versio 2.0 toi mukanaan tuen funktionaaliselle ohjelmoinnille ja aktorimallin rinnakkaisohjelmointiin. T‰ss‰ kirjoituksessa k‰sitell‰‰n kielen versiota 2.0. Kieli sis‰lt‰‰ paljon uudistuksia, jotka ovat parannuksia C/C++-kieliin tai muiden kielten, kuten C\#:n 
+ja Javan hyˆdylliseksi havaittuja ominaisuuksia. Samalla kielest‰ on pyritty j‰tt‰m‰‰n pois C/C++- kielten taaksep‰in yhteensopivuuden asettamia rajoitteita.
 
-Alla on esimerkki ohjelmasta, joka palauttaa annettua lukua suuremman fibonaccin luvun.
+D on moniparadigmainen, oliopohjainen ja imperatiivinen ohjelmointikieli. D tarjoaa tuen myˆs funktionaaliselle ja metaohjelmoinnille. D:ll‰ kirjoitetut ohjelmat k‰‰nnet‰‰n k‰‰nnˆs- ja linkitysvaiheen kautta kohdeymp‰ristˆn konekielelle. Ohjelmoijalla on t‰ysi p‰‰sy laitetasolle, joten D soveltuu myˆs k‰yttˆj‰rjestelmien ohjelmointiin. Muistinhallinta voidaan j‰tt‰‰ automatiikan huoleksi, koska D sis‰lt‰‰ C\#:n ja Javan tapaan roskienkeruun, mutta sallii muistink‰sittelyn myˆs C/C++:lle tyypillisen tapaan. Perint‰ on toteutettu yksinkertaisella perinn‰ll‰, rajapinnoilla ja mixineill‰. Kielen syntaksi muistuttaa hyvin paljon C++-kielen syntaksia.
+
+Alla on esimerkki ohjelmasta, joka palauttaa annettua lukua suuremman Fibonaccin luvun.
 
 \begin{verbatim}
 1.  import std.stdio;
@@ -56,15 +58,13 @@ Alla on esimerkki ohjelmasta, joka palauttaa annettua lukua suuremman fibonaccin
 21.  return iter(1, 0);
 22. }
 \end{verbatim}
+Ohjelmakoodin toiminta on seuraavanlainen: riveill‰ 1 ja 2 ladataan k‰yttˆˆn kirjastot syˆtˆn ja tulostuksen k‰sittely‰ (std.stdio) ja tyyppimuunnoksia (std.conv) varten. Rivill‰ 7 muunnetaan saatu tekstimuotoinen parametri etumerkittˆm‰ksi kokonaisluvuksi. Rivit 9 - 11 ovat virheenk‰sittely‰ varten, ja virheen sattuessa ohjelmasta poistutaan. Rivill‰ 14 kutsutaan fib-funktiota. Fib-funktiossa on riveill‰ 18 ja 19 oma sis‰funktio, joka suorittaa varsinaisen laskennan. Sis‰funktiota kutsutaan ulomman funktion viimeisell‰ rivill‰ 21. Kyseess‰ on t‰llˆin h‰nt‰rekursio, jota varten D-kieless‰ on optimoija.
 
-Ohjelmakoodin toiminta on seuraavanlainen: riveill‰ 1 ja 2 ladataan k‰yttˆˆn kirjastot syˆtˆn ja tulostuksen k‰sittely‰ (std.stdio) ja tyyppimuunnoksia (std.conv) varten. Rivill‰ 7 muunnetaan saatu tekstimuotoinen parametri etumerkittˆm‰ksi kokonaisluvuksi. Rivit 9 - 11 ovat virheenk‰sittely‰ varten ja virheen sattuessa ohjelmasta poistutaan. Rivill‰ 14 kutsutaan fib-funktiota. Fib-funktiossa on riveill‰ 18 ja 19 oma sis‰funktio, joka suorittaa varsinaisen laskennan. Sis‰funktiota kutsutaan ulomman funktion viimeisell‰ rivill‰ 21. Kyseess‰ on t‰llˆin h‰nt‰rekursio, johon D-kieless‰ on optimoija.
 
+\section{Erlang-ohjelmointikieli}
+Erlang on funktionaalinen kieli, joka on tarkoitettu hajautettujen j‰rjestelmien ohjelmointiin. Erlang soveltuu tosiaikaj‰rjestelmien ja laajasti skaalautuvien j‰rjestelmien, kuten puhelinkeskusten, pankkij‰rjestelmien ja s‰hkˆisen liiketoiminnan kehitt‰miseen. Kieli sis‰lt‰‰ laajan tuen rinnakkaisuudelle ja mahdollistaa eritt‰in vikasietoisten j‰rjestelmien kehitt‰misen. Erlangin kehitt‰misen aloitti Joe Armstrong vuonna 1986 Ericsson-yhtiˆss‰. Alunperin kieli on ollut suljetussa k‰ytˆss‰, mutta se julkaistiin avoimena vuonna 1998. Erlangin tietotyypit ovat dynaamisesti ja vahvasti tyypitettyj‰.
 
-\section{Erlang ohjelmointikieli}
-Erlang on funktionaalinen kieli, joka on tarkoitettu hajautettujen j‰rjestelmien ohjelmointiin. Erlang soveltuu tosiaikaj‰rjestelmien ja laajasti skaalautuvien j‰rjestelmien kehitt‰miseen, kuten puhelinkeskukset, pankkij‰rjestelm‰t ja s‰hkˆinen liiketoiminta. Kieli sis‰lt‰‰ laajan tuen rinnakkaisuudelle ja mahdollistaa eritt‰in vikasietoisten j‰rjestelmien kehitt‰misen. Kielen kehitt‰misen aloitetti Joe Armstrong vuonna 1986 Ericsson-yhtiˆss‰. Alunperin se on ollut suljetussa k‰ytˆss‰, mutta julkaistiin avoimena vuonna 1998. Erlangin tietotyypit ovat dynaamisesti ja vahvasti tyypitettyj‰. 
-
-Ohjelma, joka tulostaa ensimm‰isen syˆttˆlukua suuremman fibonaccin luvun, n‰ytt‰‰ Erlangilla seuraavalta. Kommentit alkavat \%-merkill‰. Numeroidut kommentit, 
-jotka selvent‰v‰t ohjelman toimintaa, on selitetty koodin alla. 
+Ohjelma, joka tulostaa ensimm‰isen syˆttˆlukua suuremman Fibonaccin luvun, n‰ytt‰‰ Erlangilla seuraavalta. Kommentit alkavat \%-merkill‰. Ohjelman toimintaa selvent‰v‰t numeroidut kommentit on selitetty koodin alla. 
 \begin{verbatim}
 1.  -module(fibo).
 2.  -export([fibo/1, compfibo/2, fiboplus/1]).
@@ -84,17 +84,21 @@ Ohjelman suorittaminen n‰ytt‰‰ t‰lt‰:
 3>fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
 \end{verbatim}
 
-Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, joka on t‰ss‰ tapauksessa 'fibo' rivill‰ 1. Jotta moduulissa olevia metodeita pystyt‰‰n kutsumaan ohjelman ulkopuolelta, tulee ne m‰‰ritell‰ export-lauseella, kuten rivill‰ 2. Jokaisen m‰‰rityksen yhteydess‰ ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰. Rivill‰ 3 on varsinainen p‰‰metodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee. Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan. Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuper‰inen annettu luku N, palautetaan se. Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰, jotta seuraavalla kutsukerralla tutkittaisiin j‰rjestyksess‰ seuraavaa fibonaccin lukua. Rivill‰ 5 fibo-metodi 
-laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs er‰‰ss‰ toisessa ohjelmointikieless‰, Haskellissa. 
+Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo', rivill‰ 1. Jotta moduulissa olevia metodeita pystyt‰‰n kutsumaan ohjelman ulkopuolelta, tulee ne m‰‰ritell‰ export-lauseella, kuten rivill‰ 2 on tehty. Jokaisen m‰‰rityksen yhteydess‰ ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰. Rivill‰ 3 on varsinainen p‰‰metodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) Fibonaccin luvun ohjelma laskee. Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako Fibonaccin lukua kulloinkin haetaan. 
+Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr Fibonaccin sarjan S:nen luvun. Jos t‰m‰ luku on suurempi kuin alkuper‰inen annettu luku N, se palautetaan. Muussa tapauksessa compfibo-metodia kutsutaan uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰. N‰in seuraavalla kutsukerralla tutkitaan j‰rjestyksess‰ seuraavaa Fibonaccin lukua. Rivill‰ 5 fibo-metodi laskee Fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs Haskell-ohjelmointikieless‰. 
 
 \section{Kielten alkiorakenteen vertailu}
 
 
 \subsection{D-kielen alkiorakenteen vertailua}
+<<<<<<< HEAD
 
 D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class.
+=======
+D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai ISO/IEC 9899:1999(E)-standardissa m‰‰riteltyj‰ merkkej‰ (universal alphas), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class. Rivinvaihdoilla ja sisennyksill‰ ei D-kieless‰ ole kielen suorituksen kannalta merkityst‰.
+>>>>>>> f3e84500e12208ef73cda37a6af0e31ed58a6262
 
-Merkkijonoliteraali on D:ss‰ joko merkkijono kaksinkertaisissa lainausmerkeiss‰, wysiwyg-merkkijono, ohjausmerkki (escape sequence), rajattu merkkijono (delimited string), j‰rjestetty merkkijono tai heksamerkkijono (?). Rivin loppumista kuvaava \textbackslash n lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
+Merkkijonoliteraali on D:ss‰ joko merkkijono kaksinkertaisissa lainausmerkeiss‰, wysiwyg-merkkijono, ohjausmerkki (escape sequence), rajattu merkkijono (delimited string), j‰rjestetty merkkijono tai heksamerkkijono. Rivin loppumista kuvaava \textbackslash n lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
 
 Wysiwyg on lyhennys sanoista "what you see is what you get", ja wysiwyg-merkkijonoissa kaikki merkit toistetaan uskollisesti. Wysiwyg-merkkijonot voidaan erotella joko r- tai '-merkein. Merkkijonot r"c:\textbackslash root\textbackslash foo.exe" ja \\          `c:\textbackslash root\textbackslash foo.exe' ovat esimerkkej‰ wysiwyg-merkkijonoista. Merkkijonot kaksinkertaisissa lainausmerkeiss‰ ovat "-merkkien ymp‰rˆimi‰. Ohjausmerkkej‰ voi sulauttaa n‰ihin merkkijonoihin monista ohjelmointikielist‰ tutulla \textbackslash -merkint‰tavalla, 
 kuten esimerkiksi merkkijonossa "c:\textbackslash \textbackslash root\textbackslash \textbackslash foo.exe".
@@ -104,7 +108,7 @@ Rajoitetut merkkijonot k‰ytt‰v‰t useanlaisia erottimia, esimerkiksi merkkej‰ ja 
 
 Tekstialkiot alkavat merkeill‰ \mbox {q\{ ja p‰‰ttyv‰t merkkiin \}}. V‰liss‰ tulee olla valideja D-kielen tekstialkioita. Merkkiliteraalit ovat yksitt‰isi‰ merkkej‰ tai ohjausmerkkej‰, jotka on ymp‰rˆity yksinkertaisilla lainausmerkeill‰, ' '. 
 
-Kokonaisluvut voidaan m‰‰ritell‰ useissa eri kantalukuj‰rjestelmiss‰. Kymmenj‰rjestelm‰n luvut ovat yksinkertaisesti kymmenj‰rjestelm‰n numeroiden sarjoja, mutta bin‰‰rij‰rjestelm‰n luvut koostuvat bin‰‰rij‰rjestelm‰n numeroista, joita edelt‰‰ merkkojono "0b". Liukuluvut voidaan esitt‰‰ sek‰ kymmenluku- ett‰ heksadesimaalij‰rjestelm‰ss‰. 
+Kokonaisluvut voidaan m‰‰ritell‰ useissa eri kantalukuj‰rjestelmiss‰. Kymmenj‰rjestelm‰n luvut ovat yksinkertaisesti kymmenj‰rjestelm‰n numeroiden sarjoja, mutta bin‰‰rij‰rjestelm‰n luvut koostuvat bin‰‰rij‰rjestelm‰n numeroista, joita edelt‰‰ merkkojono 0b. Liukuluvut voidaan esitt‰‰ sek‰ kymmenluku- ett‰ heksadesimaalij‰rjestelm‰ss‰. 
 
 D-kielen varatut sanat
 
@@ -189,7 +193,7 @@ tai merkitsem‰ll‰ \#-merkki‰ ennen luvun kantaluku:
 \end{verbatim}
 K‰‰nt‰j‰ ymm‰rt‰‰ em. tapauksissa tulkita luvut bin‰‰ri- ja heksadesimaaliluvuiksi.
 
-Liukulukuliteraalit ilmaistaan mahdollisella etumerkill‰, kokonaislukuosalla, desimaaliosalla ja mahdollisella ek 
+Liukulukuliteraalit ilmaistaan mahdollisella etumerkill‰, kokonaislukuosalla, desimaaliosalla ja mahdollisella eksponenttiosalla.  
 merkkiliteraaleja
 merkkijonoliteraaleja
 atomiliteraaleja
@@ -201,8 +205,42 @@ universaaleja muotoja (universal pattern)
 /* blokkikommentti */ 
 %	//rivin per‰‰n tuleva kommentti 
 %	/+ nesting blokkikommentti +/
+<<<<<<< HEAD
 \end{verbatim}
 
+=======
+%\end{verbatim}
+\subsection{Esimerkkej‰ ohjelmakoodista}
+Alla on esimerkki D-kielen muuttujien n‰kyvyysalueista ja sis‰funktioista.
+\begin{verbatim}
+import std.stdio;
+
+void main() {
+ writeln("uloin a=", uloin());
+}
+
+int uloin() {
+  int a=1;
+  int keski() {
+    int a=2;
+    int sisin() {
+      int a=3;
+      return a;
+    }
+    writeln("sisin a=", sisin);
+    return a;
+  }
+  writeln("keski a=", keski());
+  return a;
+}
+\end{verbatim}
+P‰‰ohjelmassa kutsutaan funktiota uloin(), joka kutsuu funktiota keski(), josta kutsutaan funktiota sisin(). Kaikissa funktioissa muuttujalla a on eri arvot, jonka kukin palauttaa kutsuvalle funktiolle. Ohjelman tuloste on seuraavanlainen:
+\begin{verbatim}
+sisin a=3
+keski a=2
+uloin a=1
+\end{verbatim}
+>>>>>>> f3e84500e12208ef73cda37a6af0e31ed58a6262
 \subsection{Ratkaisujen vertailua}
 ...
 ...

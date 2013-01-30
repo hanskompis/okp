@@ -91,8 +91,12 @@ laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on 
 
 
 \subsection{D-kielen alkiorakenteen vertailua}
+<<<<<<< HEAD
 
 D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimmäistä merkkiä lukuunottamatta myös numerot ovat käytössä. Tunnusta ei voi myöskään aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin löytyvät termit abstract, final, switch ja class.
+=======
+D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimmäistä merkkiä lukuunottamatta myös numerot ovat käytössä. Tunnusta ei voi myöskään aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin löytyvät termit abstract, final, switch ja class. Rivinvaihdoilla ja sisennyksillä ei D-kielessä ole merkitystä.
+>>>>>>> f3e84500e12208ef73cda37a6af0e31ed58a6262
 
 Merkkijonoliteraali on D:ssä joko merkkijono kaksinkertaisissa lainausmerkeissä, wysiwyg-merkkijono, ohjausmerkki (escape sequence), rajattu merkkijono (delimited string), järjestetty merkkijono tai heksamerkkijono (?). Rivin loppumista kuvaava \textbackslash n lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
 
