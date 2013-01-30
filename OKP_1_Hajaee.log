@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  30 JAN 2013 18:56
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  30 JAN 2013 19:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -311,7 +311,20 @@ Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
-)) (./OKP_1_Hajaee.aux)
+)) (./OKP_1_Hajaee.aux
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 <
+      <<<<<< HEAD
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+)
 \openout1 = `OKP_1_Hajaee.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
@@ -330,8 +343,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 17.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 17.
@@ -361,6 +373,11 @@ LaTeX Info: Redefining \nameref on input line 17.
 
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+Overfull \hbox (47.13617pt too wide) in paragraph at lines 29--13
+[]\T1/cmr/m/n/10.95 <<<<<<< HEAD       =======     >>>>>>> 7035e06ecdf7c8f205da
+4192b3d10e15d82ee7c3
+ []
+
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count100
 \scratchdimen=\dimen109
@@ -388,6 +405,9 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Try loading font information for OT1+lmr on input line 20.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
@@ -416,77 +436,76 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 20.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 20.
- [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./OKP_1_Hajaee.toc
+ [2] (./OKP_1_Hajaee.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 5.
 )
 \tf@toc=\write4
 \openout4 = `OKP_1_Hajaee.toc'.
 
- [2]
+ [3]
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 37.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [3] [4]
-Overfull \hbox (12.51344pt too wide) in paragraph at lines 101--102
+) [4] [5]
+Overfull \hbox (12.51344pt too wide) in paragraph at lines 97--98
 \T1/lmr/m/n/10.95 mer-keis-sä, wysiwyg-merkkijono, oh-jaus-merk-ki (esca-pe seq
 uence), ra-jat-tu merk-
  []
 
-[5]
-Overfull \hbox (2.02061pt too wide) in paragraph at lines 103--106
+
+Overfull \hbox (2.02061pt too wide) in paragraph at lines 99--102
 []\T1/lmr/m/n/10.95 Wysiwyg on ly-hen-nys sa-nois-ta "what you see is what you 
 get", ja wysiwyg-
  []
 
 
-Overfull \hbox (1.96048pt too wide) in paragraph at lines 103--106
+Overfull \hbox (1.96048pt too wide) in paragraph at lines 99--102
 \T1/lmr/m/n/10.95 `c:\root\foo.exe' ovat esi-merk-ke-jä wysiwyg-merkkijonoista.
  Merk-ki-jo-not kak-
  []
 
-
-Overfull \hbox (2.13893pt too wide) in paragraph at lines 107--108
+[6]
+Overfull \hbox (2.13893pt too wide) in paragraph at lines 103--104
 []\T1/lmr/m/n/10.95 Rajoitetut merk-ki-jo-not käyt-tä-vät usean-lai-sia erot-ti
 -mia, esi-mer-kik-si merk-
  []
 
-[6] [7] [8] <konsoli1.jpg, id=91, 602.25pt x 451.6875pt>
-File: konsoli1.jpg Graphic file (type jpg)
- <use konsoli1.jpg>
-Package pdftex.def Info: konsoli1.jpg used on input line 269.
-(pdftex.def)             Requested size: 360.0pt x 270.00832pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 278.
 
-[9] [10 <./konsoli1.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 278.
+Overfull \hbox (18.61455pt too wide) in paragraph at lines 112--136
+ [] 
+ []
+
+[7] [8] [9] [10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 306.
+ [11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 306.
  (./OKP_1_Hajaee.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 278.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 278.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 306.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 306.
 Package rerunfilecheck Info: File `OKP_1_Hajaee.out' has not changed.
-(rerunfilecheck)             Checksum: 05EE8DC19DFB793317D5A6B0CBD7283A;591.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 278.
+(rerunfilecheck)             Checksum: FE514CC64EBB2B1469E1D7F3B687DA6C;671.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 306.
  ) 
 Here is how much of TeX's memory you used:
- 6103 strings out of 493481
- 89528 string characters out of 3143393
- 167090 words of memory out of 3000000
- 9317 multiletter control sequences out of 15000+200000
+ 6099 strings out of 493481
+ 89491 string characters out of 3143393
+ 171239 words of memory out of 3000000
+ 9314 multiletter control sequences out of 15000+200000
  40652 words of font info for 37 fonts, out of 3000000 for 9000
  965 hyphenation exceptions out of 8191
  29i,6n,28p,711b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/
-public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/s
-hare/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public
-/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/tex
-mf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on OKP_1_Hajaee.pdf (10 pages, 198316 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
+ips/cm-super/cm-super-t1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on OKP_1_Hajaee.pdf (11 pages, 205231 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 110 compressed objects within 2 object streams
- 22 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 146 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

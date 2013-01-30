@@ -91,12 +91,8 @@ Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr Fibonaccin sarj
 
 
 \subsection{D-kielen alkiorakenteen vertailua}
-<<<<<<< HEAD
 
-D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class.
-=======
 D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai ISO/IEC 9899:1999(E)-standardissa m‰‰riteltyj‰ merkkej‰ (universal alphas), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class. Rivinvaihdoilla ja sisennyksill‰ ei D-kieless‰ ole kielen suorituksen kannalta merkityst‰.
->>>>>>> f3e84500e12208ef73cda37a6af0e31ed58a6262
 
 Merkkijonoliteraali on D:ss‰ joko merkkijono kaksinkertaisissa lainausmerkeiss‰, wysiwyg-merkkijono, ohjausmerkki (escape sequence), rajattu merkkijono (delimited string), j‰rjestetty merkkijono tai heksamerkkijono. Rivin loppumista kuvaava \textbackslash n lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
 
@@ -110,26 +106,34 @@ Tekstialkiot alkavat merkeill‰ \mbox {q\{ ja p‰‰ttyv‰t merkkiin \}}. V‰liss‰ tul
 
 Kokonaisluvut voidaan m‰‰ritell‰ useissa eri kantalukuj‰rjestelmiss‰. Kymmenj‰rjestelm‰n luvut ovat yksinkertaisesti kymmenj‰rjestelm‰n numeroiden sarjoja, mutta bin‰‰rij‰rjestelm‰n luvut koostuvat bin‰‰rij‰rjestelm‰n numeroista, joita edelt‰‰ merkkojono 0b. Liukuluvut voidaan esitt‰‰ sek‰ kymmenluku- ett‰ heksadesimaalij‰rjestelm‰ss‰. 
 
-D-kielen varatut sanat
+\subsubsection{D-kielen avainsanat}
 
-\begin{verbatim}
-abstract alias align asm assert auto body
-bool break byte
-case cast catch cdouble cent cfloat char class const 
-continue creal dchar debug default delegate delete
-deprecated do double else enum export extern false
-final finally float for foreach foreach_reverse function 
-goto idouble if ifloat immutable import in inout int 
-interface invariant ireal is lazy long macro mixin 
-module new nothrow null out override package 
-pragma private protected public pure real ref 
-return scope shared short static struct super
-switch synchronized template this throw
-truetry typedef typeid typeof ubyte ucent uint 
-ulong union unittest ushort version void
-volatile wchar while with __FILE__
- __LINE__ __gshared __traits __vector __parameters
-\end{verbatim}
+\begin{center}
+\begin{tabular}{lllll}
+abstract & alias & align & asm & assert\\
+auto & body & bool & break & byte  \\
+case & cast & catch & cdouble & cent\\
+cfloat & char & class & const & continue\\
+creal & dchar & debug & delegate & delete\\
+default & deprecated & do & double & else\\
+enum & export & extern & false & final \\
+finally & float & for & foreach & foreach\textunderscore reverse\\
+function & goto & idouble & if & ifloat\\
+immutable & import & in & inout & int\\
+interface & invariant & ireal & is & lazy\\
+long & macro & mixin & module & new\\
+nothrow & null & out & override & package\\
+pragma & private & protected & public & pure\\
+real & ref & return & scope & shared\\
+short & static & struct & super & switch\\
+synchronized & template & this & throw & truetry\\
+typedef & typeid & typeof & ubyte & ucent\\
+uintn & ulong & union & unittest & ushort\\
+version & void & volatile & wchar & while\\
+with & \textunderscore \textunderscore FILE\textunderscore \textunderscore & \textunderscore \textunderscore LINE\textunderscore \textunderscore & \textunderscore \textunderscore gshared & \textunderscore \textunderscore traits\\
+\textunderscore \textunderscore vector & \textunderscore \textunderscore parameters & \\ & \\ & \\
+\end{tabular}
+\end{center}
 
 \subsection{Erlangin alkiorakenne}
 
@@ -147,7 +151,18 @@ Erlangin avainsanat ovat:
  catch if   receive
 \end{verbatim}
 
-Erlangin operaattorit ovat: 
+Kaikki avainsanat ovat varattuja sanoja. Niiden lis‰ksi varattuja sanoja ovat:
+
+\begin{verbatim}
+band   bnot bor 
+bsl    bsr  bxor
+div    not  or  
+orelse rem  try  
+when  xor
+\end{verbatim}
+
+Operaattorit: 
+
 \begin{verbatim}
  +   -    *   /    div rem
  or  xor  bor bxor bsl bsr and band
@@ -177,7 +192,7 @@ Kokonaislukuliteraali voidaan ilmaista perinteiseen tapaan:
 \begin{verbatim}
  1 2 3 666
 \end{verbatim}
-tai merkitsem‰ll‰ \#-merkki‰ ennen luvun kantaluku:
+Tai merkitsem‰ll‰ ennen \#-merkki‰ luvun kantaluku:
 \begin{verbatim}
  2#100100 16#FA66
 \end{verbatim}
@@ -217,12 +232,10 @@ Universaalimerkkin‰ k‰ytet‰‰n '\textunderscore' -merkki‰. Sen voidaan ajatella o
 \begin{verbatim}
 
 /* blokkikommentti */ 
-%	//rivin per‰‰n tuleva kommentti 
+%	//rivin per‰‰n tuleva kommentti
 %	/+ nesting blokkikommentti +/
-<<<<<<< HEAD
 \end{verbatim}
 
-=======
 %\end{verbatim}
 \subsection{Esimerkkej‰ ohjelmakoodista}
 Alla on esimerkki D-kielen muuttujien n‰kyvyysalueista ja sis‰funktioista.
@@ -255,25 +268,39 @@ keski a=2
 uloin a=1
 \end{verbatim}
 
+D-kieless‰ voidaan muuttuja m‰‰ritell‰ myˆs auto, jolloin muuttujan tyyppi p‰‰tell‰‰n k‰‰nˆsvaiheessa. Alla on esimerkki t‰llaisesta.
+\begin{verbatim}
+import std.stdio;
+
+void main() {
+  auto str = "merkkijonoliteraali";
+  auto i = 123456789098776543;
+  writeln(str, " ja ulong ", i);
+}
+\end{verbatim}
+Ohjelma tulostaa seuraavasti:
+\begin{verbatim}
+merkkijonoliteraali ja ulong 123456789098776543
+\end{verbatim}
+
 \subsection{Ratkaisujen vertailua}
-...
-...
+D-kieli sis‰lt‰‰ paljon varattuja sanoja, joka on mahdollisesti osoitus paisuneesta kielest‰. Toisaalta kieli on melko rikas ja mahdollistaa erilaisia ohjelmointitapoja. Erlangissa varattuja sanoja on v‰h‰n. Molemmat kielet ovat vahvasti tyypitettyj‰. 
 \section{Kielten syntaksi spesifikaatioissa}
 
 D-kielen referenssidokumentti lˆytyy osoitteesta http://dlang.org. 
 
 
-ja tuloste n‰ytt‰‰ kuvan \ref{konsoli1} mukaiselta.
-\begin{figure}[tbh]
-%\begin{figure}[tbh] t= top, b = bottom, h=here
-\begin{center}
-\includegraphics[width=1.0\textwidth]{konsoli1.jpg}
-%\rotatebox{90}{\includegraphics[scale=.75]{esimerkki.pdf}}
-\caption{Tuloste konsolilla}
-\label{konsoli1}
-\end{center}
-\end{figure}
+%ja tuloste n‰ytt‰‰ kuvan \ref{konsoli1} mukaiselta.
+%\begin{figure}[tbh]
+%%\begin{figure}[tbh] t= top, b = bottom, h=here
+%\begin{center}
+%\includegraphics[width=1.0\textwidth]{konsoli1.jpg}
+%%\rotatebox{90}{\includegraphics[scale=.75]{esimerkki.pdf}}
+%\caption{Tuloste konsolilla}
+%\label{konsoli1}
+%\end{center}
+%\end{figure}
 
-\section{Yhtenveto}
+\section{Yhteenveto}
 Yhteenvetona todettakoon, ett‰ D ja Erlang poikkeavat toisistaan...
 \end{document}
