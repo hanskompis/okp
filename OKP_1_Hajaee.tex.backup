@@ -89,8 +89,14 @@ laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on 
 
 \section{Kielten alkiorakenteen vertailu}
 
+
 \subsection{D-kielen alkiorakenteen vertailua}
+<<<<<<< HEAD
+
+D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimmäistä merkkiä lukuunottamatta myös numerot ovat käytössä. Tunnusta ei voi myöskään aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin löytyvät termit abstract, final, switch ja class.
+=======
 D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimmäistä merkkiä lukuunottamatta myös numerot ovat käytössä. Tunnusta ei voi myöskään aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin löytyvät termit abstract, final, switch ja class. Rivinvaihdoilla ja sisennyksillä ei D-kielessä ole merkitystä.
+>>>>>>> f3e84500e12208ef73cda37a6af0e31ed58a6262
 
 Merkkijonoliteraali on D:ssä joko merkkijono kaksinkertaisissa lainausmerkeissä, wysiwyg-merkkijono, ohjausmerkki (escape sequence), rajattu merkkijono (delimited string), järjestetty merkkijono tai heksamerkkijono (?). Rivin loppumista kuvaava \textbackslash n lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
 
@@ -124,14 +130,83 @@ ulong union unittest ushort version void
 volatile wchar while with __FILE__
  __LINE__ __gshared __traits __vector __parameters
 \end{verbatim}
-%\begin{verbatim}
-%	/* blokkikommentti */ 
-%	//rivin perŠŠn tuleva kommentti 
+
+\subsection{Erlangin alkiorakenne}
+-muuttujat alkavat isolla kirjaimella
+-atomit = liteeraalivakioita, alkaa pienellä, laitettava hipsuihin, jos alkaa muulla kuin alaviiva, kanelipulla, alfanumerinen merkki
+erlangissa on seuraavanlaisia tekstialkioita:
+
+
+erottimet:
+\begin{verbatim}
+( ) { } [ ] .  : | || ; , ? -> #
+\end{verbatim}
+avainsanat:
+\begin{verbatim}
+ after cond let when 
+ begin end  of
+ case  fun  query
+ catch if   receive
+\end{verbatim}
+
+operaattorit: 
+\begin{verbatim}
+ +   -    *   /    div rem
+ or  xor  bor bxor bsl bsr and band
+ ==  /=   =:= =/=  =<  >   >=
+ not bnot ++  --   =   !   <-
+\end{verbatim}
+Operaattoreita ei voi käyttää atomiliteraaleina.
+
+Ohjausmerkit (escape sequences):
+\begin{verbatim}
+\ b     backspace BS
+\ d     delete DEL
+\ e     escape ESC
+\ f     form feed FF
+\ n     linefeed LF
+\ r     carriage return CR
+\ s     space SPC
+\ t     horizontal tab HT
+\ v     vertical tab VT
+\\      backslash \
+\'      single quote '
+\"      double quote "
+\end{verbatim}
+\textbackslash -merkillä voi kuvata myös oktaalinumeroita sekä ASCII-järjestelmän erikoismerkkejä.
+
+\begin{center}
+\begin{tabular}{lll}
+asdas & asdasd & asdasd\\
+asdasd & asdasd & asdasd\\
+asdasd & asdasd & asdasd
+\end{tabular}
+\end{center}
+
+Kokonaislukuliteraali voidaan ilmaista perinteiseen tapaan:
+\begin{verbatim}
+ 1 2 3 666
+\end{verbatim}
+tai merkitsemällä \#-merkkiä ennen luvun kantaluku:
+\begin{verbatim}
+ 2#100100 16#FA66
+\end{verbatim}
+Kääntäjä ymmärtää em. tapauksissa tulkita luvut binääri- ja heksadesimaaliluvuiksi.
+
+Liukulukuliteraali
+merkkiliteraaleja
+merkkijonoliteraaleja
+atomiliteraaleja
+muuttujien nimeäminen = tunnukset
+universaaleja muotoja (universal pattern) 
+
+\begin{verbatim}
+
+/* blokkikommentti */ 
+%	//rivin perään tuleva kommentti 
 %	/+ nesting blokkikommentti +/
-%\end{verbatim}
-\subsection{Esimerkkejä ohjelmakoodista}
-...
-...
+\end{verbatim}
+
 \subsection{Ratkaisujen vertailua}
 ...
 ...

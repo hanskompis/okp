@@ -87,13 +87,16 @@ Ohjelman suorittaminen n‰ytt‰‰ t‰lt‰:
 Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo', rivill‰ 1. Jotta moduulissa olevia metodeita pystyt‰‰n kutsumaan ohjelman ulkopuolelta, tulee ne m‰‰ritell‰ export-lauseella, kuten rivill‰ 2 on tehty. Jokaisen m‰‰rityksen yhteydess‰ ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰. Rivill‰ 3 on varsinainen p‰‰metodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) Fibonaccin luvun ohjelma laskee. Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako Fibonaccin lukua kulloinkin haetaan. 
 Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr Fibonaccin sarjan S:nen luvun. Jos t‰m‰ luku on suurempi kuin alkuper‰inen annettu luku N, se palautetaan. Muussa tapauksessa compfibo-metodia kutsutaan uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰. N‰in seuraavalla kutsukerralla tutkitaan j‰rjestyksess‰ seuraavaa Fibonaccin lukua. Rivill‰ 5 fibo-metodi laskee Fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs Haskell-ohjelmointikieless‰. 
 
-Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, joka on t‰ss‰ tapauksessa 'fibo' rivill‰ 1. Jotta moduulissa olevia metodeita pystyt‰‰n kutsumaan ohjelman ulkopuolelta, tulee ne m‰‰ritell‰ export-lauseella, kuten rivill‰ 2. Jokaisen m‰‰rityksen yhteydess‰ ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰. Rivill‰ 3 on varsinainen p‰‰metodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee. Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan. Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuper‰inen annettu luku N, palautetaan se. Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰, jotta seuraavalla kutsukerralla tutkittaisiin j‰rjestyksess‰ seuraavaa fibonaccin lukua. Rivill‰ 5 fibo-metodi 
-laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs er‰‰ss‰ toisessa ohjelmointikieless‰, Haskellissa. 
-
 \section{Kielten alkiorakenteen vertailu}
 
+
 \subsection{D-kielen alkiorakenteen vertailua}
+<<<<<<< HEAD
+
+D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class.
+=======
 D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai ISO/IEC 9899:1999(E)-standardissa m‰‰riteltyj‰ merkkej‰ (universal alphas), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class. Rivinvaihdoilla ja sisennyksill‰ ei D-kieless‰ ole kielen suorituksen kannalta merkityst‰.
+>>>>>>> f3e84500e12208ef73cda37a6af0e31ed58a6262
 
 Merkkijonoliteraali on D:ss‰ joko merkkijono kaksinkertaisissa lainausmerkeiss‰, wysiwyg-merkkijono, ohjausmerkki (escape sequence), rajattu merkkijono (delimited string), j‰rjestetty merkkijono tai heksamerkkijono. Rivin loppumista kuvaava \textbackslash n lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
 
@@ -127,14 +130,117 @@ ulong union unittest ushort version void
 volatile wchar while with __FILE__
  __LINE__ __gshared __traits __vector __parameters
 \end{verbatim}
-%\begin{verbatim}
-%	/* blokkikommentti */ 
-%	//rivin perään tuleva kommentti 
+
+\subsection{Erlangin alkiorakenne}
+-muuttujat alkavat isolla kirjaimella
+-atomit = liteeraalivakioita, alkaa pienell‰, laitettava hipsuihin, jos alkaa muulla kuin alaviiva, kanelipulla, alfanumerinen merkki
+erlangissa on seuraavanlaisia tekstialkioita:
+
+
+erottimet:
+\begin{verbatim}
+( ) { } [ ] .  : | || ; , ? -> #
+\end{verbatim}
+avainsanat:
+\begin{verbatim}
+ after cond let when 
+ begin end  of
+ case  fun  query
+ catch if   receive
+\end{verbatim}
+
+operaattorit: 
+\begin{verbatim}
+ +   -    *   /    div rem
+ or  xor  bor bxor bsl bsr and band
+ ==  /=   =:= =/=  =<  >   >=
+ not bnot ++  --   =   !   <-
+\end{verbatim}
+Operaattoreita ei voi k‰ytt‰‰ atomiliteraaleina.
+
+Ohjausmerkit (escape sequences):
+\begin{verbatim}
+\ b     backspace BS
+\ d     delete DEL
+\ e     escape ESC
+\ f     form feed FF
+\ n     linefeed LF
+\ r     carriage return CR
+\ s     space SPC
+\ t     horizontal tab HT
+\ v     vertical tab VT
+\\      backslash \
+\'      single quote '
+\"      double quote "
+\end{verbatim}
+\textbackslash -merkill‰ voi kuvata myˆs oktaalinumeroita sek‰ ASCII-j‰rjestelm‰n erikoismerkkej‰.
+
+\begin{center}
+\begin{tabular}{lll}
+asdas & asdasd & asdasd\\
+asdasd & asdasd & asdasd\\
+asdasd & asdasd & asdasd
+\end{tabular}
+\end{center}
+
+Kokonaislukuliteraali voidaan ilmaista perinteiseen tapaan:
+\begin{verbatim}
+ 1 2 3 666
+\end{verbatim}
+tai merkitsem‰ll‰ \#-merkki‰ ennen luvun kantaluku:
+\begin{verbatim}
+ 2#100100 16#FA66
+\end{verbatim}
+K‰‰nt‰j‰ ymm‰rt‰‰ em. tapauksissa tulkita luvut bin‰‰ri- ja heksadesimaaliluvuiksi.
+
+Liukulukuliteraalit ilmaistaan mahdollisella etumerkill‰, kokonaislukuosalla, desimaaliosalla ja mahdollisella eksponenttiosalla.  
+merkkiliteraaleja
+merkkijonoliteraaleja
+atomiliteraaleja
+muuttujien nime‰minen = tunnukset
+universaaleja muotoja (universal pattern) 
+
+\begin{verbatim}
+
+/* blokkikommentti */ 
+%	//rivin per‰‰n tuleva kommentti 
 %	/+ nesting blokkikommentti +/
+<<<<<<< HEAD
+\end{verbatim}
+
+=======
 %\end{verbatim}
 \subsection{Esimerkkej‰ ohjelmakoodista}
-...
-...
+Alla on esimerkki D-kielen muuttujien n‰kyvyysalueista ja sis‰funktioista.
+\begin{verbatim}
+import std.stdio;
+
+void main() {
+ writeln("uloin a=", uloin());
+}
+
+int uloin() {
+  int a=1;
+  int keski() {
+    int a=2;
+    int sisin() {
+      int a=3;
+      return a;
+    }
+    writeln("sisin a=", sisin);
+    return a;
+  }
+  writeln("keski a=", keski());
+  return a;
+}
+\end{verbatim}
+P‰‰ohjelmassa kutsutaan funktiota uloin(), joka kutsuu funktiota keski(), josta kutsutaan funktiota sisin(). Kaikissa funktioissa muuttujalla a on eri arvot, jonka kukin palauttaa kutsuvalle funktiolle. Ohjelman tuloste on seuraavanlainen:
+\begin{verbatim}
+sisin a=3
+keski a=2
+uloin a=1
+\end{verbatim}
+>>>>>>> f3e84500e12208ef73cda37a6af0e31ed58a6262
 \subsection{Ratkaisujen vertailua}
 ...
 ...
