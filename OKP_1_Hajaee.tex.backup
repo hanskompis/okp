@@ -91,16 +91,8 @@ Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr Fibonaccin sarj
 
 
 \subsection{D-kielen alkiorakenteen vertailua}
-<<<<<<< HEAD
-D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai ISO/IEC 9899:1999(E)-standardissa m‰‰riteltyj‰ merkkej‰ (universal alphas), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class. Rivinvaihdoilla ja sisennyksill‰ ei D-kieless‰ ole kielen suorituksen kannalta merkityst‰.
-=======
-<<<<<<< HEAD
 
-D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class.
-=======
-D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class. Rivinvaihdoilla ja sisennyksill‰ ei D-kieless‰ ole merkityst‰.
->>>>>>> f3e84500e12208ef73cda37a6af0e31ed58a6262
->>>>>>> 9df5e5d1a415c816dd06435b3139325e08f64b5f
+D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai ISO/IEC 9899:1999(E)-standardissa m‰‰riteltyj‰ merkkej‰ (universal alphas), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class. Rivinvaihdoilla ja sisennyksill‰ ei D-kieless‰ ole kielen suorituksen kannalta merkityst‰.
 
 Merkkijonoliteraali on D:ss‰ joko merkkijono kaksinkertaisissa lainausmerkeiss‰, wysiwyg-merkkijono, ohjausmerkki (escape sequence), rajattu merkkijono (delimited string), j‰rjestetty merkkijono tai heksamerkkijono. Rivin loppumista kuvaava \textbackslash n lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
 
@@ -114,53 +106,34 @@ Tekstialkiot alkavat merkeill‰ \mbox {q\{ ja p‰‰ttyv‰t merkkiin \}}. V‰liss‰ tul
 
 Kokonaisluvut voidaan m‰‰ritell‰ useissa eri kantalukuj‰rjestelmiss‰. Kymmenj‰rjestelm‰n luvut ovat yksinkertaisesti kymmenj‰rjestelm‰n numeroiden sarjoja, mutta bin‰‰rij‰rjestelm‰n luvut koostuvat bin‰‰rij‰rjestelm‰n numeroista, joita edelt‰‰ merkkojono 0b. Liukuluvut voidaan esitt‰‰ sek‰ kymmenluku- ett‰ heksadesimaalij‰rjestelm‰ss‰. 
 
-D-kielen varatut sanat
+\subsubsection{D-kielen avainsanat}
 
 \begin{center}
-\begin{tabular}{lllllllll}
-abstract & alias & align & asm & assert & auto & body & bool & break\\
-byte & case & cast & catch & cdouble & cent & cfloat & char & class\\
-const & continue & creal & dchar & debug & delegate & delete & default & deprecated\\
-do & double & else & enum & export & extern & false & final & finally\\
-float & for & foreach & foreach\textunderscore reverse & function & goto & idouble & if & ifloat\\
-immutable & import & in & inout & int  & interface & invariant & ireal & is \\
-lazy & long & macro & mixin & module & new & nothrow & null & out\\
-override & package & pragma & private & protected & public & pure & real & ref\\
-return & scope & shared & short & static & struct & super & switch & synchronized\\
-template & this & throw & truetry & typedef & typeid & typeof & ubyte & ucent \\
-uint & ulong & union & unittest & ushort & version & void & volatile & wchar\\
-while & with & \textunderscore \textunderscore FILE\textunderscore \textunderscore & \textunderscore \textunderscore LINE\textunderscore \textunderscore & \textunderscore \textunderscore gshared & \textunderscore \textunderscore traits & \textunderscore \textunderscore vector & \textunderscore \textunderscore parameters & kokeilu
+\begin{tabular}{lllll}
+abstract & alias & align & asm & assert\\
+auto & body & bool & break & byte  \\
+case & cast & catch & cdouble & cent\\
+cfloat & char & class & const & continue\\
+creal & dchar & debug & delegate & delete\\
+default & deprecated & do & double & else\\
+enum & export & extern & false & final \\
+finally & float & for & foreach & foreach\textunderscore reverse\\
+function & goto & idouble & if & ifloat\\
+immutable & import & in & inout & int\\
+interface & invariant & ireal & is & lazy\\
+long & macro & mixin & module & new\\
+nothrow & null & out & override & package\\
+pragma & private & protected & public & pure\\
+real & ref & return & scope & shared\\
+short & static & struct & super & switch\\
+synchronized & template & this & throw & truetry\\
+typedef & typeid & typeof & ubyte & ucent\\
+uintn & ulong & union & unittest & ushort\\
+version & void & volatile & wchar & while\\
+with & \textunderscore \textunderscore FILE\textunderscore \textunderscore & \textunderscore \textunderscore LINE\textunderscore \textunderscore & \textunderscore \textunderscore gshared & \textunderscore \textunderscore traits\\
+\textunderscore \textunderscore vector & \textunderscore \textunderscore parameters & \\ & \\ & \\
 \end{tabular}
 \end{center}
-
-\begin{center}
-\begin{tabular}{lll}
-ihan & vitun & jepa\\
-taulukko & t‰m‰ & on\\
-todella & kin & jeah\\
-jep & jep & jep
-\end{tabular}
-\end{center}
-
-
-\begin{verbatim}
-abstract alias align asm assert auto body
-bool break byte
-case cast catch cdouble cent cfloat char class const 
-continue creal dchar debug default delegate delete
-deprecated do double else enum export extern false
-final finally float for foreach foreach_reverse function 
-goto idouble if ifloat immutable import in inout int 
-interface invariant ireal is lazy long macro mixin 
-module new nothrow null out override package 
-pragma private protected public pure real ref 
-return scope shared short static struct super
-switch synchronized template this throw
-truetry typedef typeid typeof ubyte ucent uint 
-ulong union unittest ushort version void
-volatile wchar while with __FILE__
- __LINE__ __gshared __traits __vector __parameters
-\end{verbatim}
 
 \subsection{Erlangin alkiorakenne}
 -muuttujat alkavat isolla kirjaimella
@@ -179,6 +152,24 @@ avainsanat:
  case  fun  query
  catch if   receive
 \end{verbatim}
+
+Kaikki avainsanat ovat varattuja sanoja. Niiden lis‰ksi varattuja sanoja ovat:
+
+\begin{verbatim}
+ and andalso let when 
+ begin end  of
+ case  fun  query
+ catch if   receive
+\end{verbatim}
+
+\begin{center}
+\begin{tabular}{llll}
+and & andalso & band & bnot\\
+bor & bsl & bsr & bxor\\
+div & not & or & orelse\\
+rem & try & when & xor
+\end{tabular}
+\end{center}
 
 operaattorit: 
 \begin{verbatim}
@@ -218,13 +209,13 @@ Kokonaislukuliteraali voidaan ilmaista perinteiseen tapaan:
 \begin{verbatim}
  1 2 3 666
 \end{verbatim}
-tai merkitsem‰ll‰ \#-merkki‰ ennen luvun kantaluku:
+Tai merkitsem‰ll‰ ennen \#-merkki‰ luvun kantaluku:
 \begin{verbatim}
  2#100100 16#FA66
 \end{verbatim}
 K‰‰nt‰j‰ ymm‰rt‰‰ em. tapauksissa tulkita luvut bin‰‰ri- ja heksadesimaaliluvuiksi.
 
-Liukulukuliteraali
+Liukulukuliteraalit ilmaistaan mahdollisella etumerkill‰, kokonaislukuosalla, desimaaliosalla ja mahdollisella eksponenttiosalla.  
 merkkiliteraaleja
 merkkijonoliteraaleja
 atomiliteraaleja
@@ -234,8 +225,40 @@ universaaleja muotoja (universal pattern)
 \begin{verbatim}
 
 /* blokkikommentti */ 
-%	//rivin per‰‰n tuleva kommentti 
+%	//rivin per‰‰n tuleva kommentti
 %	/+ nesting blokkikommentti +/
+\end{verbatim}
+
+%\end{verbatim}
+\subsection{Esimerkkej‰ ohjelmakoodista}
+Alla on esimerkki D-kielen muuttujien n‰kyvyysalueista ja sis‰funktioista.
+\begin{verbatim}
+import std.stdio;
+
+void main() {
+ writeln("uloin a=", uloin());
+}
+
+int uloin() {
+  int a=1;
+  int keski() {
+    int a=2;
+    int sisin() {
+      int a=3;
+      return a;
+    }
+    writeln("sisin a=", sisin);
+    return a;
+  }
+  writeln("keski a=", keski());
+  return a;
+}
+\end{verbatim}
+P‰‰ohjelmassa kutsutaan funktiota uloin(), joka kutsuu funktiota keski(), josta kutsutaan funktiota sisin(). Kaikissa funktioissa muuttujalla a on eri arvot, jonka kukin palauttaa kutsuvalle funktiolle. Ohjelman tuloste on seuraavanlainen:
+\begin{verbatim}
+sisin a=3
+keski a=2
+uloin a=1
 \end{verbatim}
 
 \subsection{Ratkaisujen vertailua}
@@ -257,6 +280,6 @@ ja tuloste n‰ytt‰‰ kuvan \ref{konsoli1} mukaiselta.
 \end{center}
 \end{figure}
 
-\section{Yhtenveto}
+\section{Yhteenveto}
 Yhteenvetona todettakoon, ett‰ D ja Erlang poikkeavat toisistaan...
 \end{document}
