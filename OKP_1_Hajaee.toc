@@ -5,6 +5,6 @@
 \contentsline {subsection}{\numberline {3.1}D-kielen alkiorakenteen vertailua}{5}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}D-kielen avainsanat}{7}{subsubsection.3.1.1}
 \contentsline {subsection}{\numberline {3.2}Erlangin alkiorakenne}{7}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Esimerkkej\"a ohjelmakoodista}{9}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Ratkaisujen vertailua}{10}{subsection.3.4}
-\contentsline {section}{\numberline {4}L\"ahteet}{10}{section.4}
+\contentsline {subsection}{\numberline {3.3}Esimerkkej\"a ohjelmakoodista}{10}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Ratkaisujen vertailua}{11}{subsection.3.4}
+\contentsline {section}{\numberline {4}L\"ahteet}{11}{section.4}

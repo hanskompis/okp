@@ -210,6 +210,30 @@ Merkkijonoliteraali ilmaistaan merkeill‰, jotka ovat \" -merkkien sis‰ll‰:
  "Pekka J‰rvel‰" "\n"
 \end{verbatim}
 
+Atomiliteraalit ovat Erlangin erikoisuus. Ne ovat merkkijonoliteraalivakioita, joiden arvo on atomi itse. Atomeihin ei voi sitoa mit‰‰n arvoa. Esimerkiksi atomi 
+\begin{verbatim}
+ auto
+\end{verbatim}
+tarkoittaa autoa, eik‰ mit‰‰n muuta. Atomi alkaa pienell‰ kirjaimella, \textunderscore :lla tai \makeatletter @ \makeatother -merkill‰. Jos atomin haluaa aloittaa muulla tavoin, tulee se ymp‰rˆid‰ \' -merkeill‰.  
+
+Muuttujan nimen tulee alkaa isolla kirjaimella,  \makeatletter @ \makeatother :ll‰, tai \textunderscore :lla:
+\begin{verbatim}
+ Data I 
+\end{verbatim}
+Koska mitk‰‰n varatut sanat, operaattorit tai avainsanat eiv‰t ala isolla kirjaimella, tulkintavirhe ei ole mahdollinen.  
+
+Universaalimerkkin‰ k‰ytet‰‰n '\textunderscore' -merkki‰. Sen voidaan ajatella olevan mik‰ tahansa merkki. Hahmonsovituksessa t‰h‰n merkkiin vertautuu mik‰ tahansa arvo totena.  
+
+Merkkiliteraali ilmaistaan \$ -merkin per‰‰n kirjoitetulla merkill‰ tai ohjausmerkill‰ (escape secuence) : 
+\begin{verbatim}
+ $R $s $$ $\\
+\end{verbatim}
+
+Merkkijonoliteraali ilmaistaan merkeill‰, jotka ovat \" -merkkien sis‰ll‰: 
+\begin{verbatim}
+ "Pekka J‰rvel‰" "\n"
+\end{verbatim}
+
 
 
 Atomiliteraalit ovat Erlangin erikoisuus. Ne ovat merkkijonoliteraalivakioita, joiden arvo on atomi itse. Atomeihin ei voi sitoa mit‰‰n arvoa. Esimerkiksi atomi 
