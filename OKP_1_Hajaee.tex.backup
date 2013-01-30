@@ -24,56 +24,90 @@
 
 \pagebreak
 
-\section{D ohjelmointikieli}
-D on kehitetty korjaamaan C ja C++ kielten puutteita ja samalla siihen on lisätty paljon ominaisuuksia, joiden ansiosta...
-D kielessä on ominaisuuksia plaaplaa... 
-\begin{itemize}
-\item Automaattinen roskienkeruu
-\item Vahva tyypitys
-\item Käännös natiivikoodiksi
-\item Rinnakkaisuuden tuki
-\end{itemize}
-Lisää kielestä plaaplaa
+\section{D-ohjelmointikieli}
+D-ohjelmointikieli on C/C++ kielten pohjalta kehitetty ja sen pääasiallisena kehittäjänä on alusta lähtien toiminut ohjelmointikielten kääntäjiin erikoistunut Walter Bright. Kehitystyö on alkanut vuonna 1999 ja ensimmäinen julkaisu kääntäjästä on tehty vuonna 2001 Brightin omistaman yhtiön Digital Marsin toimesta. Ensimmäinen vakiintunut versio 1.0 julkaistiin kuitenkin vasta vuonna 2007. Nykyinen versio on 2.0 ja kielen kehitys jatkuu edelleen, kun mukaan on liittynyt useita kehittäjiä Brightin lisäksi. Version 2.0 pohjalta on julkaistu vuonna 2010 Andrei Alexandrescun kirjoittama kirja: The D Programming Language, jonka myötä version voidaan katsoa vakiintuneen. Versio 1.0 kattoi kolme ohjelmointiparadigmaa: imperatiivinen, oliopohjainen ja metaohjelmointi. 2.0 versio toi mukanaan tuen funktionaaliselle ohjelmoinnille ja aktorimallin rinnakkaisohjelmointiin. Tässä kirjoituksessa käsitellään kielen versiota 2.0. Kieli sisältää paljon uudistuksia, jotka ovat parannuksia C/C++ kieliin tai muiden, kuten C\#:n 
+ja Javan hyödylliseksi havaittuja ominaisuuksia. Samalla kielestä on pyritty jättämään pois C/C++ kielten taaksepäin yhteensopivuuden asettamia rajoitteita. 
+
+D on moniparadigmainen, oliopohjainen ja imperatiivinen ohjelmointikieli. D tarjoaa tuen myös funktionaaliselle ja metaohjelmoinnille. D:llä kirjoitetut ohjelmat käännetään käännös- ja linkitysvaiheen kautta kohdeympäristön konekielelle. Ohjelmoijalla on täysi pääsy laitetasolle, joten se soveltuu myös käyttöjärjestelmien ohjelmointiin. Muistinhallinta voidaan jättää automatiikan huoleksi, koska D sisältää C\#:n ja Javan tapaan roskienkeruun, mutta sallii muistinkäsittelyn myös C/C++:lle tyypillisen tapaan. Perintä on toteutettu yksinkertaisella perinnällä, rajapinnoilla ja mixineillä. Kielen syntaksi muistuttaa hyvin paljon C++ kieltä.
+
+Alla on esimerkki ohjelmasta, joka palauttaa annettua lukua suuremman fibonaccin luvun.
+
+\begin{verbatim}
+1.  import std.stdio;
+2.  import std.conv;
+3. 
+4.  void main(string[] args) {
+5.  uint f;
+6.   try {
+7.    f = parse!uint(args[1]);
+8.   }
+9.   catch {
+10.   writeln("Error in arguments!");
+11.   return;
+12.  }
+13.  writeln(args[1]);
+14.  writeln(fib(f));
+15. }
+16. 
+17. ulong fib(uint n) {
+18.  ulong iter(ulong fib_1, ulong fib_2) {
+19.   return fib_2 > n ? fib_2 : iter(fib_1 + fib_2, fib_1);
+20.  }
+21.  return iter(1, 0);
+22. }
+\end{verbatim}
+
+Ohjelmakoodin toiminta on seuraavanlainen: riveillä 1 ja 2 ladataan käyttöön kirjastot syötön ja tulostuksen käsittelyä (std.stdio) ja tyyppimuunnoksia (std.conv) varten. Rivillä 7 muunnetaan saatu tekstimuotoinen parametri etumerkittömäksi kokonaisluvuksi. Rivit 9 - 11 ovat virheenkäsittelyä varten ja virheen sattuessa ohjelmasta poistutaan. Rivillä 14 kutsutaan fib-funktiota. Fib-funktiossa on riveillä 18 ja 19 oma sisäfunktio, joka suorittaa varsinaisen laskennan. Sisäfunktiota kutsutaan ulomman funktion viimeisellä rivillä 21. Kyseessä on tällöin häntärekursio, johon D-kielessä on optimoija.
+
 
 \section{Erlang ohjelmointikieli}
-Erlang on funktionaalinen kieli, joka on tarkoitettu alunperin puhelinkeskusten ohjelmointiin. Tästä syystä kieli tukee hyvin rinnakkaisuutta...
---------------------------
+Erlang on funktionaalinen kieli, joka on tarkoitettu hajautettujen järjestelmien ohjelmointiin. Erlang soveltuu tosiaikajärjestelmien ja laajasti skaalautuvien järjestelmien kehittämiseen, kuten puhelinkeskukset, pankkijärjestelmät ja sähköinen liiketoiminta. Kieli sisältää laajan tuen rinnakkaisuudelle ja mahdollistaa erittäin vikasietoisten järjestelmien kehittämisen. Kielen kehittämisen aloitetti Joe Armstrong vuonna 1986 Ericsson-yhtiössä. Alunperin se on ollut suljetussa käytössä, mutta julkaistiin avoimena vuonna 1998. Erlangin tietotyypit ovat dynaamisesti ja vahvasti tyypitettyjä. 
+
 Ohjelma, joka tulostaa ensimmäisen syöttölukua suuremman fibonaccin luvun, näyttää Erlangilla seuraavalta. Kommentit alkavat \%-merkillä. Numeroidut kommentit, 
 jotka selventävät ohjelman toimintaa, on selitetty koodin alla. 
 \begin{verbatim}
--module(fibo). %1
--export([fibo/1, compfibo/2, fiboplus/1]). %2
-     fiboplus(N) -> compfibo(N,0) . %3
-     compfibo(N,S) -> Curr = fibo(S),%4
-          if Curr > N -> Curr;
-          true -> compfibo(N,S+1)
-          end . 
-fibo(0) -> 0 ;
-fibo(1) -> 1 ;
-fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
+1.  -module(fibo).
+2.  -export([fibo/1, compfibo/2, fiboplus/1]).
+3.       fiboplus(N) -> compfibo(N,0).
+4.       compfibo(N,S) -> Curr = fibo(S),
+5.            if Curr > N -> Curr;
+6.            true -> compfibo(N,S+1)
+7.            end. 
+8.  fibo(0) -> 0 ;
+9.  fibo(1) -> 1 ;
+10. fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
 \end{verbatim}
-\%1: Ensimmäisenä tulee määritellä moduulin nimi, tässä tapauksessa 'fibo'
-\%2: Jotta moduulissa olevia metodeita pystytään ohjelman ulkopuolella, tulee ne määritellä export-lauseella ulkopuolelta kutsuttaviksi. Jokaisen määrityksen yhteydessä
-ilmoitetaan kutsussa tarvittavien parametrien määrä.
-\%3: Varsinainen päämetodi. Tätä kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimmäisen) fibonaccin luvun ohjelma laskee.
-Kyseessä oleva metodi kutsuu ainoastaan apumetodia compfibo, lisäten mukaan apuparametrin, joka pitää kirjaa siitä, monettako fibonaccin lukua kulloinkin haetaan. 
-\%4: compfibo-metodi tallettaa ensimmäisenä muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuperäinen annettu luku N, palautetaan se. 
-Muussa tapauksessa kustutaan compfibo-metodia uudelleen siten, että parametrin S arvoa kasvatetaan yhdellä. 
+Ohjelman suorittaminen näyttää tältä:
+\begin{verbatim}
+1>fibo(0) -> 0 ;
+2>fibo(1) -> 1 ;
+3>fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
+\end{verbatim}
+
+Ensimmäisenä tulee määritellä moduulin nimi, joka on tässä tapauksessa 'fibo' rivillä 1. Jotta moduulissa olevia metodeita pystytään kutsumaan ohjelman ulkopuolelta, tulee ne määritellä export-lauseella, kuten rivillä 2. Jokaisen määrityksen yhteydessä ilmoitetaan kutsussa tarvittavien parametrien määrä. Rivillä 3 on varsinainen päämetodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimmäisen) fibonaccin luvun ohjelma laskee. Kyseessä oleva metodi kutsuu ainoastaan apumetodia compfibo, lisäten mukaan apuparametrin, joka pitää kirjaa siitä, monettako fibonaccin lukua kulloinkin haetaan. Rivillä 4 compfibo-metodi tallettaa ensimmäisenä muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuperäinen annettu luku N, palautetaan se. Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, että parametrin S arvoa kasvatetaan yhdellä, jotta seuraavalla kutsukerralla tutkittaisiin järjestyksessä seuraavaa fibonaccin lukua. Rivillä 5 fibo-metodi 
+laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myös eräässä toisessa ohjelmointikielessä, Haskellissa. 
+
 \section{Kielten alkiorakenteen vertailu}
-D on vahvasti tyypitetty kieli...
-Seuraavat tietotyypit ovat tuettuna:
-\begin{itemize}
-\item Int
-\item Double
-\item Char
-\item ...
-\end{itemize}
 
-D : Tunnukset alkavat kirjaimella, '\textunderscore'-merkillä tai universal alphalla (jotainhämminkiä tässä, ota selvää!). 
-Seuraavina merkkeinä voi olla mikä tahansa edellisistä ja tunnuksen pituus voi olla mielivaltainen. 
-Kahdella '\textunderscore'-merkillä alkavat tunnukset ovat varattuja.   
 
-D: avainsanat ovat varattuja tunnuksia
+\subsection{D-kielen alkiorakenteen vertailua}
+
+D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimmäistä merkkiä lukuunottamatta myös numerot ovat käytössä. Tunnusta ei voi myöskään aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin löytyvät termit abstract, final, switch ja class.
+
+Merkkijonoliteraali on D:ssä joko merkkijono kaksinkertaisissa lainausmerkeissä, wysiwyg-merkkijono, ohjausmerkki (escape sequence), rajattu merkkijono (delimited string), järjestetty merkkijono tai heksamerkkijono (?). Rivin loppumista kuvaava \textbackslash n lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
+
+Wysiwyg on lyhennys sanoista "what you see is what you get", ja wysiwyg-merkkijonoissa kaikki merkit toistetaan uskollisesti. Wysiwyg-merkkijonot voidaan erotella joko r- tai '-merkein. Merkkijonot r"c:\textbackslash root\textbackslash foo.exe" ja \\          `c:\textbackslash root\textbackslash foo.exe' ovat esimerkkejä wysiwyg-merkkijonoista. Merkkijonot kaksinkertaisissa lainausmerkeissä ovat "-merkkien ympäröimiä. Ohjausmerkkejä voi sulauttaa näihin merkkijonoihin monista ohjelmointikielistä tutulla \textbackslash -merkintätavalla, 
+kuten esimerkiksi merkkijonossa "c:\textbackslash \textbackslash root\textbackslash \textbackslash foo.exe".
+Heksamerkkijonot mahdollistavat merkkijonoliteraalien luomisen 	heksadatasta. Heksadatan ei tarvitse muodostaa hyväksyttyjä UTF-merkkejä. Valinnainen StringPostfix-merkki antaa merkkijonolle määritellyn tyypin.
+
+Rajoitetut merkkijonot käyttävät useanlaisia erottimia, esimerkiksi merkkejä ja tunnuksia. Erottimen täytyy saumattomasti jatkaa "-merkistä ilman välilyöntejä, ja päättävän erottimen täytyy saumattomasti edeltää merkkijonon päättävää "-merkkiä ilman välilyöntejä. 
+
+Tekstialkiot alkavat merkeillä \mbox {q\{ ja päättyvät merkkiin \}}. Välissä tulee olla valideja D-kielen tekstialkioita. Merkkiliteraalit ovat yksittäisiä merkkejä tai ohjausmerkkejä, jotka on ympäröity yksinkertaisilla lainausmerkeillä, ' '. 
+
+Kokonaisluvut voidaan määritellä useissa eri kantalukujärjestelmissä. Kymmenjärjestelmän luvut ovat yksinkertaisesti kymmenjärjestelmän numeroiden sarjoja, mutta binäärijärjestelmän luvut koostuvat binäärijärjestelmän numeroista, joita edeltää merkkojono "0b". Liukuluvut voidaan esittää sekä kymmenluku- että heksadesimaalijärjestelmässä. 
+
+D-kielen varatut sanat
+
 \begin{verbatim}
 abstract alias align asm assert auto body
 bool break byte
@@ -92,88 +126,90 @@ ulong union unittest ushort version void
 volatile wchar while with __FILE__
  __LINE__ __gshared __traits __vector __parameters
 \end{verbatim}
-\begin{itemize}
-\item merkkijonoliteraalit:
-		wysiwyg-merkkijonot 
-		lainausmerkein ymidyt merkkijonot
-		heksamerkkijonot
-		erotin-merkkijonot
-		token-merkkijonot
-\item merkkiliteraalit:
-		yksi merkki tai escape-character -merkien sisalla
-\item kokonaislukuliteraalit
-		mieti miten kasitellaan
-\item 	liukulukuliteraalit
-		mieti miten kasitellaan
-\end{itemize}
-	
-	
-	
+
+\subsection{Erlangin alkiorakenne}
+-muuttujat alkavat isolla kirjaimella
+-atomit = liteeraalivakioita, alkaa pienellä, laitettava hipsuihin, jos alkaa muulla kuin alaviiva, kanelipulla, alfanumerinen merkki
+erlangissa on seuraavanlaisia tekstialkioita:
 
 
-%\begin{verbatim}
-%	/* blokkikommentti */ 
-%	//rivin perŠŠn tuleva kommentti 
+erottimet:
+\begin{verbatim}
+( ) { } [ ] .  : | || ; , ? -> #
+\end{verbatim}
+avainsanat:
+\begin{verbatim}
+ after cond let when 
+ begin end  of
+ case  fun  query
+ catch if   receive
+\end{verbatim}
+
+operaattorit: 
+\begin{verbatim}
+ +   -    *   /    div rem
+ or  xor  bor bxor bsl bsr and band
+ ==  /=   =:= =/=  =<  >   >=
+ not bnot ++  --   =   !   <-
+\end{verbatim}
+Operaattoreita ei voi käyttää atomiliteraaleina.
+
+Ohjausmerkit (escape sequences):
+\begin{verbatim}
+\ b     backspace BS
+\ d     delete DEL
+\ e     escape ESC
+\ f     form feed FF
+\ n     linefeed LF
+\ r     carriage return CR
+\ s     space SPC
+\ t     horizontal tab HT
+\ v     vertical tab VT
+\\      backslash \
+\'      single quote '
+\"      double quote "
+\end{verbatim}
+\textbackslash -merkillä voi kuvata myös oktaalinumeroita sekä ASCII-järjestelmän erikoismerkkejä.
+
+\begin{center}
+\begin{tabular}{lll}
+asdas & asdasd & asdasd\\
+asdasd & asdasd & asdasd\\
+asdasd & asdasd & asdasd
+\end{tabular}
+\end{center}
+
+Kokonaislukuliteraali voidaan ilmaista perinteiseen tapaan:
+\begin{verbatim}
+ 1 2 3 666
+\end{verbatim}
+tai merkitsemällä \#-merkkiä ennen luvun kantaluku:
+\begin{verbatim}
+ 2#100100 16#FA66
+\end{verbatim}
+Kääntäjä ymmärtää em. tapauksissa tulkita luvut binääri- ja heksadesimaaliluvuiksi.
+
+Liukulukuliteraali
+merkkiliteraaleja
+merkkijonoliteraaleja
+atomiliteraaleja
+muuttujien nimeäminen = tunnukset
+universaaleja muotoja (universal pattern) 
+
+\begin{verbatim}
+
+/* blokkikommentti */ 
+%	//rivin perään tuleva kommentti 
 %	/+ nesting blokkikommentti +/
-%\end{verbatim}
-\subsection{Esimerkkejä ohjelmakoodista}
-...
-...
+\end{verbatim}
+
 \subsection{Ratkaisujen vertailua}
 ...
 ...
-\section{Kielten syntaksi}
-\subsection{Rakenne}
-Näin tulostetaan Hello World! D-kielellä.
-\begin{verbatim}
-import std.stdio;
+\section{Kielten syntaksi spesifikaatioissa}
 
-void main() {
- writeln("Hello World!");
-}
-\end{verbatim}
+D-kielen referenssidokumentti löytyy osoitteesta http://dlang.org. 
 
-Vastaavasti Erlangissa Hello World! toteutetaan näin:
-\begin{verbatim}
--module(hello).
--export([hello_world/0]).
-
-hello_world() -> 
-  io:fwrite("hello, world\n").
-\end{verbatim}
-joka tulostaa konsolille kuvan \ref{konsoli2} mukaisesti.
-
-\begin{figure}[tbh]
-%\begin{figure}[tbh] t= top, b = bottom, h=here
-%\begin{center}
-%\includegraphics[width=0.5\textwidth]{konsoli2.png}
-%\rotatebox{90}{\includegraphics[scale=.75]{esimerkki.pdf}}
-\caption{Tuloste konsolilla}
-\label{konsoli2}
-%\end{center}
-\end{figure}
-
-Iteroinnissa C-kielestä tuttu tapa on mahdollinen
-
-\begin{verbatim}
-import std.stdio;
-
-void main() {
-  for(int i=0; i<10; i++) {
-    writeln("Rivi: ", i);
-  }
-}
-\end{verbatim}
-Iteraatio voidaan tehdä myös seuraavasti:
-\begin{verbatim}
-import std.stdio;
-
-void main() {
-  foreach(i; 0 .. 10) {
-    writeln("Rivi: ", i);
-  }
-}
-\end{verbatim}
 
 ja tuloste näyttää kuvan \ref{konsoli1} mukaiselta.
 \begin{figure}[tbh]
