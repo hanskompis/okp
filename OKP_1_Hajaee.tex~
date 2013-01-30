@@ -252,7 +252,29 @@ sisin a=3
 keski a=2
 uloin a=1
 \end{verbatim}
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+D-kielessä voidaan muuttuja määritellä myös auto, jolloin muuttujalle arvataan tyyppi käänösvaiheessa. Alla on esimerkki tällaisesta.
+\begin{verbatim}
+import std.stdio;
+
+void main() {
+  auto str = "merkkijonoliteraali";
+  auto i = 123456789098776543;
+  writeln(str, " ja ulong ", i);
+}
+\end{verbatim}
+Ohjelma tulostaa seuraavasti:
+\begin{verbatim}
+merkkijonoliteraali ja ulong 123456789098776543
+\end{verbatim}
+
+=======
+>>>>>>> f3e84500e12208ef73cda37a6af0e31ed58a6262
+>>>>>>> 9df5e5d1a415c816dd06435b3139325e08f64b5f
+>>>>>>> 94e392adbdc7e8d448e2884e66f16659cdb6ae06
 \subsection{Ratkaisujen vertailua}
 ...
 ...

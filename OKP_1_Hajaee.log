@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  30 JAN 2013 18:40
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  30 JAN 2013 18:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -459,22 +459,21 @@ Overfull \hbox (18.61455pt too wide) in paragraph at lines 112--136
  [] 
  []
 
-[6] [7] [8] <konsoli1.jpg, id=96, 602.25pt x 451.6875pt>
+[6] [7] [8] [9] <konsoli1.jpg, id=100, 602.25pt x 451.6875pt>
 File: konsoli1.jpg Graphic file (type jpg)
- <use konsoli1.jpg>
-Package pdftex.def Info: konsoli1.jpg used on input line 268.
-(pdftex.def)             Requested size: 360.0pt x 270.00832pt.
 
-[9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 277.
+<use konsoli1.jpg>
+Package pdftex.def Info: konsoli1.jpg used on input line 282.
+(pdftex.def)             Requested size: 360.0pt x 270.00832pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 291.
  [10 <./konsoli1.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 277.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 291.
  (./OKP_1_Hajaee.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 277.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 277.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 291.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 291.
 Package rerunfilecheck Info: File `OKP_1_Hajaee.out' has not changed.
 (rerunfilecheck)             Checksum: FE514CC64EBB2B1469E1D7F3B687DA6C;671.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 277.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 291.
  ) 
 Here is how much of TeX's memory you used:
  6103 strings out of 493481
@@ -483,13 +482,13 @@ Here is how much of TeX's memory you used:
  9316 multiletter control sequences out of 15000+200000
  40652 words of font info for 37 fonts, out of 3000000 for 9000
  965 hyphenation exceptions out of 8191
- 29i,6n,28p,711b,436s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,6n,28p,711b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/
 public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public
 /lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on OKP_1_Hajaee.pdf (10 pages, 196710 bytes).
+Output written on OKP_1_Hajaee.pdf (10 pages, 197164 bytes).
 PDF statistics:
  136 PDF objects out of 1000 (max. 8388607)
  115 compressed objects within 2 object streams
