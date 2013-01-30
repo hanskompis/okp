@@ -92,7 +92,14 @@ Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr Fibonaccin sarj
 
 \subsection{D-kielen alkiorakenteen vertailua}
 
+<<<<<<< HEAD
+D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class.
+=======
 D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai ISO/IEC 9899:1999(E)-standardissa m‰‰riteltyj‰ merkkej‰ (universal alphas), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class. Rivinvaihdoilla ja sisennyksill‰ ei D-kieless‰ ole kielen suorituksen kannalta merkityst‰.
+>>>>>>> f3e84500e12208ef73cda37a6af0e31ed58a6262
+=======
+D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai ISO/IEC 9899:1999(E)-standardissa m‰‰riteltyj‰ merkkej‰ (universal alphas), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class. Rivinvaihdoilla ja sisennyksill‰ ei D-kieless‰ ole kielen suorituksen kannalta merkityst‰.
+>>>>>>> 7035e06ecdf7c8f205da4192b3d10e15d82ee7c3
 
 Merkkijonoliteraali on D:ss‰ joko merkkijono kaksinkertaisissa lainausmerkeiss‰, wysiwyg-merkkijono, ohjausmerkki (escape sequence), rajattu merkkijono (delimited string), j‰rjestetty merkkijono tai heksamerkkijono. Rivin loppumista kuvaava \textbackslash n lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
 
@@ -137,9 +144,6 @@ with & \textunderscore \textunderscore FILE\textunderscore \textunderscore & \te
 
 \subsection{Erlangin alkiorakenne}
 -muuttujat alkavat isolla kirjaimella
--atomit = liteeraalivakioita, alkaa pienell‰, laitettava hipsuihin, jos alkaa muulla kuin alaviiva, kanelipulla, alfanumerinen merkki
-erlangissa on seuraavanlaisia tekstialkioita:
-
 
 erottimet:
 \begin{verbatim}
@@ -197,14 +201,6 @@ Ohjausmerkit (escape sequences):
 \end{verbatim}
 \textbackslash -merkill‰ voi kuvata myˆs oktaalinumeroita sek‰ ASCII-j‰rjestelm‰n erikoismerkkej‰.
 
-\begin{center}
-\begin{tabular}{lll}
-asdas & asdasd & asdasd\\
-asdasd & asdasd & asdasd\\
-asdasd & asdasd & asdasd
-\end{tabular}
-\end{center}
-
 Kokonaislukuliteraali voidaan ilmaista perinteiseen tapaan:
 \begin{verbatim}
  1 2 3 666
@@ -215,10 +211,36 @@ Tai merkitsem‰ll‰ ennen \#-merkki‰ luvun kantaluku:
 \end{verbatim}
 K‰‰nt‰j‰ ymm‰rt‰‰ em. tapauksissa tulkita luvut bin‰‰ri- ja heksadesimaaliluvuiksi.
 
+<<<<<<< HEAD
+Liukulukuliteraalit ilmaistaan mahdollisella etumerkill‰, kokonaislukuosalla, desimaaliosalla ja mahdollisella eksponenttiosalla:
+\begin{verbatim}
+ 1.0 -5.1e6 0.346e-20
+\end{verbatim}
+
+Merkkiliteraali ilmaistaan \$ -merkin per‰‰n kirjoitetulla merkill‰ tai ohjausmerkill‰ (escape secuence) : 
+\begin{verbatim}
+ $R $s $$ $\\
+\end{verbatim}
+
+Merkkijonoliteraali ilmaistaan merkeill‰, jotka ovat \" -merkkien sis‰ll‰: 
+\begin{verbatim}
+ "Pekka J‰rvel‰" "\n"
+\end{verbatim}
+
+
+
+Atomiliteraalit ovat Erlangin erikoisuus. Ne ovat merkkijonoliteraalivakioita, joiden arvo on atomi itse. Atomeihin ei voi sitoa mit‰‰n arvoa. Esimerkiksi atomi 
+\begin{verbatim}
+ auto
+\end{verbatim}
+tarkoittaa autoa, eik‰ mit‰‰n muuta. Atomi alkaa pienell‰ kirjaimella, \textunderscore :lla tai \makeatletter @ \makeatother -merkill‰.  
+
+=======
 Liukulukuliteraalit ilmaistaan mahdollisella etumerkill‰, kokonaislukuosalla, desimaaliosalla ja mahdollisella eksponenttiosalla.  
 merkkiliteraaleja
 merkkijonoliteraaleja
 atomiliteraaleja
+>>>>>>> 7035e06ecdf7c8f205da4192b3d10e15d82ee7c3
 muuttujien nime‰minen = tunnukset
 universaaleja muotoja (universal pattern) 
 
@@ -227,6 +249,40 @@ universaaleja muotoja (universal pattern)
 /* blokkikommentti */ 
 %	//rivin per‰‰n tuleva kommentti
 %	/+ nesting blokkikommentti +/
+<<<<<<< HEAD
+\end{verbatim}
+
+=======
+%\end{verbatim}
+\subsection{Esimerkkej‰ ohjelmakoodista}
+Alla on esimerkki D-kielen muuttujien n‰kyvyysalueista ja sis‰funktioista.
+\begin{verbatim}
+import std.stdio;
+
+void main() {
+ writeln("uloin a=", uloin());
+}
+
+int uloin() {
+  int a=1;
+  int keski() {
+    int a=2;
+    int sisin() {
+      int a=3;
+      return a;
+    }
+    writeln("sisin a=", sisin);
+    return a;
+  }
+  writeln("keski a=", keski());
+  return a;
+}
+\end{verbatim}
+P‰‰ohjelmassa kutsutaan funktiota uloin(), joka kutsuu funktiota keski(), josta kutsutaan funktiota sisin(). Kaikissa funktioissa muuttujalla a on eri arvot, jonka kukin palauttaa kutsuvalle funktiolle. Ohjelman tuloste on seuraavanlainen:
+\begin{verbatim}
+sisin a=3
+keski a=2
+uloin a=1
 \end{verbatim}
 
 %\end{verbatim}

@@ -136,16 +136,14 @@ with & \textunderscore \textunderscore FILE\textunderscore \textunderscore & \te
 \end{center}
 
 \subsection{Erlangin alkiorakenne}
--muuttujat alkavat isolla kirjaimella
--atomit = liteeraalivakioita, alkaa pienell‰, laitettava hipsuihin, jos alkaa muulla kuin alaviiva, kanelipulla, alfanumerinen merkki
-erlangissa on seuraavanlaisia tekstialkioita:
 
 
-erottimet:
+Erlangin erottimet ovat:
 \begin{verbatim}
 ( ) { } [ ] .  : | || ; , ? -> #
 \end{verbatim}
-avainsanat:
+
+Erlangin avainsanat ovat:
 \begin{verbatim}
  after cond let when 
  begin end  of
@@ -153,6 +151,9 @@ avainsanat:
  catch if   receive
 \end{verbatim}
 
+<<<<<<< HEAD
+Erlangin operaattorit ovat: 
+=======
 Kaikki avainsanat ovat varattuja sanoja. Niiden lis‰ksi varattuja sanoja ovat:
 
 \begin{verbatim}
@@ -164,6 +165,7 @@ when  xor
 \end{verbatim}
 
 operaattorit: 
+>>>>>>> 7035e06ecdf7c8f205da4192b3d10e15d82ee7c3
 \begin{verbatim}
  +   -    *   /    div rem
  or  xor  bor bxor bsl bsr and band
@@ -189,14 +191,6 @@ Ohjausmerkit (escape sequences):
 \end{verbatim}
 \textbackslash -merkill‰ voi kuvata myˆs oktaalinumeroita sek‰ ASCII-j‰rjestelm‰n erikoismerkkej‰.
 
-\begin{center}
-\begin{tabular}{lll}
-asdas & asdasd & asdasd\\
-asdasd & asdasd & asdasd\\
-asdasd & asdasd & asdasd
-\end{tabular}
-\end{center}
-
 Kokonaislukuliteraali voidaan ilmaista perinteiseen tapaan:
 \begin{verbatim}
  1 2 3 666
@@ -207,12 +201,36 @@ Tai merkitsem‰ll‰ ennen \#-merkki‰ luvun kantaluku:
 \end{verbatim}
 K‰‰nt‰j‰ ymm‰rt‰‰ em. tapauksissa tulkita luvut bin‰‰ri- ja heksadesimaaliluvuiksi.
 
-Liukulukuliteraalit ilmaistaan mahdollisella etumerkill‰, kokonaislukuosalla, desimaaliosalla ja mahdollisella eksponenttiosalla.  
-merkkiliteraaleja
-merkkijonoliteraaleja
-atomiliteraaleja
-muuttujien nime‰minen = tunnukset
-universaaleja muotoja (universal pattern) 
+Liukulukuliteraalit ilmaistaan mahdollisella etumerkill‰, kokonaislukuosalla, desimaaliosalla ja mahdollisella eksponenttiosalla:
+\begin{verbatim}
+ 1.0 -5.1e6 0.346e-20
+\end{verbatim}
+
+Merkkiliteraali ilmaistaan \$ -merkin per‰‰n kirjoitetulla merkill‰ tai ohjausmerkill‰ (escape secuence) : 
+\begin{verbatim}
+ $R $s $$ $\\
+\end{verbatim}
+
+Merkkijonoliteraali ilmaistaan merkeill‰, jotka ovat \" -merkkien sis‰ll‰: 
+\begin{verbatim}
+ "Pekka J‰rvel‰" "\n"
+\end{verbatim}
+
+
+
+Atomiliteraalit ovat Erlangin erikoisuus. Ne ovat merkkijonoliteraalivakioita, joiden arvo on atomi itse. Atomeihin ei voi sitoa mit‰‰n arvoa. Esimerkiksi atomi 
+\begin{verbatim}
+ auto
+\end{verbatim}
+tarkoittaa autoa, eik‰ mit‰‰n muuta. Atomi alkaa pienell‰ kirjaimella, \textunderscore :lla tai \makeatletter @ \makeatother -merkill‰. Jos atomin haluaa aloittaa muulla tavoin, tulee se ymp‰rˆid‰ \' -merkeill‰.  
+
+Muuttujan nimen tulee alkaa isolla kirjaimella,  \makeatletter @ \makeatother :ll‰, tai \textunderscore :lla:
+\begin{verbatim}
+ Data I 
+\end{verbatim}
+Koska mitk‰‰n varatut sanat, operaattorit tai avainsanat eiv‰t ala isolla kirjaimella, tulkintavirhe ei ole mahdollinen.  
+
+Universaalimerkkin‰ k‰ytet‰‰n '\textunderscore' -merkki‰. Sen voidaan ajatella olevan mik‰ tahansa merkki. Hahmonsovituksessa t‰h‰n merkkiin vertautuu mik‰ tahansa arvo totena.  
 
 \begin{verbatim}
 
@@ -253,10 +271,8 @@ keski a=2
 uloin a=1
 \end{verbatim}
 <<<<<<< HEAD
-
 =======
-<<<<<<< HEAD
-D-kieless‰ voidaan muuttuja m‰‰ritell‰ myˆs auto, jolloin muuttujalle arvataan tyyppi k‰‰nˆsvaiheessa. Alla on esimerkki t‰llaisesta.
+D-kieless‰ voidaan muuttuja m‰‰ritell‰ myˆs auto, jolloin muuttujan tyyppi p‰‰tell‰‰n k‰‰nˆsvaiheessa. Alla on esimerkki t‰llaisesta.
 \begin{verbatim}
 import std.stdio;
 
@@ -270,29 +286,25 @@ Ohjelma tulostaa seuraavasti:
 \begin{verbatim}
 merkkijonoliteraali ja ulong 123456789098776543
 \end{verbatim}
+>>>>>>> 7035e06ecdf7c8f205da4192b3d10e15d82ee7c3
 
-=======
->>>>>>> f3e84500e12208ef73cda37a6af0e31ed58a6262
->>>>>>> 9df5e5d1a415c816dd06435b3139325e08f64b5f
->>>>>>> 94e392adbdc7e8d448e2884e66f16659cdb6ae06
 \subsection{Ratkaisujen vertailua}
-...
-...
+D-kieli sis‰lt‰‰ paljon varattuja sanoja, joka on mahdollisesti osoitus paisuneesta kielest‰. Toisaalta kieli on melko rikas ja mahdollistaa erilaisia ohjelmointitapoja. Erlangissa varattuja sanoja on v‰h‰n. Molemmat kielet ovat vahvasti tyypitettyj‰. 
 \section{Kielten syntaksi spesifikaatioissa}
 
 D-kielen referenssidokumentti lˆytyy osoitteesta http://dlang.org. 
 
 
-ja tuloste n‰ytt‰‰ kuvan \ref{konsoli1} mukaiselta.
-\begin{figure}[tbh]
-%\begin{figure}[tbh] t= top, b = bottom, h=here
-\begin{center}
-\includegraphics[width=1.0\textwidth]{konsoli1.jpg}
-%\rotatebox{90}{\includegraphics[scale=.75]{esimerkki.pdf}}
-\caption{Tuloste konsolilla}
-\label{konsoli1}
-\end{center}
-\end{figure}
+%ja tuloste n‰ytt‰‰ kuvan \ref{konsoli1} mukaiselta.
+%\begin{figure}[tbh]
+%%\begin{figure}[tbh] t= top, b = bottom, h=here
+%\begin{center}
+%\includegraphics[width=1.0\textwidth]{konsoli1.jpg}
+%%\rotatebox{90}{\includegraphics[scale=.75]{esimerkki.pdf}}
+%\caption{Tuloste konsolilla}
+%\label{konsoli1}
+%\end{center}
+%\end{figure}
 
 \section{Yhteenveto}
 Yhteenvetona todettakoon, ett‰ D ja Erlang poikkeavat toisistaan...
