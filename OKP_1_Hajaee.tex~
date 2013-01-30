@@ -87,7 +87,9 @@ Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo' rivill‰ 1.
 fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs er‰‰ss‰ toisessa ohjelmointikieless‰, Haskellissa. 
 Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, joka on t‰ss‰ tapauksessa 'fibo' rivill‰ 1. Jotta moduulissa olevia metodeita pystyt‰‰n kutsumaan ohjelman ulkopuolelta, tulee ne m‰‰ritell‰ export-lauseella, kuten rivill‰ 2. Jokaisen m‰‰rityksen yhteydess‰ ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰. Rivill‰ 3 on varsinainen p‰‰metodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee. Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan. Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuper‰inen annettu luku N, palautetaan se. Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰, jotta seuraavalla kutsukerralla tutkittaisiin j‰rjestyksess‰ seuraavaa fibonaccin lukua. Rivill‰ 5 fibo-metodi 
 laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs er‰‰ss‰ toisessa ohjelmointikieless‰, Haskellissa. 
+
 \section{Kielten alkiorakenteen vertailu}
+
 D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimm‰ist‰ merkki‰ lukuunottamatta myˆs numerot ovat k‰ytˆss‰. Tunnusta ei voi myˆsk‰‰n aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin lˆytyv‰t termit abstract, final, switch ja class.
 
 Merkkijonoliteraali on D:ss‰ joko merkkijono kaksinkertaisissa lainausmerkeiss‰, "wysiwyg"-merkkijono, ohjausmerkki, rajattu merkkijono, j‰rjestetty merkkijono tai heksamerkkijono (?). Rivin loppumista kuvaava \begin{verbatim}"\n"\end{verbatim} lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
@@ -98,7 +100,7 @@ Heksamerkkijonot mahdollistavat merkkijonoliteraalien luomisen 	heksadatasta. He
 
 Rajoitetut merkkijonot k‰ytt‰v‰t useanlaisia erottimia, esimerkiksi merkkej‰ ja tunnuksia. Erottimen t‰ytyy saumattomasti jatkaa "-merkist‰ ilman v‰lilyˆntej‰, ja p‰‰tt‰v‰n erottimen t‰ytyy saumattomasti edelt‰‰ merkkijonon p‰‰tt‰v‰‰ "-merkki‰ ilman v‰lilyˆntej‰. 
 
-Tekstialkiot alkavat merkeill‰ "q{" ja p‰‰ttyv‰t merkkiin "}". V‰liss‰ tulee olla valideja D-kielen tekstialkioita. Merkkiliteraalit ovat yksitt‰isi‰ merkkej‰ tai ohjausmerkkej‰, jotka on ymp‰rˆity yksinkertaisilla lainausmerkeill‰, ' '. 
+Tekstialkiot alkavat merkeill‰ "q\{" ja p‰‰ttyv‰t merkkiin "\}". V‰liss‰ tulee olla valideja D-kielen tekstialkioita. Merkkiliteraalit ovat yksitt‰isi‰ merkkej‰ tai ohjausmerkkej‰, jotka on ymp‰rˆity yksinkertaisilla lainausmerkeill‰, ' '. 
 
 Kokonaisluvut voidaan m‰‰ritell‰ useissa eri kantalukuj‰rjestelmiss‰. Kymmenj‰rjestelm‰n luvut ovat yksinkertaisesti kymmenj‰rjestelm‰n numeroiden sarjoja, mutta bin‰‰rij‰rjestelm‰n luvut koostuvat bin‰‰rij‰rjestelm‰n numeroista, joita edelt‰‰ merkkojono "0b". Liukuluvut voidaan esitt‰‰ sek‰ kymmenluku- ett‰ heksadesimaalij‰rjestelm‰ss‰. 
 \begin{verbatim}
@@ -124,9 +126,9 @@ volatile wchar while with __FILE__
 %	//rivin perään tuleva kommentti 
 %	/+ nesting blokkikommentti +/
 %\end{verbatim}
-\subsection{Esimerkkej‰ ohjelmakoodista}
-...
-...
+\subsection{Erlangin alkiorakenne}
+
+
 \subsection{Ratkaisujen vertailua}
 ...
 ...

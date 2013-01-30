@@ -87,7 +87,9 @@ Ensimmäisenä tulee määritellä moduulin nimi, tässä tapauksessa 'fibo' rivillä 1.
 fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myös eräässä toisessa ohjelmointikielessä, Haskellissa. 
 Ensimmäisenä tulee määritellä moduulin nimi, joka on tässä tapauksessa 'fibo' rivillä 1. Jotta moduulissa olevia metodeita pystytään kutsumaan ohjelman ulkopuolelta, tulee ne määritellä export-lauseella, kuten rivillä 2. Jokaisen määrityksen yhteydessä ilmoitetaan kutsussa tarvittavien parametrien määrä. Rivillä 3 on varsinainen päämetodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimmäisen) fibonaccin luvun ohjelma laskee. Kyseessä oleva metodi kutsuu ainoastaan apumetodia compfibo, lisäten mukaan apuparametrin, joka pitää kirjaa siitä, monettako fibonaccin lukua kulloinkin haetaan. Rivillä 4 compfibo-metodi tallettaa ensimmäisenä muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuperäinen annettu luku N, palautetaan se. Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, että parametrin S arvoa kasvatetaan yhdellä, jotta seuraavalla kutsukerralla tutkittaisiin järjestyksessä seuraavaa fibonaccin lukua. Rivillä 5 fibo-metodi 
 laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myös eräässä toisessa ohjelmointikielessä, Haskellissa. 
+
 \section{Kielten alkiorakenteen vertailu}
+
 D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf), ja ensimmäistä merkkiä lukuunottamatta myös numerot ovat käytössä. Tunnusta ei voi myöskään aloittaa kahdella alaviivalla. D-kieli on "case sensitive", eli isot ja pienet kirjaimet on eroteltu toisistaan. Varattuja sanoja on noin sata, esimerkiksi Javastakin löytyvät termit abstract, final, switch ja class.
 
 Merkkijonoliteraali on D:ssä joko merkkijono kaksinkertaisissa lainausmerkeissä, "wysiwyg"-merkkijono, ohjausmerkki, rajattu merkkijono, järjestetty merkkijono tai heksamerkkijono (?). Rivin loppumista kuvaava \begin{verbatim}"\n"\end{verbatim} lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
@@ -124,9 +126,9 @@ volatile wchar while with __FILE__
 %	//rivin perŠŠn tuleva kommentti 
 %	/+ nesting blokkikommentti +/
 %\end{verbatim}
-\subsection{Esimerkkejä ohjelmakoodista}
-...
-...
+\subsection{Erlangin alkiorakenne}
+
+
 \subsection{Ratkaisujen vertailua}
 ...
 ...
