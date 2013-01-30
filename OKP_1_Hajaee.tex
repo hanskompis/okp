@@ -130,8 +130,35 @@ volatile wchar while with __FILE__
 %	/+ nesting blokkikommentti +/
 %\end{verbatim}
 \subsection{Esimerkkej‰ ohjelmakoodista}
-...
-...
+Alla on esimerkki D-kielen muuttujien n‰kyvyysalueista ja sis‰funktioista.
+\begin{verbatim}
+import std.stdio;
+
+void main() {
+ writeln("uloin a=", uloin());
+}
+
+int uloin() {
+  int a=1;
+  int keski() {
+    int a=2;
+    int sisin() {
+      int a=3;
+      return a;
+    }
+    writeln("sisin a=", sisin);
+    return a;
+  }
+  writeln("keski a=", keski());
+  return a;
+}
+\end{verbatim}
+P‰‰ohjelmassa kutsutaan funktiota uloin(), joka kutsuu funktiota keski(), josta kutsutaan funktiota sisin(). Kaikissa funktioissa muuttujalla a on eri arvot, jonka kukin palauttaa kutsuvalle funktiolle. Ohjelman tuloste on seuraavanlainen:
+\begin{verbatim}
+sisin a=3
+keski a=2
+uloin a=1
+\end{verbatim}
 \subsection{Ratkaisujen vertailua}
 ...
 ...
