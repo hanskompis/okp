@@ -4,7 +4,8 @@
 \contentsline {section}{\numberline {3}Kielten alkiorakenteen vertailu}{5}{section.3}
 \contentsline {subsection}{\numberline {3.1}D-kielen alkiorakenteen vertailua}{5}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}D-kielen varatut sanat}{6}{subsubsection.3.1.1}
-\contentsline {subsection}{\numberline {3.2}Esimerkkej\"a ohjelmakoodista}{7}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Ratkaisujen vertailua}{7}{subsection.3.3}
-\contentsline {section}{\numberline {4}Kielten syntaksi spesifikaatioissa}{7}{section.4}
-\contentsline {section}{\numberline {5}Yhtenveto}{7}{section.5}
+\contentsline {subsection}{\numberline {3.2}Erlangin alkiorakenne}{7}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Esimerkkej\"a ohjelmakoodista}{9}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Ratkaisujen vertailua}{9}{subsection.3.4}
+\contentsline {section}{\numberline {4}Kielten syntaksi spesifikaatioissa}{9}{section.4}
+\contentsline {section}{\numberline {5}Yhteenveto}{9}{section.5}
