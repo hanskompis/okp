@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.25)  29 JAN 2013 19:17
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  30 JAN 2013 15:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -443,15 +443,9 @@ get", ja wysiwyg-
  []
 
 
-Overfull \hbox (41.99182pt too wide) in paragraph at lines 98--101
-\T1/lmr/m/n/10.95 voi-daan ero-tel-la jo-ko r- tai '-merkein. Merk-ki-jo-not r"
-c:\root\foo.exe"ja []
- []
-
-
-Overfull \hbox (5.58008pt too wide) in paragraph at lines 98--101
-\T1/lmr/m/n/10.95 hek-sa-da-tas-ta. Hek-sa-da-tan ei tar-vit-se muo-dos-taa hy-
-väk-syt-ty-jä UTF-merkkejä.
+Overfull \hbox (1.96048pt too wide) in paragraph at lines 98--101
+\T1/lmr/m/n/10.95 `c:\root\foo.exe' ovat esi-merk-ke-jä wysiwyg-merkkijonoista.
+ Merk-ki-jo-not kak-
  []
 
 
@@ -476,10 +470,10 @@ Package rerunfilecheck Info: File `OKP_1_Hajaee.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 157.
  ) 
 Here is how much of TeX's memory you used:
- 6100 strings out of 493481
- 89509 string characters out of 3143393
+ 6098 strings out of 493481
+ 89486 string characters out of 3143393
  167089 words of memory out of 3000000
- 9317 multiletter control sequences out of 15000+200000
+ 9315 multiletter control sequences out of 15000+200000
  40652 words of font info for 37 fonts, out of 3000000 for 9000
  965 hyphenation exceptions out of 8191
  29i,6n,28p,1050b,436s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -488,7 +482,7 @@ public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public
 /lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on OKP_1_Hajaee.pdf (8 pages, 191285 bytes).
+Output written on OKP_1_Hajaee.pdf (8 pages, 190913 bytes).
 PDF statistics:
  117 PDF objects out of 1000 (max. 8388607)
  99 compressed objects within 1 object stream

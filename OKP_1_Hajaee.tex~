@@ -95,8 +95,8 @@ D-kielen tunnuksissa voi olla kirjaimia, alaviivoja tai universal alphoja (wtf),
 
 Merkkijonoliteraali on D:ssä joko merkkijono kaksinkertaisissa lainausmerkeissä, wysiwyg-merkkijono, ohjausmerkki (escape sequence), rajattu merkkijono (delimited string), järjestetty merkkijono tai heksamerkkijono (?). Rivin loppumista kuvaava \textbackslash n lasketaan yhdeksi merkiksi kaikissa merkkijonoliteraaleissa.
 
-Wysiwyg on lyhennys sanoista "what you see is what you get", ja wysiwyg-merkkijonoissa kaikki merkit toistetaan uskollisesti. Wysiwyg-merkkijonot voidaan erotella joko r- tai '-merkein. Merkkijonot r"c:\textbackslash root\textbackslash foo.exe" ja \mbox{`c: root\textbackslash foo.exe'} ovat esimerkkejä wysiwyg-merkkijonoista. Merkkijonot kaksinkertaisissa lainausmerkeissä ovat "-merkkien ympäröimiä. Ohjausmerkkejä voi sulauttaa näihin merkkijonoihin monista ohjelmointikielistä tutulla "\"-merkintätavalla, 
-kuten esimerkiksi merkkijonossa "c:\\root\\foo.exe".
+Wysiwyg on lyhennys sanoista "what you see is what you get", ja wysiwyg-merkkijonoissa kaikki merkit toistetaan uskollisesti. Wysiwyg-merkkijonot voidaan erotella joko r- tai '-merkein. Merkkijonot r"c:\textbackslash root\textbackslash foo.exe" ja \\          `c:\textbackslash root\textbackslash foo.exe' ovat esimerkkejä wysiwyg-merkkijonoista. Merkkijonot kaksinkertaisissa lainausmerkeissä ovat "-merkkien ympäröimiä. Ohjausmerkkejä voi sulauttaa näihin merkkijonoihin monista ohjelmointikielistä tutulla \textbackslash -merkintätavalla, 
+kuten esimerkiksi merkkijonossa "c:\textbackslash \textbackslash root\textbackslash \textbackslash foo.exe".
 Heksamerkkijonot mahdollistavat merkkijonoliteraalien luomisen 	heksadatasta. Heksadatan ei tarvitse muodostaa hyväksyttyjä UTF-merkkejä. Valinnainen StringPostfix-merkki antaa merkkijonolle määritellyn tyypin.
 
 Rajoitetut merkkijonot käyttävät useanlaisia erottimia, esimerkiksi merkkejä ja tunnuksia. Erottimen täytyy saumattomasti jatkaa "-merkistä ilman välilyöntejä, ja päättävän erottimen täytyy saumattomasti edeltää merkkijonon päättävää "-merkkiä ilman välilyöntejä. 
