@@ -87,9 +87,6 @@ Ohjelman suorittaminen n‰ytt‰‰ t‰lt‰:
 Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo', rivill‰ 1. Jotta moduulissa olevia metodeita pystyt‰‰n kutsumaan ohjelman ulkopuolelta, tulee ne m‰‰ritell‰ export-lauseella, kuten rivill‰ 2 on tehty. Jokaisen m‰‰rityksen yhteydess‰ ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰. Rivill‰ 3 on varsinainen p‰‰metodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) Fibonaccin luvun ohjelma laskee. Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako Fibonaccin lukua kulloinkin haetaan. 
 Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr Fibonaccin sarjan S:nen luvun. Jos t‰m‰ luku on suurempi kuin alkuper‰inen annettu luku N, se palautetaan. Muussa tapauksessa compfibo-metodia kutsutaan uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰. N‰in seuraavalla kutsukerralla tutkitaan j‰rjestyksess‰ seuraavaa Fibonaccin lukua. Rivill‰ 5 fibo-metodi laskee Fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs Haskell-ohjelmointikieless‰. 
 
-Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, joka on t‰ss‰ tapauksessa 'fibo' rivill‰ 1. Jotta moduulissa olevia metodeita pystyt‰‰n kutsumaan ohjelman ulkopuolelta, tulee ne m‰‰ritell‰ export-lauseella, kuten rivill‰ 2. Jokaisen m‰‰rityksen yhteydess‰ ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰. Rivill‰ 3 on varsinainen p‰‰metodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) fibonaccin luvun ohjelma laskee. Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako fibonaccin lukua kulloinkin haetaan. Rivill‰ 4 compfibo-metodi tallettaa ensimm‰isen‰ muuttujaan Curr fibonaccin sarjan S:nen luvun. Jos luku on suurempi kuin alkuper‰inen annettu luku N, palautetaan se. Muussa tapauksessa kutsutaan compfibo-metodia uudelleen siten, ett‰ parametrin S arvoa kasvatetaan yhdell‰, jotta seuraavalla kutsukerralla tutkittaisiin j‰rjestyksess‰ seuraavaa fibonaccin lukua. Rivill‰ 5 fibo-metodi 
-laskee fibonaccin N:nen luvun. Toimintatapa metodissa on hahmonsovitus, joka on yleinen myˆs er‰‰ss‰ toisessa ohjelmointikieless‰, Haskellissa. 
-
 \section{Kielten alkiorakenteen vertailu}
 
 \subsection{D-kielen alkiorakenteen vertailua}
@@ -109,24 +106,33 @@ Kokonaisluvut voidaan m‰‰ritell‰ useissa eri kantalukuj‰rjestelmiss‰. Kymmenj‰rj
 
 D-kielen varatut sanat
 
-\begin{verbatim}
-abstract alias align asm assert auto body
-bool break byte
-case cast catch cdouble cent cfloat char class const 
-continue creal dchar debug default delegate delete
-deprecated do double else enum export extern false
-final finally float for foreach foreach_reverse function 
-goto idouble if ifloat immutable import in inout int 
-interface invariant ireal is lazy long macro mixin 
-module new nothrow null out override package 
-pragma private protected public pure real ref 
-return scope shared short static struct super
-switch synchronized template this throw
-truetry typedef typeid typeof ubyte ucent uint 
-ulong union unittest ushort version void
-volatile wchar while with __FILE__
- __LINE__ __gshared __traits __vector __parameters
-\end{verbatim}
+\begin{center}
+\begin{tabular}{lllll}
+abstract & alias & align & asm & assert\\
+auto & body & bool & break & byte  \\
+case & cast & catch & cdouble & cent\\
+cfloat & char & class & const & continue\\
+creal & dchar & debug & delegate & delete\\
+default & deprecated & do & double & else\\
+enum & export & extern & false & final \\
+finally & float & for & foreach & foreach\textunderscore reverse\\
+function & goto & idouble & if & ifloat\\
+immutable & import & in & inout & int\\
+interface & invariant & ireal & is & lazy\\
+long & macro & mixin & module & new\\
+nothrow & null & out & override & package\\
+pragma & private & protected & public & pure\\
+real & ref & return & scope & shared\\
+short & static & struct & super & switch\\
+synchronized & template & this & throw & truetry\\
+typedef & typeid & typeof & ubyte & ucent\\
+uintn & ulong & union & unittest & ushort\\
+version & void & volatile & wchar & while\\
+with & \textunderscore \textunderscore FILE\textunderscore \textunderscore & \textunderscore \textunderscore LINE\textunderscore \textunderscore & \textunderscore \textunderscore gshared & \textunderscore \textunderscore traits\\
+\textunderscore \textunderscore vector & \textunderscore \textunderscore parameters & \\ & \\ & \\
+\end{tabular}
+\end{center}
+
 %\begin{verbatim}
 %	/* blokkikommentti */ 
 %	//rivin perään tuleva kommentti 
