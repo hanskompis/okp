@@ -76,9 +76,12 @@ Ohjelma, joka tulostaa ensimm‰isen syˆttˆlukua suuremman Fibonaccin luvun, n‰ytt
 8.  fibo(0) -> 0 ;
 9.  fibo(1) -> 1 ;
 10. fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
-11. fibo(0) -> 0 ;
-12. fibo(1) -> 1 ;
-13. fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
+\end{verbatim}
+Ohjelman suorittaminen n‰ytt‰‰ t‰lt‰:
+\begin{verbatim}
+1>fibo(0) -> 0 ;
+2>fibo(1) -> 1 ;
+3>fibo(N) when N > 1 -> fibo(N-1) + fibo(N-2) .
 \end{verbatim}
 
 Ensimm‰isen‰ tulee m‰‰ritell‰ moduulin nimi, t‰ss‰ tapauksessa 'fibo', rivill‰ 1. Jotta moduulissa olevia metodeita pystyt‰‰n kutsumaan ohjelman ulkopuolelta, tulee ne m‰‰ritell‰ export-lauseella, kuten rivill‰ 2 on tehty. Jokaisen m‰‰rityksen yhteydess‰ ilmoitetaan kutsussa tarvittavien parametrien m‰‰r‰. Rivill‰ 3 on varsinainen p‰‰metodi, jota kutsutaan halutulla parametrilla. Parametrina annetaan siis luku, jota suuremman (ensimm‰isen) Fibonaccin luvun ohjelma laskee. Kyseess‰ oleva metodi kutsuu ainoastaan apumetodia compfibo, lis‰ten mukaan apuparametrin, joka pit‰‰ kirjaa siit‰, monettako Fibonaccin lukua kulloinkin haetaan. 
@@ -102,7 +105,7 @@ Rajoitetut merkkijonot k‰ytt‰v‰t useanlaisia erottimia, esimerkiksi merkkej‰ ja 
 Tekstialkiot alkavat merkeill‰ \mbox {q\{ ja p‰‰ttyv‰t merkkiin \}}. V‰liss‰ tulee olla valideja D-kielen tekstialkioita. Merkkiliteraalit ovat yksitt‰isi‰ merkkej‰ tai ohjausmerkkej‰, jotka on ymp‰rˆity yksinkertaisilla lainausmerkeill‰, ' '. 
 
 Kokonaisluvut voidaan m‰‰ritell‰ useissa eri kantalukuj‰rjestelmiss‰. Kymmenj‰rjestelm‰n luvut ovat yksinkertaisesti kymmenj‰rjestelm‰n numeroiden sarjoja, mutta bin‰‰rij‰rjestelm‰n luvut koostuvat bin‰‰rij‰rjestelm‰n numeroista, joita edelt‰‰ merkkojono 0b. Liukuluvut voidaan esitt‰‰ sek‰ kymmenluku- ett‰ heksadesimaalij‰rjestelm‰ss‰. 
-\newpage
+
 \subsubsection{D-kielen avainsanat}
 
 \begin{center}
@@ -148,6 +151,9 @@ Erlangin avainsanat ovat:
  catch if   receive
 \end{verbatim}
 
+<<<<<<< HEAD
+Erlangin operaattorit ovat: 
+=======
 Kaikki avainsanat ovat varattuja sanoja. Niiden lis‰ksi varattuja sanoja ovat:
 
 \begin{verbatim}
@@ -158,8 +164,8 @@ orelse rem  try
 when  xor
 \end{verbatim}
 
-Operaattorit: 
-
+operaattorit: 
+>>>>>>> 7035e06ecdf7c8f205da4192b3d10e15d82ee7c3
 \begin{verbatim}
  +   -    *   /    div rem
  or  xor  bor bxor bsl bsr and band
@@ -210,30 +216,6 @@ Merkkijonoliteraali ilmaistaan merkeill‰, jotka ovat \" -merkkien sis‰ll‰:
  "Pekka J‰rvel‰" "\n"
 \end{verbatim}
 
-Atomiliteraalit ovat Erlangin erikoisuus. Ne ovat merkkijonoliteraalivakioita, joiden arvo on atomi itse. Atomeihin ei voi sitoa mit‰‰n arvoa. Esimerkiksi atomi 
-\begin{verbatim}
- auto
-\end{verbatim}
-tarkoittaa autoa, eik‰ mit‰‰n muuta. Atomi alkaa pienell‰ kirjaimella, \textunderscore :lla tai \makeatletter @ \makeatother -merkill‰. Jos atomin haluaa aloittaa muulla tavoin, tulee se ymp‰rˆid‰ \' -merkeill‰.  
-
-Muuttujan nimen tulee alkaa isolla kirjaimella,  \makeatletter @ \makeatother :ll‰, tai \textunderscore :lla:
-\begin{verbatim}
- Data I 
-\end{verbatim}
-Koska mitk‰‰n varatut sanat, operaattorit tai avainsanat eiv‰t ala isolla kirjaimella, tulkintavirhe ei ole mahdollinen.  
-
-Universaalimerkkin‰ k‰ytet‰‰n '\textunderscore' -merkki‰. Sen voidaan ajatella olevan mik‰ tahansa merkki. Hahmonsovituksessa t‰h‰n merkkiin vertautuu mik‰ tahansa arvo totena.  
-
-Merkkiliteraali ilmaistaan \$ -merkin per‰‰n kirjoitetulla merkill‰ tai ohjausmerkill‰ (escape secuence) : 
-\begin{verbatim}
- $R $s $$ $\\
-\end{verbatim}
-
-Merkkijonoliteraali ilmaistaan merkeill‰, jotka ovat \" -merkkien sis‰ll‰: 
-\begin{verbatim}
- "Pekka J‰rvel‰" "\n"
-\end{verbatim}
-
 
 
 Atomiliteraalit ovat Erlangin erikoisuus. Ne ovat merkkijonoliteraalivakioita, joiden arvo on atomi itse. Atomeihin ei voi sitoa mit‰‰n arvoa. Esimerkiksi atomi 
@@ -250,11 +232,11 @@ Koska mitk‰‰n varatut sanat, operaattorit tai avainsanat eiv‰t ala isolla kirjai
 
 Universaalimerkkin‰ k‰ytet‰‰n '\textunderscore' -merkki‰. Sen voidaan ajatella olevan mik‰ tahansa merkki. Hahmonsovituksessa t‰h‰n merkkiin vertautuu mik‰ tahansa arvo totena.  
 
-Kommentit ilmaistaan seuraavasti:
 \begin{verbatim}
-/* lohkokommentti */ 
-	//rivin per‰‰n tuleva kommentti
-	/+ alisteinen lohkokommentti +/
+
+/* blokkikommentti */ 
+%	//rivin per‰‰n tuleva kommentti
+%	/+ nesting blokkikommentti +/
 \end{verbatim}
 
 %\end{verbatim}
@@ -288,7 +270,8 @@ sisin a=3
 keski a=2
 uloin a=1
 \end{verbatim}
-
+<<<<<<< HEAD
+=======
 D-kieless‰ voidaan muuttuja m‰‰ritell‰ myˆs auto, jolloin muuttujan tyyppi p‰‰tell‰‰n k‰‰nˆsvaiheessa. Alla on esimerkki t‰llaisesta.
 \begin{verbatim}
 import std.stdio;
@@ -303,17 +286,15 @@ Ohjelma tulostaa seuraavasti:
 \begin{verbatim}
 merkkijonoliteraali ja ulong 123456789098776543
 \end{verbatim}
+>>>>>>> 7035e06ecdf7c8f205da4192b3d10e15d82ee7c3
 
 \subsection{Ratkaisujen vertailua}
 D-kieli sis‰lt‰‰ paljon varattuja sanoja, joka on mahdollisesti osoitus paisuneesta kielest‰. Toisaalta kieli on melko rikas ja mahdollistaa erilaisia ohjelmointitapoja. Erlangissa varattuja sanoja on v‰h‰n. Molemmat kielet ovat vahvasti tyypitettyj‰. 
-%\section{Kielten syntaksi spesifikaatioissa}
-%
-%D-kielen referenssidokumentti lˆytyy osoitteesta http://dlang.org. 
-\section{L‰hteet}
-D-kieli, http://dlang.org \\
-The D Programming Language, Andrei Alexandrescu, 2010 \\
-Erlang, http://www.erlang.org \\
-Learn you some Erlang, Fred HÈbert	 \\
+\section{Kielten syntaksi spesifikaatioissa}
+
+D-kielen referenssidokumentti lˆytyy osoitteesta http://dlang.org. 
+
+
 %ja tuloste n‰ytt‰‰ kuvan \ref{konsoli1} mukaiselta.
 %\begin{figure}[tbh]
 %%\begin{figure}[tbh] t= top, b = bottom, h=here
@@ -325,6 +306,6 @@ Learn you some Erlang, Fred HÈbert	 \\
 %\end{center}
 %\end{figure}
 
-%\section{Yhteenveto}
-%Yhteenvetona todettakoon, ett‰ D ja Erlang poikkeavat toisistaan...
+\section{Yhteenveto}
+Yhteenvetona todettakoon, ett‰ D ja Erlang poikkeavat toisistaan...
 \end{document}
