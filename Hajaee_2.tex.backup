@@ -1,0 +1,46 @@
+\documentclass[11pt,oneside,a4paper]{article}
+%\usepackage{ucs}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage[pdftex]{graphicx}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+%opening
+\title{}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+
+
+\section{Tunnusten näkyvyysalueet}
+lohkorakenne, litteä vs syvä
+
+sidonta, staattinen vs dynaaminen
+
+ensimmäisen toisen ja kolmannen luokan arvot
+
+sulkeumat
+
+esimerkit
+
+em. vertailu
+
+\section{Kontrollin ja laskennan ohjaus}
+valinta
+
+toisto eli iteraatio
+
+rekursio, häntärekursio
+
+ohjelmaesimerkit
+
+em. vertailu, edut ja haitat
+
+
+\end{document}
