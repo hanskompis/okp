@@ -151,9 +151,6 @@ Erlangin avainsanat ovat:
  catch if   receive
 \end{verbatim}
 
-<<<<<<< HEAD
-Erlangin operaattorit ovat: 
-=======
 Kaikki avainsanat ovat varattuja sanoja. Niiden lis‰ksi varattuja sanoja ovat:
 
 \begin{verbatim}
@@ -164,8 +161,8 @@ orelse rem  try
 when  xor
 \end{verbatim}
 
-operaattorit: 
->>>>>>> 7035e06ecdf7c8f205da4192b3d10e15d82ee7c3
+Operaattorit: 
+
 \begin{verbatim}
  +   -    *   /    div rem
  or  xor  bor bxor bsl bsr and band
@@ -270,8 +267,7 @@ sisin a=3
 keski a=2
 uloin a=1
 \end{verbatim}
-<<<<<<< HEAD
-=======
+
 D-kieless‰ voidaan muuttuja m‰‰ritell‰ myˆs auto, jolloin muuttujan tyyppi p‰‰tell‰‰n k‰‰nˆsvaiheessa. Alla on esimerkki t‰llaisesta.
 \begin{verbatim}
 import std.stdio;
@@ -286,7 +282,6 @@ Ohjelma tulostaa seuraavasti:
 \begin{verbatim}
 merkkijonoliteraali ja ulong 123456789098776543
 \end{verbatim}
->>>>>>> 7035e06ecdf7c8f205da4192b3d10e15d82ee7c3
 
 \subsection{Ratkaisujen vertailua}
 D-kieli sis‰lt‰‰ paljon varattuja sanoja, joka on mahdollisesti osoitus paisuneesta kielest‰. Toisaalta kieli on melko rikas ja mahdollistaa erilaisia ohjelmointitapoja. Erlangissa varattuja sanoja on v‰h‰n. Molemmat kielet ovat vahvasti tyypitettyj‰. 
