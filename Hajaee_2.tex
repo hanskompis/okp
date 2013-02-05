@@ -34,9 +34,13 @@ esimerkit
 em. vertailu
 
 \section{Kontrollin ja laskennan ohjaus - Erlang}
-Jotta voidaan ymmärtää Erlangin kontrollirakenteita, pitää ensimmäisenä selvittää hahmontunnistuksen mekanismi. Hahmontunnistus perustuu siihen, että
-funktioon määritellään useita funktiokutsuja siten, että jokaisessa kutsussa parametrit ovat lukumäärältään samat, mutta ovat arvoiltaan erilaiset. Ts. kun 
-funktiota kutsutaan tietyllä parametrilla, käydään järjestyksessä läpi eri funktion kutsuvaihtoehdot ja kun ensimmäinen parametreihin sopiva kutsuvaihtoehto löytyy, 
+Jotta voidaan ymmärtää Erlangin kontrollirakenteita, pitää ensimmäisenä
+selvittää hahmontunnistuksen mekanismi. Hahmontunnistus perustuu siihen, että
+funktioon määritellään useita funktiokutsuja siten, että jokaisessa kutsussa
+parametrit ovat lukumäärältään samat, mutta ovat arvoiltaan erilaiset. Ts. kun 
+funktiota kutsutaan tietyllä parametrilla, käydään järjestyksessä läpi eri
+funktion kutsuvaihtoehdot ja kun ensimmäinen parametreihin sopiva
+kutsuvaihtoehto löytyy, 
 toimitaan sen määrityksen mukaan. Helpoimmin asia selviää esimerkin avulla: 
 \begin{verbatim}
 1: tervehdi(mies, Nimi) -> io:format("Terppa, herra %s!",[Nimi]);
@@ -45,15 +49,22 @@ toimitaan sen määrityksen mukaan. Helpoimmin asia selviää esimerkin avulla:
 \end{verbatim}
 
 
-Kutsutaessa tervehdi-funktiota tervehdi(nainen,"Tuppurainen"), tutkitaan ensiksi, sopiiko parametrit  rivin 1 parametrisointivaihtoehtoon. Koska parametrit olivat epäsopivaiset, 
-yritetään kutsua sovittaa rivin kaksi parametrisointivaihtoehtoon. Tällä kertaa parametrit sopivat ja ohjelma tulostaa "Terppa, rouva Tuppurainen!". Jos funktiota olisi kutsuttu
-tervehdi(hermafrodiitti,"Höttölä"), olisi vasta rivin 3 parametrit osuneet oikeaan, ja silloin olisi toimittu tämän rivin määritysten mukaan. 
+Kutsutaessa tervehdi-funktiota tervehdi(nainen,"Tuppurainen"), tutkitaan
+ensiksi, sopiiko parametrit  rivin 1 parametrisointivaihtoehtoon. Koska
+parametrit olivat epäsopivaiset, 
+yritetään kutsua sovittaa rivin kaksi parametrisointivaihtoehtoon. Tällä kertaa
+parametrit sopivat ja ohjelma tulostaa "Terppa, rouva Tuppurainen!". Jos
+funktiota olisi kutsuttu
+tervehdi(hermafrodiitti,"Höttölä"), olisi vasta rivin 3 parametrit osuneet
+oikeaan, ja silloin olisi toimittu tämän rivin määritysten mukaan. 
 Rivin 3 toinen parametri on universaalimerkki, 
 johon voi sovittaa minkä tahansa arvon.
 
-Valintojen tekemiseen Erlangissa on em. hahmonsovituksen lisäksi mahdollista käyttää if-lauseita, guardeja sekä in case of -rakennetta.
+Valintojen tekemiseen Erlangissa on em. hahmonsovituksen lisäksi mahdollista
+käyttää if-lauseita, guardeja sekä in case of -rakennetta.
 
-Erlangissa if-rakenne ilmaistaan hieman esim. Javasta ja D:stä poikkeavalla tavalla, jota valotan seuraavassa esimerkissä. 
+Erlangissa if-rakenne ilmaistaan hieman esim. Javasta ja D:stä poikkeavalla
+tavalla, jota valotan seuraavassa esimerkissä. 
 
 \begin{verbatim}
 1: vertaa(N,M) -> 
@@ -63,10 +74,15 @@ Erlangissa if-rakenne ilmaistaan hieman esim. Javasta ja D:stä poikkeavalla tav
 5: 	 end . 
 \end{verbatim}
 
-Esimerkkifunktiossa siis verrataan kahta lukua ja toimitaan eri tavoin sen mukaan, mikä on vertailun tulos. Riveillä 2 ja 3 tutkitaan ovatko N ja M erisuuruiset, mutta rivillä 4 on hieman erikoiselta
-vaikuttava true, joka vastaa esim. D:n else:ä. Koko if-rakenne päätetään end sanaan ja pisteeseen. 
+Esimerkkifunktiossa siis verrataan kahta lukua ja toimitaan eri tavoin sen
+mukaan, mikä on vertailun tulos. Riveillä 2 ja 3 tutkitaan ovatko N ja M
+erisuuruiset, mutta rivillä 4 on hieman erikoiselta
+vaikuttava true, joka vastaa esim. D:n else:ä. Koko if-rakenne päätetään end
+sanaan ja pisteeseen. 
 
-Guardit ovat yksi Erlangin erikoisuus, joka on tuttu myös Haskellista. Guardit ovat keino tehdä hahmonsovituksesta hieman ilmaisuvoimaisempaa. Sen sijaan, että täysi-ikäisyyden osoittava ohjelma 
+Guardit ovat yksi Erlangin erikoisuus, joka on tuttu myös Haskellista. Guardit
+ovat keino tehdä hahmonsovituksesta hieman ilmaisuvoimaisempaa. Sen sijaan, että
+täysi-ikäisyyden osoittava ohjelma 
 toteutettaisiin näin: 
 \begin{verbatim}
 taysi_ika(1) -> false;
@@ -85,9 +101,13 @@ taysi_ika(N) when N < 18 -> false;
 taysi_ika(_) -> true . 
 \end{verbatim}
 
-Tällä tavoin voidaan jättää kirjoittamatta useita funktiokutsuvaihtoehtoja.  Tärkeää on muistaa, että guard-rakenteen tulee aina palauttaa true jollain vaihtoehdolla, muuten kääntäjä ilmoittaa virheestä.  
+Tällä tavoin voidaan jättää kirjoittamatta useita funktiokutsuvaihtoehtoja. 
+Tärkeää on muistaa, että guard-rakenteen tulee aina palauttaa true jollain
+vaihtoehdolla, muuten kääntäjä ilmoittaa virheestä.  
 
-Erlangissa on myös case…of -rakenne, joka mahdollistaa monipuoliset valintarakenteet, johon voidan yhdistää myös guardeja. Esimerkki selventää rakennetta helpoiten:
+Erlangissa on myös case…of -rakenne, joka mahdollistaa monipuoliset
+valintarakenteet, johon voidan yhdistää myös guardeja. Esimerkki selventää
+rakennetta helpoiten:
 \begin{verbatim}
 1: biitsi(Lampotila) -> 
 2:    case Lampotila of
@@ -97,12 +117,25 @@ Erlangissa on myös case…of -rakenne, joka mahdollistaa monipuoliset valintara
 6:         _ -> 'ei niin jees' 
 \end{verbatim}
 
-Ohjelma siis saa parametrinaan tuplen, jossa on lämpötila-asteikko ja astemäärä. Sen jälkeen case…of -rakenteessa riveillä  tutkitaan, minkä periaatteen mukaisesti astemäärää tutkitaan. Lopulta guardin avulla päätetään, onko parametrina 
-saatu lämpötila sopiva rantaelämään. Mielenkiintoinen kysymys on se, että mihin case…of -rakennetta tarvitaan, koska se on hyvin samanlainen funktiokutsujen hahmonsovituksen kanssa. Valinta kannattaa perustaa henkilökohtaisiin mieltymyksiin. 
+Ohjelma siis saa parametrinaan tuplen, jossa on lämpötila-asteikko ja astemäärä.
+Sen jälkeen case…of -rakenteessa riveillä  tutkitaan, minkä periaatteen
+mukaisesti astemäärää tutkitaan. Lopulta guardin avulla päätetään, onko
+parametrina 
+saatu lämpötila sopiva rantaelämään. Mielenkiintoinen kysymys on se, että mihin
+case…of -rakennetta tarvitaan, koska se on hyvin samanlainen funktiokutsujen
+hahmonsovituksen kanssa. Valinta kannattaa perustaa henkilökohtaisiin
+mieltymyksiin. 
 
-Erlangissa toistoa ja rekursiota ei voi erottaa toisistaan, koska rekursio on ainoa tapa suorittaa toistorakenteita. Erlangissa ei ole siis for- tai while -lauseita esim. D:n tai Javan tapaan. Listan läpikäynti Erlangissa perustuu kielen ominaisuuteen, että
-esim. koknaislukuja sisältävä lista [1,2,3,4]  voidaan ilmoittaa myös konstruktorioperaattoria '|' käyttäen [1|[2,3,4]], eli luku 1 liitetään listaan [2,3,4]. Lista voidaan ilmoittaa myös head- ja tail-funktioita käyttäen [Head|Tail] = [1,2,3,4] jolloin Head = 1 ja Tail = [2,3,4].
-Jos halutaan käydä lista läpi yksinkertaisesti siten, että laskemme jokaisen listan alkion yhteen, voidaan se Erlangissa tehdä esim. seuraavalla tavalla:
+Erlangissa toistoa ja rekursiota ei voi erottaa toisistaan, koska rekursio on
+ainoa tapa suorittaa toistorakenteita. Erlangissa ei ole siis for- tai while
+-lauseita esim. D:n tai Javan tapaan. Listan läpikäynti Erlangissa perustuu
+kielen ominaisuuteen, että
+esim. koknaislukuja sisältävä lista [1,2,3,4]  voidaan ilmoittaa myös
+konstruktorioperaattoria '|' käyttäen [1|[2,3,4]], eli luku 1 liitetään listaan
+[2,3,4]. Lista voidaan ilmoittaa myös head- ja tail-funktioita käyttäen
+[Head|Tail] = [1,2,3,4] jolloin Head = 1 ja Tail = [2,3,4].
+Jos halutaan käydä lista läpi yksinkertaisesti siten, että laskemme jokaisen
+listan alkion yhteen, voidaan se Erlangissa tehdä esim. seuraavalla tavalla:
 
 \begin{verbatim}
 1: summa([]) -> 0;
@@ -110,10 +143,16 @@ Jos halutaan käydä lista läpi yksinkertaisesti siten, että laskemme jokaisen
 \end{verbatim}
 
 
-Tässä funktiossa siis hahmonsovituksen avulla toteutetaan rekursiivinen listan läpikäynti. Rivillä 1 on toteutettu alkeistapaus, jossa lista on tyhjä ja jolloin alkioiden summa on 0. Rivillä kaksi summataan listan ensimmäinen alkio (Head) loppulistan 
-(Tail) alkioiden summan kanssa. Tällä tavoin voidaaan tehdä monipuolisia listan läpikäyntejä. 
+Tässä funktiossa siis hahmonsovituksen avulla toteutetaan rekursiivinen listan
+läpikäynti. Rivillä 1 on toteutettu alkeistapaus, jossa lista on tyhjä ja
+jolloin alkioiden summa on 0. Rivillä kaksi summataan listan ensimmäinen alkio
+(Head) loppulistan 
+(Tail) alkioiden summan kanssa. Tällä tavoin voidaaan tehdä monipuolisia listan
+läpikäyntejä. 
 
-Rekursio on Erlangissa yvin tavanomainen tapa tehdä asioita, semminkin kun muita toistorakenteita ei ole. Perinteinen rekursiolla tehtävä funktio on kertoma n!, joka voidaan ilmaista yhtälöparilla 
+Rekursio on Erlangissa yvin tavanomainen tapa tehdä asioita, semminkin kun muita
+toistorakenteita ei ole. Perinteinen rekursiolla tehtävä funktio on kertoma n!,
+joka voidaan ilmaista yhtälöparilla 
 
 \begin{displaymath}
 n! = \left\{ \begin{array}{ll}
@@ -122,13 +161,20 @@ n*((n-1)!) & \textrm{{jos n>0}}
 \end{array} \right.
 \end{displaymath}
 
-Tämä on on helposti ja ulkoasultaan elegantisti toteutettavissa Erlangilla hahmonsovitusta ja rekursiota hyväksikäyttäen:
+Tämä on on helposti ja ulkoasultaan elegantisti toteutettavissa Erlangilla
+hahmonsovitusta ja rekursiota hyväksikäyttäen:
 \begin{verbatim}
 kertoma(0) -> 1;
 kertoma(N) when N > 0 -> N*(kertoma(N-1)) .
 \end{verbatim}
-Jälleen aluksi tarkistetaan alkeistapaus, joka on tässä tapauksessa luvun 0 kertoma ja jos tämä rivi ei ota kiinni, suoritetaan seuraavan rivin rekursiivinen kutsu, jossa parametrilla N kerrotaan rekursiivisesti kutsuttavan kertoma(N-1) tulos.
-Kun rekursiokutsut saavuttavat tapauksen kertoma(0), palautuu tulos pitkin kutsuketjua alkuun. Tämän lähestymistavan huono puoli on se, että tietokoneen muistissa joudutaan pitämään koko ajan jokaisen kutsun 'välitulos'. Esimerkiksi edellisessä 
+Jälleen aluksi tarkistetaan alkeistapaus, joka on tässä tapauksessa luvun 0
+kertoma ja jos tämä rivi ei ota kiinni, suoritetaan seuraavan rivin
+rekursiivinen kutsu, jossa parametrilla N kerrotaan rekursiivisesti kutsuttavan
+kertoma(N-1) tulos.
+Kun rekursiokutsut saavuttavat tapauksen kertoma(0), palautuu tulos pitkin
+kutsuketjua alkuun. Tämän lähestymistavan huono puoli on se, että tietokoneen
+muistissa joudutaan pitämään koko ajan jokaisen kutsun 'välitulos'. Esimerkiksi
+edellisessä 
 kertomaesimerkissä parametrilla 3 laskenta menisi seuraavasti:
 \begin{verbatim}
 kertoma(3) = 3*(kertoma(2))
@@ -139,8 +185,12 @@ kertoma(3) = 3*(kertoma(2))
                  = 3*(2)
                  = 6
 \end{verbatim}
-Joutuisimme pitämään muistissa kaikki nuo 7 välivaihetta. Tässä tapauksessa tämä ei olisi ongelma, mutta jos parametrina annettaisin joku todella suuri luku, muistin riittävyys muodostuisi ongelmaksi. 
-Tämän ongelman voi ohittaa häntärekursiolla. Häntärekursiivinen kertomafunktio toteutetaan toteutamalla myös apufunktio hantakertoma(N,Acc) johon otetaan mukaan vielä toinen parametri Acc, johon tallennetaan laskennan 
+Joutuisimme pitämään muistissa kaikki nuo 7 välivaihetta. Tässä tapauksessa tämä
+ei olisi ongelma, mutta jos parametrina annettaisin joku todella suuri luku,
+muistin riittävyys muodostuisi ongelmaksi. 
+Tämän ongelman voi ohittaa häntärekursiolla. Häntärekursiivinen kertomafunktio
+toteutetaan toteutamalla myös apufunktio hantakertoma(N,Acc) johon otetaan
+mukaan vielä toinen parametri Acc, johon tallennetaan laskennan 
 välivaiheiden tulokset:
 \begin{verbatim}
 kertoma(N) -> hantakertoma(N,1) .
@@ -157,11 +207,91 @@ kertoma(3) = hantakertoma (3,1)
                  = hantakertoma (1-1,1*6)
                  = 6
 \end{verbatim}
-Tässä tapauksessa joudumme pitämään ainoastaan kaksi lukua muistissa koko laskennan ajan kun normaalissa rekursiossa joudumme pitämään kaikki rekursiokutsuketjun välivaiheet muistissa. Jos unohdetaan se, kuinka paljon luvun 3 ja 1000 000 esittäminen kuluttaa muistia, kertoma(3) ja kertoma(1000000) vaativat saman vakiomäärän muistia. 
+Tässä tapauksessa joudumme pitämään ainoastaan kaksi lukua muistissa koko
+laskennan ajan kun normaalissa rekursiossa joudumme pitämään kaikki
+rekursiokutsuketjun välivaiheet muistissa. Jos unohdetaan se, kuinka paljon
+luvun 3 ja 1000 000 esittäminen kuluttaa muistia, kertoma(3) ja kertoma(1000000)
+vaativat saman vakiomäärän muistia. 
 
 \section{Kontrollin ja laskennan ohjaus - D}
 
+\subsection{Valinta}
 
+If-lause on toteutettu D:ssä melko tyypillisellä tavalla:
+
+\begin{verbatim}
+if (a==b) {
+   writeln("A ja B ovat samoja.");
+}
+else {
+   writeln("A ja B eivät ole samoja.");
+}
+\end{verbatim}
+
+Toisin kuin muilla kielillä, D:llä ei ole ``tyhjän lauseen'' (empty statement)
+konstruktiota. Koodinpätkä
+
+\begin{verbatim}
+if (a == b);
+\end{verbatim}
+
+ei siis ole D:n hyväksymää. Sen sijaan tulisi kirjoittaa
+
+\begin{verbatim}
+if (a == b) {}
+\end{verbatim}
+
+Else-lause on aina sidottu lähimpään if-lauseeseen. Esimerkiksi:
+
+\begin{verbatim}
+if (a == b)
+   if (b == c)
+      writeln("B ja C ovat samoja.");
+   else
+      writeln("B ja C eivät ole samoja.");
+\end{verbatim}
+
+Useat laskeutuvat (cascading) if-else -lauseet toteutetaan kuten C-kielessä.
+
+
+D:n static if -lause on C-kielen \#if-rakennetta muistuttava kääntämisajan
+(compile-time) selektori. Tullessaan static if -lauseen kohdalle kääntäjä arvioi
+ohjaavan lausekkeen. Jos lauseke ei ole tyhjä, vastaava koodi käännetään. Muussa
+tapauksessa ainoastaan mahdollisen else-lause käännetään. 
+
+Static if -lauseen testaama lauseke voi olla mikä vain if-testattava lauseke,
+jota voidaan arvioida kääntämisen aikana. Mahdollisia lausekkeisiin kuuluvat
+myös funktiokutsut.
+
+Goto-lause toimii D:ssa allaolevalla tavalla:
+
+\begin{verbatim}
+goto <nimi>;
+\end{verbatim}
+
+D:ssa goton käyttöön ei liity paljoa rajoituksia. Goto voi hypätä eteen- tai taaksepäin ja sisään ja ulos lauseista. Symbolin <nimi> tulee kuitenkin olla näkyvissä funktiossa, missä gotoa kutsutaan. 
+
+
+\subsection{Toisto}
+
+While- ja do-while -lauseet ovat hyvin samankaltaisia, kuin vaikkapa
+Java-kielessä. Myös myös for- ja foreach-lauseet noudattavat Javasta tuttua
+muotoa, mutta foreach-lauseen voi ilmaista D:ssä myös for-lauseella allaolevalla
+tavalla:
+
+\begin{verbatim}
+{
+   auto __n = <lauseke1> ;
+   auto <symboli> = true ? <lauseke1> : <lauseke2>;
+   for ( ; <symboli> < __n; ++ , symboli> ) <lause>
+}
+\end{verbatim}
+
+\_\_n on kääntäjän generoima symboli, joka ei voi koskaan sekaantua muihin
+symboleihin. SELITÄ LISÄÄ??!! Uloimmat aaltosulkeet varmistavat, että koko
+rakenne pysyy yhtenä lauseena. ?-merkkialkiolla ei ole suorituksenaikaista
+tarkoitusta, mutta se estää sekaannusta mm. eri tarkkuuksia edustavien lukujen
+välillä.
 
 
 \end{document}

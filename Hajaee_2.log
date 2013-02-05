@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  4 FEB 2013 16:59
-=======
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  4 FEB 2013 20:42
->>>>>>> 7009a7a5a6ad75a3c5aaade7b1f5431d2c3155b0
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  5 FEB 2013 22:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -706,18 +702,18 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 18.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 18.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 41.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 45.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Overfull \hbox (13.66768pt too wide) in paragraph at lines 45--45
+Overfull \hbox (13.66768pt too wide) in paragraph at lines 49--49
 []\T1/lmtt/m/n/10.95 1: tervehdi(mies, Nimi) -> io:format("Terppa, herra %s!",[
 Nimi]);[] 
  []
 
 
-Overfull \hbox (19.41641pt too wide) in paragraph at lines 45--45
+Overfull \hbox (19.41641pt too wide) in paragraph at lines 49--49
 []\T1/lmtt/m/n/10.95 2: tervehdi(nainen,Nimi) -> io:format("Terppa, rouva %s!",
 [Nimi]);[] 
  []
@@ -725,64 +721,45 @@ Overfull \hbox (19.41641pt too wide) in paragraph at lines 45--45
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (53.90881pt too wide) in paragraph at lines 98--98
+Overfull \hbox (53.90881pt too wide) in paragraph at lines 118--118
 []\T1/lmtt/m/n/10.95 4:        {kelvin, N}  when N >= 293, N =< 318 -> 'tieteel
 lisesti jees';[] 
  []
 
 
-Overfull \hbox (94.14995pt too wide) in paragraph at lines 98--98
+Overfull \hbox (94.14995pt too wide) in paragraph at lines 118--118
 []\T1/lmtt/m/n/10.95 5:        {fahrenheit, N}  when N >= 68, N =< 113 -> 'amer
 ikkalaisittain jees';[] 
  []
 
-<<<<<<< HEAD
 [2]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 118.
- [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 163.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 163.
+(Font)              <10.95> on input line 157.
+ [3] [4]
+Overfull \hbox (6.30702pt too wide) in paragraph at lines 254--255
+[]\T1/lmr/m/n/10.95 Useat las-keu-tu-vat (casca-ding) if-else -lauseet to-teu-t
+e-taan ku-ten C-kielessä. 
+ []
+
+[5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 297.
+ [6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 297.
  (./Hajaee_2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 163.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 163.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 297.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 297.
 Package rerunfilecheck Info: File `Hajaee_2.out' has not changed.
-(rerunfilecheck)             Checksum: 03C156DE79060657ADBEA1FCD7CE6CAD;138.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 163.
+(rerunfilecheck)             Checksum: 7D5F60F89CA46B97BC8939B125D99EE5;327.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 297.
  ) 
 Here is how much of TeX's memory you used:
- 6298 strings out of 493481
- 90724 string characters out of 3143393
-=======
-[2] [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 162.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 162.
- (./Hajaee_2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 162.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 162.
-
-
-Package rerunfilecheck Warning: File `Hajaee_2.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Hajaee_2.out':
-(rerunfilecheck)             Before: 03C156DE79060657ADBEA1FCD7CE6CAD;138
-(rerunfilecheck)             After:  1D453B807EB4215F6AB54DD5C94775F0;207.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 162.
- ) 
-Here is how much of TeX's memory you used:
- 6293 strings out of 493481
- 90648 string characters out of 3143393
->>>>>>> 7009a7a5a6ad75a3c5aaade7b1f5431d2c3155b0
- 169044 words of memory out of 3000000
- 9522 multiletter control sequences out of 15000+200000
- 34659 words of font info for 35 fonts, out of 3000000 for 9000
+ 6307 strings out of 493481
+ 90830 string characters out of 3143393
+ 170047 words of memory out of 3000000
+ 9526 multiletter control sequences out of 15000+200000
+ 37657 words of font info for 36 fonts, out of 3000000 for 9000
  965 hyphenation exceptions out of 8191
-<<<<<<< HEAD
- 29i,8n,28p,370b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,8n,28p,232b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/l
@@ -792,22 +769,10 @@ f/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi
 s/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1
 /public/lm/lmtt10.pfb>
-Output written on Hajaee_2.pdf (4 pages, 148413 bytes).
+Output written on Hajaee_2.pdf (6 pages, 156251 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
- 7 named destinations out of 1000 (max. 500000)
-=======
- 29i,6n,28p,370b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/
-public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Hajaee_2.pdf (4 pages, 140101 bytes).
-PDF statistics:
- 58 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
- 8 named destinations out of 1000 (max. 500000)
->>>>>>> 7009a7a5a6ad75a3c5aaade7b1f5431d2c3155b0
- 17 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 95 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
+ 12 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

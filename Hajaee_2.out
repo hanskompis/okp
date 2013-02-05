@@ -1,3 +1,5 @@
 \BOOKMARK [1][-]{section.1}{Tunnusten n\344kyvyysalueet ja sidonta}{}% 1
-\BOOKMARK [1][-]{section.2}{Kontrollin ja laskennan ohjaus}{}% 2
-\BOOKMARK [1][-]{section.3}{D:n kontrollin ja laskennan ohjaus}{}% 3
+\BOOKMARK [1][-]{section.2}{Kontrollin ja laskennan ohjaus - Erlang}{}% 2
+\BOOKMARK [1][-]{section.3}{Kontrollin ja laskennan ohjaus - D}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Valinta}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Toisto}{section.3}% 5
