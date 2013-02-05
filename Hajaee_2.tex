@@ -33,7 +33,7 @@ esimerkit
 
 em. vertailu
 
-\section{Kontrollin ja laskennan ohjaus}
+\section{Kontrollin ja laskennan ohjaus - Erlang}
 Jotta voidaan ymmärtää Erlangin kontrollirakenteita, pitää ensimmäisenä selvittää hahmontunnistuksen mekanismi. Hahmontunnistus perustuu siihen, että
 funktioon määritellään useita funktiokutsuja siten, että jokaisessa kutsussa parametrit ovat lukumäärältään samat, mutta ovat arvoiltaan erilaiset. Ts. kun 
 funktiota kutsutaan tietyllä parametrilla, käydään järjestyksessä läpi eri funktion kutsuvaihtoehdot ja kun ensimmäinen parametreihin sopiva kutsuvaihtoehto löytyy, 
@@ -158,6 +158,10 @@ kertoma(3) = hantakertoma (3,1)
                  = 6
 \end{verbatim}
 Tässä tapauksessa joudumme pitämään ainoastaan kaksi lukua muistissa koko laskennan ajan kun normaalissa rekursiossa joudumme pitämään kaikki rekursiokutsuketjun välivaiheet muistissa. Jos unohdetaan se, kuinka paljon luvun 3 ja 1000 000 esittäminen kuluttaa muistia, kertoma(3) ja kertoma(1000000) vaativat saman vakiomäärän muistia. 
+
+\section{Kontrollin ja laskennan ohjaus - D}
+
+
 
 
 \end{document}
