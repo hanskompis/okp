@@ -115,12 +115,17 @@ Tässä funktiossa siis hahmonsovituksen avulla toteutetaan rekursiivinen listan
 
 Rekursio on Erlangissa yvin tavanomainen tapa tehdä asioita, semminkin kun muita toistorakenteita ei ole. Perinteinen rekursiolla tehtävä funktio on kertoma n!, joka voidaan ilmaista yhtälöparilla 
 
-kaava!!!!
+\begin{displaymath}
+n! = \left\{ \begin{array}{ll}
+1 & \textrm{jos n=0}\\
+n*((n-1)!) & \textrm{{jos n>0}}
+\end{array} \right.
+\end{displaymath}
 
 Tämä on on helposti ja ulkoasultaan elegantisti toteutettavissa Erlangilla hahmonsovitusta ja rekursiota hyväksikäyttäen:
 \begin{verbatim}
 kertoma(0) -> 1;
-kertoma(N) -> N*(kertoma(N-1)) .
+kertoma(N) when N > 0 -> N*(kertoma(N-1)) .
 \end{verbatim}
 Jälleen aluksi tarkistetaan alkeistapaus, joka on tässä tapauksessa luvun 0 kertoma ja jos tämä rivi ei ota kiinni, suoritetaan seuraavan rivin rekursiivinen kutsu, jossa parametrilla N kerrotaan rekursiivisesti kutsuttavan kertoma(N-1) tulos.
 Kun rekursiokutsut saavuttavat tapauksen kertoma(0), palautuu tulos pitkin kutsuketjua alkuun. Tämän lähestymistavan huono puoli on se, että tietokoneen muistissa joudutaan pitämään koko ajan jokaisen kutsun 'välitulos'. Esimerkiksi edellisessä 

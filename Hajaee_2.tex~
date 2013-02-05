@@ -115,7 +115,12 @@ Tässä funktiossa siis hahmonsovituksen avulla toteutetaan rekursiivinen listan
 
 Rekursio on Erlangissa yvin tavanomainen tapa tehdä asioita, semminkin kun muita toistorakenteita ei ole. Perinteinen rekursiolla tehtävä funktio on kertoma n!, joka voidaan ilmaista yhtälöparilla 
 
-kaava!!!!
+\begin{displaymath}
+n! = \left\{ \begin{array}{ll}
+1 & \textrm{jos n=0}\\
+n*((n-1)!) & \textrm{{jos n>0}}
+\end{array} \right.
+\end{displaymath}
 
 Tämä on on helposti ja ulkoasultaan elegantisti toteutettavissa Erlangilla hahmonsovitusta ja rekursiota hyväksikäyttäen:
 \begin{verbatim}
