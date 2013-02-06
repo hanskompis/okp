@@ -327,6 +327,6 @@ class List {
 
 Alustaakseen listan lopun konstruktori soveltaa itseensä rekursiota lyhyemmällä
 taulukolla. Listan alustaminen silmukassa ei kääntyisi, koska listaa ei voi
-lukea samalla kun sitä luo. Rekursion käyttäminen ratkaisee ongelman. HIRVEÄTÄ
+lukea samalla, kun sitä luo. Rekursion käyttäminen ratkaisee ongelman. HIRVEÄTÄ
 SOOPAA, TEE TÄLLE JOTAIN
 \end{document}

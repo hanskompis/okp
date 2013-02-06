@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  6 FEB 2013 15:32
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  6 FEB 2013 16:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -753,22 +753,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 332.
  (./Hajaee_2.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 332.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 332.
-
-
-Package rerunfilecheck Warning: File `Hajaee_2.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Hajaee_2.out':
-(rerunfilecheck)             Before: 7D5F60F89CA46B97BC8939B125D99EE5;327
-(rerunfilecheck)             After:  0BC6BB47317EC534FCB327037A370CCF;384.
+Package rerunfilecheck Info: File `Hajaee_2.out' has not changed.
+(rerunfilecheck)             Checksum: 0BC6BB47317EC534FCB327037A370CCF;384.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 332.
  ) 
 Here is how much of TeX's memory you used:
- 6308 strings out of 493481
- 90844 string characters out of 3143393
+ 6309 strings out of 493481
+ 90860 string characters out of 3143393
  170047 words of memory out of 3000000
- 9526 multiletter control sequences out of 15000+200000
+ 9527 multiletter control sequences out of 15000+200000
  37657 words of font info for 36 fonts, out of 3000000 for 9000
  965 hyphenation exceptions out of 8191
  29i,8n,28p,206b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -781,10 +774,10 @@ f/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi
 s/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1
 /public/lm/lmtt10.pfb>
-Output written on Hajaee_2.pdf (6 pages, 158253 bytes).
+Output written on Hajaee_2.pdf (6 pages, 158299 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
+ 100 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
  13 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 49 words of extra memory for PDF output out of 10000 (max. 10000000)
 
