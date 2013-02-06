@@ -227,20 +227,17 @@ else {
    writeln("A ja B eivät ole samoja.");
 }
 \end{verbatim}
-
 Toisin kuin muilla kielillä, D:llä ei ole ``tyhjän lauseen'' (empty statement)
 konstruktiota. Koodinpätkä
 
 \begin{verbatim}
 if (a == b);
 \end{verbatim}
-
 ei siis ole D:n hyväksymää. Sen sijaan tulisi kirjoittaa
 
 \begin{verbatim}
 if (a == b) {}
 \end{verbatim}
-
 Else-lause on aina sidottu lähimpään if-lauseeseen. Esimerkiksi:
 
 \begin{verbatim}
@@ -250,9 +247,7 @@ if (a == b)
    else
       writeln("B ja C eivät ole samoja.");
 \end{verbatim}
-
 Useat laskeutuvat (cascading) if-else -lauseet toteutetaan kuten C-kielessä.
-
 
 D:n static if -lause on C-kielen \#if-rakennetta muistuttava kääntämisajan
 (compile-time) selektori. Tullessaan static if -lauseen kohdalle kääntäjä arvioi
@@ -268,7 +263,6 @@ Goto-lause toimii D:ssa allaolevalla tavalla:
 \begin{verbatim}
 goto <nimi>;
 \end{verbatim}
-
 D:ssa goto-lauseen käyttöön ei liity paljoa rajoituksia, mikä D:n pääkehittäjä
 Andrei Alexandrescun mukaan tekee gotosta ongelmallisen työkalun. Goto voi
 hypätä eteen- tai taaksepäin ja sisään ja ulos lauseista. Symbolin <nimi> tulee
@@ -284,7 +278,6 @@ Java-kielessä.
 while (i => 0)
    --i;
 \end{verbatim}
-
 Kuten Javassa, koodin suoritus alkaa arvioimalla while-ehtoa. Jos lauseke ei ole
 tyhjä, silmukan sisällä olevaa lause suoritetaan, ja silmukka alkaa uudestaan
 while-ehdon arvionnilla. Do - while -lauseessa vastaava lauseke suoritetaan heti
@@ -294,17 +287,15 @@ pakollinen puolipiste lauseen lopussa.
 \begin{verbatim}
 do (--i) while (i => 0);
 \end{verbatim}
-
 Taulukoiden käsittelyyn foreach-lauseesta on olemassa allaoleva muoto:
 
 \begin{verbatim}
-foreach (<symboli> ; <lauseke>) <lause>
+foreach(kappale ; joukko) {
+   teeJotain(kappale);
+}
 \end{verbatim}
-
-Lausekkeen tulee olla taulukko, SLICE? tai käyttäjän määrittelemä tyyppi. Kun
-<lauseke> on arvioitu kerran, viite siihen tallennetaan väliaikaisesti.
-<symboli> sidotaan vuorotellen jokaiseen taulukon elementtiin, ja <lause>
-suoritetaan. <symboli>:n yhteyteen voi määritellä myös sen tyypin. 
+Foreach-lause toimii siis kuten esimerkiksi Java-kielessä. Kappaleen viite sidotaan vuorotellen jokaiseen joukko-listan elementtiin, ja teeJotain() -metodi
+suoritetaan jokaisen elementin kohdalla. 
 
 \subsection{Rekursio}
 

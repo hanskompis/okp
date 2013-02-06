@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  6 FEB 2013 16:30
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  6 FEB 2013 16:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -735,27 +735,16 @@ ikkalaisittain jees';[]
 [2]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 157.
- [3] [4]
-Overfull \hbox (6.30702pt too wide) in paragraph at lines 254--255
-[]\T1/lmr/m/n/10.95 Useat las-keu-tu-vat (casca-ding) if-else -lauseet to-teu-t
-e-taan ku-ten C-kielessä. 
- []
-
-[5]
-Overfull \hbox (0.64822pt too wide) in paragraph at lines 304--308
-[]\T1/lmr/m/n/10.95 Lausekkeen tu-lee ol-la tau-luk-ko, SLICE? tai käyt-tä-jän 
-mää-rit-te-le-mä tyyp-
- []
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 312.
-[6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 312.
+ [3] [4] [5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 302.
+ [6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 302.
  (./Hajaee_2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 312.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 312.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 302.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 302.
 Package rerunfilecheck Info: File `Hajaee_2.out' has not changed.
 (rerunfilecheck)             Checksum: 0BC6BB47317EC534FCB327037A370CCF;384.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 312.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 302.
  ) 
 Here is how much of TeX's memory you used:
  6309 strings out of 493481
@@ -774,7 +763,7 @@ f/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi
 s/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1
 /public/lm/lmtt10.pfb>
-Output written on Hajaee_2.pdf (6 pages, 156665 bytes).
+Output written on Hajaee_2.pdf (6 pages, 156716 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  83 compressed objects within 1 object stream
