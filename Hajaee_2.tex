@@ -269,7 +269,10 @@ Goto-lause toimii D:ssa allaolevalla tavalla:
 goto <nimi>;
 \end{verbatim}
 
-D:ssa goton käyttöön ei liity paljoa rajoituksia. Goto voi hypätä eteen- tai taaksepäin ja sisään ja ulos lauseista. Symbolin <nimi> tulee kuitenkin olla näkyvissä funktiossa, missä gotoa kutsutaan. 
+D:ssa goto-lauseen käyttöön ei liity paljoa rajoituksia, mikä D:n pääkehittäjä
+Andrei Alexandrescun mukaan tekee gotosta ongelmallisen työkalun. Goto voi
+hypätä eteen- tai taaksepäin ja sisään ja ulos lauseista. Symbolin <nimi> tulee
+kuitenkin olla näkyvissä funktiossa, missä gotoa kutsutaan. 
 
 
 \subsection{Toisto}
@@ -293,5 +296,37 @@ rakenne pysyy yhtenä lauseena. ?-merkkialkiolla ei ole suorituksenaikaista
 tarkoitusta, mutta se estää sekaannusta mm. eri tarkkuuksia edustavien lukujen
 välillä.
 
+Taulukoiden käsittelyyn foreach-lauseesta on olemassa allaoleva muoto:
 
+\begin{verbatim}
+foreach (<symboli> ; <lauseke>) <lause>
+\end{verbatim}
+
+Lausekkeen tulee olla taulukko, SLICE? tai käyttäjän määrittelemä tyyppi. Kun
+<lauseke> on arvioitu kerran, viite siihen tallennetaan väliaikaisesti.
+<symboli> sidotaan vuorotellen jokaiseen taulukon elementtiin, ja <lause>
+suoritetaan. <symboli>:n yhteyteen voi määritellä myös sen tyypin. 
+
+\subsection{Rekursio}
+
+Rekursiosta on hyötyä D:ssä alustaessa monimutkaisia immutaabeleita olioita.
+Alla on esimerkki taulukosta alustetusta listasta:
+
+\begin{verbatim}
+class List {
+   private int arvo;
+   private List seuraava;
+   this(int[] data) immutable {
+      pakota(data.length);
+      arvo = data[0];
+      if (data.length == 1) return;
+      next = new immutable(List)(data[1 . $]);
+   }
+}
+\end{verbatim}
+
+Alustaakseen listan lopun konstruktori soveltaa itseensä rekursiota lyhyemmällä
+taulukolla. Listan alustaminen silmukassa ei kääntyisi, koska listaa ei voi
+lukea samalla, kun sitä luo. Rekursion käyttäminen ratkaisee ongelman. HIRVEÄTÄ
+SOOPAA, TEE TÄLLE JOTAIN
 \end{document}

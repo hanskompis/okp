@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  5 FEB 2013 22:12
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  6 FEB 2013 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -742,24 +742,36 @@ e-taan ku-ten C-kielessä.
  []
 
 [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 297.
- [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 297.
+Overfull \hbox (0.64822pt too wide) in paragraph at lines 305--309
+[]\T1/lmr/m/n/10.95 Lausekkeen tu-lee ol-la tau-luk-ko, SLICE? tai käyt-tä-jän 
+mää-rit-te-le-mä tyyp-
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 332.
+[6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 332.
  (./Hajaee_2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 297.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 297.
-Package rerunfilecheck Info: File `Hajaee_2.out' has not changed.
-(rerunfilecheck)             Checksum: 7D5F60F89CA46B97BC8939B125D99EE5;327.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 297.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 332.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 332.
+
+
+Package rerunfilecheck Warning: File `Hajaee_2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Hajaee_2.out':
+(rerunfilecheck)             Before: 7D5F60F89CA46B97BC8939B125D99EE5;327
+(rerunfilecheck)             After:  0BC6BB47317EC534FCB327037A370CCF;384.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 332.
  ) 
 Here is how much of TeX's memory you used:
- 6307 strings out of 493481
- 90830 string characters out of 3143393
+ 6308 strings out of 493481
+ 90844 string characters out of 3143393
  170047 words of memory out of 3000000
  9526 multiletter control sequences out of 15000+200000
  37657 words of font info for 36 fonts, out of 3000000 for 9000
  965 hyphenation exceptions out of 8191
- 29i,8n,28p,232b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,8n,28p,206b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/l
@@ -769,10 +781,10 @@ f/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi
 s/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1
 /public/lm/lmtt10.pfb>
-Output written on Hajaee_2.pdf (6 pages, 156251 bytes).
+Output written on Hajaee_2.pdf (6 pages, 158253 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
+ 97 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
+ 13 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

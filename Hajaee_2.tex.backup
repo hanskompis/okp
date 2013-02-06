@@ -266,30 +266,13 @@ myös funktiokutsut.
 Goto-lause toimii D:ssa allaolevalla tavalla:
 
 \begin{verbatim}
-goto <label>;
+goto <nimi>;
 \end{verbatim}
 
-Suffice it to say that D does provide it in the following form:
-goto <label , ;
-where the symbol label> must be visible in the function where goto is called. A label
-is defined implicitly by prefixing a statement with a symbol followed by a colon. For
-example:
-int a;
-mylabel: a = 1;
-if (a == 0) goto mylabel;
-There cannot be multiply-defined labels in the same function. Another restriction is
-that a goto cannot skip the definition point of a value that's visible at the landing point,
-even when that value is not used. For example:
-void main ( ) {
-goto target ;
-int x = 10;
-target: {} // Error! goto bypasses definition of x!
-}
-Finally, a goto cannot cross an exception boundary, a restriction that § 3.11 on
-page 81 will explain. Other than that, got o obeys remarkably few restrictions, and that's
-precisely what makes it dangerous. goto can jump all over the place: forward or backward,
-in and out of if statements, and in and out of loops, including the infamous forward
-jump into the middle of a loop.
+D:ssa goto-lauseen käyttöön ei liity paljoa rajoituksia, mikä D:n pääkehittäjä
+Andrei Alexandrescun mukaan tekee gotosta ongelmallisen työkalun. Goto voi
+hypätä eteen- tai taaksepäin ja sisään ja ulos lauseista. Symbolin <nimi> tulee
+kuitenkin olla näkyvissä funktiossa, missä gotoa kutsutaan. 
 
 
 \subsection{Toisto}
@@ -313,5 +296,42 @@ rakenne pysyy yhtenä lauseena. ?-merkkialkiolla ei ole suorituksenaikaista
 tarkoitusta, mutta se estää sekaannusta mm. eri tarkkuuksia edustavien lukujen
 välillä.
 
+Taulukoiden käsittelyyn foreach-lauseesta on olemassa allaoleva muoto:
+
+\begin{verbatim}
+foreach (<symboli> ; <lauseke>) <lause>
+\end{verbatim}
+
+Lausekkeen tulee olla taulukko, SLICE? tai käyttäjän määrittelemä tyyppi. Kun
+<lauseke> on arvioitu kerran, viite siihen tallennetaan väliaikaisesti.
+<symboli> sidotaan vuorotellen jokaiseen taulukon elementtiin, ja <lause>
+suoritetaan. <symboli>:n yhteyteen voi määritellä myös sen tyypin. 
+
+\subsection{Rekursio}
+
+Rekursiosta on hyötyä D:ssä alustaessa monimutkaisia immutaabeleita olioita. Alla on esimerkki taulukosta alustetusta linkitetystä listasta:
+
+\begin{verbatim}
+class List {
+   private int payload;
+   private List next;
+   this(int[] data) immutable {
+      enforce(data.length);
+      payload = data[0];
+      if (data.length == 1) return;
+      next = new immutable(List)(data[1 . $]);
+   }
+}
+\end{verbatim}
+
+You will often find that using recursion is very helpful in initializing elaborate
+immutable objects. For example, consider a singly linked list class that is initialized from
+an array:
+
+To properly initialize the tail of the list, the constructor recurses to itself with a
+shorter array. Attempting to initialize the list in a loop would not compile because walk8.5.
+Conversions involving immu tab te 295
+ing the list being created involves reading its fields, which is verboten. Recursion elegantly
+solves this problem.'
 
 \end{document}
