@@ -21,9 +21,55 @@
 \section{Tunnusten näkyvyysalueet ja sidonta}
 (D ja Erlang vierekkäin)
 
-lohkorakenne, litteä vs syvä
+lohkorakenne, litteä vs syvä \\
+D-kielessä lohkot rajataan merkein \{ \}, ja ne voivat koostua lausekkeista.
+Lohkot sidotaan lausekkeeseen, luokkaan tai funktioon. Lohkolla voidaan ilmaista
+myös nimetön näkyvyysalue, jos sitä ei ole sidottu funktioon, luokkaan tai
+lausekkeeseen. Lohkon sisältä on näkyvyys lohkon ulkopuolelle, mutta
+ulkopuolelta ei ole näkyvyyttä lohkon sisälle. Luokkien ja niiden tietueiden
+näkyvyys voidaan kuitenkin sallia ulkopuolelle.
 
-sidonta, staattinen vs dynaaminen
+Erlangin lähestymistapa on erilainen kuin D-kielessä. Lohkorakenne perustuu
+produktioihin, jotka sisältävät otsikon ja rungon. Runko voi sisältää
+lausekkeita ja yksi produktio voi sisältää useampia runkoja.
+
+D-kielessä tunnusten sidonta tehdään staattisesti käännösaikana. Lohkon sisällä
+ei voida suoraan esitellä uudelleen ulompien tasojen näkyviä muuttujia, mutta
+funktioiden ja tietuiden sisällä tämä on sallittua.
+
+ lohkorakenne voi olla hyvinkin syvä, se sallii funktion sijoittamisen toisen
+funktion sisälle. Samoja muuttujia on mahdollista esitellä sisemmissä
+funktioissa uudelleen. Muuttujan voi määritellä kuitenkin vain sisemmässä
+funktiossa, esimerkiksi sisäkkäiset for-loopit vaativat kukin omat muuttujansa.
+Esimerkki tällaisesta funktioiden sisäkkäin sijoittelusta, jossa muuttuja
+määritetään uudelleen:
+
+
+\begin{verbatim}
+int i=0;
+
+int uloin() {
+    for(int i=0; i<5; i++) {
+        int sisin() {
+            int j=i;
+                for(int i=j;i<5; i++) {
+                    writeln("s: ",i);
+                }
+            return i;
+            }
+        writeln("u: ", i);
+        sisin();
+    }
+return i;
+}
+\end{verbatim}
+
+Erlang on litteä kieli, siinä voi olla lohkoja vain yhdellä tasolla.
+Erlang-kielen määrittely ei varsinaisesti esittele lohkosääntöjä. \\
+
+sidonta, staattinen vs dynaaminen \\
+D-kielessä sidonta tehdään staattisesti käännösaikana. Erlangissa sidonta on
+dynaaminen.
 
 ensimmäisen toisen ja kolmannen luokan arvot
 
@@ -32,6 +78,17 @@ sulkeumat
 esimerkit
 
 em. vertailu
+\subsection{hansin juttuja}
+Erlangissa lohkorakenne on toteutettu siten, että on moduuleita, jotka sisältävät funktioita. Moduuli määritellään '-module(moduulin_nimi)' -ilmauksella moduulin ensimmäisellä rivillä.
+Seuraavaksi 'export'-lauseella ilmaistaan mitkä funktiot ovat kutsuttavissa ohjelman ulkopuolelta. Funktio määritellään funktion nimellä ja sulkeissa olevilla parametreilla. Funktion toteutus
+on kaikki seuraavat rivit ennen pistettä. Eerlangissa piste on lauseen tai funktion päättävä merkki. 
+\begin{verbatim}
+-module(heippa).
+-export([heippa/0]).
+heippa() ->
+io:format("Heippa, mualima!~n").
+\end{verbatim}
+
 
 \section{Kontrollin ja laskennan ohjaus - Erlang}
 Jotta voidaan ymmärtää Erlangin kontrollirakenteita, pitää ensimmäisenä
@@ -68,10 +125,10 @@ tavalla, jota valotan seuraavassa esimerkissä.
 
 \begin{verbatim}
 1: vertaa(N,M) -> 
-2: 		if N>M -> 1;
-3:	     N<M -> -1;
-4:	     true -> 0
-5: 	 end . 
+2:     if N>M -> 1;
+3:     if N<M -> -1;
+4:     true -> 0
+5:     end . 
 \end{verbatim}
 
 Esimerkkifunktiossa siis verrataan kahta lukua ja toimitaan eri tavoin sen
@@ -109,19 +166,18 @@ Erlangissa on myös case…of -rakenne, joka mahdollistaa monipuoliset
 valintarakenteet, johon voidan yhdistää myös guardeja. Esimerkki selventää
 rakennetta helpoiten:
 \begin{verbatim}
-1: biitsi(Lampotila) -> 
-2:    case Lampotila of
-3:        {calsius, N} when N >= 20, N =< 45 -> 'ihan jees';
-4:        {kelvin, N}  when N >= 293, N =< 318 -> 'tieteellisesti jees';  
-5:        {fahrenheit, N}  when N >= 68, N =< 113 -> 'amerikkalaisittain jees'; 
-6:         _ -> 'ei niin jees' 
+biitsi(Lampotila) -> 
+   case Lampotila of
+        {calsius, N} when N >= 20, N =< 45 -> 'ihan jees';
+        {kelvin, N}  when N >= 293, N =< 318 -> 'tieteellisesti jees';  
+        {fahrenheit, N}  when N >= 68, N =< 113 -> 'amerikkalaisittain jees'; 
+         _ -> 'ei niin jees' 
 \end{verbatim}
 
 Ohjelma siis saa parametrinaan tuplen, jossa on lämpötila-asteikko ja astemäärä.
 Sen jälkeen case…of -rakenteessa riveillä  tutkitaan, minkä periaatteen
 mukaisesti astemäärää tutkitaan. Lopulta guardin avulla päätetään, onko
-parametrina 
-saatu lämpötila sopiva rantaelämään. Mielenkiintoinen kysymys on se, että mihin
+parametrina saatu lämpötila sopiva rantaelämään. Mielenkiintoinen kysymys on se, että mihin
 case…of -rakennetta tarvitaan, koska se on hyvin samanlainen funktiokutsujen
 hahmonsovituksen kanssa. Valinta kannattaa perustaa henkilökohtaisiin
 mieltymyksiin. 
@@ -138,8 +194,8 @@ Jos halutaan käydä lista läpi yksinkertaisesti siten, että laskemme jokaisen
 listan alkion yhteen, voidaan se Erlangissa tehdä esim. seuraavalla tavalla:
 
 \begin{verbatim}
-1: summa([]) -> 0;
-2: summa(Lista) -> head + summa(Tail) .  
+1. summa([]) -> 0;
+2. summa(Lista) -> head + summa(Tail) .  
 \end{verbatim}
 
 
@@ -164,8 +220,8 @@ n*((n-1)!) & \textrm{{jos n>0}}
 Tämä on on helposti ja ulkoasultaan elegantisti toteutettavissa Erlangilla
 hahmonsovitusta ja rekursiota hyväksikäyttäen:
 \begin{verbatim}
-kertoma(0) -> 1;
-kertoma(N) when N > 0 -> N*(kertoma(N-1)) .
+1. kertoma(0) -> 1;
+2. kertoma(N) when N > 0 -> N*(kertoma(N-1)) .
 \end{verbatim}
 Jälleen aluksi tarkistetaan alkeistapaus, joka on tässä tapauksessa luvun 0
 kertoma ja jos tämä rivi ei ota kiinni, suoritetaan seuraavan rivin
@@ -193,10 +249,10 @@ toteutetaan toteutamalla myös apufunktio hantakertoma(N,Acc) johon otetaan
 mukaan vielä toinen parametri Acc, johon tallennetaan laskennan 
 välivaiheiden tulokset:
 \begin{verbatim}
-kertoma(N) -> hantakertoma(N,1) .
-
-hantakertoma (0,Acc) -> Acc;
-hantakertoma(N,Acc) when N > 0 -> hantakertoma(N-1, Acc*N) .
+1. kertoma(N) -> hantakertoma(N,1) .
+2.
+3. hantakertoma (0,Acc) -> Acc;
+4. hantakertoma(N,Acc) when N > 0 -> hantakertoma(N-1, Acc*N) .
 \end{verbatim}
 
 Nyt laskennan kulku on seuraavanlainen: 
@@ -278,23 +334,22 @@ kuitenkin olla näkyvissä funktiossa, missä gotoa kutsutaan.
 \subsection{Toisto}
 
 While- ja do-while -lauseet ovat hyvin samankaltaisia, kuin vaikkapa
-Java-kielessä. Myös myös for- ja foreach-lauseet noudattavat Javasta tuttua
-muotoa, mutta foreach-lauseen voi ilmaista D:ssä myös for-lauseella allaolevalla
-tavalla:
+Java-kielessä. 
 
 \begin{verbatim}
-{
-   auto __n = <lauseke1> ;
-   auto <symboli> = true ? <lauseke1> : <lauseke2>;
-   for ( ; <symboli> < __n; ++ , symboli> ) <lause>
-}
+while (i => 0)
+   --i;
 \end{verbatim}
 
-\_\_n on kääntäjän generoima symboli, joka ei voi koskaan sekaantua muihin
-symboleihin. SELITÄ LISÄÄ??!! Uloimmat aaltosulkeet varmistavat, että koko
-rakenne pysyy yhtenä lauseena. ?-merkkialkiolla ei ole suorituksenaikaista
-tarkoitusta, mutta se estää sekaannusta mm. eri tarkkuuksia edustavien lukujen
-välillä.
+Kuten Javassa, koodin suoritus alkaa arvioimalla while-ehtoa. Jos lauseke ei ole
+tyhjä, silmukan sisällä olevaa lause suoritetaan, ja silmukka alkaa uudestaan
+while-ehdon arvionnilla. Do - while -lauseessa vastaava lauseke suoritetaan heti
+kerran ennen while-ehdon tarkastelua. Allaolevassa esimerkissä näkyy myös D:ssä
+pakollinen puolipiste lauseen lopussa.
+
+\begin{verbatim}
+do (--i) while (i => 0);
+\end{verbatim}
 
 Taulukoiden käsittelyyn foreach-lauseesta on olemassa allaoleva muoto:
 
@@ -309,29 +364,5 @@ suoritetaan. <symboli>:n yhteyteen voi määritellä myös sen tyypin.
 
 \subsection{Rekursio}
 
-Rekursiosta on hyötyä D:ssä alustaessa monimutkaisia immutaabeleita olioita. Alla on esimerkki taulukosta alustetusta linkitetystä listasta:
-
-\begin{verbatim}
-class List {
-   private int payload;
-   private List next;
-   this(int[] data) immutable {
-      enforce(data.length);
-      payload = data[0];
-      if (data.length == 1) return;
-      next = new immutable(List)(data[1 . $]);
-   }
-}
-\end{verbatim}
-
-You will often find that using recursion is very helpful in initializing elaborate
-immutable objects. For example, consider a singly linked list class that is initialized from
-an array:
-
-To properly initialize the tail of the list, the constructor recurses to itself with a
-shorter array. Attempting to initialize the list in a loop would not compile because walk8.5.
-Conversions involving immu tab te 295
-ing the list being created involves reading its fields, which is verboten. Recursion elegantly
-solves this problem.'
 
 \end{document}
