@@ -21,14 +21,15 @@
 \section{Tunnusten näkyvyysalueet ja sidonta}
 (D ja Erlang vierekkäin)
 
-Jo vuonna 1983 Hansi Keijonen todisti, että LaTeX-dokumenttien kirjoittaminen on työlästä, mutta palkitsevaa \cite{KEI83}.
-D-kielessä lohkot rajataan merkein \{ \}, ja ne voivat koostua lausekkeista. Lohkot sidotaan lausekkeeseen, luokkaan tai funktioon. Lohkolla voidaan ilmaista myös nimetön näkyvyysalue, jos sitä ei ole sidottu funktioon, luokkaan tai lausekkeeseen. Lohkon sisältä on näkyvyys lohkon ulkopuolelle, mutta ulkopuolelta ei ole näkyvyyttä lohkon sisälle. Luokkien ja niiden tietueiden näkyvyys voidaan kuitenkin sallia ulkopuolelle.
+Jo vuonna 1983 Hansi Keijonen todisti, että LaTeX-dokumenttien kirjoittaminen on työlästä, mutta palkitsevaa \cite{KEI83}. \\
+
+D-kielessä lohkot rajataan merkein \{ \}, ja ne voivat koostua lausekkeista \cite{DLA13}. Lohkot sidotaan lausekkeeseen, luokkaan tai funktioon. Lohkolla voidaan ilmaista myös nimetön näkyvyysalue, jos sitä ei ole sidottu funktioon, luokkaan tai lausekkeeseen. Lohkon sisältä on näkyvyys lohkon ulkopuolelle, mutta ulkopuolelta ei ole näkyvyyttä lohkon sisälle. Luokkien ja niiden tietueiden näkyvyys voidaan kuitenkin sallia ulkopuolelle \cite{DLA13}.
 
 Erlangin lähestymistapa on erilainen kuin D-kielessä. Lohkorakenne perustuu produktioihin, jotka sisältävät otsikon ja rungon. Runko voi sisältää lausekkeita ja yksi produktio voi sisältää useampia runkoja. 
 
-D-kielessä tunnusten sidonta tehdään staattisesti käännösaikana. Lohkon sisällä ei voida suoraan esitellä uudelleen ulompien tasojen näkyviä muuttujia, mutta funktioiden ja tietuiden sisällä tämä on sallittua.
+D-kielessä tunnusten sidonta tehdään staattisesti käännösaikana \cite{DLA13}. Lohkon sisällä ei voida suoraan esitellä uudelleen ulompien tasojen näkyviä muuttujia, mutta funktioiden ja tietuiden sisällä tämä on sallittua \cite{DLA13}.
 
- lohkorakenne voi olla hyvinkin syvä, se sallii funktion sijoittamisen toisen funktion sisälle. Samoja muuttujia on mahdollista esitellä sisemmissä funktioissa uudelleen. Muuttujan voi määritellä kuitenkin vain sisemmässä funktiossa, esimerkiksi sisäkkäiset for-loopit vaativat kukin omat muuttujansa. Esimerkki tällaisesta funktioiden sisäkkäin sijoittelusta, jossa muuttuja määritetään uudelleen:
+Lohkorakenne voi olla D-kielessä hyvinkin syvä, se sallii funktion sijoittamisen toisen funktion sisälle. Samoja muuttujia on mahdollista esitellä sisemmissä funktioissa uudelleen. Muuttujan voi määritellä kuitenkin vain sisemmässä funktiossa, esimerkiksi sisäkkäiset for-loopit vaativat kukin omat muuttujansa. Esimerkki tällaisesta funktioiden sisäkkäin sijoittelusta, jossa muuttuja määritetään uudelleen:
 
 \begin{verbatim}
 int i=0;
@@ -51,8 +52,19 @@ return i;
 
 Erlang on litteä kieli, siinä voi olla lohkoja vain yhdellä tasolla. Erlang-kielen määrittely ei varsinaisesti esittele lohkosääntöjä. \\
 
-sidonta, staattinen vs dynaaminen \\
-D-kielessä sidonta tehdään staattisesti käännösaikana. Erlangissa sidonta on dynaaminen.
+D-kielessä sidonta tehdään staattisesti käännösaikana. Erlangissa sidonta on dynaaminen ja muuttujalle voidaan asettaa arvo vain kerran. D-kielessä muuttujan tilaa voidaan muuttaa suorituksen aikana.
+
+Kaikki D-kielen muuttujat kuuluvat ns. ensimmäiseen luokkaan \cite{DLA13}. Muuttujia voidaan välittää parametrina, niihin voidaan sijoittaa arvoja, ja palauttaa funktion arvona. Kieli sallii myös funktioliteraalien sijoittamisen funktiokutsun parametriksi.
+
+\begin{verbatim}
+void loop(int k, int j, void delegate() statement) { 
+  for (int i = k; i < j; i++) { 
+    statement(); 
+  }
+  
+loop(5, 100, { d += 1; } ); 
+loop(3, 10, { f += 3; } );
+\end{verbatim}
 
 ensimmäisen toisen ja kolmannen luokan arvot
 
@@ -360,6 +372,8 @@ int kertoma(int n) {
 \bibliography{lahteet}
 
 \begin{thebibliography}{99}
+
+\bibitem[DLA13]{DLA13} http://dlang.org, noudettu 6.2.2013.
 
 \bibitem[KEI83]{KEI83} Hansi. M. O. Keijonen, LaTeX-dokumenttien kirjoittaminen, 1983.
 \end{thebibliography}
