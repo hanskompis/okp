@@ -327,5 +327,23 @@ suoritetaan jokaisen elementin kohdalla.
 
 \subsection{Rekursio}
 
+\begin{verbatim}
+import std.stdio;
+
+void main() {
+  writeln(kertoma(5));
+
+}
+
+int kertoma(int n) {
+  if(n<2) {
+    return 1;
+  }
+  else
+  {
+    return n * kertoma(n-1);
+  }
+}
+\end{verbatim}
 
 \end{document}
