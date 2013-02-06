@@ -278,23 +278,22 @@ kuitenkin olla näkyvissä funktiossa, missä gotoa kutsutaan.
 \subsection{Toisto}
 
 While- ja do-while -lauseet ovat hyvin samankaltaisia, kuin vaikkapa
-Java-kielessä. Myös myös for- ja foreach-lauseet noudattavat Javasta tuttua
-muotoa, mutta foreach-lauseen voi ilmaista D:ssä myös for-lauseella allaolevalla
-tavalla:
+Java-kielessä. 
 
 \begin{verbatim}
-{
-   auto __n = <lauseke1> ;
-   auto <symboli> = true ? <lauseke1> : <lauseke2>;
-   for ( ; <symboli> < __n; ++ , symboli> ) <lause>
-}
+while (i => 0)
+   --i;
 \end{verbatim}
 
-\_\_n on kääntäjän generoima symboli, joka ei voi koskaan sekaantua muihin
-symboleihin. SELITÄ LISÄÄ??!! Uloimmat aaltosulkeet varmistavat, että koko
-rakenne pysyy yhtenä lauseena. ?-merkkialkiolla ei ole suorituksenaikaista
-tarkoitusta, mutta se estää sekaannusta mm. eri tarkkuuksia edustavien lukujen
-välillä.
+Kuten Javassa, koodin suoritus alkaa arvioimalla while-ehtoa. Jos lauseke ei ole
+tyhjä, silmukan sisällä olevaa lause suoritetaan, ja silmukka alkaa uudestaan
+while-ehdon arvionnilla. Do - while -lauseessa vastaava lauseke suoritetaan heti
+kerran ennen while-ehdon tarkastelua. Allaolevassa esimerkissä näkyy myös D:ssä
+pakollinen puolipiste lauseen lopussa.
+
+\begin{verbatim}
+do (--i) while (i => 0);
+\end{verbatim}
 
 Taulukoiden käsittelyyn foreach-lauseesta on olemassa allaoleva muoto:
 
@@ -309,24 +308,5 @@ suoritetaan. <symboli>:n yhteyteen voi määritellä myös sen tyypin.
 
 \subsection{Rekursio}
 
-Rekursiosta on hyötyä D:ssä alustaessa monimutkaisia immutaabeleita olioita.
-Alla on esimerkki taulukosta alustetusta listasta:
 
-\begin{verbatim}
-class List {
-   private int arvo;
-   private List seuraava;
-   this(int[] data) immutable {
-      pakota(data.length);
-      arvo = data[0];
-      if (data.length == 1) return;
-      next = new immutable(List)(data[1 . $]);
-   }
-}
-\end{verbatim}
-
-Alustaakseen listan lopun konstruktori soveltaa itseensä rekursiota lyhyemmällä
-taulukolla. Listan alustaminen silmukassa ei kääntyisi, koska listaa ei voi
-lukea samalla kun sitä luo. Rekursion käyttäminen ratkaisee ongelman. HIRVEÄTÄ
-SOOPAA, TEE TÄLLE JOTAIN
 \end{document}
