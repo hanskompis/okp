@@ -21,9 +21,54 @@
 \section{Tunnusten näkyvyysalueet ja sidonta}
 (D ja Erlang vierekkäin)
 
-lohkorakenne, litteä vs syvä
+lohkorakenne, litteä vs syvä \\
+D-kielessä lohkot rajataan merkein \{ \}, ja ne voivat koostua lausekkeista.
+Lohkot sidotaan lausekkeeseen, luokkaan tai funktioon. Lohkolla voidaan ilmaista
+myös nimetön näkyvyysalue, jos sitä ei ole sidottu funktioon, luokkaan tai
+lausekkeeseen. Lohkon sisältä on näkyvyys lohkon ulkopuolelle, mutta
+ulkopuolelta ei ole näkyvyyttä lohkon sisälle. Luokkien ja niiden tietueiden
+näkyvyys voidaan kuitenkin sallia ulkopuolelle.
 
-sidonta, staattinen vs dynaaminen
+Erlangin lähestymistapa on erilainen kuin D-kielessä. Lohkorakenne perustuu
+produktioihin, jotka sisältävät otsikon ja rungon. Runko voi sisältää
+lausekkeita ja yksi produktio voi sisältää useampia runkoja.
+
+D-kielessä tunnusten sidonta tehdään staattisesti käännösaikana. Lohkon sisällä
+ei voida suoraan esitellä uudelleen ulompien tasojen näkyviä muuttujia, mutta
+funktioiden ja tietuiden sisällä tämä on sallittua.
+
+ lohkorakenne voi olla hyvinkin syvä, se sallii funktion sijoittamisen toisen
+funktion sisälle. Samoja muuttujia on mahdollista esitellä sisemmissä
+funktioissa uudelleen. Muuttujan voi määritellä kuitenkin vain sisemmässä
+funktiossa, esimerkiksi sisäkkäiset for-loopit vaativat kukin omat muuttujansa.
+Esimerkki tällaisesta funktioiden sisäkkäin sijoittelusta, jossa muuttuja
+määritetään uudelleen:
+
+\begin{verbatim}
+int i=0;
+
+int uloin() {
+    for(int i=0; i<5; i++) {
+        int sisin() {
+            int j=i;
+                for(int i=j;i<5; i++) {
+                    writeln("s: ",i);
+                }
+            return i;
+            }
+        writeln("u: ", i);
+        sisin();
+    }
+return i;
+}
+\end{verbatim}
+
+Erlang on litteä kieli, siinä voi olla lohkoja vain yhdellä tasolla.
+Erlang-kielen määrittely ei varsinaisesti esittele lohkosääntöjä. \\
+
+sidonta, staattinen vs dynaaminen \\
+D-kielessä sidonta tehdään staattisesti käännösaikana. Erlangissa sidonta on
+dynaaminen.
 
 ensimmäisen toisen ja kolmannen luokan arvot
 
@@ -227,20 +272,17 @@ else {
    writeln("A ja B eivät ole samoja.");
 }
 \end{verbatim}
-
 Toisin kuin muilla kielillä, D:llä ei ole ``tyhjän lauseen'' (empty statement)
 konstruktiota. Koodinpätkä
 
 \begin{verbatim}
 if (a == b);
 \end{verbatim}
-
 ei siis ole D:n hyväksymää. Sen sijaan tulisi kirjoittaa
 
 \begin{verbatim}
 if (a == b) {}
 \end{verbatim}
-
 Else-lause on aina sidottu lähimpään if-lauseeseen. Esimerkiksi:
 
 \begin{verbatim}
@@ -250,9 +292,7 @@ if (a == b)
    else
       writeln("B ja C eivät ole samoja.");
 \end{verbatim}
-
 Useat laskeutuvat (cascading) if-else -lauseet toteutetaan kuten C-kielessä.
-
 
 D:n static if -lause on C-kielen \#if-rakennetta muistuttava kääntämisajan
 (compile-time) selektori. Tullessaan static if -lauseen kohdalle kääntäjä arvioi
@@ -268,70 +308,85 @@ Goto-lause toimii D:ssa allaolevalla tavalla:
 \begin{verbatim}
 goto <nimi>;
 \end{verbatim}
-
 D:ssa goto-lauseen käyttöön ei liity paljoa rajoituksia, mikä D:n pääkehittäjä
 Andrei Alexandrescun mukaan tekee gotosta ongelmallisen työkalun. Goto voi
 hypätä eteen- tai taaksepäin ja sisään ja ulos lauseista. Symbolin <nimi> tulee
 kuitenkin olla näkyvissä funktiossa, missä gotoa kutsutaan. 
 
-
 \subsection{Toisto}
 
 While- ja do-while -lauseet ovat hyvin samankaltaisia, kuin vaikkapa
-Java-kielessä. Myös myös for- ja foreach-lauseet noudattavat Javasta tuttua
-muotoa, mutta foreach-lauseen voi ilmaista D:ssä myös for-lauseella allaolevalla
-tavalla:
+Java-kielessä. 
 
 \begin{verbatim}
-{
-   auto __n = <lauseke1> ;
-   auto <symboli> = true ? <lauseke1> : <lauseke2>;
-   for ( ; <symboli> < __n; ++ , symboli> ) <lause>
-}
+while (i => 0)
+   --i;
 \end{verbatim}
+Kuten Javassa, koodin suoritus alkaa arvioimalla while-ehtoa. Jos lauseke ei ole
+tyhjä, silmukan sisällä olevaa lause suoritetaan, ja silmukka alkaa uudestaan
+while-ehdon arvionnilla. Do - while -lauseessa vastaava lauseke suoritetaan heti
+kerran ennen while-ehdon tarkastelua. Allaolevassa esimerkissä näkyy myös D:ssä
+pakollinen puolipiste lauseen lopussa.
 
-\_\_n on kääntäjän generoima symboli, joka ei voi koskaan sekaantua muihin
-symboleihin. SELITÄ LISÄÄ??!! Uloimmat aaltosulkeet varmistavat, että koko
-rakenne pysyy yhtenä lauseena. ?-merkkialkiolla ei ole suorituksenaikaista
-tarkoitusta, mutta se estää sekaannusta mm. eri tarkkuuksia edustavien lukujen
-välillä.
-
+\begin{verbatim}
+do (--i) while (i => 0);
+\end{verbatim}
 Taulukoiden käsittelyyn foreach-lauseesta on olemassa allaoleva muoto:
 
 \begin{verbatim}
-foreach (<symboli> ; <lauseke>) <lause>
+foreach(kappale ; joukko) {
+   teeJotain(kappale);
+}
 \end{verbatim}
-
-Lausekkeen tulee olla taulukko, SLICE? tai käyttäjän määrittelemä tyyppi. Kun
-<lauseke> on arvioitu kerran, viite siihen tallennetaan väliaikaisesti.
-<symboli> sidotaan vuorotellen jokaiseen taulukon elementtiin, ja <lause>
-suoritetaan. <symboli>:n yhteyteen voi määritellä myös sen tyypin. 
+Foreach-lause toimii siis kuten esimerkiksi Java-kielessä. Kappaleen viite
+sidotaan vuorotellen jokaiseen joukko-listan elementtiin, ja teeJotain() -metodi
+suoritetaan jokaisen elementin kohdalla. 
 
 \subsection{Rekursio}
 
-Rekursiosta on hyötyä D:ssä alustaessa monimutkaisia immutaabeleita olioita. Alla on esimerkki taulukosta alustetusta linkitetystä listasta:
+Rekursio toimii D:ssä kuten Java-kielessä. Allaolevassa esimerkissä lasketaan
+kokonaisluvun kertoma rekursion avulla.
 
 \begin{verbatim}
-class List {
-   private int payload;
-   private List next;
-   this(int[] data) immutable {
-      enforce(data.length);
-      payload = data[0];
-      if (data.length == 1) return;
-      next = new immutable(List)(data[1 . $]);
-   }
+import std.stdio;
+
+void main() {
+  writeln(kertoma(5));
+
+}
+
+int kertoma(int n) {
+  if(n<2) {
+    return 1;
+  }
+  else
+  {
+    return n * kertoma(n-1);
+  }
 }
 \end{verbatim}
+Main-metodissa suoritetaan kertoma-metodi, jolle annetaan parametriksi
+kokonaisluku n. Kertoma-metodi palauttaa luvun yksi, jos n on yksi, muuten
+kutsutaan rekursiivisesti kertoma-metodia. Lukua siis kerrotaan itseään yhtä
+pienemmän luvun kertomalla, kunnes päästään lukuun 1.  
 
-You will often find that using recursion is very helpful in initializing elaborate
-immutable objects. For example, consider a singly linked list class that is initialized from
-an array:
+\begin{verbatim}
+import std.stdio;
 
-To properly initialize the tail of the list, the constructor recurses to itself with a
-shorter array. Attempting to initialize the list in a loop would not compile because walk8.5.
-Conversions involving immu tab te 295
-ing the list being created involves reading its fields, which is verboten. Recursion elegantly
-solves this problem.'
+void main() {
+  writeln(kertoma(5));
+
+}
+
+int kertoma(int n) {
+  if(n<2) {
+    return 1;
+  }
+  else
+  {
+    return n * kertoma(n-1);
+  }
+}
+\end{verbatim}
 
 \end{document}
