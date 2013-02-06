@@ -392,7 +392,7 @@ int kertoma(int n, int sum) {
 Nyt yhden kertoma-metodin suoritus loppuu toisen alkaessa, ja kertoma-metodi pitää kertoman tuloa mukanaan. Viimeiseksi suoritettu kertoma-metodi palauttaa loppusumman.
 
 %\bibliographystyle{tktl}
-\bibliography{lahteet}
+\bibliography{Lähteet}
 
 \begin{thebibliography}{99}
 
