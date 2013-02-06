@@ -16,40 +16,51 @@
 
 \maketitle
 
-
+\newpage
 
 \section{Tunnusten näkyvyysalueet ja sidonta}
-(D ja Erlang vierekkäin)
 
-<<<<<<< HEAD
-lohkorakenne, litteä vs syvä \\
-D-kielessä lohkot rajataan merkein \{ \}, ja ne voivat koostua lausekkeista.
-Lohkot sidotaan lausekkeeseen, luokkaan tai funktioon. Lohkolla voidaan ilmaista
-myös nimetön näkyvyysalue, jos sitä ei ole sidottu funktioon, luokkaan tai
-lausekkeeseen. Lohkon sisältä on näkyvyys lohkon ulkopuolelle, mutta
-ulkopuolelta ei ole näkyvyyttä lohkon sisälle. Luokkien ja niiden tietueiden
-näkyvyys voidaan kuitenkin sallia ulkopuolelle.
 
-Erlangin lähestymistapa on erilainen kuin D-kielessä. Lohkorakenne perustuu
-produktioihin, jotka sisältävät otsikon ja rungon. Runko voi sisältää
-lausekkeita ja yksi produktio voi sisältää useampia runkoja.
-=======
-Jo vuonna 1983 Hansi Keijonen todisti, että LaTeX-dokumenttien kirjoittaminen on työlästä, mutta palkitsevaa \cite{KEI83}.
-D-kielessä lohkot rajataan merkein \{ \}, ja ne voivat koostua lausekkeista. Lohkot sidotaan lausekkeeseen, luokkaan tai funktioon. Lohkolla voidaan ilmaista myös nimetön näkyvyysalue, jos sitä ei ole sidottu funktioon, luokkaan tai lausekkeeseen. Lohkon sisältä on näkyvyys lohkon ulkopuolelle, mutta ulkopuolelta ei ole näkyvyyttä lohkon sisälle. Luokkien ja niiden tietueiden näkyvyys voidaan kuitenkin sallia ulkopuolelle.
+D-kielessä lohkot rajataan merkein \{ \}, ja ne voivat koostua lausekkeista \cite{DLA13}. Lohkot sidotaan lausekkeeseen, luokkaan tai funktioon. Lohkolla voidaan ilmaista myös nimetön näkyvyysalue, jos sitä ei ole sidottu funktioon, luokkaan tai lausekkeeseen. Lohkon sisältä on näkyvyys lohkon ulkopuolelle, mutta ulkopuolelta ei ole näkyvyyttä lohkon sisälle. Luokkien ja niiden tietueiden näkyvyys voidaan kuitenkin sallia ulkopuolelle \cite{DLA13}.
 
-Erlangin lähestymistapa on erilainen kuin D-kielessä. Lohkorakenne perustuu produktioihin, jotka sisältävät otsikon ja rungon. Runko voi sisältää lausekkeita ja yksi produktio voi sisältää useampia runkoja. 
->>>>>>> b1cdc56589ed144ca13b7e685e2d42f1a0dacbd9
 
+% Erlangin lähestymistapa on erilainen kuin D-kielessä. Lohkorakenne perustuu
+% produktioihin, jotka sisältävät otsikon ja rungon. Runko voi sisältää
+% lausekkeita ja yksi produktio voi sisältää useampia runkoja.
+
+
+% D-kielessä tunnusten sidonta tehdään staattisesti käännösaikana. Lohkon sisällä
+% ei voida suoraan esitellä uudelleen ulompien tasojen näkyviä muuttujia, mutta
+% funktioiden ja tietuiden sisällä tämä on sallittua.
+% 
+%  lohkorakenne voi olla hyvinkin syvä, se sallii funktion sijoittamisen toisen
+% funktion sisälle. Samoja muuttujia on mahdollista esitellä sisemmissä
+% funktioissa uudelleen. Muuttujan voi määritellä kuitenkin vain sisemmässä
+% funktiossa, esimerkiksi sisäkkäiset for-loopit vaativat kukin omat muuttujansa.
+% Esimerkki tällaisesta funktioiden sisäkkäin sijoittelusta, jossa muuttuja
+% määritetään uudelleen:
+% 
+% D-kielessä lohkot rajataan merkein \{ \}, ja ne voivat koostua lausekkeista. Lohkot sidotaan lausekkeeseen, luokkaan tai funktioon. Lohkolla voidaan ilmaista myös nimetön näkyvyysalue, jos sitä ei ole sidottu funktioon, luokkaan tai lausekkeeseen. Lohkon sisältä on näkyvyys lohkon ulkopuolelle, mutta ulkopuolelta ei ole näkyvyyttä lohkon sisälle. Luokkien ja niiden tietueiden näkyvyys voidaan kuitenkin sallia ulkopuolelle.
+% 
+% Erlangin lähestymistapa on erilainen kuin D-kielessä. Lohkorakenne perustuu produktioihin, jotka sisältävät otsikon ja rungon. Runko voi sisältää lausekkeita ja yksi produktio voi sisältää useampia runkoja. 
+% >>>>>>> b1cdc56589ed144ca13b7e685e2d42f1a0dacbd9
+% 
+% <<<<<<< HEAD
 D-kielessä tunnusten sidonta tehdään staattisesti käännösaikana. Lohkon sisällä
 ei voida suoraan esitellä uudelleen ulompien tasojen näkyviä muuttujia, mutta
 funktioiden ja tietuiden sisällä tämä on sallittua.
 
- lohkorakenne voi olla hyvinkin syvä, se sallii funktion sijoittamisen toisen
-funktion sisälle. Samoja muuttujia on mahdollista esitellä sisemmissä
-funktioissa uudelleen. Muuttujan voi määritellä kuitenkin vain sisemmässä
-funktiossa, esimerkiksi sisäkkäiset for-loopit vaativat kukin omat muuttujansa.
-Esimerkki tällaisesta funktioiden sisäkkäin sijoittelusta, jossa muuttuja
-määritetään uudelleen:
+%  lohkorakenne voi olla hyvinkin syvä, se sallii funktion sijoittamisen toisen
+% funktion sisälle. Samoja muuttujia on mahdollista esitellä sisemmissä
+% funktioissa uudelleen. Muuttujan voi määritellä kuitenkin vain sisemmässä
+% funktiossa, esimerkiksi sisäkkäiset for-loopit vaativat kukin omat muuttujansa.
+% Esimerkki tällaisesta funktioiden sisäkkäin sijoittelusta, jossa muuttuja
+% määritetään uudelleen:
+% =======
+D-kielessä tunnusten sidonta tehdään staattisesti käännösaikana \cite{DLA13}. Lohkon sisällä ei voida suoraan esitellä uudelleen ulompien tasojen näkyviä muuttujia, mutta funktioiden ja tietuiden sisällä tämä on sallittua \cite{DLA13}.
+
+Lohkorakenne voi olla D-kielessä hyvinkin syvä, se sallii funktion sijoittamisen toisen funktion sisälle. Samoja muuttujia on mahdollista esitellä sisemmissä funktioissa uudelleen. Muuttujan voi määritellä kuitenkin vain sisemmässä funktiossa, esimerkiksi sisäkkäiset for-loopit vaativat kukin omat muuttujansa. Esimerkki tällaisesta funktioiden sisäkkäin sijoittelusta, jossa muuttuja määritetään uudelleen:
+
 
 
 \begin{verbatim}
@@ -72,20 +83,8 @@ return i;
 \end{verbatim}
 
 Erlang on litteä kieli, siinä voi olla lohkoja vain yhdellä tasolla.
-Erlang-kielen määrittely ei varsinaisesti esittele lohkosääntöjä. \\
+Erlang-kielen määrittely ei varsinaisesti esittele lohkosääntöjä. 
 
-sidonta, staattinen vs dynaaminen \\
-D-kielessä sidonta tehdään staattisesti käännösaikana. Erlangissa sidonta on
-dynaaminen.
-
-ensimmäisen toisen ja kolmannen luokan arvot
-
-sulkeumat
-
-esimerkit
-
-em. vertailu
-\subsection{hansin juttuja}
 Erlangissa lohkorakenne on toteutettu siten, että on moduuleita, jotka sisältävät funktioita. Moduuli määritellään '-module(moduulin\textunderscore nimi)' -ilmauksella moduulin ensimmäisellä rivillä.
 Seuraavaksi 'export'-lauseella ilmaistaan mitkä funktiot ovat kutsuttavissa ohjelman ulkopuolelta. Funktio määritellään funktion nimellä ja sulkeissa olevilla parametreilla. Funktion toteutus
 on kaikki seuraavat rivit ennen pistettä. Eerlangissa piste on lauseen tai funktion päättävä merkki. Alla esimerkki:
@@ -96,10 +95,27 @@ on kaikki seuraavat rivit ennen pistettä. Eerlangissa piste on lauseen tai funk
     io:format("Heippa, mualima!~n").
 \end{verbatim}
 
+D-kielessä sidonta tehdään staattisesti käännösaikana. Erlangissa sidonta on dynaaminen ja muuttujalle voidaan asettaa arvo vain kerran. D-kielessä muuttujan tilaa voidaan muuttaa suorituksen aikana.
+
+Kaikki D-kielen muuttujat kuuluvat ns. ensimmäiseen luokkaan \cite{DLA13}. Muuttujia voidaan välittää parametrina, niihin voidaan sijoittaa arvoja, ja palauttaa funktion arvona. Kieli sallii myös funktioliteraalien sijoittamisen funktiokutsun parametriksi.
+
+
+\begin{verbatim}
+void loop(int k, int j, void delegate() statement) { 
+  for (int i = k; i < j; i++) { 
+    statement(); 
+  }
+  
+loop(5, 100, { d += 1; } ); 
+loop(3, 10, { f += 3; } );
+\end{verbatim}
+
+D-kielessä sidonta tehdään staattisesti käännösaikana. Erlangissa sidonta on
+dynaaminen.
+
+
 Erlangissa kaiki tyypit(arvot) ovat toisen asteen arvoja, koska niitä voidaan asettaa muuttujien arvoiksi ja välittää parametreina funktioille.
 Myös lambdat kuuluvat tähän kategoriaan. 
-
-D:ssä 
 
 
 \section{Kontrollin ja laskennan ohjaus - Erlang}
@@ -241,21 +257,23 @@ rekursiivinen kutsu, jossa parametrilla N kerrotaan rekursiivisesti kutsuttavan
 kertoma(N-1) tulos.
 Kun rekursiokutsut saavuttavat tapauksen kertoma(0), palautuu tulos pitkin
 kutsuketjua alkuun. Tämän lähestymistavan huono puoli on se, että tietokoneen
-muistissa joudutaan pitämään koko ajan jokaisen kutsun 'välitulos'. Esimerkiksi
-edellisessä 
-kertomaesimerkissä parametrilla 3 laskenta menisi seuraavasti:
-\begin{verbatim}
-kertoma(3) = 3*(kertoma(2))
-                 = 3*(2*(kertoma(1))
-                 = 3*(2*(1*(kertoma(0))))
-                 = 3*(2*(1*1))
-                 = 3*(2*1)
-                 = 3*(2)
-                 = 6
-\end{verbatim}
-Joutuisimme pitämään muistissa kaikki nuo 7 välivaihetta. Tässä tapauksessa tämä
-ei olisi ongelma, mutta jos parametrina annettaisin joku todella suuri luku,
-muistin riittävyys muodostuisi ongelmaksi. 
+muistissa joudutaan pitämään koko ajan jokaisen kutsun 'välitulos'ja muistin riittävyys saattaa muodostua ongelmaksi. 
+
+
+%Esimerkiksi edellisessä kertomaesimerkissä parametrilla 3 laskenta menisi seuraavasti:
+%\begin{verbatim}
+%kertoma(3) = 3*(kertoma(2))
+%                 = 3*(2*(kertoma(1))
+%                 = 3*(2*(1*(kertoma(0))))
+%                 = 3*(2*(1*1))
+%                 = 3*(2*1)
+%                 = 3*(2)
+%                 = 6
+%\end{verbatim}
+%Joutuisimme pitämään muistissa kaikki nuo 7 välivaihetta. Tässä tapauksessa tämä
+%ei olisi ongelma, mutta jos parametrina annettaisin joku todella suuri luku,
+%muistin riittävyys muodostuisi ongelmaksi. 
+
 Tämän ongelman voi ohittaa häntärekursiolla. Häntärekursiivinen kertomafunktio
 toteutetaan toteutamalla myös apufunktio hantakertoma(N,Acc) johon otetaan
 mukaan vielä toinen parametri Acc, johon tallennetaan laskennan 
@@ -267,14 +285,15 @@ välivaiheiden tulokset:
 4. hantakertoma(N,Acc) when N > 0 -> hantakertoma(N-1, Acc*N) .
 \end{verbatim}
 
-Nyt laskennan kulku on seuraavanlainen: 
-\begin{verbatim}
-kertoma(3) = hantakertoma (3,1)
-                 = hantakertoma (3-1, 3*1)		
-                 = hantakertoma (2-1,2*3)
-                 = hantakertoma (1-1,1*6)
-                 = 6
-\end{verbatim}
+% Nyt laskennan kulku on seuraavanlainen: 
+% \begin{verbatim}
+% kertoma(3) = hantakertoma (3,1)
+%                  = hantakertoma (3-1, 3*1)		
+%                  = hantakertoma (2-1,2*3)
+%                  = hantakertoma (1-1,1*6)
+%                  = 6
+% \end{verbatim}
+
 Tässä tapauksessa joudumme pitämään ainoastaan kaksi lukua muistissa koko
 laskennan ajan kun normaalissa rekursiossa joudumme pitämään kaikki
 rekursiokutsuketjun välivaiheet muistissa. Jos unohdetaan se, kuinka paljon
@@ -295,20 +314,17 @@ else {
    writeln("A ja B eivät ole samoja.");
 }
 \end{verbatim}
-
 Toisin kuin muilla kielillä, D:llä ei ole ``tyhjän lauseen'' (empty statement)
 konstruktiota. Koodinpätkä
 
 \begin{verbatim}
 if (a == b);
 \end{verbatim}
-
 ei siis ole D:n hyväksymää. Sen sijaan tulisi kirjoittaa
 
 \begin{verbatim}
 if (a == b) {}
 \end{verbatim}
-
 Else-lause on aina sidottu lähimpään if-lauseeseen. Esimerkiksi:
 
 \begin{verbatim}
@@ -318,9 +334,7 @@ if (a == b)
    else
       writeln("B ja C eivät ole samoja.");
 \end{verbatim}
-
 Useat laskeutuvat (cascading) if-else -lauseet toteutetaan kuten C-kielessä.
-
 
 D:n static if -lause on C-kielen \#if-rakennetta muistuttava kääntämisajan
 (compile-time) selektori. Tullessaan static if -lauseen kohdalle kääntäjä arvioi
@@ -336,12 +350,10 @@ Goto-lause toimii D:ssa allaolevalla tavalla:
 \begin{verbatim}
 goto <nimi>;
 \end{verbatim}
-
 D:ssa goto-lauseen käyttöön ei liity paljoa rajoituksia, mikä D:n pääkehittäjä
 Andrei Alexandrescun mukaan tekee gotosta ongelmallisen työkalun. Goto voi
 hypätä eteen- tai taaksepäin ja sisään ja ulos lauseista. Symbolin <nimi> tulee
 kuitenkin olla näkyvissä funktiossa, missä gotoa kutsutaan. 
-
 
 \subsection{Toisto}
 
@@ -352,7 +364,6 @@ Java-kielessä.
 while (i => 0)
    --i;
 \end{verbatim}
-
 Kuten Javassa, koodin suoritus alkaa arvioimalla while-ehtoa. Jos lauseke ei ole
 tyhjä, silmukan sisällä olevaa lause suoritetaan, ja silmukka alkaa uudestaan
 while-ehdon arvionnilla. Do - while -lauseessa vastaava lauseke suoritetaan heti
@@ -362,28 +373,29 @@ pakollinen puolipiste lauseen lopussa.
 \begin{verbatim}
 do (--i) while (i => 0);
 \end{verbatim}
-
-Taulukoiden käsittelyyn foreach-lauseesta on olemassa allaoleva muoto:
+For-lause on edelleen samankaltainen kuin Javassa.
 
 \begin{verbatim}
-foreach (<symboli> ; <lauseke>) <lause>
+for (int i = 0; i < 10; i++) 
+   teeJotain(i);
 \end{verbatim}
+Listarakenteiden käsittelyyn foreach-lauseesta on olemassa allaoleva muoto:
 
-Lausekkeen tulee olla taulukko, SLICE? tai käyttäjän määrittelemä tyyppi. Kun
-<lauseke> on arvioitu kerran, viite siihen tallennetaan väliaikaisesti.
-<symboli> sidotaan vuorotellen jokaiseen taulukon elementtiin, ja <lause>
-suoritetaan. <symboli>:n yhteyteen voi määritellä myös sen tyypin. 
+\begin{verbatim}
+foreach(kappale ; joukko) {
+   teeJotain(kappale);
+}
+\end{verbatim}
+Foreach-lause toimii siis kuten esimerkiksi Java-kielessä. Kappaleen viite
+sidotaan vuorotellen jokaiseen joukko-listan elementtiin, ja teeJotain() -metodi
+suoritetaan jokaisen elementin kohdalla. 
 
 \subsection{Rekursio}
 
+Rekursio toimii D:ssä kuten Java-kielessä. Allaolevassa esimerkissä lasketaan
+kokonaisluvun kertoma rekursion avulla.
+
 \begin{verbatim}
-import std.stdio;
-
-void main() {
-  writeln(kertoma(5));
-
-}
-
 int kertoma(int n) {
   if(n<2) {
     return 1;
@@ -394,11 +406,33 @@ int kertoma(int n) {
   }
 }
 \end{verbatim}
+Main-metodissa suoritetaan kertoma-metodi, jolle annetaan parametriksi
+kokonaisluku n. Kertoma-metodi palauttaa luvun yksi, jos n on yksi, muuten
+kutsutaan rekursiivisesti kertoma-metodia. Lukua siis kerrotaan itseään yhtä
+pienemmän luvun kertomalla, kunnes päästään lukuun 1.  
 
-\bibliographystyle{tktl}
-\bibliography{lahteet}
+Häntärekursiolla toteutettuna metodi näyttää tältä:
+\begin{verbatim}
+int kertoma(int n, int sum) {
+  if(n==0) 
+    return sum;
+  else
+    kertoma(n-1, sum * n);
+}
+\end{verbatim}
+Nyt yhden kertoma-metodin suoritus loppuu toisen alkaessa, ja kertoma-metodi pitää kertoman tuloa mukanaan. Viimeiseksi suoritettu kertoma-metodi palauttaa loppusumman.
+
+
+% \bibliographystyle{tktl}
+% \bibliography{lahteet}
+% =======
+% %\bibliographystyle{tktl}
+\bibliography{Lähteet}
+
 
 \begin{thebibliography}{99}
+
+\bibitem[DLA13]{DLA13} http://dlang.org, noudettu 6.2.2013.
 
 \bibitem[KEI83]{KEI83} Hansi. M. O. Keijonen, LaTeX-dokumenttien kirjoittaminen, 1983.
 \end{thebibliography}

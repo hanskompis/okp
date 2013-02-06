@@ -1,7 +1,6 @@
 \BOOKMARK [1][-]{section.1}{Tunnusten n\344kyvyysalueet ja sidonta}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{hansin juttuja}{section.1}% 2
-\BOOKMARK [1][-]{section.2}{Kontrollin ja laskennan ohjaus - Erlang}{}% 3
-\BOOKMARK [1][-]{section.3}{Kontrollin ja laskennan ohjaus - D}{}% 4
-\BOOKMARK [2][-]{subsection.3.1}{Valinta}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.2}{Toisto}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.3}{Rekursio}{section.3}% 7
+\BOOKMARK [1][-]{section.2}{Kontrollin ja laskennan ohjaus - Erlang}{}% 2
+\BOOKMARK [1][-]{section.3}{Kontrollin ja laskennan ohjaus - D}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Valinta}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Toisto}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Rekursio}{section.3}% 6
