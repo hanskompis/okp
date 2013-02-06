@@ -86,15 +86,20 @@ esimerkit
 
 em. vertailu
 \subsection{hansin juttuja}
-Erlangissa lohkorakenne on toteutettu siten, että on moduuleita, jotka sisältävät funktioita. Moduuli määritellään '-module(moduulin_nimi)' -ilmauksella moduulin ensimmäisellä rivillä.
+Erlangissa lohkorakenne on toteutettu siten, että on moduuleita, jotka sisältävät funktioita. Moduuli määritellään '-module(moduulin\textunderscore nimi)' -ilmauksella moduulin ensimmäisellä rivillä.
 Seuraavaksi 'export'-lauseella ilmaistaan mitkä funktiot ovat kutsuttavissa ohjelman ulkopuolelta. Funktio määritellään funktion nimellä ja sulkeissa olevilla parametreilla. Funktion toteutus
 on kaikki seuraavat rivit ennen pistettä. Eerlangissa piste on lauseen tai funktion päättävä merkki. Alla esimerkki:
 \begin{verbatim}
 -module(heippa).
 -export([heippa/0]).
-heippa() ->
-io:format("Heippa, mualima!~n").
+    heippa() ->
+    io:format("Heippa, mualima!~n").
 \end{verbatim}
+
+Erlangissa kaiki tyypit(arvot) ovat toisen asteen arvoja, koska niitä voidaan asettaa muuttujien arvoiksi ja välittää parametreina funktioille.
+Myös lambdat kuuluvat tähän kategoriaan. 
+
+D:ssä 
 
 
 \section{Kontrollin ja laskennan ohjaus - Erlang}
@@ -236,21 +241,23 @@ rekursiivinen kutsu, jossa parametrilla N kerrotaan rekursiivisesti kutsuttavan
 kertoma(N-1) tulos.
 Kun rekursiokutsut saavuttavat tapauksen kertoma(0), palautuu tulos pitkin
 kutsuketjua alkuun. Tämän lähestymistavan huono puoli on se, että tietokoneen
-muistissa joudutaan pitämään koko ajan jokaisen kutsun 'välitulos'. Esimerkiksi
-edellisessä 
-kertomaesimerkissä parametrilla 3 laskenta menisi seuraavasti:
-\begin{verbatim}
-kertoma(3) = 3*(kertoma(2))
-                 = 3*(2*(kertoma(1))
-                 = 3*(2*(1*(kertoma(0))))
-                 = 3*(2*(1*1))
-                 = 3*(2*1)
-                 = 3*(2)
-                 = 6
-\end{verbatim}
-Joutuisimme pitämään muistissa kaikki nuo 7 välivaihetta. Tässä tapauksessa tämä
-ei olisi ongelma, mutta jos parametrina annettaisin joku todella suuri luku,
-muistin riittävyys muodostuisi ongelmaksi. 
+muistissa joudutaan pitämään koko ajan jokaisen kutsun 'välitulos'ja muistin riittävyys saattaa muodostua ongelmaksi. 
+
+
+%Esimerkiksi edellisessä kertomaesimerkissä parametrilla 3 laskenta menisi seuraavasti:
+%\begin{verbatim}
+%kertoma(3) = 3*(kertoma(2))
+%                 = 3*(2*(kertoma(1))
+%                 = 3*(2*(1*(kertoma(0))))
+%                 = 3*(2*(1*1))
+%                 = 3*(2*1)
+%                 = 3*(2)
+%                 = 6
+%\end{verbatim}
+%Joutuisimme pitämään muistissa kaikki nuo 7 välivaihetta. Tässä tapauksessa tämä
+%ei olisi ongelma, mutta jos parametrina annettaisin joku todella suuri luku,
+%muistin riittävyys muodostuisi ongelmaksi. 
+
 Tämän ongelman voi ohittaa häntärekursiolla. Häntärekursiivinen kertomafunktio
 toteutetaan toteutamalla myös apufunktio hantakertoma(N,Acc) johon otetaan
 mukaan vielä toinen parametri Acc, johon tallennetaan laskennan 
@@ -262,14 +269,15 @@ välivaiheiden tulokset:
 4. hantakertoma(N,Acc) when N > 0 -> hantakertoma(N-1, Acc*N) .
 \end{verbatim}
 
-Nyt laskennan kulku on seuraavanlainen: 
-\begin{verbatim}
-kertoma(3) = hantakertoma (3,1)
-                 = hantakertoma (3-1, 3*1)		
-                 = hantakertoma (2-1,2*3)
-                 = hantakertoma (1-1,1*6)
-                 = 6
-\end{verbatim}
+% Nyt laskennan kulku on seuraavanlainen: 
+% \begin{verbatim}
+% kertoma(3) = hantakertoma (3,1)
+%                  = hantakertoma (3-1, 3*1)		
+%                  = hantakertoma (2-1,2*3)
+%                  = hantakertoma (1-1,1*6)
+%                  = 6
+% \end{verbatim}
+
 Tässä tapauksessa joudumme pitämään ainoastaan kaksi lukua muistissa koko
 laskennan ajan kun normaalissa rekursiossa joudumme pitämään kaikki
 rekursiokutsuketjun välivaiheet muistissa. Jos unohdetaan se, kuinka paljon
@@ -390,7 +398,7 @@ int kertoma(int n) {
 }
 \end{verbatim}
 
-%\bibliographystyle{tktl}
+\bibliographystyle{tktl}
 \bibliography{lahteet}
 
 \begin{thebibliography}{99}

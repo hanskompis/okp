@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  6 FEB 2013 17:34
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  6 FEB 2013 18:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -703,10 +703,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 18.
 
-
-LaTeX Warning: Citation `KEI83' on page 1 undefined on input line 37.
-
-
 Overfull \hbox (167.18202pt too wide) in paragraph at lines 40--42
 \T1/lmr/m/n/10.95 lausek-kei-ta ja yk-si pro-duk-tio voi si-s‰l-t‰‰ useam-pia r
 un-ko-ja. >>>>>>> b1cdc56589ed144ca13b7e685e2d42f1a0dacbd9 
@@ -722,653 +718,95 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--76
 
  []
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.89 ...oduuli m√§√§ritell√§√§n '-module(moduulin_
-                                                  nimi)' -ilmauksella moduul...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 89.
-
-LaTeX Warning: Command \" invalid in math mode on input line 89.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 89.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 89.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 90.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 90.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 90.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 90.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 90.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 90.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 91.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 91.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 91.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 91.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 91.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.92 \begin{verbatim}
-                     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.92 \begin{verbatim}
-                     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Overfull \hbox (271.85765pt too wide) in paragraph at lines 89--92
+Overfull \hbox (11.17297pt too wide) in paragraph at lines 89--92
 \T1/lmr/m/n/10.95 t‰-v‰t funk-tioi-ta. Mo-duu-li m‰‰-ri-tel-l‰‰n '-module(moduu
-lin$[]\OML/lmm/m/it/10.95 imi\OT1/lmr/m/n/10.95 )[] \OMS/lmsy/m/n/10.95 ^^@ \OM
-L/lmm/m/it/10.95 ilmauksellamoduulinensimm\OT1/lmr/m/n/10.95 ‰\OML/lmm/m/it/10.
-95 isell\OT1/lmr/m/n/10.95 ‰\OML/lmm/m/it/10.95 rivill\OT1/lmr/m/n/10.95 ‰\OML/
-lmm/m/it/10.95 :Seuraavaksi[]export[] \OMS/lmsy/m/n/10.95 ^^@
+lin_nimi)' -ilmauksella
  []
 
 
-Overfull \hbox (977.22316pt too wide) in paragraph at lines 89--92
-\OML/lmm/m/it/10.95 lauseellailmaistaanmitk\OT1/lmr/m/n/10.95 ‰\OML/lmm/m/it/10
-.95 funktiotovatkutsuttavissaohjelmanulkopuolelta:Funktiom\OT1/lmr/m/n/10.95 ‰‰
-\OML/lmm/m/it/10.95 ritell\OT1/lmr/m/n/10.95 ‰‰\OML/lmm/m/it/10.95 nfunktionnim
-ell\OT1/lmr/m/n/10.95 ‰\OML/lmm/m/it/10.95 jasulkeissaolevillaparametreilla:Fun
-ktiontoteutusonkaikkiseuraavatrivitennenpistett\OT1/lmr/m/n/10.95 ‰\OML/lmm/m/i
-t/10.95 :Eerlangissapisteonlauseentaifunktionp\OT1/lmr/m/n/10.95 ‰‰\OML/lmm/m/i
-t/10.95 tt\OT1/lmr/m/n/10.95 ‰\OML/lmm/m/it/10.95 v\OT1/lmr/m/n/10.95 ‰\OML/lmm
-/m/it/10.95 merkki:Allaesimerkki \OT1/lmr/m/n/10.95 :$ 
- []
-
-
-! LaTeX Error: \begin{document} ended by \end{verbatim}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.97 \end{verbatim}
-                   
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.97 \end{verbatim}
-                   
-Things are pretty mixed up, but I think the worst is over.
-
-
-Overfull \hbox (48.16008pt too wide) in paragraph at lines 101--101
-[]\T1/lmtt/m/n/10.95 Jotta voidaan ymm‰rt‰‰ Erlangin kontrollirakenteita, pit‰‰
- ensimm‰isen‰[] 
- []
-
-
-Overfull \hbox (82.65248pt too wide) in paragraph at lines 102--102
-[]\T1/lmtt/m/n/10.95 selvitt‰‰ hahmontunnistuksen mekanismi. Hahmontunnistus pe
-rustuu siihen, ett‰[] 
- []
-
-
-Overfull \hbox (76.90375pt too wide) in paragraph at lines 103--103
-[]\T1/lmtt/m/n/10.95 funktioon m‰‰ritell‰‰n useita funktiokutsuja siten, ett‰ j
-okaisessa kutsussa[] 
- []
-
-
-Overfull \hbox (88.40121pt too wide) in paragraph at lines 104--104
-[]\T1/lmtt/m/n/10.95 parametrit ovat lukum‰‰r‰lt‰‰n samat, mutta ovat arvoiltaa
-n erilaiset. Ts. kun[] 
+Overfull \hbox (2.65642pt too wide) in paragraph at lines 89--92
+\T1/lmr/m/n/10.95 mo-duu-lin en-sim-m‰i-sel-l‰ ri-vil-l‰. Seu-raa-vak-si 'expor
+t'-lauseella il-mais-taan mit-
  []
 
 [2]
-Overfull \hbox (65.40628pt too wide) in paragraph at lines 105--105
-[]\T1/lmtt/m/n/10.95 funktiota kutsutaan tietyll‰ parametrilla, k‰yd‰‰n j‰rjest
-yksess‰ l‰pi eri[] 
- []
-
-
-Overfull \hbox (13.66768pt too wide) in paragraph at lines 106--106
-[]\T1/lmtt/m/n/10.95 funktion kutsuvaihtoehdot ja kun ensimm‰inen parametreihin
- sopiva[] 
- []
-
-
-Overfull \hbox (71.15501pt too wide) in paragraph at lines 108--108
-[]\T1/lmtt/m/n/10.95 toimitaan sen m‰‰rityksen mukaan. Helpoimmin asia selvi‰‰ 
-esimerkin avulla:[] 
- []
-
-
-Overfull \hbox (13.66768pt too wide) in paragraph at lines 110--110
+Overfull \hbox (13.66768pt too wide) in paragraph at lines 118--118
 []\T1/lmtt/m/n/10.95 1: tervehdi(mies, Nimi) -> io:format("Terppa, herra %s!",[
 Nimi]);[] 
  []
 
 
-Overfull \hbox (19.41641pt too wide) in paragraph at lines 111--111
+Overfull \hbox (19.41641pt too wide) in paragraph at lines 118--118
 []\T1/lmtt/m/n/10.95 2: tervehdi(nainen,Nimi) -> io:format("Terppa, rouva %s!",
 [Nimi]);[] 
  []
 
-
-Overfull \hbox (53.90881pt too wide) in paragraph at lines 116--116
-[]\T1/lmtt/m/n/10.95 Kutsutaessa tervehdi-funktiota tervehdi(nainen,"Tuppuraine
-n"), tutkitaan[] 
- []
-
-
-Overfull \hbox (48.16008pt too wide) in paragraph at lines 117--117
-[]\T1/lmtt/m/n/10.95 ensiksi, sopiiko parametrit  rivin 1 parametrisointivaihto
-ehtoon. Koska[] 
- []
-
-
-Overfull \hbox (94.14995pt too wide) in paragraph at lines 119--119
-[]\T1/lmtt/m/n/10.95 yritet‰‰n kutsua sovittaa rivin kaksi parametrisointivaiht
-oehtoon. T‰ll‰ kertaa[] 
- []
-
-
-Overfull \hbox (53.90881pt too wide) in paragraph at lines 120--120
-[]\T1/lmtt/m/n/10.95 parametrit sopivat ja ohjelma tulostaa "Terppa, rouva Tupp
-urainen!". Jos[] 
- []
-
-
-Overfull \hbox (65.40628pt too wide) in paragraph at lines 122--122
-[]\T1/lmtt/m/n/10.95 tervehdi(hermafrodiitti,"Hˆttˆl‰"), olisi vasta rivin 3 pa
-rametrit osuneet[] 
- []
-
-
-Overfull \hbox (19.41641pt too wide) in paragraph at lines 123--123
-[]\T1/lmtt/m/n/10.95 oikeaan, ja silloin olisi toimittu t‰m‰n rivin m‰‰ritysten
- mukaan.[] 
- []
-
-
-Overfull \hbox (76.90375pt too wide) in paragraph at lines 127--127
-[]\T1/lmtt/m/n/10.95 Valintojen tekemiseen Erlangissa on em. hahmonsovituksen l
-is‰ksi mahdollista[] 
- []
-
-
-Overfull \hbox (71.15501pt too wide) in paragraph at lines 130--130
-[]\T1/lmtt/m/n/10.95 Erlangissa if-rakenne ilmaistaan hieman esim. Javasta ja D
-:st‰ poikkeavalla[] 
- []
-
-
-Overfull \hbox (65.40628pt too wide) in paragraph at lines 141--141
-[]\T1/lmtt/m/n/10.95 Esimerkkifunktiossa siis verrataan kahta lukua ja toimitaa
-n eri tavoin sen[] 
- []
-
-
-Overfull \hbox (53.90881pt too wide) in paragraph at lines 142--142
-[]\T1/lmtt/m/n/10.95 mukaan, mik‰ on vertailun tulos. Riveill‰ 2 ja 3 tutkitaan
- ovatko N ja M[] 
- []
-
-
-Overfull \hbox (76.90375pt too wide) in paragraph at lines 144--144
-[]\T1/lmtt/m/n/10.95 vaikuttava true, joka vastaa esim. D:n else:‰. Koko if-rak
-enne p‰‰tet‰‰n end[] 
- []
-
-
-Overfull \hbox (88.40121pt too wide) in paragraph at lines 147--147
-[]\T1/lmtt/m/n/10.95 Guardit ovat yksi Erlangin erikoisuus, joka on tuttu myˆs 
-Haskellista. Guardit[] 
- []
-
-
-Overfull \hbox (99.89868pt too wide) in paragraph at lines 148--148
-[]\T1/lmtt/m/n/10.95 ovat keino tehd‰ hahmonsovituksesta hieman ilmaisuvoimaise
-mpaa. Sen sijaan, ett‰[] 
- []
-
 [3]
-Overfull \hbox (71.15501pt too wide) in paragraph at lines 168--168
-[]\T1/lmtt/m/n/10.95 T‰ll‰ tavoin voidaan j‰tt‰‰ kirjoittamatta useita funktiok
-utsuvaihtoehtoja.[] 
- []
-
-
-Overfull \hbox (65.40628pt too wide) in paragraph at lines 169--169
-[]\T1/lmtt/m/n/10.95 T‰rke‰‰ on muistaa, ett‰ guard-rakenteen tulee aina palaut
-taa true jollain[] 
- []
-
-
-Overfull \hbox (36.66261pt too wide) in paragraph at lines 172--172
-[]\T1/lmtt/m/n/10.95 Erlangissa on myˆs case...of -rakenne, joka mahdollistaa m
-onipuoliset[] 
- []
-
-
-Overfull \hbox (65.40628pt too wide) in paragraph at lines 173--173
-[]\T1/lmtt/m/n/10.95 valintarakenteet, johon voidan yhdist‰‰ myˆs guardeja. Esi
-merkki selvent‰‰[] 
- []
-
-
-Overfull \hbox (42.41135pt too wide) in paragraph at lines 179--179
+Overfull \hbox (42.41135pt too wide) in paragraph at lines 187--187
 []        \T1/lmtt/m/n/10.95 {kelvin, N}  when N >= 293, N =< 318 -> 'tieteelli
 sesti jees';[] 
  []
 
 
-Overfull \hbox (82.65248pt too wide) in paragraph at lines 180--180
+Overfull \hbox (82.65248pt too wide) in paragraph at lines 187--187
 []        \T1/lmtt/m/n/10.95 {fahrenheit, N}  when N >= 68, N =< 113 -> 'amerik
 kalaisittain jees';[] 
  []
 
-
-Overfull \hbox (99.89868pt too wide) in paragraph at lines 184--184
-[]\T1/lmtt/m/n/10.95 Ohjelma siis saa parametrinaan tuplen, jossa on l‰mpˆtila-
-asteikko ja astem‰‰r‰.[] 
- []
-
-
-Overfull \hbox (59.65755pt too wide) in paragraph at lines 185--185
-[]\T1/lmtt/m/n/10.95 Sen j‰lkeen case...of -rakenteessa riveill‰  tutkitaan, mi
-nk‰ periaatteen[] 
- []
-
-
-Overfull \hbox (48.16008pt too wide) in paragraph at lines 186--186
-[]\T1/lmtt/m/n/10.95 mukaisesti astem‰‰r‰‰ tutkitaan. Lopulta guardin avulla p‰
-‰tet‰‰n, onko[] 
- []
-
-
-Overfull \hbox (163.13475pt too wide) in paragraph at lines 187--187
-[]\T1/lmtt/m/n/10.95 parametrina saatu l‰mpˆtila sopiva rantael‰m‰‰n. Mielenkii
-ntoinen kysymys on se, ett‰ mihin[] 
- []
-
-
-Overfull \hbox (88.40121pt too wide) in paragraph at lines 188--188
-[]\T1/lmtt/m/n/10.95 case...of -rakennetta tarvitaan, koska se on hyvin samanla
-inen funktiokutsujen[] 
- []
-
-
-Overfull \hbox (36.66261pt too wide) in paragraph at lines 189--189
-[]\T1/lmtt/m/n/10.95 hahmonsovituksen kanssa. Valinta kannattaa perustaa henkil
-ˆkohtaisiin[] 
- []
-
-
-Overfull \hbox (82.65248pt too wide) in paragraph at lines 192--192
-[]\T1/lmtt/m/n/10.95 Erlangissa toistoa ja rekursiota ei voi erottaa toisistaan
-, koska rekursio on[] 
- []
-
 [4]
-Overfull \hbox (76.90375pt too wide) in paragraph at lines 193--193
-[]\T1/lmtt/m/n/10.95 ainoa tapa suorittaa toistorakenteita. Erlangissa ei ole s
-iis for- tai while[] 
- []
-
-
-Overfull \hbox (71.15501pt too wide) in paragraph at lines 194--194
-[]\T1/lmtt/m/n/10.95 -lauseita esim. D:n tai Javan tapaan. Listan l‰pik‰ynti Er
-langissa perustuu[] 
- []
-
-
-Overfull \hbox (36.66261pt too wide) in paragraph at lines 196--196
-[]\T1/lmtt/m/n/10.95 esim. koknaislukuja sis‰lt‰v‰ lista [1,2,3,4]  voidaan ilm
-oittaa myˆs[] 
- []
-
-
-Overfull \hbox (94.14995pt too wide) in paragraph at lines 197--197
-[]\T1/lmtt/m/n/10.95 konstruktorioperaattoria '|' k‰ytt‰en [1|[2,3,4]], eli luk
-u 1 liitet‰‰n listaan[] 
- []
-
-
-Overfull \hbox (48.16008pt too wide) in paragraph at lines 198--198
-[]\T1/lmtt/m/n/10.95 [2,3,4]. Lista voidaan ilmoittaa myˆs head- ja tail-funkti
-oita k‰ytt‰en[] 
- []
-
-
-Overfull \hbox (76.90375pt too wide) in paragraph at lines 200--200
-[]\T1/lmtt/m/n/10.95 Jos halutaan k‰yd‰ lista l‰pi yksinkertaisesti siten, ett‰
- laskemme jokaisen[] 
- []
-
-
-Overfull \hbox (76.90375pt too wide) in paragraph at lines 201--201
-[]\T1/lmtt/m/n/10.95 listan alkion yhteen, voidaan se Erlangissa tehd‰ esim. se
-uraavalla tavalla:[] 
- []
-
-
-Overfull \hbox (88.40121pt too wide) in paragraph at lines 209--209
-[]\T1/lmtt/m/n/10.95 T‰ss‰ funktiossa siis hahmonsovituksen avulla toteutetaan 
-rekursiivinen listan[] 
- []
-
-
-Overfull \hbox (59.65755pt too wide) in paragraph at lines 210--210
-[]\T1/lmtt/m/n/10.95 l‰pik‰ynti. Rivill‰ 1 on toteutettu alkeistapaus, jossa li
-sta on tyhj‰ ja[] 
- []
-
-
-Overfull \hbox (88.40121pt too wide) in paragraph at lines 211--211
-[]\T1/lmtt/m/n/10.95 jolloin alkioiden summa on 0. Rivill‰ kaksi summataan list
-an ensimm‰inen alkio[] 
- []
-
-
-Overfull \hbox (94.14995pt too wide) in paragraph at lines 213--213
-[]\T1/lmtt/m/n/10.95 (Tail) alkioiden summan kanssa. T‰ll‰ tavoin voidaaan tehd
-‰ monipuolisia listan[] 
- []
-
-
-Overfull \hbox (99.89868pt too wide) in paragraph at lines 216--216
-[]\T1/lmtt/m/n/10.95 Rekursio on Erlangissa yvin tavanomainen tapa tehd‰ asioit
-a, semminkin kun muita[] 
- []
-
-
-Overfull \hbox (94.14995pt too wide) in paragraph at lines 217--217
-[]\T1/lmtt/m/n/10.95 toistorakenteita ei ole. Perinteinen rekursiolla teht‰v‰ f
-unktio on kertoma n!,[] 
- []
-
-
-Overfull \hbox (65.40628pt too wide) in paragraph at lines 227--227
-[]\T1/lmtt/m/n/10.95 T‰m‰ on on helposti ja ulkoasultaan elegantisti toteutetta
-vissa Erlangilla[] 
- []
-
-
-Overfull \hbox (71.15501pt too wide) in paragraph at lines 233--233
-[]\T1/lmtt/m/n/10.95 J‰lleen aluksi tarkistetaan alkeistapaus, joka on t‰ss‰ ta
-pauksessa luvun 0[] 
- []
-
-
-Overfull \hbox (25.16515pt too wide) in paragraph at lines 234--234
-[]\T1/lmtt/m/n/10.95 kertoma ja jos t‰m‰ rivi ei ota kiinni, suoritetaan seuraa
-van rivin[] 
- []
-
-
-Overfull \hbox (94.14995pt too wide) in paragraph at lines 235--235
-[]\T1/lmtt/m/n/10.95 rekursiivinen kutsu, jossa parametrilla N kerrotaan rekurs
-iivisesti kutsuttavan[] 
- []
-
-[5]
-Overfull \hbox (65.40628pt too wide) in paragraph at lines 237--237
-[]\T1/lmtt/m/n/10.95 Kun rekursiokutsut saavuttavat tapauksen kertoma(0), palau
-tuu tulos pitkin[] 
- []
-
-
-Overfull \hbox (82.65248pt too wide) in paragraph at lines 238--238
-[]\T1/lmtt/m/n/10.95 kutsuketjua alkuun. T‰m‰n l‰hestymistavan huono puoli on s
-e, ett‰ tietokoneen[] 
- []
-
-
-Overfull \hbox (94.14995pt too wide) in paragraph at lines 239--239
-[]\T1/lmtt/m/n/10.95 muistissa joudutaan pit‰m‰‰n koko ajan jokaisen kutsun 'v‰
-litulos'. Esimerkiksi[] 
- []
-
-
-Overfull \hbox (99.89868pt too wide) in paragraph at lines 251--251
-[]\T1/lmtt/m/n/10.95 Joutuisimme pit‰m‰‰n muistissa kaikki nuo 7 v‰livaihetta. 
-T‰ss‰ tapauksessa t‰m‰[] 
- []
-
-
-Overfull \hbox (76.90375pt too wide) in paragraph at lines 252--252
-[]\T1/lmtt/m/n/10.95 ei olisi ongelma, mutta jos parametrina annettaisin joku t
-odella suuri luku,[] 
- []
-
-
-Overfull \hbox (88.40121pt too wide) in paragraph at lines 254--254
-[]\T1/lmtt/m/n/10.95 T‰m‰n ongelman voi ohittaa h‰nt‰rekursiolla. H‰nt‰rekursii
-vinen kertomafunktio[] 
- []
-
-
-Overfull \hbox (65.40628pt too wide) in paragraph at lines 255--255
-[]\T1/lmtt/m/n/10.95 toteutetaan toteutamalla myˆs apufunktio hantakertoma(N,Ac
-c) johon otetaan[] 
- []
-
-
-Overfull \hbox (2.17021pt too wide) in paragraph at lines 256--256
-[]\T1/lmtt/m/n/10.95 mukaan viel‰ toinen parametri Acc, johon tallennetaan lask
-ennan[] 
- []
-
-
-Overfull \hbox (2.17021pt too wide) in paragraph at lines 262--262
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 225.
+ [5]
+Overfull \hbox (2.17021pt too wide) in paragraph at lines 270--270
 []\T1/lmtt/m/n/10.95 4. hantakertoma(N,Acc) when N > 0 -> hantakertoma(N-1, Acc
 *N) .[] 
  []
 
 
-Overfull \hbox (59.65755pt too wide) in paragraph at lines 273--273
-[]\T1/lmtt/m/n/10.95 T‰ss‰ tapauksessa joudumme pit‰m‰‰n ainoastaan kaksi lukua
- muistissa koko[] 
- []
-
-
-Overfull \hbox (25.16515pt too wide) in paragraph at lines 274--274
-[]\T1/lmtt/m/n/10.95 laskennan ajan kun normaalissa rekursiossa joudumme pit‰m‰
-‰n kaikki[] 
- []
-
-
-Overfull \hbox (71.15501pt too wide) in paragraph at lines 275--275
-[]\T1/lmtt/m/n/10.95 rekursiokutsuketjun v‰livaiheet muistissa. Jos unohdetaan 
-se, kuinka paljon[] 
- []
-
-
-Overfull \hbox (99.89868pt too wide) in paragraph at lines 276--276
-[]\T1/lmtt/m/n/10.95 luvun 3 ja 1000 000 esitt‰minen kuluttaa muistia, kertoma(
-3) ja kertoma(1000000)[] 
+Overfull \hbox (6.30702pt too wide) in paragraph at lines 324--325
+[]\T1/lmr/m/n/10.95 Useat las-keu-tu-vat (casca-ding) if-else -lauseet to-teu-t
+e-taan ku-ten C-kieless‰. 
  []
 
 [6]
-Overfull \hbox (88.40121pt too wide) in paragraph at lines 294--294
-[]\T1/lmtt/m/n/10.95 Toisin kuin muilla kielill‰, D:ll‰ ei ole ``tyhj‰n lauseen
-'' (empty statement)[] 
+Overfull \hbox (0.64822pt too wide) in paragraph at lines 374--378
+[]\T1/lmr/m/n/10.95 Lausekkeen tu-lee ol-la tau-luk-ko, SLICE? tai k‰yt-t‰-j‰n 
+m‰‰-rit-te-le-m‰ tyyp-
  []
 
-
-Overfull \hbox (7.91895pt too wide) in paragraph at lines 307--307
-[]\T1/lmtt/m/n/10.95 Else-lause on aina sidottu l‰himp‰‰n if-lauseeseen. Esimer
-kiksi:[] 
- []
-
-
-Overfull \hbox (76.90375pt too wide) in paragraph at lines 317--317
-[]\T1/lmtt/m/n/10.95 Useat laskeutuvat (cascading) if-else -lauseet toteutetaan
- kuten C-kieless‰.[] 
- []
-
-
-Overfull \hbox (65.40628pt too wide) in paragraph at lines 320--320
-[]\T1/lmtt/m/n/10.95 D:n static if -lause on C-kielen \#if-rakennetta muistutta
-va k‰‰nt‰misajan[] 
- []
-
-
-Overfull \hbox (99.89868pt too wide) in paragraph at lines 321--321
-[]\T1/lmtt/m/n/10.95 (compile-time) selektori. Tullessaan static if -lauseen ko
-hdalle k‰‰nt‰j‰ arvioi[] 
- []
-
-
-Overfull \hbox (99.89868pt too wide) in paragraph at lines 322--322
-[]\T1/lmtt/m/n/10.95 ohjaavan lausekkeen. Jos lauseke ei ole tyhj‰, vastaava ko
-odi k‰‰nnet‰‰n. Muussa[] 
- []
-
-[7]
-Overfull \hbox (82.65248pt too wide) in paragraph at lines 325--325
-[]\T1/lmtt/m/n/10.95 Static if -lauseen testaama lauseke voi olla mik‰ vain if-
-testattava lauseke,[] 
- []
-
-
-Overfull \hbox (76.90375pt too wide) in paragraph at lines 326--326
-[]\T1/lmtt/m/n/10.95 jota voidaan arvioida k‰‰nt‰misen aikana. Mahdollisia laus
-ekkeisiin kuuluvat[] 
- []
-
-
-Overfull \hbox (88.40121pt too wide) in paragraph at lines 335--335
-[]\T1/lmtt/m/n/10.95 D:ssa goto-lauseen k‰yttˆˆn ei liity paljoa rajoituksia, m
-ik‰ D:n p‰‰kehitt‰j‰[] 
- []
-
-
-Overfull \hbox (65.40628pt too wide) in paragraph at lines 336--336
-[]\T1/lmtt/m/n/10.95 Andrei Alexandrescun mukaan tekee gotosta ongelmallisen ty
-ˆkalun. Goto voi[] 
- []
-
-
-Overfull \hbox (94.14995pt too wide) in paragraph at lines 337--337
-[]\T1/lmtt/m/n/10.95 hyp‰t‰ eteen- tai taaksep‰in ja sis‰‰n ja ulos lauseista. 
-Symbolin <nimi> tulee[] 
- []
-
-
-Overfull \hbox (30.91388pt too wide) in paragraph at lines 343--343
-[]\T1/lmtt/m/n/10.95 While- ja do-while -lauseet ovat hyvin samankaltaisia, kui
-n vaikkapa[] 
- []
-
-
-Overfull \hbox (99.89868pt too wide) in paragraph at lines 351--351
-[]\T1/lmtt/m/n/10.95 Kuten Javassa, koodin suoritus alkaa arvioimalla while-eht
-oa. Jos lauseke ei ole[] 
- []
-
-
-Overfull \hbox (82.65248pt too wide) in paragraph at lines 352--352
-[]\T1/lmtt/m/n/10.95 tyhj‰, silmukan sis‰ll‰ olevaa lause suoritetaan, ja silmu
-kka alkaa uudestaan[] 
- []
-
-
-Overfull \hbox (99.89868pt too wide) in paragraph at lines 353--353
-[]\T1/lmtt/m/n/10.95 while-ehdon arvionnilla. Do - while -lauseessa vastaava la
-useke suoritetaan heti[] 
- []
-
-
-Overfull \hbox (94.14995pt too wide) in paragraph at lines 354--354
-[]\T1/lmtt/m/n/10.95 kerran ennen while-ehdon tarkastelua. Allaolevassa esimerk
-iss‰ n‰kyy myˆs D:ss‰[] 
- []
-
-
-Overfull \hbox (42.41135pt too wide) in paragraph at lines 361--361
-[]\T1/lmtt/m/n/10.95 Taulukoiden k‰sittelyyn foreach-lauseesta on olemassa alla
-oleva muoto:[] 
- []
-
-
-Overfull \hbox (82.65248pt too wide) in paragraph at lines 367--367
-[]\T1/lmtt/m/n/10.95 Lausekkeen tulee olla taulukko, SLICE? tai k‰ytt‰j‰n m‰‰ri
-ttelem‰ tyyppi. Kun[] 
- []
-
-
-Overfull \hbox (48.16008pt too wide) in paragraph at lines 368--368
-[]\T1/lmtt/m/n/10.95 <lauseke> on arvioitu kerran, viite siihen tallennetaan v‰
-liaikaisesti.[] 
- []
-
-[8]
-Overfull \hbox (59.65755pt too wide) in paragraph at lines 369--369
-[]\T1/lmtt/m/n/10.95 <symboli> sidotaan vuorotellen jokaiseen taulukon elementt
-iin, ja <lause>[] 
- []
-
-
-Overfull \hbox (19.41641pt too wide) in paragraph at lines 370--370
-[]\T1/lmtt/m/n/10.95 suoritetaan. <symboli>:n yhteyteen voi m‰‰ritell‰ myˆs sen
- tyypin.[] 
- []
-
-
-Overfull \hbox (134.39108pt too wide) in paragraph at lines 398--398
-[]\T1/lmtt/m/n/10.95 \bibitem[KEI83]{KEI83} Hansi. M. O. Keijonen, LaTeX-dokume
-nttien kirjoittaminen, 1983.[] 
- []
-
-)
-! Emergency stop.
-<*> Hajaee_2.tex
-                
-*** (job aborted, no legal \end found)
-
- 
+[7] (./Hajaee_2.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 408.
+ [8]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 408.
+ (./Hajaee_2.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 408.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 408.
+Package rerunfilecheck Info: File `Hajaee_2.out' has not changed.
+(rerunfilecheck)             Checksum: 5331B549F005963DA67294B38761D001;447.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 408.
+ ) 
 Here is how much of TeX's memory you used:
- 6303 strings out of 493481
- 90779 string characters out of 3143393
- 171047 words of memory out of 3000000
- 9519 multiletter control sequences out of 15000+200000
- 40652 words of font info for 37 fonts, out of 3000000 for 9000
+ 6319 strings out of 493481
+ 90959 string characters out of 3143393
+ 170036 words of memory out of 3000000
+ 9529 multiletter control sequences out of 15000+200000
+ 37657 words of font info for 36 fonts, out of 3000000 for 9000
  965 hyphenation exceptions out of 8191
- 29i,6n,28p,461b,436s stack positions out of 5000i,500n,10000p,200000b,50000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 29i,8n,28p,461b,439s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/s
+hare/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/l
+m/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi
+10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/font
+s/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb><
+/usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmtt10.pfb>
+Output written on Hajaee_2.pdf (8 pages, 162734 bytes).
+PDF statistics:
+ 117 PDF objects out of 1000 (max. 8388607)
+ 98 compressed objects within 1 object stream
+ 18 named destinations out of 1000 (max. 500000)
+ 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+
