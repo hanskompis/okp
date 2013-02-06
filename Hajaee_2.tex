@@ -21,9 +21,38 @@
 \section{Tunnusten näkyvyysalueet ja sidonta}
 (D ja Erlang vierekkäin)
 
-lohkorakenne, litteä vs syvä
+lohkorakenne, litteä vs syvä \\
+D-kielessä lohkot rajataan merkein \{ \}, ja ne voivat koostua lausekkeista. Lohkot sidotaan lausekkeeseen, luokkaan tai funktioon. Lohkolla voidaan ilmaista myös nimetön näkyvyysalue, jos sitä ei ole sidottu funktioon, luokkaan tai lausekkeeseen. Lohkon sisältä on näkyvyys lohkon ulkopuolelle, mutta ulkopuolelta ei ole näkyvyyttä lohkon sisälle. Luokkien ja niiden tietueiden näkyvyys voidaan kuitenkin sallia ulkopuolelle.
 
-sidonta, staattinen vs dynaaminen
+Erlangin lähestymistapa on erilainen kuin D-kielessä. Lohkorakenne perustuu produktioihin, jotka sisältävät otsikon ja rungon. Runko voi sisältää lausekkeita ja yksi produktio voi sisältää useampia runkoja.
+
+D-kielessä tunnusten sidonta tehdään staattisesti käännösaikana. Lohkon sisällä ei voida suoraan esitellä uudelleen ulompien tasojen näkyviä muuttujia, mutta funktioiden ja tietuiden sisällä tämä on sallittua.
+
+ lohkorakenne voi olla hyvinkin syvä, se sallii funktion sijoittamisen toisen funktion sisälle. Samoja muuttujia on mahdollista esitellä sisemmissä funktioissa uudelleen. Muuttujan voi määritellä kuitenkin vain sisemmässä funktiossa, esimerkiksi sisäkkäiset for-loopit vaativat kukin omat muuttujansa. Esimerkki tällaisesta funktioiden sisäkkäin sijoittelusta, jossa muuttuja määritetään uudelleen:
+
+\begin{verbatim}
+int i=0;
+
+int uloin() {
+    for(int i=0; i<5; i++) {
+        int sisin() {
+            int j=i;
+                for(int i=j;i<5; i++) {
+                    writeln("s: ",i);
+                }
+            return i;
+            }
+        writeln("u: ", i);
+        sisin();
+    }
+return i;
+}
+\end{verbatim}
+
+Erlang on litteä kieli, siinä voi olla lohkoja vain yhdellä tasolla. Erlang-kielen määrittely ei varsinaisesti esittele lohkosääntöjä. \\
+
+sidonta, staattinen vs dynaaminen \\
+D-kielessä sidonta tehdään staattisesti käännösaikana. Erlangissa sidonta on dynaaminen.
 
 ensimmäisen toisen ja kolmannen luokan arvot
 
