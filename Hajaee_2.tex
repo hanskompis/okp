@@ -22,13 +22,27 @@
 (D ja Erlang vierekkäin)
 
 lohkorakenne, litteä vs syvä \\
-D-kielessä lohkot rajataan merkein \{ \}, ja ne voivat koostua lausekkeista. Lohkot sidotaan lausekkeeseen, luokkaan tai funktioon. Lohkolla voidaan ilmaista myös nimetön näkyvyysalue, jos sitä ei ole sidottu funktioon, luokkaan tai lausekkeeseen. Lohkon sisältä on näkyvyys lohkon ulkopuolelle, mutta ulkopuolelta ei ole näkyvyyttä lohkon sisälle. Luokkien ja niiden tietueiden näkyvyys voidaan kuitenkin sallia ulkopuolelle.
+D-kielessä lohkot rajataan merkein \{ \}, ja ne voivat koostua lausekkeista.
+Lohkot sidotaan lausekkeeseen, luokkaan tai funktioon. Lohkolla voidaan ilmaista
+myös nimetön näkyvyysalue, jos sitä ei ole sidottu funktioon, luokkaan tai
+lausekkeeseen. Lohkon sisältä on näkyvyys lohkon ulkopuolelle, mutta
+ulkopuolelta ei ole näkyvyyttä lohkon sisälle. Luokkien ja niiden tietueiden
+näkyvyys voidaan kuitenkin sallia ulkopuolelle.
 
-Erlangin lähestymistapa on erilainen kuin D-kielessä. Lohkorakenne perustuu produktioihin, jotka sisältävät otsikon ja rungon. Runko voi sisältää lausekkeita ja yksi produktio voi sisältää useampia runkoja.
+Erlangin lähestymistapa on erilainen kuin D-kielessä. Lohkorakenne perustuu
+produktioihin, jotka sisältävät otsikon ja rungon. Runko voi sisältää
+lausekkeita ja yksi produktio voi sisältää useampia runkoja.
 
-D-kielessä tunnusten sidonta tehdään staattisesti käännösaikana. Lohkon sisällä ei voida suoraan esitellä uudelleen ulompien tasojen näkyviä muuttujia, mutta funktioiden ja tietuiden sisällä tämä on sallittua.
+D-kielessä tunnusten sidonta tehdään staattisesti käännösaikana. Lohkon sisällä
+ei voida suoraan esitellä uudelleen ulompien tasojen näkyviä muuttujia, mutta
+funktioiden ja tietuiden sisällä tämä on sallittua.
 
- lohkorakenne voi olla hyvinkin syvä, se sallii funktion sijoittamisen toisen funktion sisälle. Samoja muuttujia on mahdollista esitellä sisemmissä funktioissa uudelleen. Muuttujan voi määritellä kuitenkin vain sisemmässä funktiossa, esimerkiksi sisäkkäiset for-loopit vaativat kukin omat muuttujansa. Esimerkki tällaisesta funktioiden sisäkkäin sijoittelusta, jossa muuttuja määritetään uudelleen:
+ lohkorakenne voi olla hyvinkin syvä, se sallii funktion sijoittamisen toisen
+funktion sisälle. Samoja muuttujia on mahdollista esitellä sisemmissä
+funktioissa uudelleen. Muuttujan voi määritellä kuitenkin vain sisemmässä
+funktiossa, esimerkiksi sisäkkäiset for-loopit vaativat kukin omat muuttujansa.
+Esimerkki tällaisesta funktioiden sisäkkäin sijoittelusta, jossa muuttuja
+määritetään uudelleen:
 
 \begin{verbatim}
 int i=0;
@@ -49,10 +63,12 @@ return i;
 }
 \end{verbatim}
 
-Erlang on litteä kieli, siinä voi olla lohkoja vain yhdellä tasolla. Erlang-kielen määrittely ei varsinaisesti esittele lohkosääntöjä. \\
+Erlang on litteä kieli, siinä voi olla lohkoja vain yhdellä tasolla.
+Erlang-kielen määrittely ei varsinaisesti esittele lohkosääntöjä. \\
 
 sidonta, staattinen vs dynaaminen \\
-D-kielessä sidonta tehdään staattisesti käännösaikana. Erlangissa sidonta on dynaaminen.
+D-kielessä sidonta tehdään staattisesti käännösaikana. Erlangissa sidonta on
+dynaaminen.
 
 ensimmäisen toisen ja kolmannen luokan arvot
 
@@ -315,26 +331,29 @@ pakollinen puolipiste lauseen lopussa.
 \begin{verbatim}
 do (--i) while (i => 0);
 \end{verbatim}
-Taulukoiden käsittelyyn foreach-lauseesta on olemassa allaoleva muoto:
+For-lause on edelleen samankaltainen kuin Javassa.
+
+\begin{verbatim}
+for (int i = 0; i < 10; i++) 
+   teeJotain(i);
+\end{verbatim}
+Listarakenteiden käsittelyyn foreach-lauseesta on olemassa allaoleva muoto:
 
 \begin{verbatim}
 foreach(kappale ; joukko) {
    teeJotain(kappale);
 }
 \end{verbatim}
-Foreach-lause toimii siis kuten esimerkiksi Java-kielessä. Kappaleen viite sidotaan vuorotellen jokaiseen joukko-listan elementtiin, ja teeJotain() -metodi
+Foreach-lause toimii siis kuten esimerkiksi Java-kielessä. Kappaleen viite
+sidotaan vuorotellen jokaiseen joukko-listan elementtiin, ja teeJotain() -metodi
 suoritetaan jokaisen elementin kohdalla. 
 
 \subsection{Rekursio}
 
+Rekursio toimii D:ssä kuten Java-kielessä. Allaolevassa esimerkissä lasketaan
+kokonaisluvun kertoma rekursion avulla.
+
 \begin{verbatim}
-import std.stdio;
-
-void main() {
-  writeln(kertoma(5));
-
-}
-
 int kertoma(int n) {
   if(n<2) {
     return 1;
@@ -345,5 +364,20 @@ int kertoma(int n) {
   }
 }
 \end{verbatim}
+Main-metodissa suoritetaan kertoma-metodi, jolle annetaan parametriksi
+kokonaisluku n. Kertoma-metodi palauttaa luvun yksi, jos n on yksi, muuten
+kutsutaan rekursiivisesti kertoma-metodia. Lukua siis kerrotaan itseään yhtä
+pienemmän luvun kertomalla, kunnes päästään lukuun 1.  
+
+Häntärekursiolla toteutettuna metodi näyttää tältä:
+\begin{verbatim}
+int kertoma(int n, int sum) {
+  if(n==0) 
+    return sum;
+  else
+    kertoma(n-1, sum * n);
+}
+\end{verbatim}
+Nyt yhden kertoma-metodin suoritus loppuu toisen alkaessa, ja kertoma-metodi pitää kertoman tuloa mukanaan. Viimeiseksi suoritettu kertoma-metodi palauttaa loppusumman.
 
 \end{document}
