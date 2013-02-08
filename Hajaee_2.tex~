@@ -9,51 +9,39 @@
 \usepackage[finnish]{babel}
 \usepackage[T1]{fontenc}
 %opening
-\title{D:n ja Erlangin tunnukset sekä kontrollirakenteet}
+\title{D- ja Erlang-kielten tunnukset ja kontrollirakenteet}
 \author{Hansi Keijonen, Jari Koskinen, Eero Laine}
 
 \begin{document}
 
 \maketitle
 
-
+\newpage
 
 \section{Tunnusten näkyvyysalueet ja sidonta}
-(D ja Erlang vierekkäin)
 
-<<<<<<< HEAD
-lohkorakenne, litteä vs syvä \\
-D-kielessä lohkot rajataan merkein \{ \}, ja ne voivat koostua lausekkeista.
-Lohkot sidotaan lausekkeeseen, luokkaan tai funktioon. Lohkolla voidaan ilmaista
-myös nimetön näkyvyysalue, jos sitä ei ole sidottu funktioon, luokkaan tai
-lausekkeeseen. Lohkon sisältä on näkyvyys lohkon ulkopuolelle, mutta
-ulkopuolelta ei ole näkyvyyttä lohkon sisälle. Luokkien ja niiden tietueiden
-näkyvyys voidaan kuitenkin sallia ulkopuolelle.
+% Erlangin lähestymistapa on erilainen kuin D-kielessä. Lohkorakenne perustuu
+% produktioihin, jotka sisältävät otsikon ja rungon. Runko voi sisältää
+% lausekkeita ja yksi produktio voi sisältää useampia runkoja. 
 
-Erlangin lähestymistapa on erilainen kuin D-kielessä. Lohkorakenne perustuu
-produktioihin, jotka sisältävät otsikon ja rungon. Runko voi sisältää
-lausekkeita ja yksi produktio voi sisältää useampia runkoja.
+D-kielessä lohkot rajataan merkein \{ \}, ja ne voivat koostua lausekkeista
+\cite{DLA13}. Lohkot sidotaan lausekkeeseen, luokkaan tai funktioon. Lohkolla
+voidaan ilmaista myös nimetön näkyvyysalue, jos sitä ei ole sidottu funktioon,
+luokkaan tai lausekkeeseen. Lohkon sisältä on näkyvyys lohkon ulkopuolelle,
+mutta ulkopuolelta ei ole näkyvyyttä lohkon sisälle. Luokkien ja niiden
+tietueiden näkyvyys voidaan kuitenkin sallia ulkopuolelle \cite{DLA13}.
 
-D-kielessä tunnusten sidonta tehdään staattisesti käännösaikana. Lohkon sisällä
-ei voida suoraan esitellä uudelleen ulompien tasojen näkyviä muuttujia, mutta
-funktioiden ja tietuiden sisällä tämä on sallittua.
+Tunnusten sidonta D-kielessä tehdään staattisesti käännösaikana \cite{DLA13}.
+Lohkon sisällä ei voida suoraan esitellä uudelleen ulompien tasojen näkyviä
+muuttujia, mutta funktioiden ja tietuiden sisällä tämä on sallittua
+\cite{DLA13}.
 
- lohkorakenne voi olla hyvinkin syvä, se sallii funktion sijoittamisen toisen
-funktion sisälle. Samoja muuttujia on mahdollista esitellä sisemmissä
-funktioissa uudelleen. Muuttujan voi määritellä kuitenkin vain sisemmässä
-funktiossa, esimerkiksi sisäkkäiset for-loopit vaativat kukin omat muuttujansa.
-Esimerkki tällaisesta funktioiden sisäkkäin sijoittelusta, jossa muuttuja
-määritetään uudelleen:
-=======
-Jo vuonna 1983 Hansi Keijonen todisti, että LaTeX-dokumenttien kirjoittaminen on työlästä, mutta palkitsevaa \cite{KEI83}.
-D-kielessä lohkot rajataan merkein \{ \}, ja ne voivat koostua lausekkeista. Lohkot sidotaan lausekkeeseen, luokkaan tai funktioon. Lohkolla voidaan ilmaista myös nimetön näkyvyysalue, jos sitä ei ole sidottu funktioon, luokkaan tai lausekkeeseen. Lohkon sisältä on näkyvyys lohkon ulkopuolelle, mutta ulkopuolelta ei ole näkyvyyttä lohkon sisälle. Luokkien ja niiden tietueiden näkyvyys voidaan kuitenkin sallia ulkopuolelle.
-
-Erlangin lähestymistapa on erilainen kuin D-kielessä. Lohkorakenne perustuu produktioihin, jotka sisältävät otsikon ja rungon. Runko voi sisältää lausekkeita ja yksi produktio voi sisältää useampia runkoja. 
-
-D-kielessä tunnusten sidonta tehdään staattisesti käännösaikana. Lohkon sisällä ei voida suoraan esitellä uudelleen ulompien tasojen näkyviä muuttujia, mutta funktioiden ja tietuiden sisällä tämä on sallittua.
-
- lohkorakenne voi olla hyvinkin syvä, se sallii funktion sijoittamisen toisen funktion sisälle. Samoja muuttujia on mahdollista esitellä sisemmissä funktioissa uudelleen. Muuttujan voi määritellä kuitenkin vain sisemmässä funktiossa, esimerkiksi sisäkkäiset for-loopit vaativat kukin omat muuttujansa. Esimerkki tällaisesta funktioiden sisäkkäin sijoittelusta, jossa muuttuja määritetään uudelleen:
->>>>>>> f3b2d0b2d3adf8a0e7e25c8ad1b44beddcd7b21e
+Lohkorakenne voi olla D-kielessä hyvinkin syvä, sillä se sallii funktion
+sijoittamisen toisen funktion sisälle. Samoja muuttujia on mahdollista esitellä
+sisemmissä funktioissa uudelleen. Muuttujan voi määritellä kuitenkin vain
+sisemmässä funktiossa, esimerkiksi sisäkkäiset for-silmukat vaativat kukin omat
+muuttujansa. Alla on esimerkki tällaisesta funktioiden sisäkkäin sijoittelusta,
+jossa muuttuja määritetään uudelleen:
 
 \begin{verbatim}
 int i=0;
@@ -73,71 +61,94 @@ int uloin() {
 return i;
 }
 \end{verbatim}
-
 Erlang on litteä kieli, siinä voi olla lohkoja vain yhdellä tasolla.
-Erlang-kielen määrittely ei varsinaisesti esittele lohkosääntöjä. \\
+Erlang-kielen määrittely ei varsinaisesti esittele lohkosääntöjä \cite{ERL99}.
 
-sidonta, staattinen vs dynaaminen \\
-D-kielessä sidonta tehdään staattisesti käännösaikana. Erlangissa sidonta on
-dynaaminen.
+Erlangissa lohkorakenne on toteutettu funktioita sisältävillä moduuleilla
+\cite{HEB13}. Moduuli määritellään '-module(moduulin\textunderscore nimi)'
+-ilmauksella moduulin ensimmäisellä rivillä.
+Seuraavaksi 'export'-lauseella ilmaistaan, mitkä funktiot ovat kutsuttavissa
+ohjelman ulkopuolelta. Funktio määritellään sen nimellä ja sulkeissa olevilla
+parametreilla. Funktio alkaa sen nimestä, sisältää lausekkeita ja päättyy
+pisteeseen. Erlangissa piste on lauseen tai funktion päättävä merkki. Alla on
+esimerkki funktiosta:
+\begin{verbatim}
+-module(heippa).
+-export([heippa/0]).
+    heippa() ->
+    io:format("Heippa, mualima!~n").
+\end{verbatim}Kaikki D-kielen muuttujat kuuluvat ns. ensimmäiseen luokkaan \cite{DLA13}.
+Muuttujia voidaan välittää parametrina, niihin voidaan sijoittaa arvoja ja
+palauttaa funktion arvona. Kieli sallii myös funktioliteraalien sijoittamisen
+funktiokutsun parametriksi.
 
-ensimmäisen toisen ja kolmannen luokan arvot
 
-sulkeumat
+\begin{verbatim}
+void loop(int k, int j, void delegate() statement) { 
+  for (int i = k; i < j; i++) { 
+    statement(); 
+  }
+  
+loop(5, 100, { d += 1; } ); 
+loop(3, 10, { f += 3; } );
+\end{verbatim}
+D-kielessä sidonta tehdään staattisesti käännösaikana. Erlangissa sidonta sitä
+vastoin on
+dynaaminen. Erlangissa kaikki tyypit (arvot) ovat toisen asteen arvoja, koska
+niitä voidaan asettaa muuttujien arvoiksi ja välittää parametreina funktioille.
+Myös lambdat kuuluvat tähän kategoriaan \cite{HEB13}. 
 
-esimerkit
-
-em. vertailu
 
 \section{Kontrollin ja laskennan ohjaus - Erlang}
+
 Jotta voidaan ymmärtää Erlangin kontrollirakenteita, pitää ensimmäisenä
 selvittää hahmontunnistuksen mekanismi. Hahmontunnistus perustuu siihen, että
 funktioon määritellään useita funktiokutsuja siten, että jokaisessa kutsussa
-parametrit ovat lukumäärältään samat, mutta ovat arvoiltaan erilaiset. Ts. kun 
+parametrit ovat lukumäärältään samat, mutta ovat arvoiltaan erilaiset. Toisin sanoen, kun 
 funktiota kutsutaan tietyllä parametrilla, käydään järjestyksessä läpi eri
-funktion kutsuvaihtoehdot ja kun ensimmäinen parametreihin sopiva
-kutsuvaihtoehto löytyy, 
-toimitaan sen määrityksen mukaan. Helpoimmin asia selviää esimerkin avulla: 
+funktion kutsuvaihtoehdot ja ensimmäisen parametreihin sopivan
+kutsuvaihtoehdon löytyessä toimitaan sen määrityksen mukaan. Helpoimmin asia
+selviää esimerkin avulla \cite{HEB13}: 
 \begin{verbatim}
 1: tervehdi(mies, Nimi) -> io:format("Terppa, herra %s!",[Nimi]);
 2: tervehdi(nainen,Nimi) -> io:format("Terppa, rouva %s!",[Nimi]);
 3: tervehdi(_,Nimi) -> io:format("Terppa %s!",[Nimi]) . 
 \end{verbatim}
-
-
-Kutsutaessa tervehdi-funktiota tervehdi(nainen,"Tuppurainen"), tutkitaan
-ensiksi, sopiiko parametrit  rivin 1 parametrisointivaihtoehtoon. Koska
-parametrit olivat epäsopivaiset, 
+Kutsuttaessa tervehdi-funktiota tervehdi(nainen,"Tuppurainen"), tutkitaan
+ensiksi, sopivatko parametrit rivin 1 parametrisointivaihtoehtoon. Koska
+parametrit olivat epäsopivat, 
 yritetään kutsua sovittaa rivin kaksi parametrisointivaihtoehtoon. Tällä kertaa
-parametrit sopivat ja ohjelma tulostaa "Terppa, rouva Tuppurainen!". Jos
+parametrit sopivat, ja ohjelma tulostaa "Terppa, rouva Tuppurainen!". Jos
 funktiota olisi kutsuttu
-tervehdi(hermafrodiitti,"Höttölä"), olisi vasta rivin 3 parametrit osuneet
+tervehdi(hermafrodiitti, "Höttölä"), olisivat vasta rivin 3 parametrit osuneet
 oikeaan, ja silloin olisi toimittu tämän rivin määritysten mukaan. 
 Rivin 3 toinen parametri on universaalimerkki, 
 johon voi sovittaa minkä tahansa arvon.
 
-Valintojen tekemiseen Erlangissa on em. hahmonsovituksen lisäksi mahdollista
-käyttää if-lauseita, guardeja sekä in case of -rakennetta.
+Valintojen tekemiseen Erlangissa on edellä mainitun hahmonsovituksen lisäksi
+mahdollista
+käyttää if-lauseita, guardeja sekä in case of -rakennetta \cite{HEB13}.
 
-Erlangissa if-rakenne ilmaistaan hieman esim. Javasta ja D:stä poikkeavalla
+Erlangissa if-rakenne ilmaistaan hieman esimerkiksi Javasta ja D:stä
+poikkeavalla
 tavalla, jota valotan seuraavassa esimerkissä. 
 
 \begin{verbatim}
 1: vertaa(N,M) -> 
-2: 		if N>M -> 1;
-3:	     N<M -> -1;
-4:	     true -> 0
-5: 	 end . 
+2:     if N>M -> 1;
+3:     if N<M -> -1;
+4:     true -> 0
+5:     end . 
 \end{verbatim}
-
-Esimerkkifunktiossa siis verrataan kahta lukua ja toimitaan eri tavoin sen
+Esimerkkifunktiossa siis verrataan kahta lukua ja toimitaan sen
 mukaan, mikä on vertailun tulos. Riveillä 2 ja 3 tutkitaan ovatko N ja M
 erisuuruiset, mutta rivillä 4 on hieman erikoiselta
-vaikuttava true, joka vastaa esim. D:n else:ä. Koko if-rakenne päätetään end
-sanaan ja pisteeseen. 
+vaikuttava true, joka vastaa esimerkiksi D:n else:ä. Koko if-rakenne päätetään
+end-sanaan ja pisteeseen. 
 
-Guardit ovat yksi Erlangin erikoisuus, joka on tuttu myös Haskellista. Guardit
-ovat keino tehdä hahmonsovituksesta hieman ilmaisuvoimaisempaa. Sen sijaan, että
+Guardit ovat Erlangin erikoisuus, joka on tuttu myös Haskellista. Guardit
+ovat keino tehdä hahmonsovituksesta hieman ilmaisuvoimaisempaa \cite{HEB13}. Sen
+sijaan, että
 täysi-ikäisyyden osoittava ohjelma 
 toteutettaisiin näin: 
 \begin{verbatim}
@@ -156,58 +167,55 @@ taysi_ika(_) -> true;
 taysi_ika(N) when N < 18 -> false;
 taysi_ika(_) -> true . 
 \end{verbatim}
-
 Tällä tavoin voidaan jättää kirjoittamatta useita funktiokutsuvaihtoehtoja. 
-Tärkeää on muistaa, että guard-rakenteen tulee aina palauttaa true jollain
-vaihtoehdolla, muuten kääntäjä ilmoittaa virheestä.  
+On tärkeää muistaa, että guard-rakenteen tulee aina palauttaa true jollain
+vaihtoehdolla, tai kääntäjä ilmoittaa virheestä.  
 
 Erlangissa on myös case…of -rakenne, joka mahdollistaa monipuoliset
-valintarakenteet, johon voidan yhdistää myös guardeja. Esimerkki selventää
+valintarakenteet, joihin voidaan yhdistää myös guardeja. Esimerkki selventää
 rakennetta helpoiten:
 \begin{verbatim}
-1: biitsi(Lampotila) -> 
-2:    case Lampotila of
-3:        {calsius, N} when N >= 20, N =< 45 -> 'ihan jees';
-4:        {kelvin, N}  when N >= 293, N =< 318 -> 'tieteellisesti jees';  
-5:        {fahrenheit, N}  when N >= 68, N =< 113 -> 'amerikkalaisittain jees'; 
-6:         _ -> 'ei niin jees' 
+biitsi(Lampotila) -> 
+   case Lampotila of
+        {calsius, N} when N >= 20, N =< 45 -> 'ihan jees';
+        {kelvin, N}  when N >= 293, N =< 318 -> 'tieteellisesti jees';  
+        {fahrenheit, N}  when N >= 68, N =< 113 -> 'amerikkalaisittain jees'; 
+         _ -> 'ei niin jees' 
 \end{verbatim}
-
-Ohjelma siis saa parametrinaan tuplen, jossa on lämpötila-asteikko ja astemäärä.
-Sen jälkeen case…of -rakenteessa riveillä  tutkitaan, minkä periaatteen
+Ohjelma saa siis parametrinaan tuplen, jossa on lämpötila-asteikko ja astemäärä.
+Sen jälkeen case…of -rakenteessa tutkitaan, minkä periaatteen
 mukaisesti astemäärää tutkitaan. Lopulta guardin avulla päätetään, onko
-parametrina 
-saatu lämpötila sopiva rantaelämään. Mielenkiintoinen kysymys on se, että mihin
+parametrina saatu lämpötila sopiva rantaelämään. Mielenkiintoinen kysymys on se, mihin
 case…of -rakennetta tarvitaan, koska se on hyvin samanlainen funktiokutsujen
 hahmonsovituksen kanssa. Valinta kannattaa perustaa henkilökohtaisiin
-mieltymyksiin. 
+mieltymyksiin \cite{HEB13}. 
 
 Erlangissa toistoa ja rekursiota ei voi erottaa toisistaan, koska rekursio on
-ainoa tapa suorittaa toistorakenteita. Erlangissa ei ole siis for- tai while
--lauseita esim. D:n tai Javan tapaan. Listan läpikäynti Erlangissa perustuu
-kielen ominaisuuteen, että
-esim. koknaislukuja sisältävä lista [1,2,3,4]  voidaan ilmoittaa myös
+ainoa tapa suorittaa toistorakenteita. Erlangissa ei siis ole for- tai while
+-lauseita esimerkiksi D:n tai Javan tapaan. Listan läpikäynti Erlangissa
+perustuu
+siihen kielen ominaisuuteen, että
+esimerkiksi kokonaislukuja sisältävä lista [1,2,3,4]  voidaan ilmoittaa myös
 konstruktorioperaattoria '|' käyttäen [1|[2,3,4]], eli luku 1 liitetään listaan
 [2,3,4]. Lista voidaan ilmoittaa myös head- ja tail-funktioita käyttäen
 [Head|Tail] = [1,2,3,4] jolloin Head = 1 ja Tail = [2,3,4].
 Jos halutaan käydä lista läpi yksinkertaisesti siten, että laskemme jokaisen
-listan alkion yhteen, voidaan se Erlangissa tehdä esim. seuraavalla tavalla:
+listan alkion yhteen, voidaan se Erlangissa tehdä esimerkiksi seuraavalla tavalla:
 
 \begin{verbatim}
-1: summa([]) -> 0;
-2: summa(Lista) -> head + summa(Tail) .  
+1. summa([]) -> 0;
+2. summa(Lista) -> head + summa(Tail) .  
 \end{verbatim}
-
-
 Tässä funktiossa siis hahmonsovituksen avulla toteutetaan rekursiivinen listan
 läpikäynti. Rivillä 1 on toteutettu alkeistapaus, jossa lista on tyhjä ja
 jolloin alkioiden summa on 0. Rivillä kaksi summataan listan ensimmäinen alkio
 (Head) loppulistan 
-(Tail) alkioiden summan kanssa. Tällä tavoin voidaaan tehdä monipuolisia listan
+(Tail) alkioiden summan kanssa. Tällä tavoin voidaan tehdä monipuolisia listan
 läpikäyntejä. 
 
-Rekursio on Erlangissa yvin tavanomainen tapa tehdä asioita, semminkin kun muita
-toistorakenteita ei ole. Perinteinen rekursiolla tehtävä funktio on kertoma n!,
+Rekursio on Erlangissa hyvin tavanomainen tapa tehdä asioita senkin vuoksi, ettei
+muita
+toistorakenteita ole. Perinteinen rekursiolla tehtävä funktio on kertoma n!,
 joka voidaan ilmaista yhtälöparilla 
 
 \begin{displaymath}
@@ -216,57 +224,35 @@ n! = \left\{ \begin{array}{ll}
 n*((n-1)!) & \textrm{{jos n>0}}
 \end{array} \right.
 \end{displaymath}
-
 Tämä on on helposti ja ulkoasultaan elegantisti toteutettavissa Erlangilla
 hahmonsovitusta ja rekursiota hyväksikäyttäen:
 \begin{verbatim}
-kertoma(0) -> 1;
-kertoma(N) when N > 0 -> N*(kertoma(N-1)) .
+1. kertoma(0) -> 1;
+2. kertoma(N) when N > 0 -> N*(kertoma(N-1)) .
 \end{verbatim}
 Jälleen aluksi tarkistetaan alkeistapaus, joka on tässä tapauksessa luvun 0
-kertoma ja jos tämä rivi ei ota kiinni, suoritetaan seuraavan rivin
+kertoma. Jos tämä rivi ei ota kiinni, suoritetaan seuraavan rivin
 rekursiivinen kutsu, jossa parametrilla N kerrotaan rekursiivisesti kutsuttavan
 kertoma(N-1) tulos.
 Kun rekursiokutsut saavuttavat tapauksen kertoma(0), palautuu tulos pitkin
 kutsuketjua alkuun. Tämän lähestymistavan huono puoli on se, että tietokoneen
-muistissa joudutaan pitämään koko ajan jokaisen kutsun 'välitulos'. Esimerkiksi
-edellisessä 
-kertomaesimerkissä parametrilla 3 laskenta menisi seuraavasti:
-\begin{verbatim}
-kertoma(3) = 3*(kertoma(2))
-                 = 3*(2*(kertoma(1))
-                 = 3*(2*(1*(kertoma(0))))
-                 = 3*(2*(1*1))
-                 = 3*(2*1)
-                 = 3*(2)
-                 = 6
-\end{verbatim}
-Joutuisimme pitämään muistissa kaikki nuo 7 välivaihetta. Tässä tapauksessa tämä
-ei olisi ongelma, mutta jos parametrina annettaisin joku todella suuri luku,
-muistin riittävyys muodostuisi ongelmaksi. 
+muistissa joudutaan pitämään koko ajan jokaisen kutsun 'välitulos'ja muistin
+riittävyys saattaa muodostua ongelmaksi. 
+
 Tämän ongelman voi ohittaa häntärekursiolla. Häntärekursiivinen kertomafunktio
-toteutetaan toteutamalla myös apufunktio hantakertoma(N,Acc) johon otetaan
-mukaan vielä toinen parametri Acc, johon tallennetaan laskennan 
+toteutetaan toteuttamalla myös apufunktio hantakertoma(N,Acc) johon otetaan
+mukaan vielä toinen parametri Acc. Acc.-parametriin tallennetaan laskennan 
 välivaiheiden tulokset:
 \begin{verbatim}
-kertoma(N) -> hantakertoma(N,1) .
-
-hantakertoma (0,Acc) -> Acc;
-hantakertoma(N,Acc) when N > 0 -> hantakertoma(N-1, Acc*N) .
-\end{verbatim}
-
-Nyt laskennan kulku on seuraavanlainen: 
-\begin{verbatim}
-kertoma(3) = hantakertoma (3,1)
-                 = hantakertoma (3-1, 3*1)		
-                 = hantakertoma (2-1,2*3)
-                 = hantakertoma (1-1,1*6)
-                 = 6
+1. kertoma(N) -> hantakertoma(N,1) .
+2.
+3. hantakertoma (0,Acc) -> Acc;
+4. hantakertoma(N,Acc) when N > 0 -> hantakertoma(N-1, Acc*N) .
 \end{verbatim}
 Tässä tapauksessa joudumme pitämään ainoastaan kaksi lukua muistissa koko
-laskennan ajan kun normaalissa rekursiossa joudumme pitämään kaikki
-rekursiokutsuketjun välivaiheet muistissa. Jos unohdetaan se, kuinka paljon
-luvun 3 ja 1000 000 esittäminen kuluttaa muistia, kertoma(3) ja kertoma(1000000)
+laskennan ajan, kun taas normaalissa rekursiossa joudumme pitämään muistissa kaikki
+rekursiokutsuketjun välivaiheet. Jos unohdetaan se, kuinka paljon
+lukujen 3 ja 1000 000 esittäminen kuluttaa muistia, kertoma(3) ja kertoma(1000000)
 vaativat saman vakiomäärän muistia. 
 
 \section{Kontrollin ja laskennan ohjaus - D}
@@ -306,7 +292,8 @@ if (a == b)
 Useat laskeutuvat (cascading) if-else -lauseet toteutetaan kuten C-kielessä.
 
 D:n static if -lause on C-kielen \#if-rakennetta muistuttava kääntämisajan
-(compile-time) selektori. Tullessaan static if -lauseen kohdalle kääntäjä arvioi
+(compile-time) selektori \cite{ALE10}.  Tullessaan static if -lauseen kohdalle
+kääntäjä arvioi
 ohjaavan lausekkeen. Jos lauseke ei ole tyhjä, vastaava koodi käännetään. Muussa
 tapauksessa ainoastaan mahdollisen else-lause käännetään. 
 
@@ -320,7 +307,8 @@ Goto-lause toimii D:ssa allaolevalla tavalla:
 goto <nimi>;
 \end{verbatim}
 D:ssa goto-lauseen käyttöön ei liity paljoa rajoituksia, mikä D:n pääkehittäjä
-Andrei Alexandrescun mukaan tekee gotosta ongelmallisen työkalun. Goto voi
+Andrei Alexandrescun mukaan tekee gotosta ongelmallisen työkalun \cite{ALE10}.
+Goto voi
 hypätä eteen- tai taaksepäin ja sisään ja ulos lauseista. Symbolin <nimi> tulee
 kuitenkin olla näkyvissä funktiossa, missä gotoa kutsutaan. 
 
@@ -389,14 +377,28 @@ int kertoma(int n, int sum) {
     kertoma(n-1, sum * n);
 }
 \end{verbatim}
-Nyt yhden kertoma-metodin suoritus loppuu toisen alkaessa, ja kertoma-metodi pitää kertoman tuloa mukanaan. Viimeiseksi suoritettu kertoma-metodi palauttaa loppusumman.
+Nyt yhden kertoma-metodin suoritus loppuu toisen alkaessa, ja kertoma-metodi
+pitää kertoman tuloa mukanaan. Viimeiseksi suoritettu kertoma-metodi palauttaa
+loppusumman.
 
-%\bibliographystyle{tktl}
-\bibliography{lahteet}
+
+% \bibliographystyle{tktl}
+% \bibliography{lahteet}
+% %\bibliographystyle{tktl}
+\bibliography{Lähteet}
+
 
 \begin{thebibliography}{99}
 
-\bibitem[KEI83]{KEI83} Hansi. M. O. Keijonen, LaTeX-dokumenttien kirjoittaminen, 1983.
+\bibitem[ERL99]{ERL99} Erlang 4.7.3 Reference Manual, DRAFT (0.7), Jonas
+Barklund, Robert Virding, 1999. 
+
+\bibitem[DLA13]{DLA13} http://dlang.org, noudettu 6.2.2013.
+
+\bibitem[HEB13]{HEB13} Learn You Some Erlang For Great Good, Fred Hébert, 2013.
+
+\bibitem[ALE10]{ALE10} The D Programming Language, Andrei Alexandrescu, 2010.
+
 \end{thebibliography}
 
 \end{document}
