@@ -65,7 +65,8 @@ Koodi tulostaa:
 Tammikuu=1
 \end{verbatim}
 
-Alkeistyypeistä voidaan myös muodostaa tietueet struct tai union. Molemmat vastaavat C++-kielen vastaavia rakenteita ja ovat arvotyyppejä. Struct määritellään, ja sitä käytetään seuraavasti:
+Lisäksi taulukko voidaan jättää synaamiseksi, määrittämällä 
+Alkeistyypeistä voidaan myös muodostaa tietueet struct tai union. Molemmat vastaavat C++-kielen vastaavia rakenteita ja ovat arvotyyppejä \cite{DLA13}. Struct määritellään, ja sitä käytetään seuraavasti:
 
 \begin{verbatim}
 struct palkansaaja{
@@ -83,7 +84,7 @@ void main() {
 }
 \end{verbatim}
 
-Union eroaa structista siten, että yhden muuttujan arvon vaihtaminen muuttaa kaikkien saman arvotyypin muuttujien sisällön. Saman arvotyypin muuttujat sijoitetaan siis muistissa samalle muistialueelle. Seuraava esimerkki havainnolistaa tätä:
+Union eroaa structista siten, että yhden muuttujan arvon vaihtaminen muuttaa kaikkien saman arvotyypin muuttujien sisällön \cite{ALE10}. Saman arvotyypin muuttujat sijoitetaan siis muistissa samalle muistialueelle. Seuraava esimerkki havainnolistaa tätä:
 \begin{verbatim}
 import std.stdio;
 
@@ -110,6 +111,64 @@ Ohjelma tulostaa seuraavasti:
 (null)
 pomo
 \end{verbatim}
+
+Lisäksi voidaan luoda dymaaninen taulukko, joka tarkoittaa sitä, että taulukkoon voidaan myöhemmin sijoittaa taulukko. Esimerkki havainnolistaa tätä toimintaa:
+
+\begin{verbatim}
+  int[] c;
+  int[4] d;
+  d[2] = 10;
+  c = d;
+  writeln(c[2]);
+\end{verbatim}
+Ohjelma tulostaa luvun 10. \\
+Taulukko voidaan myös osoittaa tiettyyn muistialueeseen. JATKA POINTER JNE. \\
+
+
+D-kielen tarjoama struct ja union ovat useissa tilanteissa käyttökelpoisia, varsinkin matalammalla tasolla, kuten esimerkiksi käyttöjärjestelmien toteutuksessa. Koska ne ovat arvotyyppejä, niillä saadaan aikaan tehokkaita rakenteita. D-kielen kehitykseen vaikuttaneista kielistä Java ei sisällä struct, eikä union rakennetta. C\# sitä vastoin sisältää struct arvotyypin rakenteen mutta ei unionia.
+
+\subsection{Laskennan kapselointi}
+
+Funktiot määritellään D-kielessä kuin C/C++-kielissä, funktiolle määritetään ensin sen paluuarvon tyyppi, funktion nimi ja funktion mahdolliset parametrit. Parametreille määritetään arvotyyppi. Funktion paluuarvon tyypin määrittäminen voidaan myös jättää kääntäjän tehtäväksi, asettamalla arvotyypiksi auto. Funktio, joka ei palauta mitään, asetetaan void tyyppiseksi, jolloin se vastaa Pascal-kielen procedurea. Esimerkkejä erilaisista funktioista:
+
+\begin{verbatim}
+int erotus(int a, int b) {
+  return a - b;
+}
+
+auto summa(int a, int b) {
+  return a - b;
+}
+
+void tulosta(string teksti) {
+  writeln(teksti);
+}
+\end{verbatim}
+
+Parametien välittämiseen voidaan käyttää arvo-, osoite- tai viiteparametreja. Esimerkki osoite- ja viiteparametrien välittämisestä:
+\begin{verbatim}
+int summa(int *a, int *b) {
+  return *a + *b;
+}
+
+int summa(int &a, int &b) {
+  return a + b;
+}
+\end{verbatim} 
+D tarjoaa käyttöön myös aidon funktion, joka tarkoittaa funktiota, joka ei muuta ohjelman tilaa tai käsittele globaaleja muuttujia. Aito funktio ei saa myöskään sisältää kutsua ei-aitoon funktioon. Tällainen funktio esitellään lisäämällä funktion eteen määritys pure. Esimerkki aidosta funktiosta:
+
+\begin{verbatim}
+pure int tulo(int a, int b) {
+  return a * b;
+}
+\end{verbatim}
+
+D-kielessä funktioille voidaan myös määrittää oletusarvot antamalla parametrien jälkeen niiden arvot.
+\begin{verbatim}
+int summa(int a=1, int b=1) {
+  return a + b;
+\end{verbatim}
+
 
 %\begin{center}
 %\begin{tabular}[t]{|l|l|c|c|}
