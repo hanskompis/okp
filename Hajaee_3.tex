@@ -17,6 +17,52 @@
 \newpage
 
 \section{Jarin D-osuus (kaikki D:stä aiheen ympärillä)}
+\subsection{Alkeistyypit/perustyypit}
+D-kielessä alkeistyyppejä \cite{ALE10} ovat: bool, byte, short, int, long, float, double ja real. Vastaavat etumerkittömät alkeistyypit ovat: ubyte, ushort, uint ja ulong. Näiden lisäksi on etumerkittömät merkkialkiot: char 8-bittiselle UTF8:lle ja wchar 16-bittiselle UTF16-merkille, jotka saavat alustuksen yhteydessä arvon 0xFF ja 0xFFFF. 32-bittinen UTF32-merkki voidaan tallettaa dchar alkeistyyppiin jonka määrittämätön alustusarvo on 0x0000FFFF. bool on aito totuusarvo ja voi saada arvon true tai false, alustuksen jälkeen määrittämätön arvo on false. byte on 8 bittiä pitkä tavu, short on 16, ja int 32 bittiä pitkä sana. Suurempia kokonaislukuja varten on 64 bitin pituinen long, joiden lisäksi kielessä on varaus cent tyypille, joka voi olla 128 bitin pituinen. Kaikki kokonaislukutyypit saavat muuttujan alustuksessa arvon 0. Reaaliluvuille varatut float, real ja double ovat alustuksen jälkeen nan, joka tarkoittaa Not A Number \cite{DLA13}. Kompleksiluvuille on alkeistyypit cfloat, cdouble ja creal, imaginääriluvuille ifloat, idouble ja ireal jotka saavat alustuksen yhteydessä arvon nan, mikäli arvoa ei ole määritetty.
+
+Merkkijonoja varten on varattu string, joka koostuu taulukosta char-alkeistyyppejä. Merkkijonon tiettyyn alkioon voidaan viitata suoraan indeksillä:
+
+\begin{verbatim}
+string merkkijono = "Hei Lukija!";
+for(int i=0; i<merkkijono.length; i++)
+  write(merkkijono[i]);
+\end{verbatim}
+Koodi tulostaa:
+\begin{verbatim}
+Hei Lukija!
+\end{verbatim}
+
+Arvoalueet eivät varsinaisesti ole standardoituja, mutta kaikki D-kielen kääntäjät noudattavat samoja arvoalueita. Kielessä on käytössä vahva tyypitys ja tyyppitarkistukset tehdään staattisesti käännösaikana. D-kielessä on säännöt sille, miten eri alkeistyyppien välillä voidaan suorittaa laskentaa ja kuinka niitä voidaan muuntaa tyypistä toiseen. Muuttujan tyypin voi myös jättää kääntäjän päätettäväksi, määrittämällä muuttujan tyypiksi auto.
+
+\begin{verbatim}
+void main() {
+  auto sana = "merkkijono";
+  auto luku = 123456;
+  writeln(sana);
+  writeln(luku);
+}
+\end{verbatim}
+
+D-kielessä etumerkittömät alkeistyypit periytyvät samanlaisina kuin C/C++ -kielissä. Tämä tekee alkeistyyppien käytöstä joustavampaa, verrattuna esimerkiksi Javaan, joka ei sisällä etumerkittömiä alkeistyyppejä.
+
+
+%\begin{center}
+%\begin{tabular}[t]{|l|l|c|c|}
+%    \hline
+%    Tyyppi & Kuvaus & Arvoalue & Alustus \\
+%    \hline
+%    bool & Totuusarvo & true, false & false \\
+%    byte & 8 bitin tavu & -128 - 127 & 0 \\
+%    ubyte & Etumerkitön 8 bitin tavu & 0 - 255 & 0 \\
+%    short & 16 bitin sana & -32768 - 32767 & 0 \\
+%    ushort & 16 bitin etumerkitön sana & 0 - 65535 & 0 \\
+%    int & 32 bitin sana & -2147483647 - 2147483647 & 0 \\
+%    uint & 32 bitin etumerkitön sana & 0 - 4294967295 & 0 \\
+%    long & 64 bitin sana & -9223372036854775808 - 9223372036854775807 & 0 \\
+%    \hline
+%\end{tabular}
+%\end{center}
+
 ... \\
 ... \\
 ... \\
