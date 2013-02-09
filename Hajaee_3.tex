@@ -43,8 +43,73 @@ void main() {
 }
 \end{verbatim}
 
-D-kielessä etumerkittömät alkeistyypit periytyvät samanlaisina kuin C/C++ -kielissä. Tämä tekee alkeistyyppien käytöstä joustavampaa, verrattuna esimerkiksi Javaan, joka ei sisällä etumerkittömiä alkeistyyppejä.
+D-kielessä etumerkittömät kokonaislukutyypit esiintyvät samanlaisina kuin C/C++ -kielissä. Tämä tekee alkeistyyppien käytöstä joustavampaa, verrattuna esimerkiksi Javaan, joka ei sisällä etumerkittömiä kokonaislukutyyppejä.
 
+Alkeistyypeistä voidaan muodostaa taulukoita, joita on kahdenlaisia. Yksi taulukoista on yleinen perustapaus array, jollainen löytyy myös C/C++-kielistä. Taulukon alkioihin voidaan viitata indeksin avulla.
+\begin{verbatim}
+int[] lukuja;
+lukuja[11] = 13;
+\end{verbatim}
+
+Toinen taulukkomuoto on avaimen ja arvon sisältävä pari. Taulukon alkio sisältää arvon ja siihen viittaava indeksi on esimerkiksi merkkijono: 
+\begin{verbatim}
+  int[string] kuukausi;
+  
+  kuukausi["tammikuu"] = 1;
+  kuukausi["helmikuu"] = 2;
+  
+  writeln("Tammikuu=", kuukausi["tammikuu"]);
+\end{verbatim}
+Koodi tulostaa:
+\begin{verbatim}
+Tammikuu=1
+\end{verbatim}
+
+Alkeistyypeistä voidaan myös muodostaa tietueet struct tai union. Molemmat vastaavat C++-kielen vastaavia rakenteita ja ovat arvotyyppejä. Struct määritellään, ja sitä käytetään seuraavasti:
+
+\begin{verbatim}
+struct palkansaaja{
+  int palkka;
+  string titteli;
+}
+
+void main() {
+  palkansaaja palkollinen;
+  palkollinen.palkka = 4500;
+  palkollinen.titteli = "ohjelmoija";
+
+  write(palkollinen.titteli, " tienaa ");
+  writeln(palkollinen.palkka, " kuukaudessa");
+}
+\end{verbatim}
+
+Union eroaa structista siten, että yhden muuttujan arvon vaihtaminen muuttaa kaikkien saman arvotyypin muuttujien sisällön. Saman arvotyypin muuttujat sijoitetaan siis muistissa samalle muistialueelle. Seuraava esimerkki havainnolistaa tätä:
+\begin{verbatim}
+import std.stdio;
+
+union tienaaja{
+  int palkka;
+  int tunnit;
+  string titteli;
+  string esimies;
+}
+
+void main() {
+  tienaaja palkollinen;
+  palkollinen.palkka = 6200;
+  writeln(palkollinen.tunnit);
+  writeln(palkollinen.titteli);
+  palkollinen.esimies = "pomo";
+  writeln(palkollinen.titteli);
+}
+\end{verbatim}
+Ohjelma tulostaa seuraavasti:
+
+\begin{verbatim}
+6200
+(null)
+pomo
+\end{verbatim}
 
 %\begin{center}
 %\begin{tabular}[t]{|l|l|c|c|}
