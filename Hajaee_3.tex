@@ -132,14 +132,17 @@ D-kielen tarjoama struct ja union ovat useissa tilanteissa käyttökelpoisia, va
 Funktiot määritellään D-kielessä kuin C/C++-kielissä, funktiolle määritetään ensin sen paluuarvon tyyppi, funktion nimi ja funktion mahdolliset parametrit. Parametreille määritetään arvotyyppi. Funktion paluuarvon tyypin määrittäminen voidaan myös jättää kääntäjän tehtäväksi, asettamalla arvotyypiksi auto. Funktio, joka ei palauta mitään, asetetaan void tyyppiseksi, jolloin se vastaa Pascal-kielen procedurea. Esimerkkejä erilaisista funktioista:
 
 \begin{verbatim}
+// palauttaa int-tyypin, parametreina 2 int-tyyppiä
 int erotus(int a, int b) {
   return a - b;
 }
 
+// paluuarvon tyyppi jätetään kääntäjän päätettäväksi
 auto summa(int a, int b) {
   return a - b;
 }
 
+// funktio, joka ei palauta mitään
 void tulosta(string teksti) {
   writeln(teksti);
 }
@@ -147,15 +150,17 @@ void tulosta(string teksti) {
 
 Parametien välittämiseen voidaan käyttää arvo-, osoite- tai viiteparametreja. Esimerkki osoite- ja viiteparametrien välittämisestä:
 \begin{verbatim}
+// osoiteparametrit
 int summa(int *a, int *b) {
   return *a + *b;
 }
 
+// viiteparametrit
 int summa(int &a, int &b) {
   return a + b;
 }
 \end{verbatim} 
-D tarjoaa käyttöön myös aidon funktion, joka tarkoittaa funktiota, joka ei muuta ohjelman tilaa tai käsittele globaaleja muuttujia. Aito funktio ei saa myöskään sisältää kutsua ei-aitoon funktioon. Tällainen funktio esitellään lisäämällä funktion eteen määritys pure. Esimerkki aidosta funktiosta:
+D tarjoaa käyttöön myös aidon funktion, joka tarkoittaa funktiota, joka ei muuta ohjelman tilaa tai käsittele globaaleja muuttujia \cite{DLA13}. Aito funktio ei saa myöskään sisältää kutsua ei-aitoon funktioon. Tällainen funktio esitellään lisäämällä funktion eteen määritys pure. Esimerkki aidosta funktiosta:
 
 \begin{verbatim}
 pure int tulo(int a, int b) {
@@ -163,13 +168,79 @@ pure int tulo(int a, int b) {
 }
 \end{verbatim}
 
-D-kielessä funktioille voidaan myös määrittää oletusarvot antamalla parametrien jälkeen niiden arvot.
+D-kielessä funktioparametreille voidaan myös määrittää oletusarvot antamalla parametrien esittelyn jälkeen niiden arvot.
 \begin{verbatim}
 int summa(int a=1, int b=1) {
   return a + b;
+}
 \end{verbatim}
 
+Virheenkäsittely on D-kielessä toteutettu poikkeuksilla \cite{ALE10}, kuten Javassa tai C\#-kielessäkin. D tukee try - catch - finally syntaktista rakennetta virheekäsittelyssä. Poikkeus heitetään throw-lauseella, kuten koodiesimerkissä on tehty.
 
+\begin{verbatim}
+int somethingElse() {
+  throw new Exception("joku muu generoi virheen");
+}
+
+int something(int a) {
+  return somethingElse();
+}
+
+void main() {
+  try {
+    something(10);
+  }
+  catch (Exception e) {
+    writeln("Tapahtui virhe: ", e);
+  }
+  finally {
+    writeln("Tulosta ainakin jotain...");
+  }
+}
+\end{verbatim}
+
+catch-lauseella määritetään mitä tehdään, jos poikkeus tapahtuu, ja finally-lauseella määritetään tehtävät jotka suoritetaan lopuksi. Esimerkkinä tällaisesta on tiedostonkäsittely; finally-lauseessa voidaan huolehtia siitä, että tiedosto suljetaan asianmukaisesti.
+
+Rinnakaisuuteen D-kielessä on vahva tuki. D ei oletuksena käytä jaettua muistia säikeiden ja prosessien kesken, vaan molempia ajetaan eristettynä. Säikeiden ja prosessien välillä käytetään viestinvälitystä joka tunnetaan nimellä \textit{message passing}. D sisältää myös tuen perinteiselle \textit{kriittisen alueen} suojaukseen lukolla ja jaetun muistin suojauksen \textit{mutexilla}. Suosituksena on kuitenkin käyttää D-kielessä olevaa aktorimallia, jolloin säikseiden välillä hyödynnetään viestijärjestelmää. Esimerkissä viestejä lähetetään ja vastaanotetaan säikeiden välillä.
+
+\begin{verbatim}
+import std.concurrency, std.stdio, std.exception;
+void main() {
+  auto tid = spawn(&kirjoittaja);
+  foreach(i; 0 .. 10) {
+    // lähetä viesti
+    tid.send("Hei maailma!");
+    // lähetä oma Tid säikeelle
+    tid.send(thisTid);
+    receive(
+      (string msg) { writeln("Main sai viestin: ", msg); }
+    );
+  }
+}
+
+void kirjoittaja() {
+  for(;;) {
+    receive(
+      // jos saatiin string, kirjoita se ruudulle
+      (string msg) { writeln("Thread sai viestin: ", msg); }, 
+      // jos saatiin Tid, lähetä viesti
+      (Tid tid) { tid.send("Hei!"); }
+    );
+  }
+}
+
+\end{verbatim}
+
+Esimerkin ohjelma tulostaa ruudulle seuraavasti:
+
+\begin{verbatim}
+Thread sai viestin: Hei maailma!
+Main sai viestin: Hei!
+Thread sai viestin: Hei maailma!
+Main sai viestin: Hei!
+Thread sai viestin: Hei maailma!
+Main sai viestin: Hei!
+\end{verbatim}
 %\begin{center}
 %\begin{tabular}[t]{|l|l|c|c|}
 %    \hline
