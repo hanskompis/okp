@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  11 FEB 2013 18:33
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.22)  11 FEB 2013 21:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -597,8 +597,7 @@ Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
-))
-No file Hajaee_3.aux.
+)) (./Hajaee_3.aux)
 \openout1 = `Hajaee_3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -617,6 +616,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 13.
+
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
@@ -640,6 +640,8 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 13.
 LaTeX Info: Redefining \pageref on input line 13.
 LaTeX Info: Redefining \nameref on input line 13.
+
+(./Hajaee_3.out) (./Hajaee_3.out)
 \@outlinefile=\write3
 \openout3 = `Hajaee_3.out'.
 
@@ -703,16 +705,9 @@ LaTeX Font Info:    External font `lmex10' loaded for size
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Citation `ALE10' on page 2 undefined on input line 21.
-
-
-LaTeX Warning: Citation `DLA13' on page 2 undefined on input line 33.
-
-
-Overfull \hbox (14.2469pt too wide) in paragraph at lines 21--37
-\T1/lmr/m/n/10.95 ulong. Näi-den li-säk-si on etu-mer-kit-tö-mät merk-kial-kiot
-: char 8-bittiselle UTF8:lle
+Overfull \hbox (1.92804pt too wide) in paragraph at lines 21--37
+\T1/lmr/m/n/10.95 uint ja ulong. Näi-den li-säk-si on etu-mer-kit-tö-mät merk-k
+ial-kiot: char 8-bittiselle
  []
 
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 42.
@@ -724,56 +719,29 @@ Overfull \hbox (2.3547pt too wide) in paragraph at lines 72--75
 ai-nen löy-tyy myös C/C++-
  []
 
-
-LaTeX Warning: Citation `DLA13' on page 3 undefined on input line 97.
-
-
-LaTeX Warning: Citation `ALE10' on page 3 undefined on input line 117.
-
 [3]
 Underfull \hbox (badness 10000) in paragraph at lines 157--159
 
  []
 
-[4]
-
-LaTeX Warning: Citation `DLA13' on page 5 undefined on input line 208.
-
-[5]
-
-LaTeX Warning: Citation `ALE10' on page 6 undefined on input line 227.
-
-
+[4] [5]
 Overfull \hbox (9.74171pt too wide) in paragraph at lines 254--258
 []\T1/lmr/m/n/10.95 catch-lauseella mää-ri-te-tään mi-tä teh-dään, jos poik-keu
 s ta-pah-tuu, ja finally-
  []
 
-
-LaTeX Warning: Citation `DLA13' on page 6 undefined on input line 262.
-
-
-LaTeX Warning: Citation `ALE10' on page 6 undefined on input line 262.
-
 [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 355--358
+Underfull \hbox (badness 10000) in paragraph at lines 357--360
 
  []
 
-
-LaTeX Warning: Citation `ERL99' on page 8 undefined on input line 359.
-
-[8]
-
-LaTeX Warning: Citation `HEB13' on page 9 undefined on input line 381.
-
-No file Hajaee_3.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 399.
-[9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 399.
+[8] [9] (./Hajaee_3.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 464.
+ [10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 464.
  (./Hajaee_3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 399.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 399.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 464.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 464.
 
 
 Package rerunfilecheck Warning: File `Hajaee_3.out' has changed.
@@ -781,34 +749,27 @@ Package rerunfilecheck Warning: File `Hajaee_3.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `Hajaee_3.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  4E6343BA3E72E200153489CDC7BE3733;572.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 399.
+(rerunfilecheck)             Before: 4E6343BA3E72E200153489CDC7BE3733;572
+(rerunfilecheck)             After:  93F488CF2941E8E0B603234B22AC1756;817.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 464.
  ) 
 Here is how much of TeX's memory you used:
- 6301 strings out of 493481
- 90683 string characters out of 3143393
- 167932 words of memory out of 3000000
- 9514 multiletter control sequences out of 15000+200000
- 41310 words of font info for 35 fonts, out of 3000000 for 9000
+ 6321 strings out of 493481
+ 90932 string characters out of 3143393
+ 168141 words of memory out of 3000000
+ 9523 multiletter control sequences out of 15000+200000
+ 38315 words of font info for 34 fonts, out of 3000000 for 9000
  965 hyphenation exceptions out of 8191
- 29i,6n,28p,315b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,6n,28p,653b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/
-public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/s
-hare/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public
-/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/tex
-mf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmt
-t10.pfb>
-Output written on Hajaee_3.pdf (9 pages, 187288 bytes).
+public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/sh
+are/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/
+lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmtt10.pfb>
+Output written on Hajaee_3.pdf (10 pages, 172759 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
- 23 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 133 PDF objects out of 1000 (max. 8388607)
+ 113 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 65 words of extra memory for PDF output out of 10000 (max. 10000000)
 
