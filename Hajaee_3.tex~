@@ -378,8 +378,7 @@ ala_viiva
 \end{verbatim}
 Tuple on kokoomatietotyyppi (compound data type), jolla on vakiomäärä termejä.
 Termit ovat Erlangissa tiedon yksiköitä (pieces of data). Tuplen termejä
-kutsutaan elementeiksi, ja elementtien määrä määrittää tuplen koon. Tämä
-menettelytapa
+kutsutaan elementeiksi, ja elementtien määrä määrittää tuplen koon. Tämä menettelytapa
 muistuttaa taulukkorakennetta Java-kielessä.
 
 Erlangissa on useita ennltamääriteltyjä funktioita tuplejen käsittelemiseksi.
@@ -429,9 +428,7 @@ strategia on hyväksyä virheiden tapahtuminen, ja varautua niihin. Tämän noja
 Erlangin dynaaminen tyypitys ei ole este ohjelmien luotettavuudelle ja
 turvallisuudelle.
 
-Erlang on myös vahvasti tyypitetty kieli. Vahvasti tyypitetyt kielet rajoittavat
-eri tietotyyppien yhdistelyä operaatioissa (wikipedia). Alla on esimerkki
-operaatiosta, joka aiheuttaisi Erlangissa virheen ohjelman suorituksessa.
+Erlang on myös vahvasti tyypitetty kieli. Vahvasti tyypitetyt kielet rajoittavat eri tietotyyppien yhdistelyä operaatioissa (wikipedia). Alla on esimerkki operaatiosta, joka aiheuttaisi Erlangissa virheen ohjelman suorituksessa.
 
 \begin{verbatim}
 1 + "2".

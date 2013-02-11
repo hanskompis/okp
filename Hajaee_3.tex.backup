@@ -378,8 +378,7 @@ ala_viiva
 \end{verbatim}
 Tuple on kokoomatietotyyppi (compound data type), jolla on vakiomäärä termejä.
 Termit ovat Erlangissa tiedon yksiköitä (pieces of data). Tuplen termejä
-kutsutaan elementeiksi, ja elementtien määrä määrittää tuplen koon. Tämä
-menettelytapa
+kutsutaan elementeiksi, ja elementtien määrä määrittää tuplen koon. Tämä menettelytapa
 muistuttaa taulukkorakennetta Java-kielessä.
 
 Erlangissa on useita ennltamääriteltyjä funktioita tuplejen käsittelemiseksi.
@@ -429,17 +428,22 @@ strategia on hyväksyä virheiden tapahtuminen, ja varautua niihin. Tämän noja
 Erlangin dynaaminen tyypitys ei ole este ohjelmien luotettavuudelle ja
 turvallisuudelle.
 
-Erlang on myös vahvasti tyypitetty kieli. Vahvasti tyypitetyt kielet rajoittavat
-eri tietotyyppien yhdistelyä operaatioissa (wikipedia). Alla on esimerkki
-operaatiosta, joka aiheuttaisi Erlangissa virheen ohjelman suorituksessa.
+Erlang on myös vahvasti tyypitetty kieli. Vahvasti tyypitetyt kielet rajoittavat eri tietotyyppien 
 
-\begin{verbatim}
-1 + "2".
+Erlang is also strongly typed. A weakly typed language would do implicit type
+conversions between terms. If Erlang were to be weakly typed we could possibly
+do the operation 6 = 5 + "1". while in practice, an exception for bad arguments
+will be thrown:
+
+view sourceprint?
+1> 6 + "1".
 ** exception error: bad argument in an arithmetic expression
 in operator  +/2
-called as 1 + "2"
-\end{verbatim}
-Erlangissa on kuitenkin tapoja muuntaa tietoa tietotyypistä toiseen.
+called as 6 + "1"
+Of course, there are times when you could want to convert one kind of data to
+another one: changing regular strings into bit strings to store them or an
+integer to a floating point number. The Erlang standard library provides a
+number of functions to do it.
 
 Viittaukset menvät näin: \cite{HEB13}.
 
