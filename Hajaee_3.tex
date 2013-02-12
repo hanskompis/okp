@@ -328,7 +328,15 @@ synchronized class PankkiTili {
 }
 \end{verbatim}
 \subsection{Tyypillisiä ohjelmistoarkkitehtuureja}
-D-kielellä voi toteuttaa arkkitehtuuriltaan hyvinkin erilaisia ohjelmistoja. Rinnakkaisuuden tuki mahdollistaa asiakas-palvelin-mallin, ja hajautettujen ohjelmistojen toteutuksen. Koska ohjelmoija voi valita toteutukseen D-kielen tarjoamista ohjelmointiparadigmoista imperatiivisen-, olio- tai funktionaalisen ohjelmoinnin, on D geneerisyydeltään käyttökelpoinen useimpiin arkkitehtuureihin. Kielellä tehtyjä laajempia toteutuksia ei ole kuitenkaan raportoitu julkisesti. Web-ohjelmointiin D ei sovellu yksin sellaisenaan, mutta esimerkiksi käyttöjärjestelmien ja sulautettujen järjestelmien ohjelmointi onnistuu hyvin.
+D-kielellä voi toteuttaa arkkitehtuuriltaan hyvinkin erilaisia ohjelmistoja.
+Rinnakkaisuuden tuki mahdollistaa asiakas-palvelin-mallin, ja hajautettujen
+ohjelmistojen toteutuksen. Koska ohjelmoija voi valita toteutukseen D-kielen
+tarjoamista ohjelmointiparadigmoista imperatiivisen-, olio- tai funktionaalisen
+ohjelmoinnin, on D geneerisyydeltään käyttökelpoinen useimpiin
+arkkitehtuureihin. Kielellä tehtyjä laajempia toteutuksia ei ole kuitenkaan
+raportoitu julkisesti. Web-ohjelmointiin D ei sovellu yksin sellaisenaan, mutta
+esimerkiksi käyttöjärjestelmien ja sulautettujen järjestelmien ohjelmointi
+onnistuu hyvin.
 \subsection{Valittujen ratkaisujen vertailua}
 Kielessä on monipuolisia ja tehokkaita keinoja hallita rinnakkaisuutta.
 Rinnakkaisuudessa tuettu viestinvälitys on uudemmissa kielissä myös yleinen.
@@ -365,9 +373,7 @@ Viittaukset menvät näin: \cite{ERL99}.
 \subsection{Erlangin tukemat alkeistyypit (ja tietorakenteet?)}
 
 Erlangissa on kahdentyyppisiä numeerisia literaaleja, kokonaislukuja ja
-liukulukuja. Bit String
--tietotyyppiä käytetään varastoimaan tyypittämätöntä muistialuetta. Fun on
-funktionaalinen objekti ja Port Identifier ilmaisee Erlang-portin. 
+liukulukuja. Bit String-tietotyyppiä käytetään varastoimaan tyypittämätöntä muistialuetta. Port Identifier ilmaisee Erlang-portin. 
 
 Atom-tietotyyppi on yksinkertaisesti nimetty vakio. Alla on esimerkkejä
 atomeista.
@@ -378,13 +384,19 @@ ala_viiva
 'Heippa'
 'Hei hei'
 \end{verbatim}
+Fun on funktionaalinen olio. Funit mahdollistavat anonyymin funktion luonnin ja funktion käyttämisen parametreina muissa funktioissa. 
+
+\begin{verbatim}
+Fun1 = fun (X) -> X+1 end.
+Fun1(2).
+\end{verbatim}
 Tuple on kokoomatietotyyppi (compound data type), jolla on vakiomäärä termejä.
 Termit ovat Erlangissa tiedon yksiköitä (pieces of data). Tuplen termejä
 kutsutaan elementeiksi, ja elementtien määrä määrittää tuplen koon. Tämä
 menettelytapa
 muistuttaa taulukkorakennetta Java-kielessä.
 
-Erlangissa on useita ennltamääriteltyjä funktioita tuplejen käsittelemiseksi.
+Erlangissa on useita sisäänrakennettuja funktioita tuplejen käsittelemiseksi.
 Esimerkiksi:
 
 \begin{verbatim}
@@ -441,7 +453,18 @@ operaatiosta, joka aiheuttaisi Erlangissa virheen ohjelman suorituksessa.
 in operator  +/2
 called as 1 + "2"
 \end{verbatim}
-Erlangissa on kuitenkin tapoja muuntaa tietoa tietotyypistä toiseen.
+Erlangissa on kuitenkin tapoja muuntaa tietoa tietotyypistä toiseen. Tämä on
+mahdollista Erlangin sisäänrakennettujen funktioiden kautta. Alla on muutamia
+esimerkkejä erlang-moduulissa toteuttavista muunnoksista.
+
+\begin{verbatim}
+erlang:list_to_integer("85").
+erlang:integer_to_list(85).
+erlang:list_to_float("85.28").
+erlang:atom_to_list(true).
+erlang:list_to_bitstring("heippa vain").
+erlang:bitstring_to_list(<<"heippa vain">>).
+\end{verbatim}
 
 Viittaukset menvät näin: \cite{HEB13}.
 

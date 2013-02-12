@@ -327,6 +327,16 @@ synchronized class PankkiTili {
   }
 }
 \end{verbatim}
+\subsection{Tyypillisiä ohjelmistoarkkitehtuureja}
+D-kielellä voi toteuttaa arkkitehtuuriltaan hyvinkin erilaisia ohjelmistoja.
+Rinnakkaisuuden tuki mahdollistaa asiakas-palvelin-mallin, ja hajautettujen
+ohjelmistojen toteutuksen. Koska ohjelmoija voi valita toteutukseen D-kielen
+tarjoamista ohjelmointiparadigmoista imperatiivisen-, olio- tai funktionaalisen
+ohjelmoinnin, on D geneerisyydeltään käyttökelpoinen useimpiin
+arkkitehtuureihin. Kielellä tehtyjä laajempia toteutuksia ei ole kuitenkaan
+raportoitu julkisesti. Web-ohjelmointiin D ei sovellu yksin sellaisenaan, mutta
+esimerkiksi käyttöjärjestelmien ja sulautettujen järjestelmien ohjelmointi
+onnistuu hyvin.
 \subsection{Valittujen ratkaisujen vertailua}
 Kielessä on monipuolisia ja tehokkaita keinoja hallita rinnakkaisuutta.
 Rinnakkaisuudessa tuettu viestinvälitys on uudemmissa kielissä myös yleinen.
@@ -363,9 +373,7 @@ Viittaukset menvät näin: \cite{ERL99}.
 \subsection{Erlangin tukemat alkeistyypit (ja tietorakenteet?)}
 
 Erlangissa on kahdentyyppisiä numeerisia literaaleja, kokonaislukuja ja
-liukulukuja. Bit String
--tietotyyppiä käytetään varastoimaan tyypittämätöntä muistialuetta. Fun on
-funktionaalinen objekti ja Port Identifier ilmaisee Erlang-portin. 
+liukulukuja. Bit String-tietotyyppiä käytetään varastoimaan tyypittämätöntä muistialuetta. Port Identifier ilmaisee Erlang-portin. 
 
 Atom-tietotyyppi on yksinkertaisesti nimetty vakio. Alla on esimerkkejä
 atomeista.
@@ -376,12 +384,24 @@ ala_viiva
 'Heippa'
 'Hei hei'
 \end{verbatim}
+Fun on funktionaalinen olio. Funit mahdollistavat anonyymin funktion luonnin ja funktion käyttämisen parametreina muissa funktioissa. 
+
+Funs make it possible to create an anonymous function and pass the function itself -- not its name -- as argument to other functions.
+
+Example:
+
+1> Fun1 = fun (X) -> X+1 end.
+#Fun<erl_eval.6.39074546>
+2> Fun1(2).
+3
+
 Tuple on kokoomatietotyyppi (compound data type), jolla on vakiomäärä termejä.
 Termit ovat Erlangissa tiedon yksiköitä (pieces of data). Tuplen termejä
-kutsutaan elementeiksi, ja elementtien määrä määrittää tuplen koon. Tämä menettelytapa
+kutsutaan elementeiksi, ja elementtien määrä määrittää tuplen koon. Tämä
+menettelytapa
 muistuttaa taulukkorakennetta Java-kielessä.
 
-Erlangissa on useita ennltamääriteltyjä funktioita tuplejen käsittelemiseksi.
+Erlangissa on useita sisäänrakennettuja funktioita tuplejen käsittelemiseksi.
 Esimerkiksi:
 
 \begin{verbatim}
@@ -428,22 +448,28 @@ strategia on hyväksyä virheiden tapahtuminen, ja varautua niihin. Tämän noja
 Erlangin dynaaminen tyypitys ei ole este ohjelmien luotettavuudelle ja
 turvallisuudelle.
 
-Erlang on myös vahvasti tyypitetty kieli. Vahvasti tyypitetyt kielet rajoittavat eri tietotyyppien 
+Erlang on myös vahvasti tyypitetty kieli. Vahvasti tyypitetyt kielet rajoittavat
+eri tietotyyppien yhdistelyä operaatioissa (wikipedia). Alla on esimerkki
+operaatiosta, joka aiheuttaisi Erlangissa virheen ohjelman suorituksessa.
 
-Erlang is also strongly typed. A weakly typed language would do implicit type
-conversions between terms. If Erlang were to be weakly typed we could possibly
-do the operation 6 = 5 + "1". while in practice, an exception for bad arguments
-will be thrown:
-
-view sourceprint?
-1> 6 + "1".
+\begin{verbatim}
+1 + "2".
 ** exception error: bad argument in an arithmetic expression
 in operator  +/2
-called as 6 + "1"
-Of course, there are times when you could want to convert one kind of data to
-another one: changing regular strings into bit strings to store them or an
-integer to a floating point number. The Erlang standard library provides a
-number of functions to do it.
+called as 1 + "2"
+\end{verbatim}
+Erlangissa on kuitenkin tapoja muuntaa tietoa tietotyypistä toiseen. Tämä on
+mahdollista Erlangin sisäänrakennettujen funktioiden kautta. Alla on muutamia
+esimerkkejä erlang-moduulissa toteuttavista muunnoksista.
+
+\begin{verbatim}
+erlang:list_to_integer("85").
+erlang:integer_to_list(85).
+erlang:list_to_float("85.28").
+erlang:atom_to_list(true).
+erlang:list_to_bitstring("heippa vain").
+erlang:bitstring_to_list(<<"heippa vain">>).
+\end{verbatim}
 
 Viittaukset menvät näin: \cite{HEB13}.
 
