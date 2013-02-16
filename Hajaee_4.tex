@@ -17,7 +17,7 @@
 \newpage
 
 \section{Jarin osuus}
-
+\subsection{Rakenteiset tyypit}
 Alkeistyypeistä voidaan muodostaa taulukoita, joita on kahdenlaisia. Yksi taulukoista on yleinen perustapaus array, jollainen löytyy myös C/C++-kielistä. Taulukon alkioihin voidaan viitata indeksin avulla.
 \begin{verbatim}
 int[] lukuja;
@@ -89,7 +89,7 @@ uint: 4294961096
 byte: -56
 \end{verbatim}
 
-Lisäksi voidaan luoda dymaaninen taulukko, joka tarkoittaa sitä, että taulukkoon voidaan myöhemmin sijoittaa taulukko. Esimerkki havainnolistaa tätä toimintaa:
+Lisäksi voidaan luoda dymaaninen taulukko, joka tarkoittaa sitä, että taulukkoon voidaan myöhemmin sijoittaa taulukko. Esimerkki havainnollistaa tätä toimintaa:
 
 \begin{verbatim}
   int[] c;
@@ -104,7 +104,79 @@ Taulukko voidaan myös osoittaa tiettyyn muistialueeseen. JATKA POINTER JNE. \\
 
 D-kielen tarjoama struct ja union ovat useissa tilanteissa käyttökelpoisia, varsinkin matalammalla tasolla, kuten esimerkiksi käyttöjärjestelmien toteutuksessa. Koska ne ovat arvotyyppejä, niillä saadaan aikaan tehokkaita rakenteita. D-kielen kehitykseen vaikuttaneista kielistä Java ei sisällä struct, eikä union rakennetta. C\# sitä vastoin sisältää struct arvotyypin rakenteen mutta ei unionia.
 
+\subsection{Geneerisyys}
+D-kielessä on tuki geneerisyydelle. Tämä tarkoittaa sitä, että funktio voidaan kirjoittaa yleiseksi ilman, että sen tyyppejä sidotaan tiettyihin tyyppeihin. Seuraava esimerkki on toteutettu geneerisyyttä hyödyntäen; binäärihaku, jolle voidaan antaa syötteeksi minkä tahansa tyyppinen järjestetty taulukko.
 
+\begin{verbatim}
+bool binHaku(T)(T[] input, T value) {
+  while (!input.empty) {
+    int i = input.length / 2;
+    auto mid = input[i];
+    if (mid > value)
+      input = input[0 .. i];
+    else 
+      if (mid < value)
+        input = input[i + 1 .. $];
+    else 
+      return true;
+  }
+  return false;
+}
+
+void main() {
+  writeln(binHaku([ 1, 3, 6, 7, 9, 15 ], 6));
+  writeln(binHaku([ 'a', 'b', 'c', 'd', 'e', 'g', 'i' ], 'h'));
+}
+\end{verbatim}
+
+Funktio hyväksyy syötteeksi järjestetyn taulukon ja suorittaa puolitushaun sille. Ohjelman tuloste on seuraava:
+\begin{verbatim}
+true
+false
+\end{verbatim}
+
+\subsection{Luokat ja periytyminen}
+D-kielessä luokka voi periytyä vain yhdestä luokasta, toisin kuin C++ -kielessä, jossa on moniperintä mahdollinen. D:ssä aliluokka perii kaikki yliluokan tietueet ja funktiot. Perinnän voi estää kirjoittamalla luokkamäärittelyn eteen final. 
+\begin{verbatim}
+class Henkilo {
+  string nimi;
+  int ika;
+  // luokan konstruktori
+  this(string nimi, int ika) {
+    this.nimi = nimi;
+    this.ika = ika;
+  }
+  ~this() {} // tyhjäksi jätetty destruktori
+}
+
+class Opiskelija : Henkilo { // perii luoka Henkilo ominaisuudet
+  string opiskelijaNumero;
+  int opintoPisteet;
+  string opintoLinja;
+  // luokan konstruktori
+  this(string nimi, int ika, string opiskelijaNumero) { 
+    super(nimi, ika); // kutsuu yliluokan konstruktoria
+    this.opiskelijaNumero = opiskelijaNumero;
+  }
+}
+
+void main() {
+  Opiskelija kapistelija = new Opiskelija("Kerttu Koodari", 29, "987234651");
+  Opiskelija konnari = new Opiskelija("Kalle Konnari", 34, "132435467");
+  kapistelija.opintoLinja = "Tietojenkasittelytiede";
+  konnari.opintoLinja = "Kognitiotiede";
+  kapistelija.opintoPisteet = 123;
+  konnari.opintoPisteet = 87;
+  writeln(kapistelija.nimi, "n opintopistekertyma on ", kapistelija.opintoPisteet);
+  writeln(konnari.nimi, "n opintopistekertyma on ", konnari.opintoPisteet);
+}
+\end{verbatim}
+Ohjelma tulostaa seuraavasti:
+
+\begin{verbatim}
+Kerttu Koodarin opintopistekertyma on 123
+Kalle Konnarin opintopistekertyma on 87
+\end{verbatim}
 \section{Hansin osuus}
 
 \section{Eeron osuus}
