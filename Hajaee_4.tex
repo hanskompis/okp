@@ -40,7 +40,7 @@ Tammikuu=1
 
 Lisäksi taulukko voidaan jättää dynaamiseksi, määrittämällä sen pituudeksi [], jolloin sille voidaan osoittaa jokin olemassa oleva taulukko myöhemmin koodissa. ** PALAA TÄHÄN!! **
 
-Alkeistyypeistä voidaan myös muodostaa tietueet struct tai union. Molemmat vastaavat C/C++-kielen vastaavia rakenteita ja ovat arvotyyppejä \cite{DLA13}. Struct-Struct määritellään, ja sitä käytetään seuraavasti:
+Alkeistyypeistä voidaan myös muodostaa tietueet struct tai union. Molemmat vastaavat C/C++-kielen vastaavia rakenteita ja ovat arvotyyppejä \cite{DLA13}. Struct määritellään, ja sitä käytetään seuraavasti:
 
 \begin{verbatim}
 struct palkansaaja{
@@ -58,7 +58,7 @@ void main() {
 }
 \end{verbatim}
 
-Union eroaa structista siten, että muuttujien arvot on talletettu muistissa samaan kohtaan \cite{ALE10}, riippumatta niiden tyypistä ja pituudesta. Kääntäjän tehtävä on varata riittävä määrä muistia suurimman tyypin mukaisesti. Yhden muuttujan arvon muuttaminen vaihtaa muuttujille varatun muistin sisällön. Seuraava esimerkki havainnolistaa tätä:
+Union eroaa structista siten, että muuttujien arvot on talletettu muistissa samaan kohtaan \cite{ALE10};\cite{KRR88}, riippumatta niiden tyypistä ja pituudesta. Kääntäjän tehtävä on varata riittävä määrä muistia suurimman tyypin mukaisesti. Yhden muuttujan arvon muuttaminen vaihtaa muuttujille varatun muistin sisällön. Seuraava esimerkki havainnollistaa tätä:
 \begin{verbatim}
 union moniTyyppi{
   int iluku;
@@ -124,6 +124,8 @@ Barklund, Robert Virding, 1999.
 \bibitem[HEB13]{HEB13} Learn You Some Erlang For Great Good, Fred Hébert, 2013.
 
 \bibitem[ALE10]{ALE10} The D Programming Language, Andrei Alexandrescu, 2010.
+
+\bibitem[KRR88]{KRR88} The C Programming Language, Brian W. Kernighan, Dennis M. Ritchie, 1978/1988.
 
 \end{thebibliography}
 
