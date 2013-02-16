@@ -386,10 +386,15 @@ ala_viiva
 \end{verbatim}
 Fun on funktionaalinen olio. Funit mahdollistavat anonyymin funktion luonnin ja funktion käyttämisen parametreina muissa funktioissa. 
 
-\begin{verbatim}
-Fun1 = fun (X) -> X+1 end.
-Fun1(2).
-\end{verbatim}
+Funs make it possible to create an anonymous function and pass the function itself -- not its name -- as argument to other functions.
+
+Example:
+
+1> Fun1 = fun (X) -> X+1 end.
+#Fun<erl_eval.6.39074546>
+2> Fun1(2).
+3
+
 Tuple on kokoomatietotyyppi (compound data type), jolla on vakiomäärä termejä.
 Termit ovat Erlangissa tiedon yksiköitä (pieces of data). Tuplen termejä
 kutsutaan elementeiksi, ja elementtien määrä määrittää tuplen koon. Tämä
