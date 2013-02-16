@@ -18,6 +18,93 @@
 
 \section{Jarin osuus}
 
+Alkeistyypeistä voidaan muodostaa taulukoita, joita on kahdenlaisia. Yksi taulukoista on yleinen perustapaus array, jollainen löytyy myös C/C++-kielistä. Taulukon alkioihin voidaan viitata indeksin avulla.
+\begin{verbatim}
+int[] lukuja;
+lukuja[11] = 13;
+\end{verbatim}
+
+Toinen taulukkomuoto on avaimen ja arvon sisältävä pari, associative array. Taulukon alkio sisältää arvon ja siihen viittaava indeksi on esimerkiksi merkkijono: 
+\begin{verbatim}
+  int[string] kuukausi;
+  
+  kuukausi["tammikuu"] = 1;
+  kuukausi["helmikuu"] = 2;
+  
+  writeln("Tammikuu=", kuukausi["tammikuu"]);
+\end{verbatim}
+Koodi tulostaa:
+\begin{verbatim}
+Tammikuu=1
+\end{verbatim}
+
+Lisäksi taulukko voidaan jättää dynaamiseksi, määrittämällä sen pituudeksi [], jolloin sille voidaan osoittaa jokin olemassa oleva taulukko myöhemmin koodissa. ** PALAA TÄHÄN!! **
+
+Alkeistyypeistä voidaan myös muodostaa tietueet struct tai union. Molemmat vastaavat C/C++-kielen vastaavia rakenteita ja ovat arvotyyppejä \cite{DLA13}. Struct-Struct määritellään, ja sitä käytetään seuraavasti:
+
+\begin{verbatim}
+struct palkansaaja{
+  int palkka;
+  string titteli;
+}
+
+void main() {
+  palkansaaja[5] palkolliset;
+  palkolliset[1].palkka = 4500;
+  palkolliset[1].titteli = "ohjelmoija";
+
+  write(palkolliset[1].titteli, " tienaa ");
+  writeln(palkolliset[1].palkka, " kuukaudessa");
+}
+\end{verbatim}
+
+Union eroaa structista siten, että muuttujien arvot on talletettu muistissa samaan kohtaan \cite{ALE10}, riippumatta niiden tyypistä ja pituudesta. Kääntäjän tehtävä on varata riittävä määrä muistia suurimman tyypin mukaisesti. Yhden muuttujan arvon muuttaminen vaihtaa muuttujille varatun muistin sisällön. Seuraava esimerkki havainnolistaa tätä:
+\begin{verbatim}
+union moniTyyppi{
+  int iluku;
+  uint uiluku;
+  byte bluku;
+}
+
+void main() {
+  moniTyyppi luku;
+  luku.iluku = 6200;
+  writeln("int: ", luku.iluku);
+  writeln("uint: ", luku.uiluku);
+  writeln("byte: ", luku.bluku);
+  luku.iluku = -6200;
+  writeln("int: ", luku.iluku);
+  writeln("uint: ", luku.uiluku);
+  writeln("byte: ", luku.bluku);
+}
+\end{verbatim}
+Ohjelma tulostaa seuraavasti:
+
+\begin{verbatim}
+int: 6200
+uint: 6200
+byte: 56
+int: -6200
+uint: 4294961096
+byte: -56
+\end{verbatim}
+
+Lisäksi voidaan luoda dymaaninen taulukko, joka tarkoittaa sitä, että taulukkoon voidaan myöhemmin sijoittaa taulukko. Esimerkki havainnolistaa tätä toimintaa:
+
+\begin{verbatim}
+  int[] c;
+  int[4] d;
+  d[2] = 10;
+  c = d;
+  writeln(c[2]);
+\end{verbatim}
+Ohjelma tulostaa luvun 10. \\
+Taulukko voidaan myös osoittaa tiettyyn muistialueeseen. JATKA POINTER JNE. \\
+
+
+D-kielen tarjoama struct ja union ovat useissa tilanteissa käyttökelpoisia, varsinkin matalammalla tasolla, kuten esimerkiksi käyttöjärjestelmien toteutuksessa. Koska ne ovat arvotyyppejä, niillä saadaan aikaan tehokkaita rakenteita. D-kielen kehitykseen vaikuttaneista kielistä Java ei sisällä struct, eikä union rakennetta. C\# sitä vastoin sisältää struct arvotyypin rakenteen mutta ei unionia.
+
+
 \section{Hansin osuus}
 
 \section{Eeron osuus}
