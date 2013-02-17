@@ -177,6 +177,36 @@ Ohjelma tulostaa seuraavasti:
 Kerttu Koodarin opintopistekertyma on 123
 Kalle Konnarin opintopistekertyma on 87
 \end{verbatim}
+
+Abstrakti luokka voidaan muodostaa avainsanalla abstract, joka kirjoitetaan luokan määrityksen eteen. Abstrakti luokka voi sisältää D-kielessä abstrakteja funktioita, joille aliluokan on annettava toteutus, ja normaaleja funktioita. Esimerkkikoodia tällaisesta toteutuksesta:
+\begin{verbatim}
+// abstrakti luokka Tervehdys
+abstract class Tervehdys { 
+  void tervehdi(){ 
+    writeln("Hei!"); 
+  } 
+  abstract void tervehdiNimella(string name); 
+} 
+
+class TervehdysNimella : Tervehdys { 
+  // tervehdiNimella abstraktin funktion toteutus
+  void tervehdiNimella(string nimi){ 
+    writeln("Hei ", nimi, "!"); 
+  } 
+} 
+
+void main() {
+
+  Tervehdys tervehdys = new TervehdysNimella(); 
+  tervehdys.tervehdi(); 
+  tervehdys.tervehdiNimella("Kerttu"); 
+}
+\end{verbatim}
+Ja ohjelma tulostaa:
+\begin{verbatim}
+Hei!
+Hei Kerttu!
+\end{verbatim}
 \section{Hansin osuus}
 
 \section{Eeron osuus}
