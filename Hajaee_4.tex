@@ -63,7 +63,7 @@ Union eroaa structista siten, että muuttujien arvot on talletettu muistissa sam
 union moniTyyppi{
   int iluku;
   uint uiluku;
-  byte bluku;
+  ubyte ubluku;
 }
 
 void main() {
@@ -71,11 +71,11 @@ void main() {
   luku.iluku = 6200;
   writeln("int: ", luku.iluku);
   writeln("uint: ", luku.uiluku);
-  writeln("byte: ", luku.bluku);
+  writeln("ubyte: ", luku.ubluku);
   luku.iluku = -6200;
   writeln("int: ", luku.iluku);
   writeln("uint: ", luku.uiluku);
-  writeln("byte: ", luku.bluku);
+  writeln("ubyte: ", luku.ubluku);
 }
 \end{verbatim}
 Ohjelma tulostaa seuraavasti:
@@ -86,7 +86,7 @@ uint: 6200
 byte: 56
 int: -6200
 uint: 4294961096
-byte: -56
+ubyte: 200
 \end{verbatim}
 
 Lisäksi voidaan luoda dymaaninen taulukko, joka tarkoittaa sitä, että taulukkoon voidaan myöhemmin sijoittaa taulukko. Esimerkki havainnollistaa tätä toimintaa:
@@ -105,7 +105,7 @@ Taulukko voidaan myös osoittaa tiettyyn muistialueeseen. JATKA POINTER JNE. \\
 D-kielen tarjoama struct ja union ovat useissa tilanteissa käyttökelpoisia, varsinkin matalammalla tasolla, kuten esimerkiksi käyttöjärjestelmien toteutuksessa. Koska ne ovat arvotyyppejä, niillä saadaan aikaan tehokkaita rakenteita. D-kielen kehitykseen vaikuttaneista kielistä Java ei sisällä struct, eikä union rakennetta. C\# sitä vastoin sisältää struct arvotyypin rakenteen mutta ei unionia.
 
 \subsection{Geneerisyys}
-D-kielessä on tuki geneerisyydelle. Tämä tarkoittaa sitä, että funktio voidaan kirjoittaa yleiseksi ilman, että sen tyyppejä sidotaan tiettyihin tyyppeihin. Seuraava esimerkki on toteutettu geneerisyyttä hyödyntäen; binäärihaku, jolle voidaan antaa syötteeksi minkä tahansa tyyppinen järjestetty taulukko.
+D-kielessä on tuki geneerisyydelle. Tämä tarkoittaa sitä, että funktio voidaan kirjoittaa yleiseksi ilman, että sen parametreja sidotaan tiettyihin tyyppeihin. Tällöin parametrin tyypiksi määritetään T. Seuraava esimerkki on toteutettu geneerisyyttä hyödyntäen; binäärihaku, jolle voidaan antaa syötteeksi minkä tahansa tyyppinen järjestetty taulukko.
 
 \begin{verbatim}
 bool binHaku(T)(T[] input, T value) {
@@ -136,7 +136,7 @@ false
 \end{verbatim}
 
 \subsection{Luokat ja periytyminen}
-D-kielessä luokka voi periytyä vain yhdestä luokasta, toisin kuin C++ -kielessä, jossa on moniperintä mahdollinen. D:ssä aliluokka perii kaikki yliluokan tietueet ja funktiot. Perinnän voi estää kirjoittamalla luokkamäärittelyn eteen final. 
+D-kielessä luokka voi periytyä vain yhdestä luokasta, toisin kuin C++ -kielessä, jossa moniperintä on mahdollinen. D:ssä aliluokka perii kaikki yliluokan tietueet ja funktiot. 
 \begin{verbatim}
 class Henkilo {
   string nimi;
@@ -177,8 +177,8 @@ Ohjelma tulostaa seuraavasti:
 Kerttu Koodarin opintopistekertyma on 123
 Kalle Konnarin opintopistekertyma on 87
 \end{verbatim}
-
-Abstrakti luokka voidaan muodostaa avainsanalla abstract, joka kirjoitetaan luokan määrityksen eteen. Abstrakti luokka voi sisältää D-kielessä abstrakteja funktioita, joille aliluokan on annettava toteutus, ja normaaleja funktioita. Esimerkkikoodia tällaisesta toteutuksesta:
+Perinnän voi estää kirjoittamalla luokkamäärittelyn eteen final. Rajapintaluokka löytyy myös ja se määritetään luokkamäärittelyn edessä avainsanalla interface. 
+Abstrakti luokka voidaan muodostaa avainsanalla abstract, joka kirjoitetaan luokan määrityksen eteen. Abstrakti luokka voi sisältää D-kielessä abstrakteja funktioita, joille aliluokan on annettava toteutus, ja normaaleja funktioita. Abstraktista luokasta ei voi luoda ilmentymää, vaan ainoastaan abstraktin luokan aliluokasta voidaan luoda ilmentymä. Esimerkkikoodia abstraktin luokan toteutuksesta:
 \begin{verbatim}
 // abstrakti luokka Tervehdys
 abstract class Tervehdys { 
@@ -206,6 +206,39 @@ Ja ohjelma tulostaa:
 \begin{verbatim}
 Hei!
 Hei Kerttu!
+\end{verbatim}
+
+D-kielessä on lisäksi tuki rajapintaluokille, joita voidaan periä useampia yhdelle luokalle. Rajapintaluokassa määritellään funktiot, jotka aliluokan täytyy toteuttaa. Alla esimerkki koodista, jossa luokassa Laskenta toteutetaan rajapintaluokkien Summa ja Tulo funktiot.
+
+\begin{verbatim}
+interface Summa { 
+  int summa(int a, int b); 
+} 
+
+interface Tulo {
+  int tulo(int a, int b);
+}
+
+class Laskenta : Summa, Tulo { 
+  int summa(int a, int b) { 
+    return a+b;
+  } 
+
+  int tulo(int a, int b) {
+    return a*b;
+  }
+} 
+
+void main() {
+  Laskenta laskuri = new Laskenta();
+  writeln("3+4=", laskuri.summa(3, 4));
+  writeln("3*4=", laskuri.tulo(3, 4));
+}
+\end{verbatim}
+Esimerkkikoodi tulostaa:
+\begin{verbatim}
+3+4=7
+3*4=12
 \end{verbatim}
 \section{Hansin osuus}
 
