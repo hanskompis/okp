@@ -18,13 +18,13 @@
 
 \section{Jarin osuus}
 \subsection{Rakenteiset tyypit}
-Alkeistyypeistä voidaan muodostaa taulukoita, joita on kahdenlaisia. Yksi taulukoista on yleinen perustapaus array, jollainen löytyy myös C/C++-kielistä. Taulukon alkioihin voidaan viitata indeksin avulla.
+Alkeistyypeistä voidaan muodostaa taulukoita, joita on kahdenlaisia. Yksi taulukoista on yleinen perustapaus array, jollainen löytyy myös C/C++-kielistä \cite{KRR88}. Taulukon alkioihin voidaan viitata indeksin avulla.
 \begin{verbatim}
 int[] lukuja;
 lukuja[11] = 13;
 \end{verbatim}
 
-Toinen taulukkomuoto on avaimen ja arvon sisältävä pari, associative array. Taulukon alkio sisältää arvon ja siihen viittaava indeksi on esimerkiksi merkkijono: 
+Toinen taulukkomuoto on avaimen ja arvon sisältävä pari, associative array. Taulukon alkio sisältää arvon ja siihen viittaava indeksi voi olla esimerkiksi merkkijono: 
 \begin{verbatim}
   int[string] kuukausi;
   
@@ -38,9 +38,9 @@ Koodi tulostaa:
 Tammikuu=1
 \end{verbatim}
 
-Lisäksi taulukko voidaan jättää dynaamiseksi, määrittämällä sen pituudeksi [], jolloin sille voidaan osoittaa jokin olemassa oleva taulukko myöhemmin koodissa. ** PALAA TÄHÄN!! **
+Lisäksi taulukko voidaan jättää dynaamiseksi, määrittämällä sen pituudeksi [], jolloin sille voidaan osoittaa jokin olemassa oleva taulukko myöhemmin koodissa.
 
-Alkeistyypeistä voidaan myös muodostaa tietueet struct tai union. Molemmat vastaavat C/C++-kielen vastaavia rakenteita ja ovat arvotyyppejä \cite{DLA13}. Struct määritellään, ja sitä käytetään seuraavasti:
+Alkeistyypeistä voidaan myös muodostaa tietueet struct tai union. Molemmat vastaavat C/C++-kielen vastaavia rakenteita \cite{KRR88} ja ovat arvotyyppejä \cite{DLA13}. Struct määritellään, ja sitä käytetään seuraavasti:
 
 \begin{verbatim}
 struct palkansaaja{
@@ -99,8 +99,6 @@ Lisäksi voidaan luoda dymaaninen taulukko, joka tarkoittaa sitä, että taulukk
   writeln(c[2]);
 \end{verbatim}
 Ohjelma tulostaa luvun 10. \\
-Taulukko voidaan myös osoittaa tiettyyn muistialueeseen. JATKA POINTER JNE. \\
-
 
 D-kielen tarjoama struct ja union ovat useissa tilanteissa käyttökelpoisia, varsinkin matalammalla tasolla, kuten esimerkiksi käyttöjärjestelmien toteutuksessa. Koska ne ovat arvotyyppejä, niillä saadaan aikaan tehokkaita rakenteita. D-kielen kehitykseen vaikuttaneista kielistä Java ei sisällä struct, eikä union rakennetta. C\# sitä vastoin sisältää struct arvotyypin rakenteen mutta ei unionia.
 
@@ -177,7 +175,7 @@ Ohjelma tulostaa seuraavasti:
 Kerttu Koodarin opintopistekertyma on 123
 Kalle Konnarin opintopistekertyma on 87
 \end{verbatim}
-Perinnän voi estää kirjoittamalla luokkamäärittelyn eteen final. Rajapintaluokka löytyy myös ja se määritetään luokkamäärittelyn edessä avainsanalla interface. 
+Perinnän voi estää kirjoittamalla luokkamäärittelyn eteen final \cite{DLA13}. Rajapintaluokka löytyy myös ja se määritetään luokkamäärittelyn edessä avainsanalla interface. 
 Abstrakti luokka voidaan muodostaa avainsanalla abstract, joka kirjoitetaan luokan määrityksen eteen. Abstrakti luokka voi sisältää D-kielessä abstrakteja funktioita, joille aliluokan on annettava toteutus, ja normaaleja funktioita. Abstraktista luokasta ei voi luoda ilmentymää, vaan ainoastaan abstraktin luokan aliluokasta voidaan luoda ilmentymä. Esimerkkikoodia abstraktin luokan toteutuksesta:
 \begin{verbatim}
 // abstrakti luokka Tervehdys
@@ -240,6 +238,31 @@ Esimerkkikoodi tulostaa:
 3+4=7
 3*4=12
 \end{verbatim}
+\subsection{Arvo- ja viitesemantiikka}
+D-kielessä tietueet, struct ja union, noudattavat arvosemantiikkaa. Luokat noudattavat viitesemantiikkaa. Arvosemantiikkaa noudattavat tietueet tallennetaan muistissa pinoon ja niiden olemassaolo riippuu näkyvyysalueesta. Viitesemantiikkaan perustuvien luokkien ilmentymille taas varataan muistia keosta; pinoon laitetaan vain osoitin keon kohtaan, jossa luotu olio sijaitsee. Funktiokutsun parametrit voidaan välittää arvoina tai viitteinä, samaan tapaan kuin C/C++ -kielissä \cite{KRR88}. Kielessä on tätä varten varattu merkit * ja \&, josta lyhyt esimerkki:
+\begin{verbatim}
+void main() {
+  int x=10;
+  int y=20;
+  writeln(x,",",y);
+  vaihda(&x, &y);
+  writeln(x,",",y);
+}
+
+void vaihda(int *px, int *py)
+{
+  int temp;
+  temp=*px;
+  *px=*py;
+  *py=temp;
+}
+\end{verbatim}
+Koodissa vaihdetaan muistissa x:n ja y:n arvoja keskenään. main kutsuu funktiota vaihda ja funktiolle välitetään parametrina x:n ja y:n muistiosoitteet \&x ja \&y. vaihda-funktion parametrien tyypeiksi on määritetty osoittimet merkillä *. Funktio tekee arvojen vaihtamisen suoria muistiosoitteita käyttäen. Tuloste on seuraava:
+\begin{verbatim}
+10,20
+20,10
+\end{verbatim}
+
 \section{Hansin osuus}
 
 \section{Eeron osuus}
