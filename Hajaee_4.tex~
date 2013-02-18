@@ -288,10 +288,10 @@ Koodissa vaihdetaan muistissa x:n ja y:n arvoja keskenään. main kutsuu funktio
 \end{verbatim}
 
 \section{Hansin osuus}
-Erlangissa ei ole luokkia, joten ei ole myöskään mitään luokkiin liittyvää toiminnallisuutta kuten perintää. Myöskään geneerisiä tyyppejä tai ajonaikaista tyyppiparametrointia ei ole. 
+ Erlangissa ei ole luokkia, joten ei ole myöskään mitään luokkiin liittyvää toiminnallisuutta kuten perintää. Myöskään geneerisiä tyyppejä tai ajonaikaista tyyppiparametrointia ei ole. 
 Parametrinvälityksessä ja muuttujiin sijoittamisessa Erlangissa on aina käytössä arvosemantiikka. 
 
-Erlangin tietotakenne Record on hyvin samantapainen kuin c:n struct \cite{HEB13}. Se on sopiva pienen tietorakenteen luomiseksi. Record määritellään moduulin atribuutiksi:
+Erlangin tietotakenne Record on hyvin samantapainen kuin c:n struct \cite{HEB13}. Se sopii hyvin pienen tietorakenteen luomiseksi. Record määritellään moduulin atribuutiksi:
  \begin{verbatim}
  -module(piste) .
  -compile(export_all) .
@@ -300,7 +300,7 @@ Erlangin tietotakenne Record on hyvin samantapainen kuin c:n struct \cite{HEB13}
     y
  }) .
  \end{verbatim}
- Esimerkissä on yksinkertainen tietorakenne pisteen kuvaamiseksi. Recordin alustus samaisessa moduulissa tapahtuu seuraavasti: 
+ Esimerkissä on yksinkertainen tietorakenne kuvaamaan pistettä. Recordin alustus samaisessa moduulissa tapahtuu seuraavasti: 
 \begin{verbatim}
  piste() -> 
      #piste{

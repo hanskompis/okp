@@ -133,8 +133,8 @@ true
 false
 \end{verbatim}
 
-\subsection{Mixin}
-D-kieli tarjoaa mixinin. Mixin on kuin geneerinen luokka tai template. Ero templaten ja mixinin välillä on se, että template alustetaan siihen näkyvyysalueeseen, missä  alustus tehdään kun taas mixin voidaan alustaa mihin tahansa näkyvyysalueeseen, kuten esimerkikis structiin [lähde?]. Alla on määritetty template Kirjoittaja, joka kirjoittaa metodille kirjoita annetun tiedon. 
+\subsection{Mixinit}
+D-kieli tarjoaa mixinin. Mixin on kuin geneerinen luokka tai template. Ero templaten ja mixinin välillä on se, että template alustetaan siihen näkyvyysalueeseen, missä  alustus tehdään kun taas mixin voidaan alustaa mihin tahansa näkyvyysalueeseen, kuten esimerkikis structiin [lähde?]. Alla on määritetty template kirjoittaja, joka kirjoittaa metodille kirjoita annetun tiedon. 
 \begin{verbatim}
 template Kirjoittaja(T)
 {
@@ -144,18 +144,9 @@ template Kirjoittaja(T)
     }
 }
 \end{verbatim}
-Tällainen template voidaan instantioida paikalliseen näkyvyysalueeseen (ja kutsua myös metodia kirjoita) seuraavalla tavalla:
-\begin{verbatim}
-Kirjoittaja!(int).kirjoita(666); 
-\end{verbatim}
-Template Kirjoittaja voidaan alustaa mixinin avulla myös struct:in sisälle:
-\begin{verbatim}
-struct S
-{
-    mixin Kirjoittaja!(int) IntKirjoittaja;
-    mixin Kirjoittaja!(char[]) StrKirjoittaja;
-} 
-\end{verbatim}
+
+
+
 
 \subsection{Luokat ja periytyminen}
 D-kielessä luokka voi periytyä vain yhdestä luokasta, toisin kuin C++ -kielessä, jossa moniperintä on mahdollinen. D:ssä aliluokka perii kaikki yliluokan tietueet ja funktiot. 
@@ -288,10 +279,10 @@ Koodissa vaihdetaan muistissa x:n ja y:n arvoja keskenään. main kutsuu funktio
 \end{verbatim}
 
 \section{Hansin osuus}
-Erlangissa ei ole luokkia, joten ei ole myöskään mitään luokkiin liittyvää toiminnallisuutta kuten perintää. Myöskään geneerisiä tyyppejä tai ajonaikaista tyyppiparametrointia ei ole. 
+ Erlangissa ei ole luokkia, joten ei ole myöskään mitään luokkiin liittyvää toiminnallisuutta kuten perintää. Myöskään geneerisiä tyyppejä tai ajonaikaista tyyppiparametrointia ei ole. 
 Parametrinvälityksessä ja muuttujiin sijoittamisessa Erlangissa on aina käytössä arvosemantiikka. 
 
-Erlangin tietotakenne Record on hyvin samantapainen kuin c:n struct \cite{HEB13}. Se on sopiva pienen tietorakenteen luomiseksi. Record määritellään moduulin atribuutiksi:
+Erlangin tietotakenne Record on hyvin samantapainen kuin c:n struct. Se sopii hyvin pienen tietorakenteen luomiseksi. Record määritellään moduulin atribuutiksi:
  \begin{verbatim}
  -module(piste) .
  -compile(export_all) .
@@ -300,7 +291,7 @@ Erlangin tietotakenne Record on hyvin samantapainen kuin c:n struct \cite{HEB13}
     y
  }) .
  \end{verbatim}
- Esimerkissä on yksinkertainen tietorakenne pisteen kuvaamiseksi. Recordin alustus samaisessa moduulissa tapahtuu seuraavasti: 
+ Esimerkissä on yksinkertainen tietorakenne kuvaamaan pistettä. Recordin alustus samaisessa moduulissa tapahtuu seuraavasti: 
 \begin{verbatim}
  piste() -> 
      #piste{
