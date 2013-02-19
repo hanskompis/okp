@@ -346,7 +346,7 @@ ainoastaan, jos ne eivät compare equal KORJAA (==). (manuaali)
 
 SETS
 
-Sets-moduuli on komennoiltaan samankaltainen kuin Ordsets, mutta Sets
+Sets-moduuli muistuttaa Orsets-moduulia, mutta 
 
 This module provides exactly the same interface as the module ordsets but with a
 defined representation. One difference is that while this module considers two
