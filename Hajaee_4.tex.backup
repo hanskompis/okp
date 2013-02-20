@@ -155,6 +155,36 @@ true
 false
 \end{verbatim}
 
+\subsection{Mixin}
+D-kieli tarjoaa mixinin. Mixin on kuin geneerinen luokka tai template. Ero
+templaten ja mixinin välillä on se, että template alustetaan siihen
+näkyvyysalueeseen, missä  alustus tehdään kun taas mixin voidaan alustaa mihin
+tahansa näkyvyysalueeseen, kuten esimerkikis structiin [lähde?]. Alla on
+määritetty template Kirjoittaja, joka kirjoittaa metodille kirjoita annetun
+tiedon. 
+\begin{verbatim}
+template Kirjoittaja(T)
+{
+    void kirjoita(T t)
+    {
+        writefln(t);
+    }
+}
+\end{verbatim}
+Tällainen template voidaan instantioida paikalliseen näkyvyysalueeseen (ja
+kutsua myös metodia kirjoita) seuraavalla tavalla:
+\begin{verbatim}
+Kirjoittaja!(int).kirjoita(666); 
+\end{verbatim}
+Template Kirjoittaja voidaan alustaa mixinin avulla myös struct:in sisälle:
+\begin{verbatim}
+struct S
+{
+    mixin Kirjoittaja!(int) IntKirjoittaja;
+    mixin Kirjoittaja!(char[]) StrKirjoittaja;
+} 
+\end{verbatim}
+
 \subsection{Luokat ja periytyminen}
 D-kielessä luokka voi periytyä vain yhdestä luokasta, toisin kuin C++ -kielessä,
 jossa moniperintä on mahdollinen. D:ssä aliluokka perii kaikki yliluokan
@@ -310,20 +340,93 @@ seuraava:
 \end{verbatim}
 
 \section{Hansin osuus}
+Erlangissa ei ole luokkia, joten ei ole myöskään mitään luokkiin liittyvää
+toiminnallisuutta kuten perintää. Myöskään geneerisiä tyyppejä tai ajonaikaista
+tyyppiparametrointia ei ole. 
+Parametrinvälityksessä ja muuttujiin sijoittamisessa Erlangissa on aina käytössä
+arvosemantiikka. 
+
+Erlangin tietotakenne Record on hyvin samantapainen kuin c:n struct
+\cite{HEB13}. Se on sopiva pienen tietorakenteen luomiseksi. Record määritellään
+moduulin atribuutiksi:
+ \begin{verbatim}
+ -module(piste) .
+ -compile(export_all) .
+ -record( piste, {
+    x,
+    y
+ }) .
+ \end{verbatim}
+ Esimerkissä on yksinkertainen tietorakenne pisteen kuvaamiseksi. Recordin
+alustus samaisessa moduulissa tapahtuu seuraavasti: 
+\begin{verbatim}
+ piste() -> 
+     #piste{
+         x = 20,
+         y = 35
+     } .
+ \end{verbatim}
+Moduulin käännöksen jälkeen voidaan tulostaa pisteen kaikki tiedot tai aioastaan
+yksittäinen tieto:
+\begin{verbatim}
+ >c(piste) .
+ {ok, piste}
+ >piste:piste() .
+ #piste{x = 20, y = 35}
+ >piste#.piste.x .
+ 20
+ \end{verbatim}
+
+
+ Tärkeä joukko Erlangin tietorakenteita on avain-arvo-parit (key-value stores).
+Yleisin näistä on proplist, joka on tuplelista muotoa [{key,value}]. Muita
+rajoitteita ei juuri ole. Proplistin käsittelyyn (lisäys, poisto, haku jne.)
+löytyy moduulista proplists kaikki tarvittavat funkiot \cite{HEB13}. 
+ 
+ Hieman formaalimmin määritelty avain-arvo -tietorakene on orddict eli
+järjestetty sanakirja (ordered dctionary). Siinä avain saa esiintyä ainoastaan
+kerran ja rakenne tarjoaa rajoitetun CRUD-toiminnallisuuden elementtien
+tallentamiseen, etsimiseen, lukemiseen ja poistamiseen. Elementit ovat
+järjestetty, joten haut ovat nopeita\cite{HEB13}. orddict on tehokas 75
+elementin säilömiseen saakka. Tätä suuremmat tietomäärät kannattaa tallettaa
+esimerkiksi dict:iin tai gb\textunderscore tree:hin. 
+ 
+ dict:ien toiminnallisuus on lähes sama kuin orddict:issä  lisättynä muutamilla
+funktioilla kuten fold ja map, jotka helpottavat tiedon käsittelyä. 
+ 
+ Erlang tarjoaa myös valmiin puurakenteen, gb\textunderscore treen \cite{HEB13}.
+gb\textunderscore tree on tasapainotettu puu, johon on valmiiksi toteutettu
+yleisimmät puissa tarvittavat funktiot kuten insert, delete, lookup muutamia
+mainitakseni. Puurakenne on varsin tehokas pl. tilanteet, joissa tasapainotusta
+joudutaan tekemään. 
+ 
+ Eräs Erlangin erikoisuus on valmiiksi toteutettu suunnattu verkko, digraph
+(directed graph) \cite{HEB13}. digraph on toteutettu kahdessa moduulissa digraph
+ja digraph\textunderscore utils, joista edellinen toteuttaa verkon ja
+jälkimmäinen tarjoaa palvelut verkon läpikäyntiin, renkaiden (cycle) löytämisen
+jne. 
+ 
+ Erlangissa on myös valmis toteutus FIFO-jonolle, nimeltää queue \cite{HEB13}.
+Luonnollisestikin jonon toteutus sisältää funktiot elementtien lisäämiseksi
+jonoon ja poistamiseksi jonosta. 
+ 
+ Melko triviaali tietorakenne on taulukko (array), johon voi tallentaa
+ainoastaan numeerisia alkioita \cite{HEB13}. Toisin kuin imperatiivisissa
+kielissä, Erlangin taulukko ei tarjoa vakioaikaisia hakufunktioita. Yleinen
+käytäntö esimerkiksi raskaissa matriisioperatioissa on teettää työ muilla
+kielillä kirjoitetuilla ohjelmilla käyttäen Erlangin siihen tajoamaa tekniikkaa
+port:ia
+ 
 
 \section{Eeron osuus}
 
-(ordsets,  sets, gb_Sets,  sofs(set_of_sets)))
-
 Erlang-kielessä set-tietorakenteet eli joukot ovat elementtien kokoelmia
 (collection), joissa mistään elementistä ei ole kaksoiskappaleita. Erlangissa on
-neljä moduulia joukkojen käsittelyyn: ordsets, sets, gb_sets ja sofs (sets of
+neljä moduulia joukkojen käsittelyyn: ordsets, sets, gb\_sets ja sofs (sets of
 sets). Fred Hébertin mukaan suunnittelijoiden tausta-ajatuksena oli, ettei
-joukon esittämiseen ole yhtä, optimaalista tapaa.
+joukon esittämiseen ole yhtä, optimaalista tapaa. (hepe)
 
-ORDSETS
-
-Ordsets-moduulissa järjestyksessä olevaa listaa käytetään joukon elementtien
+ordsets-moduulissa järjestyksessä olevaa listaa käytetään joukon elementtien
 tallentamiseen. (manuaali) Ordsets-rakenteet ovat hyödyllisiä lähinnä pienten
 joukkojen esittämiseen. Ordsets-rakenteet ovat hitaita, mutta niiden esitystapa
 on kaikista Erlangin joukkorakenteista yksinkertaisin ja helppolukuisin. Alla on
@@ -341,91 +444,46 @@ ordsets:intersection/1
 Ordsets-moduulin esitystapa eroaa sets-moduulin esitystavasta yhdellä tavalla.
 Siinä missä sets-moduuli olettaa kahden elementin olevan erilaisia, jos ne eivät
 ole täysin samat (=:=), ordsets-moduulissa kaksi elementtiä eroavat toisistaan
-ainoastaan, jos ne eivät compare equal KORJAA (==). (manuaali)
+ainoastaan, jos ne eivät ole yhtä suuret (==). (manuaali)
 
+Sets-moduuli on toteutettu käyttäen samankaltaista rakennetta kuin
+dict-tietorakenne, ja se toteuttaa saman rajapinnan kuin ordsets-moduuli.
+Sets on kuitenkin paremmin skaalautuva, eli suurien elementtimäärien käsittely
+on sets-moduulin kautta toteutetuissa joukoissa tehokkaampaa. Dict-rakenteiden
+tapaan Sets-moduulilla toteutetut joukot ovat erityisen hyviä
+lukemispainotteisissa
+operaatioissa. Tällaisessa voitaisiin esimerkiksi tarkastaa, onko jokin
+elementti mukana joukossa vai ei. (hepe)
 
-SETS
+Gb\_sets-moduulissa järjestetyt joukot on toteutettu soveltaen General Balanced
+Trees -konseptia. General Balanced Tree on yksinkertaisesti binääripuu, jolla on
+kyky korjata muotonsa tarvittaessa. (andersson) Joukkojen toteuttaminen
+gb\_sets-moduulin avulla voi olla suurien
+joukkojen kohdalla paljon tehokkaampaa kuin järjestettyjen listojen käyttö.
+(manuaali)
 
-Sets-moduuli muistuttaa Orsets-moduulia, mutta 
+Gb\_sets-moduuli on tehokas muissa operaatioissa kuin lukemisessa. Vaikka
+gb\_sets toteuttaa saman rajapinnan kuin sets ja ordsets, se tarjoaa enemmän
+funktioita.
+Esimerkkeinä mainittakoon älykkäät ja naivit funktiot, iteraattorit ja nopea
+pienimpien ja suurimpien arvojen haku.(hepe)
 
-This module provides exactly the same interface as the module ordsets but with a
-defined representation. One difference is that while this module considers two
-elements as different if they do not match (=:=), ordsets considers two elements
-as different if and only if they do not compare equal (==).
+Sofs-moduuli toteutetaan järjestetyillä listoilla, jotka on suljettu metadatan
+kanssa tuple-tyypin sisälle. Sofs-moduuli on hyödyllinen, jos ohjelmoija haluaa
+täyden hallinnan joukkojen ja perheiden (??) välisistä suhteista tai esimerkiksi
+pakottaa (?) joukkojen tyyppejä. Sofs-moduulilla toteutetut joukot ovat ikään
+kuin lähellä matemaattisen joukon konseptia, ne eivät ole ainoastaan
+ainutkertaisten elementtien ryhmiä.(hepe)
 
-sets
-Sets (the module) is implemented on top of a structure really similar to the one
-used in dict. They implement the same interface as ordsets, but they're going to
-scale much better. Like dictionaries, they're especially good for read-intensive
-manipulations, like checking whether some element is part of the set or not.
+%The sofs module implements operations on finite sets and relations represented
+%as sets. Intuitively, a set is a collection of elements; every element belongs
+% %to the set, and the set contains every element.
 
-GB_SETS
-
-An implementation of ordered sets using Prof. Arne Andersson's General Balanced
-Trees. This can be much more efficient than using ordered lists, for larger
-sets, but depends on the application.
-
-This module considers two elements as different if and only if they do not
-compare equal (==).
-
-Complexity note
-
-The complexity on set operations is bounded by either O(|S|) or O(|T| *
-log(|S|)), where S is the largest given set, depending on which is fastest for
-any particular function call. For operating on sets of almost equal size, this
-implementation is about 3 times slower than using ordered-list sets directly.
-For sets of very different sizes, however, this solution can be arbitrarily much
-faster; in practical cases, often between 10 and 100 times. This implementation
-is particularly suited for accumulating elements a few at a time, building up a
-large set (more than 100-200 elements), and repeatedly testing for membership in
-the current set.
-
-As with normal tree structures, lookup (membership testing), insertion and
-deletion have logarithmic complexity.
-
-gb_sets
-Gb_sets themselves are constructed above a General Balanced Tree structure
-similar to the one used in the gb_trees module. gb_sets are to sets what gb_tree
-is to dict; an implementation that is faster when considering operations
-different than reading, leaving you with more control. While gb_sets implement
-the same interface as sets and ordsets, they also add more functions. Like
-gb_trees, you have smart vs. naive functions, iterators, quick access to the
-smallest and largest values, etc.
-
-SOFS
-
-The sofs module implements operations on finite sets and relations represented
-as sets. Intuitively, a set is a collection of elements; every element belongs
-to the set, and the set contains every element.
-
-sofs
-Sets of sets (sofs) are implemented with sorted lists, stuck inside a tuple with
-some metadata. They're the module to use if you want to have full control over
-relationships between sets, families, enforce set types, etc. They're really
-what you want if you need mathematics concept rather than 'just' groups of
-unique elements.
-
-MUUTA
-
-Don't drink too much kool-aid:
-While such a variety can be seen as something great, some implementation details
-can be downright frustrating. As an example, gb_sets, ordsets and sofs all use
-the == operator to compare values: if you have the numbers 2 and 2.0, they'll
-both end up seen as the same one.
-
-However, sets (the module) uses the =:= operator, which means you can't
-necessarily switch over every implementation as you wish. There are cases where
-you need one precise behavior and at that point, you might lose the benefit of
-having multiple implementations.
-
-It's a bit confusing to have that many options available. Björn Gustavsson, from
-the Erlang/OTP team and programmer of Wings3D mainly suggests using gb_sets in
-most circumstances, using ordset when you need a clear representation that you
-want to process with your own code and 'sets' when you need the =:= operator
-(source.)
-
-In any case, like for key-value stores, the best solution is usually to
-benchmark and see what fits your application better.
+Erlangin kehittäjäryhmän jäsen Björn Gustavsson suosittelee gb\_sets-moduulin
+käyttöä useimmissa tilanteissa. Gustavsson käyttäisi ordsets-moduulia silloin,
+kun ohjelmoija haluaa selkeän esityksen siitä, mitä haluaa koodissaan
+prosessoitavan. sets-moduulia Gustavsson suosittelee käytettäväksi ainostaan
+silloin, kun operaattoria =:= tarvitaan.  (hepe)
 
 \bibliography{Lähteet}
 
@@ -439,10 +497,15 @@ Barklund, Robert Virding, 1999.
 
 \bibitem[HEB13]{HEB13} Learn You Some Erlang For Great Good, Fred Hébert, 2013.
 
+\bibitem[AND13]{AND13} http://user.it.uu.se/~arnea/ps/gbimpl.pdf, noudettu 20.2.2013
+
+\bibitem[ERL13]{ERL13} http://www.erlang.org/doc, noudettu 20.2.2013
+
 \bibitem[ALE10]{ALE10} The D Programming Language, Andrei Alexandrescu, 2010.
 
 \bibitem[KRR88]{KRR88} The C Programming Language, Brian W. Kernighan, Dennis M.
 Ritchie, 1978/1988.
+
 
 \end{thebibliography}
 
