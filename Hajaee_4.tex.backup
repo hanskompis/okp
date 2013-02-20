@@ -427,63 +427,64 @@ sets). Fred Hébertin mukaan suunnittelijoiden tausta-ajatuksena oli, ettei
 joukon esittämiseen ole yhtä, optimaalista tapaa. (hepe)
 
 ordsets-moduulissa järjestyksessä olevaa listaa käytetään joukon elementtien
-tallentamiseen. (manuaali) Ordsets-rakenteet ovat hyödyllisiä lähinnä pienten
-joukkojen esittämiseen. Ordsets-rakenteet ovat hitaita, mutta niiden esitystapa
-on kaikista Erlangin joukkorakenteista yksinkertaisin ja helppolukuisin. Alla on
-esimerkkejä ordsets-moduulin funktioista. (hepe)
+tallentamiseen. (manuaali) ordsets-rakenteet ovat hyödyllisiä lähinnä pienten
+joukkojen esittämiseen. ordsets-rakenteet ovat hitaita, mutta niiden esitystapa
+on kaikista Erlangin joukkorakenteista yksinkertaisin ja helppolukuisin. 
 
-\begin{verbatim}
-ordsets:new/0
-ordsets:is_element/2
-ordsets:add_element/2
-ordsets:del_element/2
-ordsets:union/1
-ordsets:intersection/1
-\end{verbatim}
+%Alla on esimerkkejä ordsets-moduulin funktioista. (hepe)
 
-Ordsets-moduulin esitystapa eroaa sets-moduulin esitystavasta yhdellä tavalla.
+%\begin{verbatim}
+%ordsets:new/0
+%ordsets:is_element/2
+%ordsets:add_element/2
+%ordsets:del_element/2
+%ordsets:union/1
+%ordsets:intersection/1
+%\end{verbatim}
+
+ordsets-moduulin esitystapa eroaa sets-moduulin esitystavasta yhdellä tavalla.
 Siinä missä sets-moduuli olettaa kahden elementin olevan erilaisia, jos ne eivät
 ole täysin samat (=:=), ordsets-moduulissa kaksi elementtiä eroavat toisistaan
 ainoastaan, jos ne eivät ole yhtä suuret (==). (manuaali)
 
-Sets-moduuli on toteutettu käyttäen samankaltaista rakennetta kuin
+sets-moduuli on toteutettu käyttäen samankaltaista rakennetta kuin
 dict-tietorakenne, ja se toteuttaa saman rajapinnan kuin ordsets-moduuli.
-Sets on kuitenkin paremmin skaalautuva, eli suurien elementtimäärien käsittely
+sets on kuitenkin paremmin skaalautuva, eli suurien elementtimäärien käsittely
 on sets-moduulin kautta toteutetuissa joukoissa tehokkaampaa. Dict-rakenteiden
-tapaan Sets-moduulilla toteutetut joukot ovat erityisen hyviä
-lukemispainotteisissa
-operaatioissa. Tällaisessa voitaisiin esimerkiksi tarkastaa, onko jokin
-elementti mukana joukossa vai ei. (hepe)
+tapaan sets-moduulilla toteutetut joukot ovat erityisen hyviä
+lukemispainotteisissa operaatioissa. Tällaisessa voitaisiin esimerkiksi
+tarkastaa, onko jokin elementti mukana joukossa vai ei. (hepe)
 
-Gb\_sets-moduulissa järjestetyt joukot on toteutettu soveltaen General Balanced
+gb\_sets-moduulissa järjestetyt joukot on toteutettu soveltaen General Balanced
 Trees -konseptia. General Balanced Tree on yksinkertaisesti binääripuu, jolla on
 kyky korjata muotonsa tarvittaessa. (andersson) Joukkojen toteuttaminen
 gb\_sets-moduulin avulla voi olla suurien
-joukkojen kohdalla paljon tehokkaampaa kuin järjestettyjen listojen käyttö.
-(manuaali)
+joukkojen kohdalla paljon tehokkaampaa kuin järjestettyjen listojen käyttö \cite{ERL13}
 
-Gb\_sets-moduuli on tehokas muissa operaatioissa kuin lukemisessa. Vaikka
+gb\_sets-moduuli on tehokas muissa operaatioissa kuin lukemisessa \cite{HEB13}. Vaikka
 gb\_sets toteuttaa saman rajapinnan kuin sets ja ordsets, se tarjoaa enemmän
 funktioita.
 Esimerkkeinä mainittakoon älykkäät ja naivit funktiot, iteraattorit ja nopea
-pienimpien ja suurimpien arvojen haku.(hepe)
+pienimpien ja suurimpien arvojen haku.
 
-Sofs-moduuli toteutetaan järjestetyillä listoilla, jotka on suljettu metadatan
-kanssa tuple-tyypin sisälle. Sofs-moduuli on hyödyllinen, jos ohjelmoija haluaa
-täyden hallinnan joukkojen ja perheiden (??) välisistä suhteista tai esimerkiksi
-pakottaa (?) joukkojen tyyppejä. Sofs-moduulilla toteutetut joukot ovat ikään
+sofs-moduuli toteutetaan järjestetyillä listoilla, jotka ovat tuple-tyypin
+sisällä mukanaan metatietoa. sofs-moduuli on hyödyllinen, jos ohjelmoija haluaa
+täyden hallinnan joukkojen ja joukkojen muodostamien perheiden välisistä
+suhteista tai esimerkiksi
+pakottaa (?) joukkojen tyyppejä \cite{HEB13}. sofs-moduulilla toteutetut joukot ovat ikään
 kuin lähellä matemaattisen joukon konseptia, ne eivät ole ainoastaan
-ainutkertaisten elementtien ryhmiä.(hepe)
+ainutkertaisten elementtien ryhmiä.
 
 %The sofs module implements operations on finite sets and relations represented
 %as sets. Intuitively, a set is a collection of elements; every element belongs
 % %to the set, and the set contains every element.
 
 Erlangin kehittäjäryhmän jäsen Björn Gustavsson suosittelee gb\_sets-moduulin
-käyttöä useimmissa tilanteissa. Gustavsson käyttäisi ordsets-moduulia silloin,
+käyttöä useimmissa tilanteissa \cite{HEB13}. Gustavsson käyttäisi
+ordsets-moduulia silloin,
 kun ohjelmoija haluaa selkeän esityksen siitä, mitä haluaa koodissaan
 prosessoitavan. sets-moduulia Gustavsson suosittelee käytettäväksi ainostaan
-silloin, kun operaattoria =:= tarvitaan.  (hepe)
+silloin, kun operaattoria =:= tarvitaan. 
 
 \bibliography{Lähteet}
 
@@ -497,7 +498,8 @@ Barklund, Robert Virding, 1999.
 
 \bibitem[HEB13]{HEB13} Learn You Some Erlang For Great Good, Fred Hébert, 2013.
 
-\bibitem[AND13]{AND13} http://user.it.uu.se/~arnea/ps/gbimpl.pdf, noudettu 20.2.2013
+\bibitem[AND13]{AND13} http://user.it.uu.se/~arnea/ps/gbimpl.pdf, noudettu
+20.2.2013
 
 \bibitem[ERL13]{ERL13} http://www.erlang.org/doc, noudettu 20.2.2013
 
