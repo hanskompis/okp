@@ -16,7 +16,7 @@
 
 \newpage
 
-\section{Jarin osuus}
+\section{D-kielen datan kapselointi}
 \subsection{Rakenteiset tyypit}
 Alkeistyypeistä voidaan muodostaa taulukoita, joita on kahdenlaisia. Yksi
 taulukoista on yleinen perustapaus array, jollainen löytyy myös C/C++-kielistä
@@ -42,12 +42,23 @@ Koodi tulostaa:
 Tammikuu=1
 \end{verbatim}
 
-Lisäksi taulukko voidaan jättää dynaamiseksi, määrittämällä sen pituudeksi [],
+Lisäksi taulukko voidaan jättää dynaamiseksi määrittelemällä sen pituudeksi [],
 jolloin sille voidaan osoittaa jokin olemassa oleva taulukko myöhemmin koodissa.
+Esimerkki havainnollistaa tätä toimintaa:
 
-Alkeistyypeistä voidaan myös muodostaa tietueet struct tai union. Molemmat
-vastaavat C/C++-kielen vastaavia rakenteita \cite{KRR88} ja ovat arvotyyppejä
-\cite{DLA13}. Struct määritellään, ja sitä käytetään seuraavasti:
+\begin{verbatim}
+  int[] c;
+  int[4] d;
+  d[2] = 10;
+  c = d;
+  writeln(c[2]);
+\end{verbatim}
+Ohjelma tulostaa luvun 10. \\
+
+Alkeistyypeistä voidaan myös muodostaa tietueet struct tai union. Molemmat ovat
+arvotyyppejä
+\cite{DLA13} ja vastaavat C/C++-kielen vastaavia rakenteita \cite{KRR88}. struct
+määritellään, ja sitä käytetään seuraavasti:
 
 \begin{verbatim}
 struct palkansaaja{
@@ -65,8 +76,8 @@ void main() {
 }
 \end{verbatim}
 
-Union eroaa structista siten, että muuttujien arvot on talletettu muistissa
-samaan kohtaan \cite{ALE10};\cite{KRR88}, riippumatta niiden tyypistä ja
+union eroaa structista siten, että muuttujien arvot on talletettu muistissa
+samaan kohtaan \cite{ALE10};\cite{KRR88} riippumatta niiden tyypistä ja
 pituudesta. Kääntäjän tehtävä on varata riittävä määrä muistia suurimman tyypin
 mukaisesti. Yhden muuttujan arvon muuttaminen vaihtaa muuttujille varatun
 muistin sisällön. Seuraava esimerkki havainnollistaa tätä:
@@ -100,31 +111,19 @@ uint: 4294961096
 ubyte: 200
 \end{verbatim}
 
-Lisäksi voidaan luoda dymaaninen taulukko, joka tarkoittaa sitä, että taulukkoon
-voidaan myöhemmin sijoittaa taulukko. Esimerkki havainnollistaa tätä toimintaa:
-
-\begin{verbatim}
-  int[] c;
-  int[4] d;
-  d[2] = 10;
-  c = d;
-  writeln(c[2]);
-\end{verbatim}
-Ohjelma tulostaa luvun 10. \\
-
-D-kielen tarjoama struct ja union ovat useissa tilanteissa käyttökelpoisia,
+D-kielen tarjoamat struct ja union ovat useissa tilanteissa käyttökelpoisia
 varsinkin matalammalla tasolla, kuten esimerkiksi käyttöjärjestelmien
 toteutuksessa. Koska ne ovat arvotyyppejä, niillä saadaan aikaan tehokkaita
-rakenteita. D-kielen kehitykseen vaikuttaneista kielistä Java ei sisällä struct,
-eikä union rakennetta. C\# sitä vastoin sisältää struct arvotyypin rakenteen
+rakenteita. D-kielen kehitykseen vaikuttaneista kielistä Java ei sisällä struct-
+tai union-rakenteita. C\# sitä vastoin sisältää struct-arvotyypin rakenteen
 mutta ei unionia.
 
 \subsection{Geneerisyys}
 D-kielessä on tuki geneerisyydelle. Tämä tarkoittaa sitä, että funktio voidaan
 kirjoittaa yleiseksi ilman, että sen parametreja sidotaan tiettyihin tyyppeihin.
-Tällöin parametrin tyypiksi määritetään T. Seuraava esimerkki on toteutettu
-geneerisyyttä hyödyntäen; binäärihaku, jolle voidaan antaa syötteeksi minkä
-tahansa tyyppinen järjestetty taulukko.
+Tällöin parametrin tyypiksi määritetään T. Seuraavassa esimerkissä on
+geneerisyyttä hyödyntäen toteutettu binäärihaku, jolle voidaan antaa syötteeksi
+minkä tahansa tyyppinen järjestetty taulukko.
 
 \begin{verbatim}
 bool binHaku(T)(T[] input, T value) {
@@ -155,11 +154,11 @@ true
 false
 \end{verbatim}
 
-\subsection{Mixin}
-D-kieli tarjoaa mixinin. Mixin on kuin geneerinen luokka tai template. Ero
-templaten ja mixinin välillä on se, että template alustetaan siihen
-näkyvyysalueeseen, missä  alustus tehdään kun taas mixin voidaan alustaa mihin
-tahansa näkyvyysalueeseen, kuten esimerkikis structiin [lähde?]. Alla on
+\subsection{mixin}
+D-kielen tarjoama mixin on kuin geneerinen luokka tai template. Siinä missä
+template voidaan alustaa vain siihen
+näkyvyysalueeseen, missä alustus tehdään, mixin voidaan alustaa mihin
+tahansa näkyvyysalueeseen, kuten esimerkiksi structiin \cite{DLA13};\cite{ALE10}. Alla on
 määritetty template Kirjoittaja, joka kirjoittaa metodille kirjoita annetun
 tiedon. 
 \begin{verbatim}
@@ -171,12 +170,12 @@ template Kirjoittaja(T)
     }
 }
 \end{verbatim}
-Tällainen template voidaan instantioida paikalliseen näkyvyysalueeseen (ja
-kutsua myös metodia kirjoita) seuraavalla tavalla:
+Tällaisesta templatesta voidaan luoda instanssi paikalliseen näkyvyysalueeseen ja
+kutsua sen metodia kirjoita seuraavalla tavalla:
 \begin{verbatim}
 Kirjoittaja!(int).kirjoita(666); 
 \end{verbatim}
-Template Kirjoittaja voidaan alustaa mixinin avulla myös struct:in sisälle:
+Template Kirjoittaja voidaan alustaa mixinin avulla myös structin sisälle:
 \begin{verbatim}
 struct S
 {
@@ -231,7 +230,7 @@ Kerttu Koodarin opintopistekertyma on 123
 Kalle Konnarin opintopistekertyma on 87
 \end{verbatim}
 Perinnän voi estää kirjoittamalla luokkamäärittelyn eteen final \cite{DLA13}.
-Rajapintaluokka löytyy myös ja se määritetään luokkamäärittelyn edessä
+D:stä löytyy myös rajapintaluokka, joka määritellään luokkamäärittelyn edessä
 avainsanalla interface. 
 Abstrakti luokka voidaan muodostaa avainsanalla abstract, joka kirjoitetaan
 luokan määrityksen eteen. Abstrakti luokka voi sisältää D-kielessä abstrakteja
@@ -308,10 +307,10 @@ D-kielessä tietueet, struct ja union, noudattavat arvosemantiikkaa. Luokat
 noudattavat viitesemantiikkaa. Arvosemantiikkaa noudattavat tietueet
 tallennetaan muistissa pinoon ja niiden olemassaolo riippuu näkyvyysalueesta.
 Viitesemantiikkaan perustuvien luokkien ilmentymille taas varataan muistia
-keosta; pinoon laitetaan vain osoitin keon kohtaan, jossa luotu olio sijaitsee.
-Funktiokutsun parametrit voidaan välittää arvoina tai viitteinä, samaan tapaan
+keosta; pinoon laitetaan vain osoitin siihen keon kohtaan, jossa luotu olio sijaitsee.
+Funktiokutsun parametrit voidaan välittää arvoina tai viitteinä samaan tapaan
 kuin C/C++ -kielissä \cite{KRR88}. Kielessä on tätä varten varattu merkit * ja
-\&, josta lyhyt esimerkki:
+\&, joiden käytöstä on alla lyhyt esimerkki.
 \begin{verbatim}
 void main() {
   int x=10;
@@ -323,7 +322,7 @@ void main() {
 
 void vaihda(int *px, int *py)
 {
-  int temp;
+  int temp;			
   temp=*px;
   *px=*py;
   *py=temp;
@@ -331,23 +330,26 @@ void vaihda(int *px, int *py)
 \end{verbatim}
 Koodissa vaihdetaan muistissa x:n ja y:n arvoja keskenään. main kutsuu funktiota
 vaihda ja funktiolle välitetään parametrina x:n ja y:n muistiosoitteet \&x ja
-\&y. vaihda-funktion parametrien tyypeiksi on määritetty osoittimet merkillä *.
-Funktio tekee arvojen vaihtamisen suoria muistiosoitteita käyttäen. Tuloste on
+\&y. vaihda-funktion parametrien tyypeiksi on määritelty osoittimet merkillä *.
+Funktio vaihtaa arvot suoria muistiosoitteita käyttäen. Tuloste on
 seuraava:
 \begin{verbatim}
 10,20
 20,10
 \end{verbatim}
 
-\section{Hansin osuus}
-Erlangissa ei ole luokkia, joten ei ole myöskään mitään luokkiin liittyvää
-toiminnallisuutta kuten perintää. Myöskään geneerisiä tyyppejä tai ajonaikaista
+\section{Erlang-kielen datan kapselointi}
+
+\subsection{Avain-arvo -rakenteet}
+
+Erlang-kielessä ei ole luokkia, joten siinä ei ole myöskään mitään luokkiin liittyvää
+toiminnallisuutta, kuten perintää. Myöskään geneerisiä tyyppejä tai ajonaikaista
 tyyppiparametrointia ei ole. 
 Parametrinvälityksessä ja muuttujiin sijoittamisessa Erlangissa on aina käytössä
 arvosemantiikka. 
 
-Erlangin tietotakenne Record on hyvin samantapainen kuin c:n struct
-\cite{HEB13}. Se on sopiva pienen tietorakenteen luomiseksi. Record määritellään
+Erlangin tietotakenne record on hyvin samantapainen kuin C:n rakenne struct
+\cite{HEB13}. Se on soveltuva pienen tietorakenteen luomiseksi. record määritellään
 moduulin atribuutiksi:
  \begin{verbatim}
  -module(piste) .
@@ -357,8 +359,8 @@ moduulin atribuutiksi:
     y
  }) .
  \end{verbatim}
- Esimerkissä on yksinkertainen tietorakenne pisteen kuvaamiseksi. Recordin
-alustus samaisessa moduulissa tapahtuu seuraavasti: 
+ Esimerkissä on yksinkertainen tietorakenne pisteen kuvaamiseksi. record-rakenteen
+alustus yllä esitetyssä moduulissa tapahtuu seuraavasti: 
 \begin{verbatim}
  piste() -> 
      #piste{
@@ -366,7 +368,7 @@ alustus samaisessa moduulissa tapahtuu seuraavasti:
          y = 35
      } .
  \end{verbatim}
-Moduulin käännöksen jälkeen voidaan tulostaa pisteen kaikki tiedot tai aioastaan
+Moduulin käännöksen jälkeen voidaan tulostaa pisteen kaikki tiedot tai ainoastaan
 yksittäinen tieto:
 \begin{verbatim}
  >c(piste) .
@@ -378,47 +380,50 @@ yksittäinen tieto:
  \end{verbatim}
 
 
- Tärkeä joukko Erlangin tietorakenteita on avain-arvo-parit (key-value stores).
-Yleisin näistä on proplist, joka on tuplelista muotoa [{key,value}]. Muita
-rajoitteita ei juuri ole. Proplistin käsittelyyn (lisäys, poisto, haku jne.)
+Erlang-kielessä tärkeitä tietorakenteita ovat avain-arvo -parit (key-value stores).
+Yleisin näistä on proplist, joka on tuple-tietotyypeistä koostuva lista [\{key,value\}]. Muita
+rajoitteita ei juuri ole. Proplistin käsittelyyn, kuten lisäykseen, poistoon ja hakuun,
 löytyy moduulista proplists kaikki tarvittavat funkiot \cite{HEB13}. 
  
- Hieman formaalimmin määritelty avain-arvo -tietorakene on orddict eli
+Hieman formaalimmin määritelty avain-arvo -tietorakene on orddict eli
 järjestetty sanakirja (ordered dctionary). Siinä avain saa esiintyä ainoastaan
 kerran ja rakenne tarjoaa rajoitetun CRUD-toiminnallisuuden elementtien
-tallentamiseen, etsimiseen, lukemiseen ja poistamiseen. Elementit ovat
+tallentamiseen, etsimiseen, lukemiseen ja poistamiseen. Elementit on
 järjestetty, joten haut ovat nopeita\cite{HEB13}. orddict on tehokas 75
 elementin säilömiseen saakka. Tätä suuremmat tietomäärät kannattaa tallettaa
-esimerkiksi dict:iin tai gb\textunderscore tree:hin. 
+esimerkiksi dict- tai gb\textunderscore tree -rakenteeseen. 
  
- dict:ien toiminnallisuus on lähes sama kuin orddict:issä  lisättynä muutamilla
-funktioilla kuten fold ja map, jotka helpottavat tiedon käsittelyä. 
+dict-rakenteiden toiminnallisuus on hyvin samankaltainen kuin orddict-rakenteessa laajennettuna muutamilla
+tiedon käsittelyä helpottavilla funktioilla kuten fold ja map. Molemmat
+funktiot
+on tarkoitettu listan läpikäyntiin niin, että listan jokainen alkio
+käsitellään parametrina annetun funktion määräämällä tavalla. 	
  
- Erlang tarjoaa myös valmiin puurakenteen, gb\textunderscore treen \cite{HEB13}.
-gb\textunderscore tree on tasapainotettu puu, johon on valmiiksi toteutettu
-yleisimmät puissa tarvittavat funktiot kuten insert, delete, lookup muutamia
-mainitakseni. Puurakenne on varsin tehokas pl. tilanteet, joissa tasapainotusta
+Erlang tarjoaa myös valmiin puurakenteen, gb\textunderscore treen \cite{HEB13}. General Balanced Tree, johon Erlangin gb\_tree pohjautuu, on yksinkertaisesti
+binääripuu, jolla on
+kyky korjata muotonsa tarvittaessa \cite{AND13}. 
+gb\textunderscore tree-rakenteeseen on valmiiksi toteutettu
+yleisimmät puissa tarvittavat funktiot, kuten insert, delete ja lookup. gb\_tree-rakenteen funktiot ovat varsin tehokkaita lukuunottamatta tilanteita, joissa tasapainotusta
 joudutaan tekemään. 
  
- Eräs Erlangin erikoisuus on valmiiksi toteutettu suunnattu verkko, digraph
+Erlangin erikoisuus on valmiiksi toteutettu suunnattu verkko, digraph
 (directed graph) \cite{HEB13}. digraph on toteutettu kahdessa moduulissa digraph
 ja digraph\textunderscore utils, joista edellinen toteuttaa verkon ja
-jälkimmäinen tarjoaa palvelut verkon läpikäyntiin, renkaiden (cycle) löytämisen
-jne. 
+jälkimmäinen tarjoaa palvelut verkon läpikäyntiin, kuten renkaiden (cycle) löytämisen.
  
- Erlangissa on myös valmis toteutus FIFO-jonolle, nimeltää queue \cite{HEB13}.
-Luonnollisestikin jonon toteutus sisältää funktiot elementtien lisäämiseksi
+Erlangissa on myös valmis toteutus FIFO-jonolle, queue \cite{HEB13}.
+Luonnollisesti jonon toteutus sisältää funktiot elementtien lisäämiseksi
 jonoon ja poistamiseksi jonosta. 
  
- Melko triviaali tietorakenne on taulukko (array), johon voi tallentaa
-ainoastaan numeerisia alkioita \cite{HEB13}. Toisin kuin imperatiivisissa
-kielissä, Erlangin taulukko ei tarjoa vakioaikaisia hakufunktioita. Yleinen
+Taulukko (array), johon voi tallentaa
+ainoastaan numeerisia alkioita \cite{HEB13}, on Erlang-kielessä melko triviaali rakenne. Erlangin taulukko voidaan alustaa
+dynaamiseksi, jolloin sen koko kasvaa tarvittaessa,
+tai staattiseksi, jolloin sen koko pysyy samana koko taulukon olemassaolon ajan. Taulukko
+ei ole tehokas tietorakenne varsinkaan suurempia tietomääriä käsitellessä. Yleinen
 käytäntö esimerkiksi raskaissa matriisioperatioissa on teettää työ muilla
-kielillä kirjoitetuilla ohjelmilla käyttäen Erlangin siihen tajoamaa tekniikkaa
-port:ia
- 
+kielillä kirjoitetuilla ohjelmilla käyttäen Erlangin siihen tajoamaa port-tekniikkaa.
 
-\section{Eeron osuus}
+\subsection{Joukko-tietorakenteet}
 
 Erlang-kielessä set-tietorakenteet eli joukot ovat elementtien kokoelmia
 (collection), joissa mistään elementistä ei ole kaksoiskappaleita. Erlangissa on
@@ -450,28 +455,30 @@ ainoastaan, jos ne eivät ole yhtä suuret (==) \cite{ERL13}.
 sets-moduuli on toteutettu käyttäen samankaltaista rakennetta kuin
 dict-tietorakenne, ja se toteuttaa saman rajapinnan kuin ordsets-moduuli.
 sets on kuitenkin paremmin skaalautuva, eli suurien elementtimäärien käsittely
-on sets-moduulin kautta toteutetuissa joukoissa tehokkaampaa \cite{HEB13}. dict-rakenteiden
+on sets-moduulin kautta toteutetuissa joukoissa tehokkaampaa \cite{HEB13}.
+dict-rakenteiden
 tapaan sets-moduulilla toteutetut joukot ovat erityisen hyviä
-lukemispainotteisissa operaatioissa. Tällaisessa operaatiossa voitaisiin esimerkiksi
+lukemispainotteisissa operaatioissa. Tällaisessa operaatiossa voitaisiin
+esimerkiksi
 tarkastaa, onko jokin elementti mukana joukossa vai ei.
 
 gb\_sets-moduulissa järjestetyt joukot on toteutettu soveltaen General Balanced
-Trees -konseptia \cite{ERL13}. General Balanced Tree on yksinkertaisesti binääripuu, jolla on
-kyky korjata muotonsa tarvittaessa \cite{AND13}. Joukkojen toteuttaminen
+Trees -konseptia \cite{ERL13}. Joukkojen toteuttaminen
 gb\_sets-moduulin avulla voi olla suurien
-joukkojen kohdalla paljon tehokkaampaa kuin järjestettyjen listojen käyttö \cite{ERL13}
+joukkojen kohdalla paljon tehokkaampaa kuin järjestettyjen listojen käyttö
+\cite{ERL13}
 
-gb\_sets-moduuli on tehokas muissa operaatioissa kuin lukemisessa \cite{HEB13}. Vaikka
+gb\_sets-moduuli on tehokas muissa operaatioissa kuin lukemisessa \cite{HEB13}.
+Vaikka
 gb\_sets toteuttaa saman rajapinnan kuin sets ja ordsets, se tarjoaa enemmän
 funktioita.
-Esimerkkeinä mainittakoon älykkäät ja naivit funktiot, iteraattorit ja nopea
-pienimpien ja suurimpien arvojen haku.
 
 sofs-moduuli toteutetaan järjestetyillä listoilla, jotka ovat tuple-tyypin
 sisällä mukanaan metatietoa. sofs-moduuli on hyödyllinen, jos ohjelmoija haluaa
 täyden hallinnan joukkojen ja joukkojen muodostamien perheiden välisistä
 suhteista tai esimerkiksi
-pakottaa (?) joukkojen tyyppejä \cite{HEB13}. sofs-moduulilla toteutetut joukot ovat ikään
+pakottaa joukkojen tyyppejä \cite{HEB13}. sofs-moduulilla toteutetut joukot
+ovat ikään
 kuin lähellä matemaattisen joukon konseptia, ne eivät ole ainoastaan
 ainutkertaisten elementtien ryhmiä.
 
@@ -488,11 +495,9 @@ silloin, kun operaattoria =:= tarvitaan.
 
 \bibliography{Lähteet}
 
-
-\begin{thebibliography}{99}
-
-\bibitem[ERL99]{ERL99} Erlang 4.7.3 Reference Manual, DRAFT (0.7), Jonas
-Barklund, Robert Virding, 1999. 
+\newpage
+  
+\begin{thebibliography}{99}	
 
 \bibitem[DLA13]{DLA13} http://dlang.org, noudettu 6.2.2013.
 

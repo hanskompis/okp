@@ -1,8 +1,9 @@
-\BOOKMARK [1][-]{section.1}{Jarin osuus}{}% 1
+\BOOKMARK [1][-]{section.1}{D-kielen datan kapselointi}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Rakenteiset tyypit}{section.1}% 2
 \BOOKMARK [2][-]{subsection.1.2}{Geneerisyys}{section.1}% 3
-\BOOKMARK [2][-]{subsection.1.3}{Mixin}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.3}{mixin}{section.1}% 4
 \BOOKMARK [2][-]{subsection.1.4}{Luokat ja periytyminen}{section.1}% 5
 \BOOKMARK [2][-]{subsection.1.5}{Arvo- ja viitesemantiikka}{section.1}% 6
-\BOOKMARK [1][-]{section.2}{Hansin osuus}{}% 7
-\BOOKMARK [1][-]{section.3}{Eeron osuus}{}% 8
+\BOOKMARK [1][-]{section.2}{Erlang-kielen datan kapselointi}{}% 7
+\BOOKMARK [2][-]{subsection.2.1}{Avain-arvo -rakenteet}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.2}{Joukko-tietorakenteet}{section.2}% 9
