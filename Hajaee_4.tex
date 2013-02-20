@@ -323,7 +323,7 @@ void main() {
 
 void vaihda(int *px, int *py)
 {
-  int temp;
+  int temp;			
   temp=*px;
   *px=*py;
   *py=temp;
@@ -379,7 +379,7 @@ yksittäinen tieto:
 
 
  Tärkeä joukko Erlangin tietorakenteita on avain-arvo-parit (key-value stores).
-Yleisin näistä on proplist, joka on tuplelista muotoa [{key,value}]. Muita
+Yleisin näistä on proplist, joka on tuplelista muotoa [\{key,value\}]. Muita
 rajoitteita ei juuri ole. Proplistin käsittelyyn (lisäys, poisto, haku jne.)
 löytyy moduulista proplists kaikki tarvittavat funkiot \cite{HEB13}. 
  
@@ -392,7 +392,8 @@ elementin säilömiseen saakka. Tätä suuremmat tietomäärät kannattaa tallet
 esimerkiksi dict:iin tai gb\textunderscore tree:hin. 
  
  dict:ien toiminnallisuus on lähes sama kuin orddict:issä  lisättynä muutamilla
-funktioilla kuten fold ja map, jotka helpottavat tiedon käsittelyä. 
+funktioilla kuten fold ja map, jotka helpottavat tiedon käsittelyä. Molemmat funktiot
+ovat tarkoitettu listan läpikäyntiin siten, että listan jokainen alkio käsitellään parametrina annetun funktion määräämällä tavalla. 	
  
  Erlang tarjoaa myös valmiin puurakenteen, gb\textunderscore treen \cite{HEB13}.
 gb\textunderscore tree on tasapainotettu puu, johon on valmiiksi toteutettu
@@ -411,11 +412,11 @@ Luonnollisestikin jonon toteutus sisältää funktiot elementtien lisäämiseksi
 jonoon ja poistamiseksi jonosta. 
  
  Melko triviaali tietorakenne on taulukko (array), johon voi tallentaa
-ainoastaan numeerisia alkioita \cite{HEB13}. Toisin kuin imperatiivisissa
-kielissä, Erlangin taulukko ei tarjoa vakioaikaisia hakufunktioita. Yleinen
+ainoastaan numeerisia alkioita \cite{HEB13}. Erlangin taulukko voidaan alustaa dynaamiseksi, jolloin sen koko kasvaa tarvittaessa
+tai staattiseksi, jolloin sen koko pysyy samana koko olemassaolon ajan. Taulukko ei ole tehokas tietorakenne. Yleinen
 käytäntö esimerkiksi raskaissa matriisioperatioissa on teettää työ muilla
 kielillä kirjoitetuilla ohjelmilla käyttäen Erlangin siihen tajoamaa tekniikkaa
-port:ia
+port:ia	
  
 
 \section{Eeron osuus}
@@ -486,8 +487,8 @@ silloin, kun operaattoria =:= tarvitaan.  (hepe)
 
 \bibliography{Lähteet}
 
-
-\begin{thebibliography}{99}
+  
+\begin{thebibliography}{99}	
 
 \bibitem[ERL99]{ERL99} Erlang 4.7.3 Reference Manual, DRAFT (0.7), Jonas
 Barklund, Robert Virding, 1999. 

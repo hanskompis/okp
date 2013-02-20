@@ -323,7 +323,7 @@ void main() {
 
 void vaihda(int *px, int *py)
 {
-  int temp;
+  int temp;			
   temp=*px;
   *px=*py;
   *py=temp;
@@ -392,7 +392,8 @@ elementin säilömiseen saakka. Tätä suuremmat tietomäärät kannattaa tallet
 esimerkiksi dict:iin tai gb\textunderscore tree:hin. 
  
  dict:ien toiminnallisuus on lähes sama kuin orddict:issä  lisättynä muutamilla
-funktioilla kuten fold ja map, jotka helpottavat tiedon käsittelyä. 
+funktioilla kuten fold ja map, jotka helpottavat tiedon käsittelyä. Molemmat funktiot
+ovat tarkoitettu listan läpikäyntiin siten, että listan jokainen alkio käsitellään parametrina annetun funktion määräämällä tavalla. 
  
  Erlang tarjoaa myös valmiin puurakenteen, gb\textunderscore treen \cite{HEB13}.
 gb\textunderscore tree on tasapainotettu puu, johon on valmiiksi toteutettu
@@ -427,8 +428,8 @@ sets). Fred Hébertin mukaan suunnittelijoiden tausta-ajatuksena oli, ettei
 joukon esittämiseen ole yhtä, optimaalista tapaa. (hepe)
 
 ordsets-moduulissa järjestyksessä olevaa listaa käytetään joukon elementtien
-tallentamiseen. (manuaali) Ordsets-rakenteet ovat hyödyllisiä lähinnä pienten
-joukkojen esittämiseen. Ordsets-rakenteet ovat hitaita, mutta niiden esitystapa
+tallentamiseen. (manuaali) ordsets-rakenteet ovat hyödyllisiä lähinnä pienten
+joukkojen esittämiseen. ordsets-rakenteet ovat hitaita, mutta niiden esitystapa
 on kaikista Erlangin joukkorakenteista yksinkertaisin ja helppolukuisin. Alla on
 esimerkkejä ordsets-moduulin funktioista. (hepe)
 
@@ -441,37 +442,36 @@ ordsets:union/1
 ordsets:intersection/1
 \end{verbatim}
 
-Ordsets-moduulin esitystapa eroaa sets-moduulin esitystavasta yhdellä tavalla.
+ordsets-moduulin esitystapa eroaa sets-moduulin esitystavasta yhdellä tavalla.
 Siinä missä sets-moduuli olettaa kahden elementin olevan erilaisia, jos ne eivät
 ole täysin samat (=:=), ordsets-moduulissa kaksi elementtiä eroavat toisistaan
 ainoastaan, jos ne eivät ole yhtä suuret (==). (manuaali)
 
-Sets-moduuli on toteutettu käyttäen samankaltaista rakennetta kuin
+sets-moduuli on toteutettu käyttäen samankaltaista rakennetta kuin
 dict-tietorakenne, ja se toteuttaa saman rajapinnan kuin ordsets-moduuli.
-Sets on kuitenkin paremmin skaalautuva, eli suurien elementtimäärien käsittely
+sets on kuitenkin paremmin skaalautuva, eli suurien elementtimäärien käsittely
 on sets-moduulin kautta toteutetuissa joukoissa tehokkaampaa. Dict-rakenteiden
-tapaan Sets-moduulilla toteutetut joukot ovat erityisen hyviä
-lukemispainotteisissa
-operaatioissa. Tällaisessa voitaisiin esimerkiksi tarkastaa, onko jokin
-elementti mukana joukossa vai ei. (hepe)
+tapaan sets-moduulilla toteutetut joukot ovat erityisen hyviä
+lukemispainotteisissa operaatioissa. Tällaisessa voitaisiin esimerkiksi
+tarkastaa, onko jokin elementti mukana joukossa vai ei. (hepe)
 
-Gb\_sets-moduulissa järjestetyt joukot on toteutettu soveltaen General Balanced
+gb\_sets-moduulissa järjestetyt joukot on toteutettu soveltaen General Balanced
 Trees -konseptia. General Balanced Tree on yksinkertaisesti binääripuu, jolla on
 kyky korjata muotonsa tarvittaessa. (andersson) Joukkojen toteuttaminen
 gb\_sets-moduulin avulla voi olla suurien
 joukkojen kohdalla paljon tehokkaampaa kuin järjestettyjen listojen käyttö.
 (manuaali)
 
-Gb\_sets-moduuli on tehokas muissa operaatioissa kuin lukemisessa. Vaikka
+gb\_sets-moduuli on tehokas muissa operaatioissa kuin lukemisessa. Vaikka
 gb\_sets toteuttaa saman rajapinnan kuin sets ja ordsets, se tarjoaa enemmän
 funktioita.
 Esimerkkeinä mainittakoon älykkäät ja naivit funktiot, iteraattorit ja nopea
 pienimpien ja suurimpien arvojen haku.(hepe)
 
-Sofs-moduuli toteutetaan järjestetyillä listoilla, jotka on suljettu metadatan
-kanssa tuple-tyypin sisälle. Sofs-moduuli on hyödyllinen, jos ohjelmoija haluaa
+sofs-moduuli toteutetaan järjestetyillä listoilla, jotka on suljettu metadatan
+kanssa tuple-tyypin sisälle. sofs-moduuli on hyödyllinen, jos ohjelmoija haluaa
 täyden hallinnan joukkojen ja perheiden (??) välisistä suhteista tai esimerkiksi
-pakottaa (?) joukkojen tyyppejä. Sofs-moduulilla toteutetut joukot ovat ikään
+pakottaa (?) joukkojen tyyppejä. sofs-moduulilla toteutetut joukot ovat ikään
 kuin lähellä matemaattisen joukon konseptia, ne eivät ole ainoastaan
 ainutkertaisten elementtien ryhmiä.(hepe)
 
@@ -488,7 +488,7 @@ silloin, kun operaattoria =:= tarvitaan.  (hepe)
 \bibliography{Lähteet}
 
 
-\begin{thebibliography}{99}
+\begin{thebibliography}{99}	
 
 \bibitem[ERL99]{ERL99} Erlang 4.7.3 Reference Manual, DRAFT (0.7), Jonas
 Barklund, Robert Virding, 1999. 
@@ -497,7 +497,8 @@ Barklund, Robert Virding, 1999.
 
 \bibitem[HEB13]{HEB13} Learn You Some Erlang For Great Good, Fred Hébert, 2013.
 
-\bibitem[AND13]{AND13} http://user.it.uu.se/~arnea/ps/gbimpl.pdf, noudettu 20.2.2013
+\bibitem[AND13]{AND13} http://user.it.uu.se/~arnea/ps/gbimpl.pdf, noudettu
+20.2.2013
 
 \bibitem[ERL13]{ERL13} http://www.erlang.org/doc, noudettu 20.2.2013
 
